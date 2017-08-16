@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Try_Luies &#39; Blog">
 <meta property="og:description" content="javascript的继承js没有”子类”和”父类”的概念，也没有”类”（class）和”实例”（instance）的区分，全靠一种很奇特的”原型链”（prototype chain）模式，来实现继承。 所有的实例对象共享同一个prototype属性，这个属性包含一个对象，那么从外界看起来，prototype属性的对象就好像是实例对象的原型，而实例对象则好像”继承”了prototype对象一样。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-08-16T10:00:56.750Z">
+<meta property="og:updated_time" content="2017-08-16T11:08:30.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="提取原型——理解继承">
 <meta name="twitter:description" content="javascript的继承js没有”子类”和”父类”的概念，也没有”类”（class）和”实例”（instance）的区分，全靠一种很奇特的”原型链”（prototype chain）模式，来实现继承。 所有的实例对象共享同一个prototype属性，这个属性包含一个对象，那么从外界看起来，prototype属性的对象就好像是实例对象的原型，而实例对象则好像”继承”了prototype对象一样。">
@@ -439,6 +439,8 @@
 <li>使用原型的prototype属性,w3c上描述这个属性为：使您有能力向对象添加属性和方法。上面两个小例子看起来有两种实例化方法：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var B = new PEOPLE(&apos;二毛&apos;);</div><div class="line">var Coffee.prototype = new Beverage();</div></pre></td></tr></table></figure>
 </li>
 </ul>
+<p>经测试两种方法都没有问题，暂时也找不出有什么区别之处。查资料也无果。暂且认为两种方法区别不大。所以咖啡的实例化方法写成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var Coffee = new Beverage();</div></pre></td></tr></table></figure></p>
+<p>也是可以的</p>
 <p><a href="http://www.ruanyifeng.com/blog/" target="_blank" rel="external">阮一峰的网络日志 </a></p>
 <p><a href="http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html" target="_blank" rel="external">Javascript继承机制的设计思想  </a></p>
 <p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html" target="_blank" rel="external">Javascript 面向对象编程（一）：封装</a></p>
@@ -569,10 +571,10 @@
             
             
             <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
+              
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">categories</span>
-              </a>
+              
             </div>
           
 
@@ -580,10 +582,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
+              
                 <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">tags</span>
-              </a>
+              
             </div>
           
 
