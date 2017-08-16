@@ -396,10 +396,10 @@
 
       
         
-          <!-- 高大上的设计模式概念
-
-继承、子类、父类
- -->
+          <h4 id="javascript的继承"><a href="#javascript的继承" class="headerlink" title="javascript的继承"></a>javascript的继承</h4><p>js没有”子类”和”父类”的概念，也没有”类”（class）和”实例”（instance）的区分，全靠一种很奇特的”原型链”（prototype chain）模式，来实现继承。</p>
+<p>所有的实例对象共享同一个prototype属性，这个属性包含一个对象，那么从外界看起来，prototype属性的对象就好像是实例对象的原型，而实例对象则好像”继承”了prototype对象一样。</p>
+<p>例如以下的小案例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function PEOPLE(name)&#123;</div><div class="line">　　　　this.name = name;</div><div class="line">　　&#125;</div><div class="line">　　PEOPLE.prototype = &#123; SEX : &apos;man&apos; &#125;;</div><div class="line"></div><div class="line">　　var A = new PEOPLE(&apos;大毛&apos;);</div><div class="line">　　var B = new PEOPLE(&apos;二毛&apos;);</div><div class="line"></div><div class="line">　　alert(A.SEX); // man</div><div class="line">　　alert(B.SEX); // man</div></pre></td></tr></table></figure></p>
+<p>也就是A和B继承了POEPLE的属性，如果SEX属性发生改变，则A和B的该属性均会改变<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/16/提取原型——理解继承/#more" rel="contents">
@@ -584,9 +584,7 @@
 <h3 id="安装和命令行"><a href="#安装和命令行" class="headerlink" title="安装和命令行"></a>安装和命令行</h3><h4 id="1、全局安装"><a href="#1、全局安装" class="headerlink" title="1、全局安装"></a>1、全局安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">inp install webpack -g</div></pre></td></tr></table></figure>
 <p>webpack的确很强大，但是他的版本是个很头疼的问题。建议不要安装最新的以免出现未知错误找不到解决办法，推荐安装1.0以上3.0以上版本比较稳妥</p>
 <h4 id="1、建立文件夹，初始化npm，本地安装webpack"><a href="#1、建立文件夹，初始化npm，本地安装webpack" class="headerlink" title="1、建立文件夹，初始化npm，本地安装webpack"></a>1、建立文件夹，初始化npm，本地安装webpack</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm init</div><div class="line"></div><div class="line">npm install webapck --dev-save</div></pre></td></tr></table></figure>
-<p>生成package.json文件    </p>
-<h4 id="新建webpack-config-js文件"><a href="#新建webpack-config-js文件" class="headerlink" title="新建webpack-config.js文件"></a>新建webpack-config.js文件</h4><h5 id="配置，打包js文件"><a href="#配置，打包js文件" class="headerlink" title="配置，打包js文件"></a>配置，打包js文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var config = &#123;</div><div class="line">	entry: &apos;./src/js/index.js&apos;, //入口文件</div><div class="line">	output: &#123; //输出文件</div><div class="line">		filename: &apos;index.js&apos;, //输出文件名</div><div class="line">		path: __dirname + &apos;/dist&apos; //输出文件路径</div><div class="line">	&#125;,</div><div class="line">&#125;</div><div class="line"> </div><div class="line">//注：“__dirname”是node.js中的一个全局变量</div><div class="line">//它指向当前执行脚本所在的目录。</div></pre></td></tr></table></figure>
-<p>–watch命令。项目文件改变后能实时打包（webpack.config.js改变时还是需要重新启动webpack）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpoack -w</div></pre></td></tr></table></figure></p>
+<p>生成package.json文件<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/15/Webpack使用时踩过的坑/#more" rel="contents">
@@ -640,7 +638,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/11/Git使用文档/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/09/less学习文档整理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Try">
@@ -659,7 +657,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/11/Git使用文档/" itemprop="url">Git使用文档</a></h1>
+                <a class="post-title-link" href="/2017/08/09/less学习文档整理/" itemprop="url">less学习文档</a></h1>
         
 
         <div class="post-meta">
@@ -671,189 +669,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-11T14:22:02+08:00">
-                2017-08-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/study/" itemprop="url" rel="index">
-                    <span itemprop="name">study</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/study/web-develope/" itemprop="url" rel="index">
-                    <span itemprop="name">web-develope</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>本文主要目的是工作便利，作为一个普及说明文档帮助团队从svn转移至git进行项目管理</p>
-<p>参考文档：<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰的git文档</a></p>
-<h2 id="Git的优势"><a href="#Git的优势" class="headerlink" title="Git的优势"></a>Git的优势</h2><h2 id="git仓库的创建与文件提交"><a href="#git仓库的创建与文件提交" class="headerlink" title="git仓库的创建与文件提交"></a>git仓库的创建与文件提交</h2><h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><p>注：如果你使用Windows系统，为了避免遇到各种莫名其妙的问题，请确保目录名（包括父目录）不包含中文。</p>
-<p>通过git init命令把这个目录变成Git可以管理的仓库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git init</div><div class="line"></div><div class="line">Initialized empty Git repository in /Users/michael/learngit/.git/</div></pre></td></tr></table></figure></p>
-<p>用ls -ah命令就可以看见。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ls //查看当前路径文件</div><div class="line">ls -ah  //查看包括隐藏文件的所有文件</div></pre></td></tr></table></figure></p>
-<h3 id="建立仓库后，就可以把项目文件添加到你的路径中"><a href="#建立仓库后，就可以把项目文件添加到你的路径中" class="headerlink" title="建立仓库后，就可以把项目文件添加到你的路径中"></a>建立仓库后，就可以把项目文件添加到你的路径中</h3>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/11/Git使用文档/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/11/less学习文档整理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Try">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Try_Luies ' Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/11/less学习文档整理/" itemprop="url">less学习文档</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-11T10:33:07+08:00">
-                2017-08-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-09T10:33:07+08:00">
+                2017-08-09
               </time>
             
 
@@ -961,7 +778,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;!-- set options before less.js script --&gt;</div><div class="line">less = &#123;`</div><div class="line"></div><div class="line">    env: &quot;development&quot;,</div><div class="line">    async: false,</div><div class="line">    fileAsync: false,</div><div class="line">    poll: 1000,</div><div class="line">    functions: &#123;&#125;,</div><div class="line">    dumpLineNumbers: &quot;comments&quot;,</div><div class="line">    relativeUrls: false,</div><div class="line">    rootpath: &quot;:/a.com/&quot;</div><div class="line">     </div><div class="line"> &#125;;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/08/11/less学习文档整理/#more" rel="contents">
+            <a class="btn" href="/2017/08/09/less学习文档整理/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1012,7 +829,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/11/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/04/移动端通用样式设计规范/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Try">
@@ -1031,7 +848,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/11/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2017/08/04/移动端通用样式设计规范/" itemprop="url">移动端通用样式设计规范</a></h1>
         
 
         <div class="post-meta">
@@ -1043,8 +860,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-11T09:13:02+08:00">
-                2017-08-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-04T18:06:08+08:00">
+                2017-08-04
               </time>
             
 
@@ -1053,6 +870,39 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">study</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/web-develope/" itemprop="url" rel="index">
+                    <span itemprop="name">web-develope</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1101,18 +951,198 @@
 
       
         
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+          <p>本项目发布于github，欢迎各位指正<br><a href="https://github.com/try6/mobile-common-css" target="_blank" rel="external">mobile-common-css</a></p>
+<p>设计说明：公司移动端产品多用于网关和设备配置，很多功能模块都很类似。而且所有的对外产品都应该在外观上保持风格和布局的统一。本模块内容根据近期开发项目“智慧用电”微信版和APP版，提炼出手机移动端可以通用的样式模块。</p>
+<p>移动端（微信端）项目在准备期间，可以按照文档说明搭好框架，再引入main.css，只需要修改一点全局参数就能高效地完成通用组件的搭建。方便快捷</p>
+<h2 id="前期gulp配置"><a href="#前期gulp配置" class="headerlink" title="前期gulp配置"></a>前期gulp配置</h2><p>本框架使用的是Less,需要使用工具对文件进行解析。这里介绍相对简单的gulp工具<br>less使用gulp实时监听<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/04/移动端通用样式设计规范/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/28/Git使用文档/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies ' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/28/Git使用文档/" itemprop="url">Git使用文档</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-28T14:22:02+08:00">
+                2017-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">study</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/web-develope/" itemprop="url" rel="index">
+                    <span itemprop="name">web-develope</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>本文主要目的是工作便利，作为一个普及说明文档帮助团队从svn转移至git进行项目管理</p>
+<p>参考文档：<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰的git文档</a></p>
+<h2 id="Git的优势"><a href="#Git的优势" class="headerlink" title="Git的优势"></a>Git的优势</h2><h2 id="git仓库的创建与文件提交"><a href="#git仓库的创建与文件提交" class="headerlink" title="git仓库的创建与文件提交"></a>git仓库的创建与文件提交</h2><h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><p>注：如果你使用Windows系统，为了避免遇到各种莫名其妙的问题，请确保目录名（包括父目录）不包含中文。</p>
+<p>通过git init命令把这个目录变成Git可以管理的仓库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git init</div><div class="line"></div><div class="line">Initialized empty Git repository in /Users/michael/learngit/.git/</div></pre></td></tr></table></figure></p>
+<p>用ls -ah命令就可以看见。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ls //查看当前路径文件</div><div class="line">ls -ah  //查看包括隐藏文件的所有文件</div></pre></td></tr></table></figure></p>
+<h3 id="建立仓库后，就可以把项目文件添加到你的路径中"><a href="#建立仓库后，就可以把项目文件添加到你的路径中" class="headerlink" title="建立仓库后，就可以把项目文件添加到你的路径中"></a>建立仓库后，就可以把项目文件添加到你的路径中</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/28/Git使用文档/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
