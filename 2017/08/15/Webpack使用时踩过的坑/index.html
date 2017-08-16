@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Try_Luies &#39; Blog">
 <meta property="og:description" content="由于公司项目的成就感不高，所以找了个搭电商网站的实战教程跟着练手。项目中用到了脚手架，并全程使用webpack进行打包。 之前从没听过webpack，视频中几分钟就完事儿的东西我却踩了不少坑。但实际项目编写过程中发现，使用webpack打包工具写项目颠覆了我以往一页一个文件的认知，通过配置我们可以抽离出很多公用模块。不仅书写结构升级，而且更利于后期的维护。也是近期我所追求的：  code spli">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-08-16T10:04:32.190Z">
+<meta property="og:updated_time" content="2017-08-16T10:55:33.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Webpack入门学习时踩过的坑">
 <meta name="twitter:description" content="由于公司项目的成就感不高，所以找了个搭电商网站的实战教程跟着练手。项目中用到了脚手架，并全程使用webpack进行打包。 之前从没听过webpack，视频中几分钟就完事儿的东西我却踩了不少坑。但实际项目编写过程中发现，使用webpack打包工具写项目颠覆了我以往一页一个文件的认知，通过配置我们可以抽离出很多公用模块。不仅书写结构升级，而且更利于后期的维护。也是近期我所追求的：  code spli">
@@ -430,23 +430,26 @@
 <p> 则还需要安装file-loader</p>
 <p> 配置webpack.config.js文件<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/,</div><div class="line">		loader: &apos;url-loader?limit=100&amp;name=resource/[name].[ext]&apos;</div></pre></td></tr></table></figure></p>
 <p> 在相应Js文件中引入css</p>
-<h3 id="二、weback-dev-server同步刷新"><a href="#二、weback-dev-server同步刷新" class="headerlink" title="二、weback-dev-server同步刷新"></a>二、weback-dev-server同步刷新</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>（webpack版本问题太乱）</p>
+<h3 id="二、weback-dev-server同步刷新"><a href="#二、weback-dev-server同步刷新" class="headerlink" title="二、weback-dev-server同步刷新"></a>二、weback-dev-server同步刷新</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>（webpack版本问题真是让我折腾了许久…）</p>
 <p>npm install webpack-dev-server –save-dev</p>
 <p>启动webpack-dev-server后，你在目标文件夹中是看不到编译后的文件的，实时编译后的文件都保存到了内存当中。</p>
 <p>两种自动刷新方式：</p>
-<p>iframe mode</p>
+<ul>
+<li>iframe mode：</li>
+</ul>
 <p>在网页中嵌入了一个 iframe ，将我们自己的应用注入到这个 iframe当中去，因此每次你修改的文件后，都是这个 iframe 进行了 reload</p>
-<p>命令行：webpack-dev-server，无需–inline</p>
-<p>浏览器访问：<a href="http://localhost:8080/webpack-dev-server/index.html" target="_blank" rel="external">http://localhost:8080/webpack-dev-server/index.html</a></p>
+<p>命令行：webpack-dev-server，无需–inline。浏览器访问：<a href="http://localhost:8080/webpack-dev-server/index.html" target="_blank" rel="external">http://localhost:8080/webpack-dev-server/index.html</a></p>
 <p>inline mode</p>
-<p>命令行：webpack-dev-server –inline</p>
+<ul>
+<li>命令行：webpack-dev-server –inline</li>
+</ul>
 <p>浏览器访问：<a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a></p>
 <p>在webpack.config.js中配置publicPath</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//入口文件</div><div class="line">		output: &#123; //输出文件</div><div class="line">			filename: &apos;/js/[name].js&apos;, //输出文件名</div><div class="line">			publicPath: &apos;/dist&apos;,</div><div class="line">			path: __dirname + &apos;/dist&apos; //输出文件路径</div><div class="line">		&#125;,</div></pre></td></tr></table></figure>
 <p>运行webpack-dev-server –inline –port 8088</p>
 <p><a href="http://www.jianshu.com/p/02380e5deb38" target="_blank" rel="external">Webpack入门之遇到的那些坑，系列示例Demo</a></p>
 <h3 id="三、通用模块处理"><a href="#三、通用模块处理" class="headerlink" title="三、通用模块处理"></a>三、通用模块处理</h3><h4 id="html部分"><a href="#html部分" class="headerlink" title="html部分"></a>html部分</h4><p> &lt;%= require(‘html-loader!./layout/head-common.html’)  %&gt;</p>
-<p> 报错！找不到路径</p>
+<p> 报错！找不到路径。待续更新</p>
 
       
     </div>
