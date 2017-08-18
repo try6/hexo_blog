@@ -274,6 +274,197 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/webpack报错的各种问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies ' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/18/webpack报错的各种问题/" itemprop="url">Webpack入门学习（二、踩坑篇）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T17:01:26+08:00">
+                2017-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">study</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/web-develope/" itemprop="url" rel="index">
+                    <span itemprop="name">web-develope</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://www.jianshu.com/p/02380e5deb38" target="_blank" rel="external">Webpack入门之遇到的那些坑，系列示例Demo</a></p>
+<p>首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。</p>
+<h4 id="配置完webpack-config-js文件，运行报错"><a href="#配置完webpack-config-js文件，运行报错" class="headerlink" title="配置完webpack.config.js文件，运行报错"></a>配置完webpack.config.js文件，运行报错</h4><h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Unhandled rejection TypeError: chunk.isInitial is not a function</div></pre></td></tr></table></figure>
+<p>注释掉对css文件的处理语句就恢复正常，这个问题在两次重新配置webpack时都出现了</p>
+<h5 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h5><p>就是比较坑的版本问题，下载本地webpack@2.2.0，插件extract-text-webpack-plugin@2.1.2，再进行如下配置语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	test: /\.css$/,</div><div class="line">	loader: ExtractTextPlugin.extract(&#123;</div><div class="line">	fallback: &apos;style-loader&apos;,</div><div class="line">	use: &apos;css-loader&apos;</div><div class="line">	&#125;)</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p>成功</p>
+<h4 id="端口被占用报错"><a href="#端口被占用报错" class="headerlink" title="端口被占用报错"></a>端口被占用报错</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Error: listen EADDRINUSE 127.0.0.1:8088</div><div class="line">   at Object.exports._errnoException (util.js:1018:11)</div><div class="line">   at exports._exceptionWithHostPort (util.js:1041:20)</div><div class="line">   at Server._listen2 (net.js:1258:14)</div><div class="line">   at listen (net.js:1294:10)</div><div class="line">   at net.js:1404:9</div><div class="line">   at GetAddrInfoReqWrap.asyncCallback [as callback] (dns.js:62:16)</div><div class="line">   at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:81:10)</div></pre></td></tr></table></figure>
+<h5 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h5><p>修改端口</p>
+<ul>
+<li>解决方案1:</li>
+</ul>
+<p>关闭之前占用8080端口的进程</p>
+<p>通过–port 9999选项修改webpack-dev-server的端口到9999，当然也可以改成其他</p>
+<p>这个方法对我是失败了，因为我并没有开启其他的进程，而且修改端口也无效</p>
+<ul>
+<li>解决方案3:</li>
+</ul>
+<p>干掉node进程，之前被webpack占用的端口就会被放出来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tskill node</div></pre></td></tr></table></figure></p>
+<p>成功</p>
+<p>（持续更新）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/思维模式之如何解决问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -643,7 +834,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/15/Webpack使用时踩过的坑/" itemprop="url">Webpack入门学习时踩过的坑</a></h1>
+                <a class="post-title-link" href="/2017/08/15/Webpack使用时踩过的坑/" itemprop="url">Webpack入门学习（一、安装教程篇）</a></h1>
         
 
         <div class="post-meta">
@@ -746,16 +937,16 @@
 
       
         
-          <p>由于公司项目的成就感不高，所以找了个搭电商网站的实战教程跟着练手。项目中用到了脚手架，并全程使用webpack进行打包。</p>
-<p>之前从没听过webpack，视频中几分钟就完事儿的东西我却踩了不少坑。但实际项目编写过程中发现，使用webpack打包工具写项目颠覆了我以往一页一个文件的认知，通过配置我们可以抽离出很多公用模块。不仅书写结构升级，而且更利于后期的维护。也是近期我所追求的：</p>
+          <p>&nbsp;&nbsp;相比于gulp，webpack是一个很强大的自动化打包工具，无论是js文件，还是css，html模板,包括less，sass等等都能全面打包，而且还可以通过webpack-dev-server在本地模拟服务器环境，并进行代码的实时监控。</p>
+<p>&nbsp;&nbsp;之前从没听过webpack，现在的工作中也用不到自动化工具，在自学的道路上踩了不少的坑。实际项目编写过程中发现，使用webpack打包工具写项目颠覆了我以往一页一个文件的认知，通过配置我们可以抽离出很多公用模块。不仅书写结构升级，而且更利于后期的维护。也是近期我所追求的：</p>
 <blockquote>
 <p>code splitting  代码分离</p>
 </blockquote>
-<p>故在此记录一下webpack配置教程以及遇到的一些问题</p>
-<h3 id="安装和命令行"><a href="#安装和命令行" class="headerlink" title="安装和命令行"></a>安装和命令行</h3><h4 id="1、全局安装"><a href="#1、全局安装" class="headerlink" title="1、全局安装"></a>1、全局安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">inp install webpack -g</div></pre></td></tr></table></figure>
-<p>webpack的确很强大，但是他的版本是个很头疼的问题。建议不要安装最新的以免出现未知错误找不到解决办法，推荐安装1.0以上3.0以上版本比较稳妥</p>
-<h4 id="1、建立文件夹，初始化npm，本地安装webpack"><a href="#1、建立文件夹，初始化npm，本地安装webpack" class="headerlink" title="1、建立文件夹，初始化npm，本地安装webpack"></a>1、建立文件夹，初始化npm，本地安装webpack</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm init</div><div class="line"></div><div class="line">npm install webapck --dev-save</div></pre></td></tr></table></figure>
-<p>生成package.json文件<br>
+<p>&nbsp;&nbsp;故在此记录一下webpack配置过程，和其中遇到的一些报错问题及其解决方案</p>
+<h3 id="安装和命令行"><a href="#安装和命令行" class="headerlink" title="安装和命令行"></a>安装和命令行</h3><h4 id="1、全局安装"><a href="#1、全局安装" class="headerlink" title="1、全局安装"></a>1、全局安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install webpack -g</div></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;webpack的确很强大，但是他的版本是个很头疼的问题。建议不要安装最新的以免出现未知错误找不到解决办法，推荐安装1.0以上3.0以下版本比较稳妥，如果出了问题网上的方法也不至于不靠谱</p>
+<h4 id="2、建立文件夹，初始化npm，本地安装webpack"><a href="#2、建立文件夹，初始化npm，本地安装webpack" class="headerlink" title="2、建立文件夹，初始化npm，本地安装webpack"></a>2、建立文件夹，初始化npm，本地安装webpack</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm init</div><div class="line"></div><div class="line">npm install webapck --dev-save</div></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;你会看到你的项目路径下生成了package.json文件<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/15/Webpack使用时踩过的坑/#more" rel="contents">
@@ -1359,7 +1550,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/16/如何还原设计稿——自适应响应式布局/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/16/如何还原设计稿——自适应响应式布局/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Try">
@@ -1378,7 +1569,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/16/如何还原设计稿——自适应响应式布局/" itemprop="url">如何还原设计稿——自适应响应式布局</a></h1>
+                <a class="post-title-link" href="/2017/07/16/如何还原设计稿——自适应响应式布局/" itemprop="url">如何精准还原设计稿</a></h1>
         
 
         <div class="post-meta">
@@ -1390,8 +1581,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-16T21:29:50+08:00">
-                2017-06-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-16T21:29:50+08:00">
+                2017-07-16
               </time>
             
 
@@ -1481,20 +1672,22 @@
 
       
         
-          <h3 id="提出问题："><a href="#提出问题：" class="headerlink" title="提出问题："></a>提出问题：</h3><p>机型布局配适是初期学习时遇到的一个比较头疼的问题。</p>
-<p>在做UI期间，多次询问前端开发人员，我们应该提供多少种切图尺寸才能使开发出来的界面和我们的设计稿高度一致。</p>
-<p>每次的回答都很模糊，要么是我们需要什么尺寸会和你们讲，要么是你们给个大概设计稿就行我们会看的</p>
-<p>做UI设计时，按照iphone6的750px*1334px尺寸进行设计，使用Px作为标注单位ios基本能实现设计稿的90%还原</p>
-<p>网页端</p>
-<h3 id="响应式设计的要素"><a href="#响应式设计的要素" class="headerlink" title="响应式设计的要素"></a>响应式设计的要素</h3><ul>
+          <h3 id="提出问题："><a href="#提出问题：" class="headerlink" title="提出问题："></a>提出问题：</h3><p>&emsp;&emsp;机型布局配适是初期学习时遇到的一个比较头疼的问题。</p>
+<p>&emsp;&emsp;在做UI期间，多次询问前端开发人员，我们应该提供多少种切图尺寸才能使开发出来的界面和我们的设计稿高度一致。</p>
+<p>&emsp;&emsp;然而每次的回答都很模糊，要么是我们需要什么尺寸会和你们讲，要么是你们给个大概设计稿就行我们会看的。身为一个UI设计师我也很郁闷，我那么吹毛求疵地追求1px的差距，你们一个目光丈量就给打发了，这让我觉得十分的没有尊严。</p>
+<p>&emsp;&emsp;而真正做了前端开发，发现还原设计稿本来就是一件水很深的事情。网页有很多不同的屏幕大小，苹果分辨率种类也越来越多，更别提安卓严重碎片化的屏幕分辨率。</p>
+<p>&emsp;&emsp;但其实这个问题是有解决办法的，今天我们就来谈谈可以用什么方法还原设计稿</p>
+<h3 id="网页端"><a href="#网页端" class="headerlink" title="网页端"></a>网页端</h3><p>&emsp;&emsp;如今的电脑的确是趋于大屏显示，不过由于web端的大部分布局都不会对整个页面进行填充，所以采取固定宽度居中显示的方法也就够用了，一般情况下使用1000px固定宽度。单位使用px，也能解决大部分的需求了</p>
+<p>&emsp;&emsp;况且，我们还有牛逼闪闪的响应式布局</p>
+<h4 id="响应式设计的要素"><a href="#响应式设计的要素" class="headerlink" title="响应式设计的要素"></a>响应式设计的要素</h4><ul>
 <li>媒体查询：一种css语法，可以根据浏览器的特性，一般是屏幕或浏览器容器宽度提供css规则</li>
 <li>流式布局：使用em或百分比等相对单位设定页面总体宽度，让布局能够随屏幕大小而缩放；</li>
 <li>弹性图片：是使用相对单位确保图片再大也不会超过其容器</li>
 </ul>
-<p>以上摘录自书籍《css设计指南》。在实际操作中灵活运用</p>
+<p>&emsp;&emsp;以上摘录自书籍《css设计指南》。在实际操作中灵活运用</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/06/16/如何还原设计稿——自适应响应式布局/#more" rel="contents">
+            <a class="btn" href="/2017/07/16/如何还原设计稿——自适应响应式布局/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1578,7 +1771,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1600,7 +1793,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">tags</span>
               
             </div>
