@@ -103,7 +103,7 @@
 <meta property="og:description" content="提出问题：&amp;emsp;&amp;emsp;机型布局配适是初期学习时遇到的一个比较头疼的问题。 &amp;emsp;&amp;emsp;在做UI期间，多次询问前端开发人员，我们应该提供多少种切图尺寸才能使开发出来的界面和我们的设计稿高度一致。 &amp;emsp;&amp;emsp;然而每次的回答都很模糊，要么是我们需要什么尺寸会和你们讲，要么是你们给个大概设计稿就行我们会看的。身为一个UI设计师我也很郁闷，我那么吹毛求疵地追求1px的差">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://note.youdao.com/yws/public/resource/3b059aa89a036ef1c56b65daef902074/xmlnote/D1EA3725433D4BAD9C9791AC98793F1C/5210">
-<meta property="og:updated_time" content="2017-08-18T11:45:12.853Z">
+<meta property="og:updated_time" content="2017-08-18T12:15:14.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何精准还原设计稿">
 <meta name="twitter:description" content="提出问题：&amp;emsp;&amp;emsp;机型布局配适是初期学习时遇到的一个比较头疼的问题。 &amp;emsp;&amp;emsp;在做UI期间，多次询问前端开发人员，我们应该提供多少种切图尺寸才能使开发出来的界面和我们的设计稿高度一致。 &amp;emsp;&amp;emsp;然而每次的回答都很模糊，要么是我们需要什么尺寸会和你们讲，要么是你们给个大概设计稿就行我们会看的。身为一个UI设计师我也很郁闷，我那么吹毛求疵地追求1px的差">
@@ -402,7 +402,7 @@
 <p>&emsp;&emsp;在做UI期间，多次询问前端开发人员，我们应该提供多少种切图尺寸才能使开发出来的界面和我们的设计稿高度一致。</p>
 <p>&emsp;&emsp;然而每次的回答都很模糊，要么是我们需要什么尺寸会和你们讲，要么是你们给个大概设计稿就行我们会看的。身为一个UI设计师我也很郁闷，我那么吹毛求疵地追求1px的差距，你们一个目光丈量就给打发了，这让我觉得十分的没有尊严。</p>
 <p>&emsp;&emsp;而真正做了前端开发，发现还原设计稿本来就是一件水很深的事情。网页有很多不同的屏幕大小，苹果分辨率种类也越来越多，更别提安卓严重碎片化的屏幕分辨率。</p>
-<p>&emsp;&emsp;但其实这个问题是有解决办法的，今天我们就来谈谈可以用什么方法还原设计稿</p>
+<p>&emsp;&emsp;但其实这个问题是有解决办法的，今天我们就来谈谈可以用什么方法还原设计稿<br><a id="more"></a></p>
 <h3 id="网页端"><a href="#网页端" class="headerlink" title="网页端"></a>网页端</h3><p>&emsp;&emsp;如今的电脑的确是趋于大屏显示，不过由于web端的大部分布局都不会对整个页面进行填充，所以采取固定宽度居中显示的方法也就够用了，一般情况下使用1000px固定宽度。单位使用px，也能解决大部分的需求了</p>
 <p>&emsp;&emsp;况且，我们还有牛逼闪闪的响应式布局</p>
 <h4 id="响应式设计的要素"><a href="#响应式设计的要素" class="headerlink" title="响应式设计的要素"></a>响应式设计的要素</h4><ul>
@@ -411,7 +411,6 @@
 <li>弹性图片：是使用相对单位确保图片再大也不会超过其容器</li>
 </ul>
 <p>&emsp;&emsp;以上摘录自书籍《css设计指南》。在实际操作中灵活运用</p>
-<a id="more"></a>
 <h4 id="媒体查询-media"><a href="#媒体查询-media" class="headerlink" title="媒体查询@media"></a>媒体查询@media</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@media screen and (max-width:568px)&#123;</div><div class="line">    .colum&#123;</div><div class="line">        float:none;</div><div class="line">        width:96%;</div><div class="line">        margin:0 auto;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;这个例子而言，如果页面是通过屏幕显示，而该屏幕宽度不超过569px,则实现css中的样式</p>
 <p>&emsp;&emsp;常用媒体特性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">min-device-width和max-device-width：匹配设备屏幕的尺寸；</div><div class="line">min-width和max-width：匹配视口的宽度，例如浏览器窗口宽度；</div><div class="line">orientation(值为portraint和landscape)：匹配设备是横屏还是竖屏。</div></pre></td></tr></table></figure></p>
@@ -482,6 +481,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/06/提取原型——理解继承/" rel="next" title="提取原型——理解继承">
+                <i class="fa fa-chevron-left"></i> 提取原型——理解继承
+              </a>
             
           </div>
 
@@ -568,7 +571,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -590,7 +593,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">tags</span>
               
             </div>

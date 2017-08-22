@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="Webpack入门之遇到的那些坑，系列示例Demo 首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。 配置完webpack.config.js文件，运行报错说明1Unhandled rejection TypeError: chunk.isInitial is not a function 注释掉对css文件的">
+<meta name="description" content="Webpack入门之遇到的那些坑，系列示例Demo &amp;emsp;&amp;emsp;首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。 配置完webpack.config.js文件，运行报错说明1Unhandled rejection TypeError: chunk.isInitial is not a functio">
 <meta name="keywords" content="工具,wepback">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Webpack入门学习（二、踩坑篇）">
 <meta property="og:url" content="http://yoursite.com/2017/08/18/webpack报错的各种问题/index.html">
 <meta property="og:site_name" content="Try_Luies &#39; Blog">
-<meta property="og:description" content="Webpack入门之遇到的那些坑，系列示例Demo 首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。 配置完webpack.config.js文件，运行报错说明1Unhandled rejection TypeError: chunk.isInitial is not a function 注释掉对css文件的">
+<meta property="og:description" content="Webpack入门之遇到的那些坑，系列示例Demo &amp;emsp;&amp;emsp;首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。 配置完webpack.config.js文件，运行报错说明1Unhandled rejection TypeError: chunk.isInitial is not a functio">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-08-18T12:01:38.773Z">
+<meta property="og:updated_time" content="2017-08-18T12:22:19.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Webpack入门学习（二、踩坑篇）">
-<meta name="twitter:description" content="Webpack入门之遇到的那些坑，系列示例Demo 首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。 配置完webpack.config.js文件，运行报错说明1Unhandled rejection TypeError: chunk.isInitial is not a function 注释掉对css文件的">
+<meta name="twitter:description" content="Webpack入门之遇到的那些坑，系列示例Demo &amp;emsp;&amp;emsp;首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。 配置完webpack.config.js文件，运行报错说明1Unhandled rejection TypeError: chunk.isInitial is not a functio">
 
 
 
@@ -397,25 +397,26 @@
 
       
         <p><a href="http://www.jianshu.com/p/02380e5deb38" target="_blank" rel="external">Webpack入门之遇到的那些坑，系列示例Demo</a></p>
-<p>首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。</p>
+<p>&emsp;&emsp;首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。</p>
 <h4 id="配置完webpack-config-js文件，运行报错"><a href="#配置完webpack-config-js文件，运行报错" class="headerlink" title="配置完webpack.config.js文件，运行报错"></a>配置完webpack.config.js文件，运行报错</h4><h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Unhandled rejection TypeError: chunk.isInitial is not a function</div></pre></td></tr></table></figure>
-<p>注释掉对css文件的处理语句就恢复正常，这个问题在两次重新配置webpack时都出现了</p>
-<h5 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h5><p>就是比较坑的版本问题，下载本地webpack@2.2.0，插件extract-text-webpack-plugin@2.1.2，再进行如下配置语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	test: /\.css$/,</div><div class="line">	loader: ExtractTextPlugin.extract(&#123;</div><div class="line">	fallback: &apos;style-loader&apos;,</div><div class="line">	use: &apos;css-loader&apos;</div><div class="line">	&#125;)</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
-<p>成功</p>
+<p>&emsp;&emsp;注释掉对css文件的处理语句就恢复正常，这个问题在两次重新配置webpack时都出现了</p>
+<h5 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h5><p>&emsp;&emsp;就是比较坑的版本问题，下载本地webpack@2.2.0，插件extract-text-webpack-plugin@2.1.2，再进行如下配置语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	test: /\.css$/,</div><div class="line">	loader: ExtractTextPlugin.extract(&#123;</div><div class="line">	fallback: &apos;style-loader&apos;,</div><div class="line">	use: &apos;css-loader&apos;</div><div class="line">	&#125;)</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;成功<br><a id="more"></a></p>
 <h4 id="端口被占用报错"><a href="#端口被占用报错" class="headerlink" title="端口被占用报错"></a>端口被占用报错</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Error: listen EADDRINUSE 127.0.0.1:8088</div><div class="line">   at Object.exports._errnoException (util.js:1018:11)</div><div class="line">   at exports._exceptionWithHostPort (util.js:1041:20)</div><div class="line">   at Server._listen2 (net.js:1258:14)</div><div class="line">   at listen (net.js:1294:10)</div><div class="line">   at net.js:1404:9</div><div class="line">   at GetAddrInfoReqWrap.asyncCallback [as callback] (dns.js:62:16)</div><div class="line">   at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:81:10)</div></pre></td></tr></table></figure>
-<h5 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h5><p>修改端口</p>
+<h5 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h5><p>&emsp;&emsp;修改端口</p>
 <ul>
 <li>解决方案1:</li>
 </ul>
-<p>关闭之前占用8080端口的进程</p>
-<p>通过–port 9999选项修改webpack-dev-server的端口到9999，当然也可以改成其他</p>
-<p>这个方法对我是失败了，因为我并没有开启其他的进程，而且修改端口也无效</p>
+<p>&emsp;&emsp;关闭之前占用8080端口的进程</p>
+<p>&emsp;&emsp;通过–port 9999选项修改webpack-dev-server的端口到9999，当然也可以改成其他</p>
+<p>&emsp;&emsp;这个方法对我是失败了，因为我并没有开启其他的进程，而且修改端口也无效</p>
 <ul>
 <li>解决方案3:</li>
 </ul>
-<p>干掉node进程，之前被webpack占用的端口就会被放出来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tskill node</div></pre></td></tr></table></figure></p>
-<p>成功</p>
-<p>（持续更新）</p>
+<p>&emsp;&emsp;干掉node进程，之前被webpack占用的端口就会被放出来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tskill node</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;成功</p>
+<h4 id="加载html模板失败"><a href="#加载html模板失败" class="headerlink" title="加载html模板失败"></a>加载html模板失败</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Can&apos;t resolve &apos;./layout/head-common.html&apos; in &apos;E:\study\20170814\webpack-test\src\view</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;这个问题很奇怪，我在Body中引入就不会报错，而在head中引入头文件就报错，头文件就算为空也依然报错<br>（持续更新）</p>
 
       
     </div>
@@ -448,8 +449,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/18/思维模式之如何解决问题/" rel="next" title="思维模式之如何解决问题">
-                <i class="fa fa-chevron-left"></i> 思维模式之如何解决问题
+              <a href="/2017/08/15/Webpack使用时踩过的坑/" rel="next" title="Webpack入门学习（一、安装教程篇）">
+                <i class="fa fa-chevron-left"></i> Webpack入门学习（一、安装教程篇）
               </a>
             
           </div>
@@ -457,6 +458,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/22/瀑布流布局/" rel="prev" title="瀑布流布局">
+                瀑布流布局 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -533,7 +538,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -555,7 +560,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">tags</span>
               
             </div>
@@ -614,7 +619,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置完webpack-config-js文件，运行报错"><span class="nav-number">1.</span> <span class="nav-text">配置完webpack.config.js文件，运行报错</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#说明"><span class="nav-number">1.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决"><span class="nav-number">1.2.</span> <span class="nav-text">解决</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#端口被占用报错"><span class="nav-number">2.</span> <span class="nav-text">端口被占用报错</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#解决-1"><span class="nav-number">2.1.</span> <span class="nav-text">解决</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置完webpack-config-js文件，运行报错"><span class="nav-number">1.</span> <span class="nav-text">配置完webpack.config.js文件，运行报错</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#说明"><span class="nav-number">1.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决"><span class="nav-number">1.2.</span> <span class="nav-text">解决</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#端口被占用报错"><span class="nav-number">2.</span> <span class="nav-text">端口被占用报错</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#解决-1"><span class="nav-number">2.1.</span> <span class="nav-text">解决</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载html模板失败"><span class="nav-number">3.</span> <span class="nav-text">加载html模板失败</span></a></li></ol></div>
             
 
           </div>

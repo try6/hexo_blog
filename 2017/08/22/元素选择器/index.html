@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css,html,jq," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="已经不是第一次碰到这个问题了。关于 eq()、first()等对子元素或者通过索引进行操作的选择器，有空格和无空格，eq()是否包含其本身，虽然想想觉得是个十分简单的问题，然而实际使用的时候总是会出现“卧槽怎么选的是这个元素”，“尼玛这个事件怎么就是不对”的情况。在这里还是做一个简单的测试。 首先来看今天的例子，两个大盒子boxContent组成，每个boxContent里有一个title和che">
+<meta name="keywords" content="css,html,jq">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你不知道的元素选择器">
+<meta property="og:url" content="http://yoursite.com/2017/08/22/元素选择器/index.html">
+<meta property="og:site_name" content="Try_Luies &#39; Blog">
+<meta property="og:description" content="已经不是第一次碰到这个问题了。关于 eq()、first()等对子元素或者通过索引进行操作的选择器，有空格和无空格，eq()是否包含其本身，虽然想想觉得是个十分简单的问题，然而实际使用的时候总是会出现“卧槽怎么选的是这个元素”，“尼玛这个事件怎么就是不对”的情况。在这里还是做一个简单的测试。 首先来看今天的例子，两个大盒子boxContent组成，每个boxContent里有一个title和che">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://note.youdao.com/yws/public/resource/738966d57aa4099d83d36696283e3d8b/xmlnote/86C7133A631541ABA389E3DA20036DD2/7924">
+<meta property="og:image" content="http://note.youdao.com/yws/public/resource/738966d57aa4099d83d36696283e3d8b/xmlnote/271F5195DD83415882152E90AFD1B70E/7952">
+<meta property="og:image" content="http://note.youdao.com/yws/public/resource/738966d57aa4099d83d36696283e3d8b/xmlnote/51FE539251BA4F9D88D2B5A17D0298A4/8015">
+<meta property="og:updated_time" content="2017-08-22T10:23:25.522Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你不知道的元素选择器">
+<meta name="twitter:description" content="已经不是第一次碰到这个问题了。关于 eq()、first()等对子元素或者通过索引进行操作的选择器，有空格和无空格，eq()是否包含其本身，虽然想想觉得是个十分简单的问题，然而实际使用的时候总是会出现“卧槽怎么选的是这个元素”，“尼玛这个事件怎么就是不对”的情况。在这里还是做一个简单的测试。 首先来看今天的例子，两个大盒子boxContent组成，每个boxContent里有一个title和che">
+<meta name="twitter:image" content="http://note.youdao.com/yws/public/resource/738966d57aa4099d83d36696283e3d8b/xmlnote/86C7133A631541ABA389E3DA20036DD2/7924">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/22/元素选择器/"/>
+
+
+
+
+
+  <title>你不知道的元素选择器 | Try_Luies ' Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Try_Luies ' Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/22/元素选择器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies ' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">你不知道的元素选择器</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-22T16:58:02+08:00">
+                2017-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">study</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/web-develope/" itemprop="url" rel="index">
+                    <span itemprop="name">web-develope</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>已经不是第一次碰到这个问题了。关于 eq()、first()等对子元素或者通过索引进行操作的选择器，有空格和无空格，eq()是否包含其本身，虽然想想觉得是个十分简单的问题，然而实际使用的时候总是会出现“卧槽怎么选的是这个元素”，“尼玛这个事件怎么就是不对”的情况。在这里还是做一个简单的测试。</p>
+<p>首先来看今天的例子，两个大盒子boxContent组成，每个boxContent里有一个title和checkbox的div盒子</p>
+<p>具体结构如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;control-group&quot;&gt;</div><div class="line">    &lt;div class=&quot;boxContent&quot;&gt;</div><div class="line">        &lt;div class=&quot;title&quot;&gt;配电箱1&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;checkbox&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">            &lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">           		 &lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">            推送1</div><div class="line">            &lt;/label&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;input type=&quot;submit&quot; class=&quot;btn unbund&quot; name=&quot;&quot; value=&quot;解绑&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;boxContent&quot;&gt;</div><div class="line">        &lt;div class=&quot;&quot;&gt;配电箱1&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;checkbox&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">            &lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">          	  &lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">            推送2</div><div class="line">            &lt;/label&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;input type=&quot;submit&quot; class=&quot;btn unbund&quot; name=&quot;&quot; value=&quot;解绑&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h4 id="1-eq-amp-amp-first"><a href="#1-eq-amp-amp-first" class="headerlink" title="1.eq()&amp;&amp;first()"></a>1.eq()&amp;&amp;first()</h4><ul>
+<li>执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var selectHtml = $(&apos;.bundBox .checkbox :eq(1)&apos;);</div><div class="line">console.log(selectHtml);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>输出结果为</p>
+<p><img src="http://note.youdao.com/yws/public/resource/738966d57aa4099d83d36696283e3d8b/xmlnote/86C7133A631541ABA389E3DA20036DD2/7924" alt="image"></p>
+<p>也就是一个input按钮，说明选中的是checkbox中的第二个节点input</p>
+<ul>
+<li>执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var selectHtml = $(&apos;.bundBox .checkbox :first()&apos;);</div><div class="line">console.log(selectHtml)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>结果为一个label标签，也就是选中了checkbox下的第一个子元素节点.</p>
+<p>所以说，first()输出的是选中集合的第一个节点，eq(0)输出的是选中集合下索引为0的节点（不包括集合本身），所以两种选择器本质上一致，都是获取了第一个checkbox的内容</p>
+<ul>
+<li>如果我们把第一个BoxContent的结构中再加一层label&gt;input结构，</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;boxContent&quot;&gt;</div><div class="line">        &lt;div class=&quot;title&quot;&gt;配电箱1&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;checkbox&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">            &lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">           		 &lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">            推送1</div><div class="line">            &lt;/label&gt;</div><div class="line">             &lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">            	&lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">             推送小小1</div><div class="line">             &lt;/label&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;input type=&quot;submit&quot; class=&quot;btn unbund&quot; name=&quot;&quot; value=&quot;解绑&quot;&gt;</div><div class="line">    &lt;/div&gt;</div></pre></td></tr></table></figure>
+<p><strong>$(‘.bundBox .checkbox :eq(0)’):第一个label标签</strong></p>
+<p><strong>$(‘.bundBox .checkbox :eq(1)’):第一个input标签</strong></p>
+<p><strong>$(‘.bundBox .checkbox :eq(2)’):第二个label标签</strong></p>
+<p><strong>$(‘.bundBox .checkbox :eq(3)’):第二个input标签</strong></p>
+<p>那么<code>$(&#39;.bundBox .checkbox :eq(4)&#39;)</code>呢？</p>
+<p>这个应该好理解，但是容易被忽略。<em><code>$(&#39;.bundBox .checkbox :eq(4)&#39;)</code>就开始查找第二个checkbox类</em></p>
+<p>承上结论可得，$(‘.bundBox .checkbox :last()’)输出的也是第二个input标签，当然实际结果也是如此</p>
+<p>所以这种对子元素查找的方式和层级无关，是从远到近依次对子元素进行查找</p>
+<h4 id="2-html-是否包括其自身结构"><a href="#2-html-是否包括其自身结构" class="headerlink" title="2.html()是否包括其自身结构"></a>2.html()是否包括其自身结构</h4><ul>
+<li>执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var selectHtml = $(&apos;.bundBox .checkbox :eq(0)&apos;).html();//多了一个html</div><div class="line">console.log(selectHtml)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>由第一部分可知我们查找的依然是label标签，输出结果为一个html结构，控制台输出如下</p>
+<p><img src="http://note.youdao.com/yws/public/resource/738966d57aa4099d83d36696283e3d8b/xmlnote/271F5195DD83415882152E90AFD1B70E/7952" alt="image"></p>
+<p>和你预想的一样吗。别错以为它输出了Input，其实输出的依然是label标签，只不过此时我们想要的是label的html结构，从上图可知，html()的输出是不包括其本身结构的</p>
+<p>到目前为止选中的都是第一个checkbox，如果改成把选择器<code>.checkbox :eq(2)</code>,那么输出的结果为则第二个checkbox的label标签。</p>
+<h4 id="3-神奇的空格"><a href="#3-神奇的空格" class="headerlink" title="3.神奇的空格"></a>3.神奇的空格</h4><p>现在有一个有意思的现象</p>
+<ul>
+<li>我们来执行以下语句，去掉了checkbox和选择器之间的空格<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var selectHtml = $(&apos;.bundBox .checkbox:eq(0)&apos;);</div><div class="line">console.log(selectHtml)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>打印台输出了包括它自身的整个checkbox盒子！</p>
+<p>为了让结果更加直观，我还是使用输出html()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var selectHtml = $(&apos;.bundBox .checkbox:eq(0)&apos;).html();</div><div class="line">console.log(selectHtml);</div></pre></td></tr></table></figure></p>
+<p>输出的是checkbox下的所有的结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">    &lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">    推送1</div><div class="line">&lt;/label&gt;</div></pre></td></tr></table></figure></p>
+<p>这是比较神奇的地方，现在输出的是第一个checkbox下的所有内容，也就是说在指定元素和选择器eq(0)之间没有空格的时候，查找的是指定元素本身，而且从其自身开始计算索引。</p>
+<ul>
+<li>那么first()是啥情况，执行如下语句<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var selectHtml = $(&apos;.bundBox .checkbox:first()&apos;).html();</div><div class="line">console.log(selectHtml)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>打印台输出checkbox下的html结构，和eq(0)的结果完全一致。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">    &lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt; 推送1</div><div class="line">&lt;/label&gt;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>来一个直观的有无空格的对比,在编辑器中输入如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var selectHtml1 = $(&apos;.bundBox .checkbox :eq(0)&apos;).html();//有空格</div><div class="line">var selectHtml2 = $(&apos;.bundBox .checkbox:eq(0)&apos;).html();//无空格</div><div class="line">console.log(selectHtml1);</div><div class="line">console.log(selectHtml2);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>控制台输出结果</p>
+<p><img src="http://note.youdao.com/yws/public/resource/738966d57aa4099d83d36696283e3d8b/xmlnote/51FE539251BA4F9D88D2B5A17D0298A4/8015" alt="image"></p>
+<p>那么你猜，<code>var selectHtml2 = $(&#39;.bundBox .checkbox:eq(1)&#39;)</code>会输出什么？</p>
+<p>答案是整个第二个checkbox</p>
+<h4 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h4><ol>
+<li><code>element first()</code>相当于<code>element eq(0)</code>,<code>element last()</code>相当于<code>element eq(lastIndex)</code></li>
+<li>在一个父元素中查找子元素时和层级无关，从近到远依次查找</li>
+<li><code>element.html()</code>输出的结构不包括element本身</li>
+<li><code>element:eq(0)</code>不带空格查找的是第一个类名为element的节点，依次向后查找<em>类名为element的节点</em>。</li>
+<li><code>.element :eq(0)</code>查找的是类名为element的第一个<em>子元素节点</em>,查完当前类所有子节点后，再继续查找下一个element类，索引递增</li>
+</ol>
+<p>恭喜你没被绕晕！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+            <a href="/tags/html/" rel="tag"># html</a>
+          
+            <a href="/tags/jq/" rel="tag"># jq</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/22/瀑布流布局/" rel="next" title="瀑布流布局">
+                <i class="fa fa-chevron-left"></i> 瀑布流布局
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpg"
+               alt="Try" />
+          <p class="site-author-name" itemprop="name">Try</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/try6" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2680387355?refer_flag=1001030103_" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-eq-amp-amp-first"><span class="nav-number">1.</span> <span class="nav-text">1.eq()&&first()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-html-是否包括其自身结构"><span class="nav-number">2.</span> <span class="nav-text">2.html()是否包括其自身结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-神奇的空格"><span class="nav-number">3.</span> <span class="nav-text">3.神奇的空格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结论："><span class="nav-number">4.</span> <span class="nav-text">结论：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Try</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -274,6 +274,382 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/22/元素选择器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies ' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/22/元素选择器/" itemprop="url">你不知道的元素选择器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-22T16:58:02+08:00">
+                2017-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">study</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/web-develope/" itemprop="url" rel="index">
+                    <span itemprop="name">web-develope</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>已经不是第一次碰到这个问题了。关于 eq()、first()等对子元素或者通过索引进行操作的选择器，有空格和无空格，eq()是否包含其本身，虽然想想觉得是个十分简单的问题，然而实际使用的时候总是会出现“卧槽怎么选的是这个元素”，“尼玛这个事件怎么就是不对”的情况。在这里还是做一个简单的测试。</p>
+<p>首先来看今天的例子，两个大盒子boxContent组成，每个boxContent里有一个title和checkbox的div盒子</p>
+<p>具体结构如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;control-group&quot;&gt;</div><div class="line">    &lt;div class=&quot;boxContent&quot;&gt;</div><div class="line">        &lt;div class=&quot;title&quot;&gt;配电箱1&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;checkbox&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">            &lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">           		 &lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">            推送1</div><div class="line">            &lt;/label&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;input type=&quot;submit&quot; class=&quot;btn unbund&quot; name=&quot;&quot; value=&quot;解绑&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;boxContent&quot;&gt;</div><div class="line">        &lt;div class=&quot;&quot;&gt;配电箱1&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;checkbox&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">            &lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">          	  &lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">            推送2</div><div class="line">            &lt;/label&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;input type=&quot;submit&quot; class=&quot;btn unbund&quot; name=&quot;&quot; value=&quot;解绑&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h4 id="1-eq-amp-amp-first"><a href="#1-eq-amp-amp-first" class="headerlink" title="1.eq()&amp;&amp;first()"></a>1.eq()&amp;&amp;first()</h4><ul>
+<li>执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var selectHtml = $(&apos;.bundBox .checkbox :eq(1)&apos;);</div><div class="line">console.log(selectHtml);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>输出结果为</p>
+<p><img src="http://note.youdao.com/yws/public/resource/738966d57aa4099d83d36696283e3d8b/xmlnote/86C7133A631541ABA389E3DA20036DD2/7924" alt="image"></p>
+<p>也就是一个input按钮，说明选中的是checkbox中的第二个节点input</p>
+<ul>
+<li>执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var selectHtml = $(&apos;.bundBox .checkbox :first()&apos;);</div><div class="line">console.log(selectHtml)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>结果为一个label标签，也就是选中了checkbox下的第一个子元素节点.</p>
+<p>所以说，first()输出的是选中集合的第一个节点，eq(0)输出的是选中集合下索引为0的节点（不包括集合本身），所以两种选择器本质上一致，都是获取了第一个checkbox的内容</p>
+<ul>
+<li>如果我们把第一个BoxContent的结构中再加一层label&gt;input结构，</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;boxContent&quot;&gt;</div><div class="line">        &lt;div class=&quot;title&quot;&gt;配电箱1&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;checkbox&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">            &lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">           		 &lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">            推送1</div><div class="line">            &lt;/label&gt;</div><div class="line">             &lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">            	&lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">             推送小小1</div><div class="line">             &lt;/label&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;input type=&quot;submit&quot; class=&quot;btn unbund&quot; name=&quot;&quot; value=&quot;解绑&quot;&gt;</div><div class="line">    &lt;/div&gt;</div></pre></td></tr></table></figure>
+<p><strong>$(‘.bundBox .checkbox :eq(0)’):第一个label标签</strong></p>
+<p><strong>$(‘.bundBox .checkbox :eq(1)’):第一个input标签</strong></p>
+<p><strong>$(‘.bundBox .checkbox :eq(2)’):第二个label标签</strong></p>
+<p><strong>$(‘.bundBox .checkbox :eq(3)’):第二个input标签</strong></p>
+<p>那么<code>$(&#39;.bundBox .checkbox :eq(4)&#39;)</code>呢？</p>
+<p>这个应该好理解，但是容易被忽略。<em><code>$(&#39;.bundBox .checkbox :eq(4)&#39;)</code>就开始查找第二个checkbox类</em></p>
+<p>承上结论可得，$(‘.bundBox .checkbox :last()’)输出的也是第二个input标签，当然实际结果也是如此</p>
+<p>所以这种对子元素查找的方式和层级无关，是从远到近依次对子元素进行查找</p>
+<h4 id="2-html-是否包括其自身结构"><a href="#2-html-是否包括其自身结构" class="headerlink" title="2.html()是否包括其自身结构"></a>2.html()是否包括其自身结构</h4><ul>
+<li>执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var selectHtml = $(&apos;.bundBox .checkbox :eq(0)&apos;).html();//多了一个html</div><div class="line">console.log(selectHtml)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>由第一部分可知我们查找的依然是label标签，输出结果为一个html结构，控制台输出如下</p>
+<p><img src="http://note.youdao.com/yws/public/resource/738966d57aa4099d83d36696283e3d8b/xmlnote/271F5195DD83415882152E90AFD1B70E/7952" alt="image"></p>
+<p>和你预想的一样吗。别错以为它输出了Input，其实输出的依然是label标签，只不过此时我们想要的是label的html结构，从上图可知，html()的输出是不包括其本身结构的</p>
+<p>到目前为止选中的都是第一个checkbox，如果改成把选择器<code>.checkbox :eq(2)</code>,那么输出的结果为则第二个checkbox的label标签。</p>
+<h4 id="3-神奇的空格"><a href="#3-神奇的空格" class="headerlink" title="3.神奇的空格"></a>3.神奇的空格</h4><p>现在有一个有意思的现象</p>
+<ul>
+<li>我们来执行以下语句，去掉了checkbox和选择器之间的空格<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var selectHtml = $(&apos;.bundBox .checkbox:eq(0)&apos;);</div><div class="line">console.log(selectHtml)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>打印台输出了包括它自身的整个checkbox盒子！</p>
+<p>为了让结果更加直观，我还是使用输出html()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var selectHtml = $(&apos;.bundBox .checkbox:eq(0)&apos;).html();</div><div class="line">console.log(selectHtml);</div></pre></td></tr></table></figure></p>
+<p>输出的是checkbox下的所有的结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">    &lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">    推送1</div><div class="line">&lt;/label&gt;</div></pre></td></tr></table></figure></p>
+<p>这是比较神奇的地方，现在输出的是第一个checkbox下的所有内容，也就是说在指定元素和选择器eq(0)之间没有空格的时候，查找的是指定元素本身，而且从其自身开始计算索引。</p>
+<ul>
+<li>那么first()是啥情况，执行如下语句<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var selectHtml = $(&apos;.bundBox .checkbox:first()&apos;).html();</div><div class="line">console.log(selectHtml)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>打印台输出checkbox下的html结构，和eq(0)的结果完全一致。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">    &lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt; 推送1</div><div class="line">&lt;/label&gt;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>来一个直观的有无空格的对比,在编辑器中输入如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var selectHtml1 = $(&apos;.bundBox .checkbox :eq(0)&apos;).html();//有空格</div><div class="line">var selectHtml2 = $(&apos;.bundBox .checkbox:eq(0)&apos;).html();//无空格</div><div class="line">console.log(selectHtml1);</div><div class="line">console.log(selectHtml2);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>控制台输出结果</p>
+<p><img src="http://note.youdao.com/yws/public/resource/738966d57aa4099d83d36696283e3d8b/xmlnote/51FE539251BA4F9D88D2B5A17D0298A4/8015" alt="image"></p>
+<p>那么你猜，<code>var selectHtml2 = $(&#39;.bundBox .checkbox:eq(1)&#39;)</code>会输出什么？</p>
+<p>答案是整个第二个checkbox</p>
+<h4 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h4><ol>
+<li><code>element first()</code>相当于<code>element eq(0)</code>,<code>element last()</code>相当于<code>element eq(lastIndex)</code></li>
+<li>在一个父元素中查找子元素时和层级无关，从近到远依次查找</li>
+<li><code>element.html()</code>输出的结构不包括element本身</li>
+<li><code>element:eq(0)</code>不带空格查找的是第一个类名为element的节点，依次向后查找<em>类名为element的节点</em>。</li>
+<li><code>.element :eq(0)</code>查找的是类名为element的第一个<em>子元素节点</em>,查完当前类所有子节点后，再继续查找下一个element类，索引递增</li>
+</ol>
+<p>恭喜你没被绕晕！</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/22/瀑布流布局/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies ' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/22/瀑布流布局/" itemprop="url">瀑布流布局</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-22T08:45:49+08:00">
+                2017-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/webpack报错的各种问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -396,375 +772,15 @@
 
       
         
-          
-            <p><a href="http://www.jianshu.com/p/02380e5deb38" target="_blank" rel="external">Webpack入门之遇到的那些坑，系列示例Demo</a></p>
-<p>首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。</p>
+          <p><a href="http://www.jianshu.com/p/02380e5deb38" target="_blank" rel="external">Webpack入门之遇到的那些坑，系列示例Demo</a></p>
+<p>&emsp;&emsp;首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。</p>
 <h4 id="配置完webpack-config-js文件，运行报错"><a href="#配置完webpack-config-js文件，运行报错" class="headerlink" title="配置完webpack.config.js文件，运行报错"></a>配置完webpack.config.js文件，运行报错</h4><h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Unhandled rejection TypeError: chunk.isInitial is not a function</div></pre></td></tr></table></figure>
-<p>注释掉对css文件的处理语句就恢复正常，这个问题在两次重新配置webpack时都出现了</p>
-<h5 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h5><p>就是比较坑的版本问题，下载本地webpack@2.2.0，插件extract-text-webpack-plugin@2.1.2，再进行如下配置语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	test: /\.css$/,</div><div class="line">	loader: ExtractTextPlugin.extract(&#123;</div><div class="line">	fallback: &apos;style-loader&apos;,</div><div class="line">	use: &apos;css-loader&apos;</div><div class="line">	&#125;)</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
-<p>成功</p>
-<h4 id="端口被占用报错"><a href="#端口被占用报错" class="headerlink" title="端口被占用报错"></a>端口被占用报错</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Error: listen EADDRINUSE 127.0.0.1:8088</div><div class="line">   at Object.exports._errnoException (util.js:1018:11)</div><div class="line">   at exports._exceptionWithHostPort (util.js:1041:20)</div><div class="line">   at Server._listen2 (net.js:1258:14)</div><div class="line">   at listen (net.js:1294:10)</div><div class="line">   at net.js:1404:9</div><div class="line">   at GetAddrInfoReqWrap.asyncCallback [as callback] (dns.js:62:16)</div><div class="line">   at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:81:10)</div></pre></td></tr></table></figure>
-<h5 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h5><p>修改端口</p>
-<ul>
-<li>解决方案1:</li>
-</ul>
-<p>关闭之前占用8080端口的进程</p>
-<p>通过–port 9999选项修改webpack-dev-server的端口到9999，当然也可以改成其他</p>
-<p>这个方法对我是失败了，因为我并没有开启其他的进程，而且修改端口也无效</p>
-<ul>
-<li>解决方案3:</li>
-</ul>
-<p>干掉node进程，之前被webpack占用的端口就会被放出来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tskill node</div></pre></td></tr></table></figure></p>
-<p>成功</p>
-<p>（持续更新）</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/思维模式之如何解决问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Try">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Try_Luies ' Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/18/思维模式之如何解决问题/" itemprop="url">思维模式之如何解决问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T10:07:57+08:00">
-                2017-08-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index">
-                    <span itemprop="name">life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&emsp;&emsp;明天应该穿什么衣服？</p>
-<p>&emsp;&emsp;一个煎饼果汁摊位一天可以赚多少钱？</p>
-<p>&emsp;&emsp;北京地铁一天客流量有多大？</p>
-<p>&emsp;&emsp;你要怎么找到你的人生伴侣？</p>
-<p>&emsp;&emsp;你要怎么实现你的人生价值？</p>
-<p>&emsp;&emsp;人的一生贯穿着无穷无尽的问题，大大小小，事无巨细。有的人让自己所做的每件事都能达到一个具体的目的，就给人一种逻辑缜密井井有条的外在表现。而相反，有的人想一出是一出，就会形成行为混乱，忙活一天也不知道自己干了啥，没有输出的状态。在我开始思考这个问题之后，发现身边优秀的人就是在高效、精准地解决生活和工作的一个个问题中度过一天的。</p>
-<p>&emsp;&emsp;如何解决一个问题？这可以说的很大，但是如果真的要上升到如何实现人生价值或者帮你找到人生伴侣的层面，我怕我还资历不够造成了不必要的误导。所以为了说清楚今天要讲述的话题，我计划通过分析生活中的几个案例，来让大家体验一下我所理解的解决问题的方法论。<br>
+<p>&emsp;&emsp;注释掉对css文件的处理语句就恢复正常，这个问题在两次重新配置webpack时都出现了</p>
+<h5 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h5><p>&emsp;&emsp;就是比较坑的版本问题，下载本地webpack@2.2.0，插件extract-text-webpack-plugin@2.1.2，再进行如下配置语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	test: /\.css$/,</div><div class="line">	loader: ExtractTextPlugin.extract(&#123;</div><div class="line">	fallback: &apos;style-loader&apos;,</div><div class="line">	use: &apos;css-loader&apos;</div><div class="line">	&#125;)</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;成功<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/08/18/思维模式之如何解决问题/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/16/提取原型——理解继承/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Try">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Try_Luies ' Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/16/提取原型——理解继承/" itemprop="url">提取原型——理解继承</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-16T14:36:55+08:00">
-                2017-08-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/study/" itemprop="url" rel="index">
-                    <span itemprop="name">study</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/study/web-develope/" itemprop="url" rel="index">
-                    <span itemprop="name">web-develope</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="javascript的继承"><a href="#javascript的继承" class="headerlink" title="javascript的继承"></a>javascript的继承</h4><p>js没有”子类”和”父类”的概念，也没有”类”（class）和”实例”（instance）的区分，全靠一种很奇特的”原型链”（prototype chain）模式，来实现继承。</p>
-<p>所有的实例对象共享同一个prototype属性，这个属性包含一个对象，那么从外界看起来，prototype属性的对象就好像是实例对象的原型，而实例对象则好像”继承”了prototype对象一样。</p>
-<p>例如以下的小案例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function PEOPLE(name)&#123;</div><div class="line">　　　　this.name = name;</div><div class="line">　　&#125;</div><div class="line">　　PEOPLE.prototype = &#123; SEX : &apos;man&apos; &#125;;</div><div class="line"></div><div class="line">　　var A = new PEOPLE(&apos;大毛&apos;);</div><div class="line">　　var B = new PEOPLE(&apos;二毛&apos;);</div><div class="line"></div><div class="line">　　alert(A.SEX); // man</div><div class="line">　　alert(B.SEX); // man</div></pre></td></tr></table></figure></p>
-<p>也就是A和B继承了POEPLE的属性，如果SEX属性发生改变，则A和B的该属性均会改变<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/16/提取原型——理解继承/#more" rel="contents">
+            <a class="btn" href="/2017/08/18/webpack报错的各种问题/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -937,16 +953,14 @@
 
       
         
-          <p>&nbsp;&nbsp;相比于gulp，webpack是一个很强大的自动化打包工具，无论是js文件，还是css，html模板,包括less，sass等等都能全面打包，而且还可以通过webpack-dev-server在本地模拟服务器环境，并进行代码的实时监控。</p>
-<p>&nbsp;&nbsp;之前从没听过webpack，现在的工作中也用不到自动化工具，在自学的道路上踩了不少的坑。实际项目编写过程中发现，使用webpack打包工具写项目颠覆了我以往一页一个文件的认知，通过配置我们可以抽离出很多公用模块。不仅书写结构升级，而且更利于后期的维护。也是近期我所追求的：</p>
+          <p>&emsp;&emsp;相比于gulp，webpack是一个很强大的自动化打包工具，无论是js文件，还是css，html模板,包括less，sass等等都能全面打包，而且还可以通过webpack-dev-server在本地模拟服务器环境，并进行代码的实时监控。</p>
+<p>&emsp;&emsp;之前从没听过webpack，现在的工作中也用不到自动化工具，在自学的道路上踩了不少的坑。实际项目编写过程中发现，使用webpack打包工具写项目颠覆了我以往一页一个文件的认知，通过配置我们可以抽离出很多公用模块。不仅书写结构升级，而且更利于后期的维护。也是近期我所追求的：</p>
 <blockquote>
 <p>code splitting  代码分离</p>
 </blockquote>
-<p>&nbsp;&nbsp;故在此记录一下webpack配置过程，和其中遇到的一些报错问题及其解决方案</p>
+<p>&emsp;&emsp;故在此记录一下webpack配置过程，和其中遇到的一些报错问题及其解决方案</p>
 <h3 id="安装和命令行"><a href="#安装和命令行" class="headerlink" title="安装和命令行"></a>安装和命令行</h3><h4 id="1、全局安装"><a href="#1、全局安装" class="headerlink" title="1、全局安装"></a>1、全局安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install webpack -g</div></pre></td></tr></table></figure>
-<p>&nbsp;&nbsp;webpack的确很强大，但是他的版本是个很头疼的问题。建议不要安装最新的以免出现未知错误找不到解决办法，推荐安装1.0以上3.0以下版本比较稳妥，如果出了问题网上的方法也不至于不靠谱</p>
-<h4 id="2、建立文件夹，初始化npm，本地安装webpack"><a href="#2、建立文件夹，初始化npm，本地安装webpack" class="headerlink" title="2、建立文件夹，初始化npm，本地安装webpack"></a>2、建立文件夹，初始化npm，本地安装webpack</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm init</div><div class="line"></div><div class="line">npm install webapck --dev-save</div></pre></td></tr></table></figure>
-<p>&nbsp;&nbsp;你会看到你的项目路径下生成了package.json文件<br>
+<p>&emsp;&emsp;webpack的确很强大，但是他的版本是个很头疼的问题。建议不要安装最新的以免出现未知错误找不到解决办法，推荐安装1.0以上3.0以下版本比较稳妥，如果出了问题网上的方法也不至于不靠谱</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/15/Webpack使用时踩过的坑/#more" rel="contents">
@@ -1313,9 +1327,9 @@
 
       
         
-          <p>本项目发布于github，欢迎各位指正<br><a href="https://github.com/try6/mobile-common-css" target="_blank" rel="external">mobile-common-css</a></p>
-<p>设计说明：公司移动端产品多用于网关和设备配置，很多功能模块都很类似。而且所有的对外产品都应该在外观上保持风格和布局的统一。本模块内容根据近期开发项目“智慧用电”微信版和APP版，提炼出手机移动端可以通用的样式模块。</p>
-<p>移动端（微信端）项目在准备期间，可以按照文档说明搭好框架，再引入main.css，只需要修改一点全局参数就能高效地完成通用组件的搭建。方便快捷<br>
+          <p>&emsp;&emsp;本项目发布于github，欢迎各位指正<br>&emsp;&emsp;<a href="https://github.com/try6/mobile-common-css" target="_blank" rel="external">mobile-common-css</a></p>
+<p>&emsp;&emsp;设计说明：公司移动端产品多用于网关和设备配置，很多功能模块都很类似。而且所有的对外产品都应该在外观上保持风格和布局的统一。本模块内容根据近期开发项目“智慧用电”微信版和APP版，提炼出手机移动端可以通用的样式模块。</p>
+<p>&emsp;&emsp;移动端（微信端）项目在准备期间，可以按照文档说明搭好框架，再引入main.css，只需要修改一点全局参数就能高效地完成通用组件的搭建。方便快捷<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/04/移动端通用样式设计规范/#more" rel="contents">
@@ -1676,15 +1690,7 @@
 <p>&emsp;&emsp;在做UI期间，多次询问前端开发人员，我们应该提供多少种切图尺寸才能使开发出来的界面和我们的设计稿高度一致。</p>
 <p>&emsp;&emsp;然而每次的回答都很模糊，要么是我们需要什么尺寸会和你们讲，要么是你们给个大概设计稿就行我们会看的。身为一个UI设计师我也很郁闷，我那么吹毛求疵地追求1px的差距，你们一个目光丈量就给打发了，这让我觉得十分的没有尊严。</p>
 <p>&emsp;&emsp;而真正做了前端开发，发现还原设计稿本来就是一件水很深的事情。网页有很多不同的屏幕大小，苹果分辨率种类也越来越多，更别提安卓严重碎片化的屏幕分辨率。</p>
-<p>&emsp;&emsp;但其实这个问题是有解决办法的，今天我们就来谈谈可以用什么方法还原设计稿</p>
-<h3 id="网页端"><a href="#网页端" class="headerlink" title="网页端"></a>网页端</h3><p>&emsp;&emsp;如今的电脑的确是趋于大屏显示，不过由于web端的大部分布局都不会对整个页面进行填充，所以采取固定宽度居中显示的方法也就够用了，一般情况下使用1000px固定宽度。单位使用px，也能解决大部分的需求了</p>
-<p>&emsp;&emsp;况且，我们还有牛逼闪闪的响应式布局</p>
-<h4 id="响应式设计的要素"><a href="#响应式设计的要素" class="headerlink" title="响应式设计的要素"></a>响应式设计的要素</h4><ul>
-<li>媒体查询：一种css语法，可以根据浏览器的特性，一般是屏幕或浏览器容器宽度提供css规则</li>
-<li>流式布局：使用em或百分比等相对单位设定页面总体宽度，让布局能够随屏幕大小而缩放；</li>
-<li>弹性图片：是使用相对单位确保图片再大也不会超过其容器</li>
-</ul>
-<p>&emsp;&emsp;以上摘录自书籍《css设计指南》。在实际操作中灵活运用</p>
+<p>&emsp;&emsp;但其实这个问题是有解决办法的，今天我们就来谈谈可以用什么方法还原设计稿<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/16/如何还原设计稿——自适应响应式布局/#more" rel="contents">
@@ -1725,9 +1731,364 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/06/提取原型——理解继承/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies ' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/06/提取原型——理解继承/" itemprop="url">提取原型——理解继承</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-06T14:36:55+08:00">
+                2017-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">study</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/web-develope/" itemprop="url" rel="index">
+                    <span itemprop="name">web-develope</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>&emsp;&emsp;js没有”子类”和”父类”的概念，也没有”类”（class）和”实例”（instance）的区分，全靠一种很奇特的”原型链”（prototype chain）模式，来实现继承。</p>
+<p>&emsp;&emsp;摘自<a href="http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html" target="_blank" rel="external">Javascript继承机制的设计思想  </a></p>
+<p>&emsp;&emsp;所有的实例对象共享同一个prototype属性，这个属性包含一个对象，那么从外界看起来，prototype属性的对象就好像是实例对象的原型，而实例对象则好像”继承”了prototype对象一样。</p>
+<p>&emsp;&emsp;例如以下的小案例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function PEOPLE(name)&#123;</div><div class="line">　　　　this.name = name;</div><div class="line">　　&#125;</div><div class="line">　　PEOPLE.prototype = &#123; SEX : &apos;man&apos; &#125;;</div><div class="line"></div><div class="line">　　var A = new PEOPLE(&apos;大毛&apos;);</div><div class="line">　　var B = new PEOPLE(&apos;二毛&apos;);</div><div class="line"></div><div class="line">　　alert(A.SEX); // man</div><div class="line">　　alert(B.SEX); // man</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;也就是A和B继承了POEPLE的属性，如果SEX属性发生改变，则A和B的该属性均会改变<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/06/提取原型——理解继承/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/02/思维模式之如何解决问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies ' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/02/思维模式之如何解决问题/" itemprop="url">思维模式之如何解决问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-02T10:07:57+08:00">
+                2017-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/life/" itemprop="url" rel="index">
+                    <span itemprop="name">life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>&emsp;&emsp;明天应该穿什么衣服？</p>
+<p>&emsp;&emsp;一个煎饼果汁摊位一天可以赚多少钱？</p>
+<p>&emsp;&emsp;北京地铁一天客流量有多大？</p>
+<p>&emsp;&emsp;你要怎么找到你的人生伴侣？</p>
+<p>&emsp;&emsp;你要怎么实现你的人生价值？</p>
+<p>&emsp;&emsp;人的一生贯穿着无穷无尽的问题，大大小小，事无巨细。有的人让自己所做的每件事都能达到一个具体的目的，就给人一种逻辑缜密井井有条的外在表现。而相反，有的人想一出是一出，就会形成行为混乱，忙活一天也不知道自己干了啥，没有输出的状态。在我开始思考这个问题之后，发现身边优秀的人就是在高效、精准地解决生活和工作的一个个问题中度过一天的。</p>
+<p>&emsp;&emsp;如何解决一个问题？这可以说的很大，但是如果真的要上升到如何实现人生价值或者帮你找到人生伴侣的层面，我怕我还资历不够造成了不必要的误导。所以为了说清楚今天要讲述的话题，我计划通过分析生活中的几个案例，来让大家体验一下我所理解的解决问题的方法论。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/02/思维模式之如何解决问题/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1771,7 +2132,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1793,7 +2154,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">tags</span>
               
             </div>
