@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="css,html,jq," />
+  <meta name="keywords" content="css,html,jquery," />
 
 
 
@@ -94,21 +94,21 @@
 
 
 
-<meta name="description" content="已经不是第一次碰到这个问题了。关于 eq()、first()等对子元素或者通过索引进行操作的选择器，有空格和无空格，eq()是否包含其本身，虽然想想觉得是个十分简单的问题，然而实际使用的时候总是会出现“卧槽怎么选的是这个元素”，“尼玛这个事件怎么就是不对”的情况。在这里还是做一个简单的测试。 首先来看今天的例子，两个大盒子boxContent组成，每个boxContent里有一个title和che">
-<meta name="keywords" content="css,html,jq">
+<meta name="description" content="&amp;emsp;&amp;emsp;已经不是第一次碰到这个问题了。关于 eq()、first()等对子元素或者通过索引进行操作的选择器，有空格和无空格，eq()是否包含其本身，虽然想想觉得这个问题也太简单了有什么好说的，然而实际使用的时候总是会出现“卧槽怎么选的是这个元素？”，“尼玛这个事件怎么就是不对？”的懵逼情况。所以在这里还是做一个测试。 &amp;emsp;&amp;emsp;首先来看今天的例子，两个大盒子boxCo">
+<meta name="keywords" content="css,html,jquery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="你不知道的元素选择器">
 <meta property="og:url" content="http://yoursite.com/2017/08/22/元素选择器/index.html">
-<meta property="og:site_name" content="Try_Luies &#39; Blog">
-<meta property="og:description" content="已经不是第一次碰到这个问题了。关于 eq()、first()等对子元素或者通过索引进行操作的选择器，有空格和无空格，eq()是否包含其本身，虽然想想觉得是个十分简单的问题，然而实际使用的时候总是会出现“卧槽怎么选的是这个元素”，“尼玛这个事件怎么就是不对”的情况。在这里还是做一个简单的测试。 首先来看今天的例子，两个大盒子boxContent组成，每个boxContent里有一个title和che">
+<meta property="og:site_name" content="Try_Luies">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;已经不是第一次碰到这个问题了。关于 eq()、first()等对子元素或者通过索引进行操作的选择器，有空格和无空格，eq()是否包含其本身，虽然想想觉得这个问题也太简单了有什么好说的，然而实际使用的时候总是会出现“卧槽怎么选的是这个元素？”，“尼玛这个事件怎么就是不对？”的懵逼情况。所以在这里还是做一个测试。 &amp;emsp;&amp;emsp;首先来看今天的例子，两个大盒子boxCo">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://note.youdao.com/yws/public/resource/738966d57aa4099d83d36696283e3d8b/xmlnote/86C7133A631541ABA389E3DA20036DD2/7924">
 <meta property="og:image" content="http://note.youdao.com/yws/public/resource/738966d57aa4099d83d36696283e3d8b/xmlnote/271F5195DD83415882152E90AFD1B70E/7952">
 <meta property="og:image" content="http://note.youdao.com/yws/public/resource/738966d57aa4099d83d36696283e3d8b/xmlnote/51FE539251BA4F9D88D2B5A17D0298A4/8015">
-<meta property="og:updated_time" content="2017-08-22T10:23:25.522Z">
+<meta property="og:updated_time" content="2017-08-22T10:55:32.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你不知道的元素选择器">
-<meta name="twitter:description" content="已经不是第一次碰到这个问题了。关于 eq()、first()等对子元素或者通过索引进行操作的选择器，有空格和无空格，eq()是否包含其本身，虽然想想觉得是个十分简单的问题，然而实际使用的时候总是会出现“卧槽怎么选的是这个元素”，“尼玛这个事件怎么就是不对”的情况。在这里还是做一个简单的测试。 首先来看今天的例子，两个大盒子boxContent组成，每个boxContent里有一个title和che">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;已经不是第一次碰到这个问题了。关于 eq()、first()等对子元素或者通过索引进行操作的选择器，有空格和无空格，eq()是否包含其本身，虽然想想觉得这个问题也太简单了有什么好说的，然而实际使用的时候总是会出现“卧槽怎么选的是这个元素？”，“尼玛这个事件怎么就是不对？”的懵逼情况。所以在这里还是做一个测试。 &amp;emsp;&amp;emsp;首先来看今天的例子，两个大盒子boxCo">
 <meta name="twitter:image" content="http://note.youdao.com/yws/public/resource/738966d57aa4099d83d36696283e3d8b/xmlnote/86C7133A631541ABA389E3DA20036DD2/7924">
 
 
@@ -144,7 +144,7 @@
 
 
 
-  <title>你不知道的元素选择器 | Try_Luies ' Blog</title>
+  <title>你不知道的元素选择器 | Try_Luies</title>
   
 
 
@@ -174,7 +174,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Try_Luies ' Blog</span>
+        <span class="site-title">Try_Luies</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -290,7 +290,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Try_Luies ' Blog">
+      <meta itemprop="name" content="Try_Luies">
     </span>
 
     
@@ -400,11 +400,12 @@
       
 
       
-        <p>已经不是第一次碰到这个问题了。关于 eq()、first()等对子元素或者通过索引进行操作的选择器，有空格和无空格，eq()是否包含其本身，虽然想想觉得是个十分简单的问题，然而实际使用的时候总是会出现“卧槽怎么选的是这个元素”，“尼玛这个事件怎么就是不对”的情况。在这里还是做一个简单的测试。</p>
-<p>首先来看今天的例子，两个大盒子boxContent组成，每个boxContent里有一个title和checkbox的div盒子</p>
-<p>具体结构如下</p>
+        <p>&emsp;&emsp;已经不是第一次碰到这个问题了。关于 eq()、first()等对子元素或者通过索引进行操作的选择器，有空格和无空格，eq()是否包含其本身，虽然想想觉得这个问题也太简单了有什么好说的，然而实际使用的时候总是会出现“卧槽怎么选的是这个元素？”，“尼玛这个事件怎么就是不对？”的懵逼情况。所以在这里还是做一个测试。</p>
+<p>&emsp;&emsp;首先来看今天的例子，两个大盒子boxContent组成，每个boxContent里有一个title和checkbox的div盒子</p>
+<p>&emsp;&emsp;具体结构如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;control-group&quot;&gt;</div><div class="line">    &lt;div class=&quot;boxContent&quot;&gt;</div><div class="line">        &lt;div class=&quot;title&quot;&gt;配电箱1&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;checkbox&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">            &lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">           		 &lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">            推送1</div><div class="line">            &lt;/label&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;input type=&quot;submit&quot; class=&quot;btn unbund&quot; name=&quot;&quot; value=&quot;解绑&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;boxContent&quot;&gt;</div><div class="line">        &lt;div class=&quot;&quot;&gt;配电箱1&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;checkbox&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">            &lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">          	  &lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">            推送2</div><div class="line">            &lt;/label&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;input type=&quot;submit&quot; class=&quot;btn unbund&quot; name=&quot;&quot; value=&quot;解绑&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<h4 id="1-eq-amp-amp-first"><a href="#1-eq-amp-amp-first" class="headerlink" title="1.eq()&amp;&amp;first()"></a>1.eq()&amp;&amp;first()</h4><ul>
+<a id="more"></a>
+<h4 id="eq-amp-amp-first"><a href="#eq-amp-amp-first" class="headerlink" title="eq()&amp;&amp;first()"></a>eq()&amp;&amp;first()</h4><ul>
 <li>执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var selectHtml = $(&apos;.bundBox .checkbox :eq(1)&apos;);</div><div class="line">console.log(selectHtml);</div></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -420,7 +421,7 @@
 <ul>
 <li>如果我们把第一个BoxContent的结构中再加一层label&gt;input结构，</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;boxContent&quot;&gt;</div><div class="line">        &lt;div class=&quot;title&quot;&gt;配电箱1&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;checkbox&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">            &lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">           		 &lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">            推送1</div><div class="line">            &lt;/label&gt;</div><div class="line">             &lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">            	&lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">             推送小小1</div><div class="line">             &lt;/label&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;input type=&quot;submit&quot; class=&quot;btn unbund&quot; name=&quot;&quot; value=&quot;解绑&quot;&gt;</div><div class="line">    &lt;/div&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;boxContent&quot;&gt;</div><div class="line">	&lt;div class=&quot;title&quot;&gt;配电箱1&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;checkbox&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">		&lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">			&lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">			推送1</div><div class="line">		&lt;/label&gt;</div><div class="line">		 &lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">			&lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">			推送小小1</div><div class="line">		 &lt;/label&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;input type=&quot;submit&quot; class=&quot;btn unbund&quot; name=&quot;&quot; value=&quot;解绑&quot;&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
 <p><strong>$(‘.bundBox .checkbox :eq(0)’):第一个label标签</strong></p>
 <p><strong>$(‘.bundBox .checkbox :eq(1)’):第一个input标签</strong></p>
 <p><strong>$(‘.bundBox .checkbox :eq(2)’):第二个label标签</strong></p>
@@ -429,7 +430,7 @@
 <p>这个应该好理解，但是容易被忽略。<em><code>$(&#39;.bundBox .checkbox :eq(4)&#39;)</code>就开始查找第二个checkbox类</em></p>
 <p>承上结论可得，$(‘.bundBox .checkbox :last()’)输出的也是第二个input标签，当然实际结果也是如此</p>
 <p>所以这种对子元素查找的方式和层级无关，是从远到近依次对子元素进行查找</p>
-<h4 id="2-html-是否包括其自身结构"><a href="#2-html-是否包括其自身结构" class="headerlink" title="2.html()是否包括其自身结构"></a>2.html()是否包括其自身结构</h4><ul>
+<h4 id="html-是否包括其自身结构"><a href="#html-是否包括其自身结构" class="headerlink" title="html()是否包括其自身结构"></a>html()是否包括其自身结构</h4><ul>
 <li>执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var selectHtml = $(&apos;.bundBox .checkbox :eq(0)&apos;).html();//多了一个html</div><div class="line">console.log(selectHtml)</div></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -437,7 +438,7 @@
 <p><img src="http://note.youdao.com/yws/public/resource/738966d57aa4099d83d36696283e3d8b/xmlnote/271F5195DD83415882152E90AFD1B70E/7952" alt="image"></p>
 <p>和你预想的一样吗。别错以为它输出了Input，其实输出的依然是label标签，只不过此时我们想要的是label的html结构，从上图可知，html()的输出是不包括其本身结构的</p>
 <p>到目前为止选中的都是第一个checkbox，如果改成把选择器<code>.checkbox :eq(2)</code>,那么输出的结果为则第二个checkbox的label标签。</p>
-<h4 id="3-神奇的空格"><a href="#3-神奇的空格" class="headerlink" title="3.神奇的空格"></a>3.神奇的空格</h4><p>现在有一个有意思的现象</p>
+<h4 id="神奇的空格"><a href="#神奇的空格" class="headerlink" title="神奇的空格"></a>神奇的空格</h4><p>现在有一个有意思的现象</p>
 <ul>
 <li>我们来执行以下语句，去掉了checkbox和选择器之间的空格<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var selectHtml = $(&apos;.bundBox .checkbox:eq(0)&apos;);</div><div class="line">console.log(selectHtml)</div></pre></td></tr></table></figure>
 </li>
@@ -463,8 +464,8 @@
 <li><code>element first()</code>相当于<code>element eq(0)</code>,<code>element last()</code>相当于<code>element eq(lastIndex)</code></li>
 <li>在一个父元素中查找子元素时和层级无关，从近到远依次查找</li>
 <li><code>element.html()</code>输出的结构不包括element本身</li>
-<li><code>element:eq(0)</code>不带空格查找的是第一个类名为element的节点，依次向后查找<em>类名为element的节点</em>。</li>
-<li><code>.element :eq(0)</code>查找的是类名为element的第一个<em>子元素节点</em>,查完当前类所有子节点后，再继续查找下一个element类，索引递增</li>
+<li><code>element:eq(0)</code>不带空格查找的是第一个类名为element的节点，依次向后查找<strong>类名为element的节点</strong>。</li>
+<li><code>.element :eq(0)</code>查找的是类名为element的第一个<strong>子元素节点</strong>,查完当前类所有子节点后，再继续查找下一个element类，索引递增</li>
 </ol>
 <p>恭喜你没被绕晕！</p>
 
@@ -488,7 +489,7 @@
           
             <a href="/tags/html/" rel="tag"># html</a>
           
-            <a href="/tags/jq/" rel="tag"># jq</a>
+            <a href="/tags/jquery/" rel="tag"># jquery</a>
           
         </div>
       
@@ -501,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/22/瀑布流布局/" rel="next" title="瀑布流布局">
-                <i class="fa fa-chevron-left"></i> 瀑布流布局
+              <a href="/2017/08/18/webpack报错的各种问题/" rel="next" title="Webpack入门学习（二、踩坑篇）">
+                <i class="fa fa-chevron-left"></i> Webpack入门学习（二、踩坑篇）
               </a>
             
           </div>
@@ -510,6 +511,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/24/不负我心/" rel="prev" title="不负我心">
+                不负我心 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -586,7 +591,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -667,7 +672,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-eq-amp-amp-first"><span class="nav-number">1.</span> <span class="nav-text">1.eq()&&first()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-html-是否包括其自身结构"><span class="nav-number">2.</span> <span class="nav-text">2.html()是否包括其自身结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-神奇的空格"><span class="nav-number">3.</span> <span class="nav-text">3.神奇的空格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结论："><span class="nav-number">4.</span> <span class="nav-text">结论：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#eq-amp-amp-first"><span class="nav-number">1.</span> <span class="nav-text">eq()&&first()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html-是否包括其自身结构"><span class="nav-number">2.</span> <span class="nav-text">html()是否包括其自身结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#神奇的空格"><span class="nav-number">3.</span> <span class="nav-text">神奇的空格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结论："><span class="nav-number">4.</span> <span class="nav-text">结论：</span></a></li></ol></div>
             
 
           </div>
