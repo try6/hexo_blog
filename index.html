@@ -274,6 +274,229 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/28/对数组的一些易混淆操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/28/对数组的一些易混淆操作/" itemprop="url">对数组的一些易混淆操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-28T20:14:17+08:00">
+                2017-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">study</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/web-develope/" itemprop="url" rel="index">
+                    <span itemprop="name">web-develope</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="对数组元素进行增删改"><a href="#对数组元素进行增删改" class="headerlink" title="对数组元素进行增删改"></a>对数组元素进行增删改</h4><ul>
+<li><p>在数组结尾增加元素 – array.push(‘元素内容’)，并返回新的长度</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    $.each($(<span class="string">'.unbundBox .boxContent'</span>), <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    delBox.push(&#123;</div><div class="line">    	<span class="string">'boxId'</span>: $(<span class="keyword">this</span>).attr(<span class="string">'id'</span>),</div><div class="line">    &#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除索引为n的元素 – array.splice(n,1)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//移除delbox中相应的值，splice</span></div><div class="line">$.each(delBox, <span class="function"><span class="keyword">function</span>(<span class="params">index</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.boxId == box.attr(<span class="string">'id'</span>)) &#123;</div><div class="line">        delBox.splice(index, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在数组的第n个位置处增加元素 – splice(n,0,’添加内容’)<br>// 拼接函数(索引位置, 要删除元素的数量, 元素)</p>
+</li>
+</ul>
+<ul>
+<li>删除并返回数组的最后一个元素 – array.pop()</li>
+<li>删除并返回数组的第一个元素 – array.shift()</li>
+<li><p>数组长度会发生改变</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arry = [<span class="string">'123'</span>,<span class="string">'456'</span>,<span class="string">'789'</span>]</div><div class="line"><span class="built_in">console</span>.log(arry.pop());        <span class="comment">//789</span></div><div class="line"><span class="built_in">console</span>.log(arry.shift());      <span class="comment">//123</span></div><div class="line"><span class="built_in">console</span>.log(arry.length);       <span class="comment">//1</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>在数组的开头添加新元素，可添加多个，返回<strong>新的长度</strong> – array.unshift()</p>
+</li>
+<li><p>在数组的结尾添加新元素，可添加多个，返回<strong>新的长度</strong> – array.push()</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var arry = [<span class="string">'123'</span>,<span class="string">'456'</span>,<span class="string">'789'</span>]</div><div class="line">console.log(arry.unshift(<span class="string">'123'</span>));   <span class="regexp">//</span><span class="number">4</span></div><div class="line">console.log(arry.push(<span class="string">'666'</span>));  <span class="regexp">//</span><span class="number">5</span></div><div class="line">console.log(arry);           <span class="regexp">//</span>[<span class="string">'123'</span>,<span class="string">'123'</span>,<span class="string">'456'</span>,<span class="string">'789'</span>,<span class="string">'666'</span>]</div></pre></td></tr></table></figure>
+</li>
+<li><p>注：unshift() 方法无法在 Internet Explorer 中正确地工作！</p>
+</li>
+</ul>
+<ul>
+<li><p>删除数组中的元素，返回被删除的元素 – splice(start,end)</p>
+</li>
+<li><p>在数组的第n个位置添加一个元素 – splice(n,0,’添加内容’)</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arry = [<span class="string">'123'</span>,<span class="string">'456'</span>,<span class="string">'789'</span>]</div><div class="line">console.log(arry.splice(<span class="number">1</span>,<span class="number">2</span>))   //[<span class="string">"456"</span>, <span class="string">"789"</span>]</div><div class="line">console.log(arry);            //[<span class="string">'123'</span>]</div><div class="line">console.log(arry.splice(<span class="number">1</span>,<span class="number">0</span>,<span class="string">'2'</span>,<span class="string">'2'</span>))    //[]，返回一个空数组</div><div class="line">console.log(arry);           //[<span class="string">'123'</span>,<span class="string">'2'</span>,<span class="string">'2'</span>]</div></pre></td></tr></table></figure>
+</li>
+<li><p>splice(start,end)主要功能是删除数组中的元素，并以<strong>数组的形式</strong>返回被删除的元素。</p>
+</li>
+<li><p>如果起始位置索引大于结束索引，那么代表不删除任何元素，所以可以做添加数组操作</p>
+</li>
+<li><p>合并数组，返回合并后数组 – array.concat(array)，可接受多个参数，即合并多个数组</p>
+</li>
+<li><p>把整个array2当做一个元素放入array1中，返回数组长度 – array1.push(array2);</p>
+</li>
+<li><p>合并array1和array2 – array1.push(array1,array2) </p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var arry1 = [<span class="string">'123'</span>,<span class="string">'456'</span>,<span class="string">'789'</span>]</div><div class="line">var arry2` = [<span class="string">'111'</span>,<span class="string">'222'</span>,<span class="string">'333'</span>]</div><div class="line">console.<span class="built_in">log</span>(arry1.<span class="built_in">concat</span>(arry1,arry2))              //[<span class="string">'123'</span>,<span class="string">'456'</span>,<span class="string">'789'</span>，<span class="string">'111'</span>,<span class="string">'222'</span>,<span class="string">'333'</span>]</div><div class="line">console.<span class="built_in">log</span>(arry1.push(arry1，arry2))             // <span class="number">5</span></div><div class="line">console.<span class="built_in">log</span>(arry1);                                   //[<span class="string">'123'</span>,<span class="string">'456'</span>,<span class="string">'789'</span>,arry1,arry2],可无限展开</div><div class="line">console.<span class="built_in">log</span>(arry1.push。apply(arry1，arry2))        // <span class="number">6</span></div><div class="line">console.<span class="built_in">log</span>(arry1);                             //[<span class="string">'123'</span>,<span class="string">'456'</span>,<span class="string">'789'</span>，<span class="string">'111'</span>,<span class="string">'222'</span>,<span class="string">'333'</span>]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="js中截取字符串的三个函数："><a href="#js中截取字符串的三个函数：" class="headerlink" title="js中截取字符串的三个函数："></a>js中截取字符串的三个函数：</h4><p>substr最好记，就是设置截取的起始位置和长度<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">substr(<span class="built_in">start</span>,[<span class="built_in">length</span>])</div><div class="line"><span class="built_in">start</span>：起始位置，若为负数，则从索引为<span class="number">0</span>处开始计算（转化成<span class="number">0</span>）</div><div class="line"><span class="built_in">length</span>：截取长度，若为负数，返回空字符串</div></pre></td></tr></table></figure></p>
+<p>substring和slice记录的是起始位置和结束位置<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">substring(<span class="keyword">start</span>,[<span class="keyword">end</span>])</div><div class="line"><span class="keyword">start</span>：起始位置，若为负数，则转化为<span class="number">0</span></div><div class="line"><span class="keyword">end</span>：结束位置，若为负数，则转化为<span class="number">0</span></div><div class="line"><span class="keyword">substring</span>()总是把较小的数作为起始位。</div></pre></td></tr></table></figure></p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">slice(<span class="built_in">start</span>,[<span class="keyword">end</span>])</div><div class="line"><span class="built_in">start</span>：起始位置，若为负数，则加上字符串长度后进行计算。即倒序索引</div><div class="line"><span class="keyword">end</span>：结束位置，若为负数，则加上字符串长度后进行计算。即倒序索引</div><div class="line">起始位数字若大于结束位数字，返回空字符串</div></pre></td></tr></table></figure>
+<p>若为正，两者输出相同,输入字符串<code>rcinn.cn</code><br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alert(<span class="name">stmp</span>.slice(<span class="number">0</span>,<span class="number">1</span>))<span class="comment">;     //返回"r"</span></div><div class="line">alert(<span class="name">stmp</span>.substring(<span class="number">0</span>,<span class="number">1</span>))<span class="comment">; //返回"r"</span></div></pre></td></tr></table></figure></p>
+<p>若为负.substring会把负数转换成0，slice则倒序进行截取<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alert(<span class="name">stmp</span>.slice(<span class="number">2</span>,<span class="number">-5</span>))<span class="comment">;     //返回"i"</span></div><div class="line">alert(<span class="name">stmp</span>.substring(<span class="number">2</span>,<span class="number">-5</span>))<span class="comment">;    //返回"rc"</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li>splice  切片</li>
+<li>slice  连接，黏连</li>
+<li>split  分割</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/24/不负我心/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -385,21 +608,14 @@
 
       
         
-          
-            <p>&emsp;&emsp;一次看三毛散文，说到喜欢白日工作完毕，待家人睡去，在夜晚的时光里，喜欢看几本好书，写几句闲谈，练几笔书法。刘墉也是如此，最为欣赏刘墉先生将这些自得其乐的时刻称为“以求不负我心”。</p>
-<p>&emsp;&emsp;相信每个人都多少有点体会，独处的时光如果安排得自在，境界想来十分高妙。</p>
-<p>&emsp;&emsp;无论常住在哪里，总是会有清晨5时起床的生物钟。即便是出门游玩，一群人乐到晚上到一两点才能消停，第二天也总是起得最早的那个。</p>
-<p>&emsp;&emsp;有人喜欢过夜生活，虽然说夜生活总是和糜烂与罪恶联系在一起，但是也不排除有的人，看华灯初上，当世界逐渐陷入沉寂之时，学习和工作效率就越发的开了挂一样刹不住车，孤灯点至清晨。对于这种人我也是充满了敬佩。</p>
-<p>&emsp;&emsp;我是属于每天晚上9点就开始犯困不止，为了不至于真的像一个老年人，所以强撑着到10点多然后才允许自己舒服地躺进被窝。</p>
-<p>&emsp;&emsp;倒不是说有多么自律。也不想理直气壮而且觉得自己健康优秀。只不过是喜欢清晨这段属于我一个人的时光。世界还在沉睡，世界只有我一个人，这时竟然充满了安全感。新的一天还在孕育，又是一个重新开始的机会。</p>
-<p>&emsp;&emsp;白天会把自己绷得死，看书为了提高，写字为了有输出，只有这时，才允许自己放纵一小会儿。泡杯蜂蜜，亮盏灯，捧本书，完全沉浸。书的种类不用太认真，三国老庄固然可以，武侠侦探又有何不可，报纸杂志也能看的自得其乐，这本翻几页不耐看就换。总觉得自己看的书还不够多，还没好好看透红楼，还没和三毛交心，还不知道岩井俊二的故事从何而来…喜欢周末，能有个大片时间属于自己，不去想工作和学习，朋友圈又跟我有什么关系，总是看着看着就忘了时间直到肚子开始抗议，惊觉一天都没有好好吃东西。</p>
-<p>&emsp;&emsp;欣赏看见各人享受生命中隐藏的乐趣，兴趣深的人，活来必然精彩，不会感叹人生空虚乏味无聊。自得其乐，乐在其中，只要不将个人之乐建立在他人痛苦之上，这个社会必然又和又乐。</p>
-<p>&emsp;&emsp;当然，任何事情都得付出代价，早起虽没有晚睡伤身，但是我也自觉每天的睡眠时间大约是不够的。有时候5点睁眼，身体还在抗议我要睡觉，可是一日不早起看一会儿书，就觉得十分丧气，好像这一天都没有了盼头，又抵制不住诱惑想要起床。好在每日都有锻炼，黑眼圈虽重，但身体也没有大毛病。</p>
-<p>&emsp;&emsp;人生最大的快意在于心甘情愿，甘愿做，为什么不做</p>
-<p>&emsp;&emsp;“心之何如，有似万丈迷津，遥亘千里，其中并无舟子可以渡人，除了自渡，他人爱莫能助。”此心谈何容易，认真苦寻，反而不得。</p>
-<p>&emsp;&emsp;天已大亮，该收心上班了</p>
-
-          
+          <p>&emsp;&emsp;一次看三毛散文，说到喜欢白日工作完毕，待家人睡去，在夜晚的时光里，喜欢看几本好书，写几句闲谈，练几笔书法。刘墉也是如此，最为欣赏刘墉先生将这些自得其乐的时刻称为“以求不负我心”。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/24/不负我心/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -571,7 +787,7 @@
           <p>&emsp;&emsp;已经不是第一次碰到这个问题了。关于 eq()、first()等对子元素或者通过索引进行操作的选择器，有空格和无空格，eq()是否包含其本身，虽然想想觉得这个问题也太简单了有什么好说的，然而实际使用的时候总是会出现“卧槽怎么选的是这个元素？”，“尼玛这个事件怎么就是不对？”的懵逼情况。所以在这里还是做一个测试。</p>
 <p>&emsp;&emsp;首先来看今天的例子，两个大盒子boxContent组成，每个boxContent里有一个title和checkbox的div盒子</p>
 <p>&emsp;&emsp;具体结构如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;control-group&quot;&gt;</div><div class="line">    &lt;div class=&quot;boxContent&quot;&gt;</div><div class="line">        &lt;div class=&quot;title&quot;&gt;配电箱1&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;checkbox&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">            &lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">           		 &lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">            推送1</div><div class="line">            &lt;/label&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;input type=&quot;submit&quot; class=&quot;btn unbund&quot; name=&quot;&quot; value=&quot;解绑&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;boxContent&quot;&gt;</div><div class="line">        &lt;div class=&quot;&quot;&gt;配电箱1&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;checkbox&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">            &lt;label class=&quot;checkbox-inline&quot; style=&quot;display: inline-block&quot;&gt;</div><div class="line">          	  &lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;</div><div class="line">            推送2</div><div class="line">            &lt;/label&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;input type=&quot;submit&quot; class=&quot;btn unbund&quot; name=&quot;&quot; value=&quot;解绑&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"control-group"</span>&gt;</div><div class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"boxContent"</span>&gt;</div><div class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"title"</span>&gt;配电箱<span class="number">1</span>&lt;/div&gt;</div><div class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"checkbox"</span> style=<span class="string">"display: inline-block"</span>&gt;</div><div class="line">            &lt;label <span class="class"><span class="keyword">class</span></span>=<span class="string">"checkbox-inline"</span> style=<span class="string">"display: inline-block"</span>&gt;</div><div class="line">           		 &lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"checkbox"</span> value=<span class="string">""</span>&gt;</div><div class="line">            推送<span class="number">1</span></div><div class="line">            &lt;/label&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"submit"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn unbund"</span> name=<span class="string">""</span> value=<span class="string">"解绑"</span>&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"boxContent"</span>&gt;</div><div class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">""</span>&gt;配电箱<span class="number">1</span>&lt;/div&gt;</div><div class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"checkbox"</span> style=<span class="string">"display: inline-block"</span>&gt;</div><div class="line">            &lt;label <span class="class"><span class="keyword">class</span></span>=<span class="string">"checkbox-inline"</span> style=<span class="string">"display: inline-block"</span>&gt;</div><div class="line">          	  &lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"checkbox"</span> value=<span class="string">""</span>&gt;</div><div class="line">            推送<span class="number">2</span></div><div class="line">            &lt;/label&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"submit"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn unbund"</span> name=<span class="string">""</span> value=<span class="string">"解绑"</span>&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/22/元素选择器/#more" rel="contents">
@@ -749,9 +965,9 @@
         
           <p><a href="http://www.jianshu.com/p/02380e5deb38" target="_blank" rel="external">Webpack入门之遇到的那些坑，系列示例Demo</a></p>
 <p>&emsp;&emsp;首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。</p>
-<h4 id="配置完webpack-config-js文件，运行报错"><a href="#配置完webpack-config-js文件，运行报错" class="headerlink" title="配置完webpack.config.js文件，运行报错"></a>配置完webpack.config.js文件，运行报错</h4><h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Unhandled rejection TypeError: chunk.isInitial is not a function</div></pre></td></tr></table></figure>
+<h4 id="配置完webpack-config-js文件，运行报错"><a href="#配置完webpack-config-js文件，运行报错" class="headerlink" title="配置完webpack.config.js文件，运行报错"></a>配置完webpack.config.js文件，运行报错</h4><h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Unhandled rejection TypeError: chunk.isInitial is <span class="keyword">not</span> <span class="keyword">a</span> <span class="function"><span class="keyword">function</span></span></div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;注释掉对css文件的处理语句就恢复正常，这个问题在两次重新配置webpack时都出现了</p>
-<h5 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h5><p>&emsp;&emsp;就是比较坑的版本问题，下载本地webpack@2.2.0，插件extract-text-webpack-plugin@2.1.2，再进行如下配置语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	test: /\.css$/,</div><div class="line">	loader: ExtractTextPlugin.extract(&#123;</div><div class="line">	fallback: &apos;style-loader&apos;,</div><div class="line">	use: &apos;css-loader&apos;</div><div class="line">	&#125;)</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<h5 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h5><p>&emsp;&emsp;就是比较坑的版本问题，下载本地webpack@2.2.0，插件extract-text-webpack-plugin@2.1.2，再进行如下配置语句<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attribute">test</span>: /\.css$/,</div><div class="line">	loader: ExtractTextPlugin.<span class="built_in">extract</span>(&#123;</div><div class="line">	fallback: <span class="string">'style-loader'</span>,</div><div class="line">	use: <span class="string">'css-loader'</span></div><div class="line">	&#125;)</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;成功<br>
           <!--noindex-->
           <div class="post-button text-center">
@@ -934,7 +1150,7 @@
 <p>code splitting  代码分离</p>
 </blockquote>
 <p>&emsp;&emsp;故在此记录一下webpack配置过程，和其中遇到的一些报错问题及其解决方案</p>
-<h3 id="安装和命令行"><a href="#安装和命令行" class="headerlink" title="安装和命令行"></a>安装和命令行</h3><h4 id="1、全局安装"><a href="#1、全局安装" class="headerlink" title="1、全局安装"></a>1、全局安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install webpack -g</div></pre></td></tr></table></figure>
+<h3 id="安装和命令行"><a href="#安装和命令行" class="headerlink" title="安装和命令行"></a>安装和命令行</h3><h4 id="1、全局安装"><a href="#1、全局安装" class="headerlink" title="1、全局安装"></a>1、全局安装</h4><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> webpack -g</div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;webpack的确很强大，但是他的版本是个很头疼的问题。建议不要安装最新的以免出现未知错误找不到解决办法，推荐安装1.0以上3.0以下版本比较稳妥，如果出了问题网上的方法也不至于不靠谱</p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1126,7 +1342,7 @@
 <li>如果加载多个.less样式表文件，每个文件都会被单独编译。因此，一个文件中所定义的任何变量、mixin 或命名空间都无法在其它文件中访问</li>
 <li>在引入Less.js之前之前 定义全局的 less 对象就可以为 Less.js 设置参数：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;!-- set options before less.js script --&gt;</div><div class="line">less = &#123;`</div><div class="line"></div><div class="line">    env: &quot;development&quot;,</div><div class="line">    async: false,</div><div class="line">    fileAsync: false,</div><div class="line">    poll: 1000,</div><div class="line">    functions: &#123;&#125;,</div><div class="line">    dumpLineNumbers: &quot;comments&quot;,</div><div class="line">    relativeUrls: false,</div><div class="line">    rootpath: &quot;:/a.com/&quot;</div><div class="line">     </div><div class="line"> &#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;!-- <span class="builtin-name">set</span> options before less.js<span class="built_in"> script </span>--&gt;</div><div class="line">less = &#123;`</div><div class="line"></div><div class="line">    env: <span class="string">"development"</span>,</div><div class="line">    async: <span class="literal">false</span>,</div><div class="line">    fileAsync: <span class="literal">false</span>,</div><div class="line">    poll: 1000,</div><div class="line">    functions: &#123;&#125;,</div><div class="line">    dumpLineNumbers: <span class="string">"comments"</span>,</div><div class="line">    relativeUrls: <span class="literal">false</span>,</div><div class="line">    rootpath: <span class="string">":/a.com/"</span></div><div class="line">     </div><div class="line"> &#125;;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/09/less学习文档整理/#more" rel="contents">
@@ -1483,8 +1699,8 @@
           <p>本文主要目的是工作便利，作为一个普及说明文档帮助团队从svn转移至git进行项目管理</p>
 <p>参考文档：<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰的git文档</a></p>
 <h2 id="Git的优势"><a href="#Git的优势" class="headerlink" title="Git的优势"></a>Git的优势</h2><h2 id="git仓库的创建与文件提交"><a href="#git仓库的创建与文件提交" class="headerlink" title="git仓库的创建与文件提交"></a>git仓库的创建与文件提交</h2><h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><p>注：如果你使用Windows系统，为了避免遇到各种莫名其妙的问题，请确保目录名（包括父目录）不包含中文。</p>
-<p>通过git init命令把这个目录变成Git可以管理的仓库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git init</div><div class="line"></div><div class="line">Initialized empty Git repository in /Users/michael/learngit/.git/</div></pre></td></tr></table></figure></p>
-<p>用ls -ah命令就可以看见。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ls //查看当前路径文件</div><div class="line">ls -ah  //查看包括隐藏文件的所有文件</div></pre></td></tr></table></figure></p>
+<p>通过git init命令把这个目录变成Git可以管理的仓库：<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git init</div><div class="line"></div><div class="line">Initialized empty Git repository <span class="keyword">in</span> <span class="regexp">/Users/mi</span>chael<span class="regexp">/learngit/</span>.git<span class="regexp">/</span></div></pre></td></tr></table></figure></p>
+<p>用ls -ah命令就可以看见。<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ls</span> <span class="string">//</span>查看当前路径文件</div><div class="line"><span class="keyword">ls</span> -ah  <span class="string">//</span>查看包括隐藏文件的所有文件</div></pre></td></tr></table></figure></p>
 <h3 id="建立仓库后，就可以把项目文件添加到你的路径中"><a href="#建立仓库后，就可以把项目文件添加到你的路径中" class="headerlink" title="建立仓库后，就可以把项目文件添加到你的路径中"></a>建立仓库后，就可以把项目文件添加到你的路径中</h3>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1844,182 +2060,11 @@
           <p>&emsp;&emsp;js没有”子类”和”父类”的概念，也没有”类”（class）和”实例”（instance）的区分，全靠一种很奇特的”原型链”（prototype chain）模式，来实现继承。</p>
 <p>&emsp;&emsp;摘自<a href="http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html" target="_blank" rel="external">Javascript继承机制的设计思想  </a></p>
 <p>&emsp;&emsp;所有的实例对象共享同一个prototype属性，这个属性包含一个对象，那么从外界看起来，prototype属性的对象就好像是实例对象的原型，而实例对象则好像”继承”了prototype对象一样。</p>
-<p>&emsp;&emsp;例如以下的小案例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function PEOPLE(name)&#123;</div><div class="line">　　　　this.name = name;</div><div class="line">　　&#125;</div><div class="line">　　PEOPLE.prototype = &#123; SEX : &apos;man&apos; &#125;;</div><div class="line"></div><div class="line">　　var A = new PEOPLE(&apos;大毛&apos;);</div><div class="line">　　var B = new PEOPLE(&apos;二毛&apos;);</div><div class="line"></div><div class="line">　　alert(A.SEX); // man</div><div class="line">　　alert(B.SEX); // man</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;例如以下的小案例<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">PEOPLE</span><span class="params">(name)</span></span>&#123;</div><div class="line">　　　　<span class="keyword">this</span>.name = name;</div><div class="line">　　&#125;</div><div class="line">　　PEOPLE.prototype = &#123; SEX : <span class="string">'man'</span> &#125;;</div><div class="line"></div><div class="line">　　<span class="keyword">var</span> A = <span class="keyword">new</span> PEOPLE(<span class="string">'大毛'</span>);</div><div class="line">　　<span class="keyword">var</span> B = <span class="keyword">new</span> PEOPLE(<span class="string">'二毛'</span>);</div><div class="line"></div><div class="line">　　alert(A.SEX); <span class="comment">// man</span></div><div class="line">　　alert(B.SEX); <span class="comment">// man</span></div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;也就是A和B继承了POEPLE的属性，如果SEX属性发生改变，则A和B的该属性均会改变<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/06/提取原型——理解继承/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/02/思维模式之如何解决问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Try">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Try_Luies">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/02/思维模式之如何解决问题/" itemprop="url">思维模式之如何解决问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-02T10:07:57+08:00">
-                2017-07-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index">
-                    <span itemprop="name">life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&emsp;&emsp;明天应该穿什么衣服？</p>
-<p>&emsp;&emsp;一个煎饼果汁摊位一天可以赚多少钱？</p>
-<p>&emsp;&emsp;北京地铁一天客流量有多大？</p>
-<p>&emsp;&emsp;你要怎么找到你的人生伴侣？</p>
-<p>&emsp;&emsp;你要怎么实现你的人生价值？</p>
-<p>&emsp;&emsp;人的一生贯穿着无穷无尽的问题，大大小小，事无巨细。有的人让自己所做的每件事都能达到一个具体的目的，就给人一种逻辑缜密井井有条的外在表现。而相反，有的人想一出是一出，就会形成行为混乱，忙活一天也不知道自己干了啥，没有输出的状态。在我开始思考这个问题之后，发现身边优秀的人就是在高效、精准地解决生活和工作的一个个问题中度过一天的。</p>
-<p>&emsp;&emsp;如何解决一个问题？这可以说的很大，但是如果真的要上升到如何实现人生价值或者帮你找到人生伴侣的层面，我怕我还资历不够造成了不必要的误导。所以为了说清楚今天要讲述的话题，我计划通过分析生活中的几个案例，来让大家体验一下我所理解的解决问题的方法论。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/02/思维模式之如何解决问题/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -2107,7 +2152,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -2129,7 +2174,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">tags</span>
               
             </div>
