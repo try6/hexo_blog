@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="array,js," />
+  <meta name="keywords" content="js,array," />
 
 
 
@@ -95,14 +95,14 @@
 
 
 <meta name="description" content="对数组元素进行增删改 在数组结尾增加元素 – array.push(‘元素内容’)，并返回新的长度 12345    $.each($(&apos;.unbundBox .boxContent&apos;), function() &amp;#123;    delBox.push(&amp;#123;    	&apos;boxId&apos;: $(this).attr(&apos;id&apos;),    &amp;#125;);&amp;#125;)  删除索引为n的元素 –">
-<meta name="keywords" content="array,js">
+<meta name="keywords" content="js,array">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对数组的一些易混淆操作">
 <meta property="og:url" content="http://yoursite.com/2017/08/28/对数组的一些易混淆操作/index.html">
 <meta property="og:site_name" content="Try_Luies">
 <meta property="og:description" content="对数组元素进行增删改 在数组结尾增加元素 – array.push(‘元素内容’)，并返回新的长度 12345    $.each($(&apos;.unbundBox .boxContent&apos;), function() &amp;#123;    delBox.push(&amp;#123;    	&apos;boxId&apos;: $(this).attr(&apos;id&apos;),    &amp;#125;);&amp;#125;)  删除索引为n的元素 –">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-08-28T12:17:34.102Z">
+<meta property="og:updated_time" content="2017-09-04T09:22:37.072Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对数组的一些易混淆操作">
 <meta name="twitter:description" content="对数组元素进行增删改 在数组结尾增加元素 – array.push(‘元素内容’)，并返回新的长度 12345    $.each($(&apos;.unbundBox .boxContent&apos;), function() &amp;#123;    delBox.push(&amp;#123;    	&apos;boxId&apos;: $(this).attr(&apos;id&apos;),    &amp;#125;);&amp;#125;)  删除索引为n的元素 –">
@@ -403,8 +403,10 @@
 <li><p>删除索引为n的元素 – array.splice(n,1)</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//移除delbox中相应的值，splice</span></div><div class="line">$.each(delBox, <span class="function"><span class="keyword">function</span>(<span class="params">index</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.boxId == box.attr(<span class="string">'id'</span>)) &#123;</div><div class="line">        delBox.splice(index, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>在数组的第n个位置处增加元素 – splice(n,0,’添加内容’)<br>// 拼接函数(索引位置, 要删除元素的数量, 元素)</p>
-</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>在数组的第n个位置处增加元素 – splice(n,0,’添加内容’)<br>// 拼接函数(索引位置, 要删除元素的数量, 元素)</li>
 </ul>
 <ul>
 <li>删除并返回数组的最后一个元素 – array.pop()</li>
@@ -415,7 +417,7 @@
 <li><p>在数组的开头添加新元素，可添加多个，返回<strong>新的长度</strong> – array.unshift()</p>
 </li>
 <li><p>在数组的结尾添加新元素，可添加多个，返回<strong>新的长度</strong> – array.push()</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var arry = [<span class="string">'123'</span>,<span class="string">'456'</span>,<span class="string">'789'</span>]</div><div class="line">console.log(arry.unshift(<span class="string">'123'</span>));   <span class="regexp">//</span><span class="number">4</span></div><div class="line">console.log(arry.push(<span class="string">'666'</span>));  <span class="regexp">//</span><span class="number">5</span></div><div class="line">console.log(arry);           <span class="regexp">//</span>[<span class="string">'123'</span>,<span class="string">'123'</span>,<span class="string">'456'</span>,<span class="string">'789'</span>,<span class="string">'666'</span>]</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arry = [<span class="string">'123'</span>,<span class="string">'456'</span>,<span class="string">'789'</span>]</div><div class="line"><span class="built_in">console</span>.log(arry.unshift(<span class="string">'123'</span>));   <span class="comment">//4</span></div><div class="line"><span class="built_in">console</span>.log(arry.push(<span class="string">'666'</span>));  <span class="comment">//5</span></div><div class="line"><span class="built_in">console</span>.log(arry);           <span class="xml"><span class="comment">&lt;!-- //['123','123','456','789','666'] --&gt;</span></span></div></pre></td></tr></table></figure>
 </li>
 <li><p>注：unshift() 方法无法在 Internet Explorer 中正确地工作！</p>
 </li>
@@ -424,7 +426,7 @@
 <li><p>删除数组中的元素，返回被删除的元素 – splice(start,end)</p>
 </li>
 <li><p>在数组的第n个位置添加一个元素 – splice(n,0,’添加内容’)</p>
-<figure class="highlight prolog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arry = [<span class="string">'123'</span>,<span class="string">'456'</span>,<span class="string">'789'</span>]</div><div class="line">console.log(arry.splice(<span class="number">1</span>,<span class="number">2</span>))   //[<span class="string">"456"</span>, <span class="string">"789"</span>]</div><div class="line">console.log(arry);            //[<span class="string">'123'</span>]</div><div class="line">console.log(arry.splice(<span class="number">1</span>,<span class="number">0</span>,<span class="string">'2'</span>,<span class="string">'2'</span>))    //[]，返回一个空数组</div><div class="line">console.log(arry);           //[<span class="string">'123'</span>,<span class="string">'2'</span>,<span class="string">'2'</span>]</div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arry = ['123','456','789']</div><div class="line">console.log(arry.splice(1,2))   <span class="comment">&lt;!-- ["456", "789"] --&gt;</span></div><div class="line">console.log(arry);           <span class="comment">&lt;!--  ['123'] --&gt;</span></div><div class="line">console.log(arry.splice(1,0,'2','2'))    <span class="comment">&lt;!-- []，返回一个空数组 --&gt;</span></div><div class="line">console.log(arry);          <span class="comment">&lt;!--  ['123','2','2'] --&gt;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>splice(start,end)主要功能是删除数组中的元素，并以<strong>数组的形式</strong>返回被删除的元素。</p>
 </li>
@@ -435,14 +437,16 @@
 <li><p>把整个array2当做一个元素放入array1中，返回数组长度 – array1.push(array2);</p>
 </li>
 <li><p>合并array1和array2 – array1.push(array1,array2) </p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var arry1 = [<span class="string">'123'</span>,<span class="string">'456'</span>,<span class="string">'789'</span>]</div><div class="line">var arry2` = [<span class="string">'111'</span>,<span class="string">'222'</span>,<span class="string">'333'</span>]</div><div class="line">console.<span class="built_in">log</span>(arry1.<span class="built_in">concat</span>(arry1,arry2))              //[<span class="string">'123'</span>,<span class="string">'456'</span>,<span class="string">'789'</span>，<span class="string">'111'</span>,<span class="string">'222'</span>,<span class="string">'333'</span>]</div><div class="line">console.<span class="built_in">log</span>(arry1.push(arry1，arry2))             // <span class="number">5</span></div><div class="line">console.<span class="built_in">log</span>(arry1);                                   //[<span class="string">'123'</span>,<span class="string">'456'</span>,<span class="string">'789'</span>,arry1,arry2],可无限展开</div><div class="line">console.<span class="built_in">log</span>(arry1.push。apply(arry1，arry2))        // <span class="number">6</span></div><div class="line">console.<span class="built_in">log</span>(arry1);                             //[<span class="string">'123'</span>,<span class="string">'456'</span>,<span class="string">'789'</span>，<span class="string">'111'</span>,<span class="string">'222'</span>,<span class="string">'333'</span>]</div></pre></td></tr></table></figure>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var arry1 = [<span class="string">'123'</span>,<span class="string">'456'</span>,<span class="string">'789'</span>]</div><div class="line">var arry2`<span class="javascript"> = [<span class="string">'111'</span>,<span class="string">'222'</span>,<span class="string">'333'</span>]</span></div><div class="line"><span class="javascript"><span class="built_in">console</span>.log(arry1.concat(arry1,arry2));	<span class="xml"><span class="comment">&lt;!-- ['123','456','789','111','222','333'] --&gt;</span></span></span></div><div class="line"><span class="javascript"><span class="built_in">console</span>.log(arry1.push(arry1，arry2));          <span class="comment">// 5</span></span></div><div class="line"><span class="javascript"><span class="built_in">console</span>.log(arry1);                               <span class="xml"><span class="comment">&lt;!-- ['123','456','789',arry1,arry2],可无限展开 --&gt;</span></span></span></div><div class="line"><span class="javascript"><span class="built_in">console</span>.log(arry1.push。apply(arry1，arry2))      <span class="comment">// 6</span></span></div><div class="line"><span class="javascript"><span class="built_in">console</span>.log(arry1);                           <span class="xml"><span class="comment">&lt;!-- ['123','456','789'，'111','222','333'] --&gt;</span></span></span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="js中截取字符串的三个函数："><a href="#js中截取字符串的三个函数：" class="headerlink" title="js中截取字符串的三个函数："></a>js中截取字符串的三个函数：</h4><p>substr最好记，就是设置截取的起始位置和长度<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">substr(<span class="built_in">start</span>,[<span class="built_in">length</span>])</div><div class="line"><span class="built_in">start</span>：起始位置，若为负数，则从索引为<span class="number">0</span>处开始计算（转化成<span class="number">0</span>）</div><div class="line"><span class="built_in">length</span>：截取长度，若为负数，返回空字符串</div></pre></td></tr></table></figure></p>
+<h4 id="js中截取字符串的三个函数："><a href="#js中截取字符串的三个函数：" class="headerlink" title="js中截取字符串的三个函数："></a>js中截取字符串的三个函数：</h4><p>这部分乍一看好像和数组没什么关系，但是在实际项目中通过对字符串的截取，再使用split等方法，可以实现对字符串进行丰富的数组转化。故放到这个模块。</p>
+<p>substr最好记，就是设置截取的起始位置和长度<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">substr(<span class="built_in">start</span>,[<span class="built_in">length</span>])</div><div class="line"><span class="built_in">start</span>：起始位置，若为负数，则从索引为<span class="number">0</span>处开始计算（转化成<span class="number">0</span>）</div><div class="line"><span class="built_in">length</span>：截取长度，若为负数，返回空字符串</div></pre></td></tr></table></figure></p>
 <p>substring和slice记录的是起始位置和结束位置<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">substring(<span class="keyword">start</span>,[<span class="keyword">end</span>])</div><div class="line"><span class="keyword">start</span>：起始位置，若为负数，则转化为<span class="number">0</span></div><div class="line"><span class="keyword">end</span>：结束位置，若为负数，则转化为<span class="number">0</span></div><div class="line"><span class="keyword">substring</span>()总是把较小的数作为起始位。</div></pre></td></tr></table></figure></p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">slice(<span class="built_in">start</span>,[<span class="keyword">end</span>])</div><div class="line"><span class="built_in">start</span>：起始位置，若为负数，则加上字符串长度后进行计算。即倒序索引</div><div class="line"><span class="keyword">end</span>：结束位置，若为负数，则加上字符串长度后进行计算。即倒序索引</div><div class="line">起始位数字若大于结束位数字，返回空字符串</div></pre></td></tr></table></figure>
 <p>若为正，两者输出相同,输入字符串<code>rcinn.cn</code><br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alert(<span class="name">stmp</span>.slice(<span class="number">0</span>,<span class="number">1</span>))<span class="comment">;     //返回"r"</span></div><div class="line">alert(<span class="name">stmp</span>.substring(<span class="number">0</span>,<span class="number">1</span>))<span class="comment">; //返回"r"</span></div></pre></td></tr></table></figure></p>
 <p>若为负.substring会把负数转换成0，slice则倒序进行截取<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alert(<span class="name">stmp</span>.slice(<span class="number">2</span>,<span class="number">-5</span>))<span class="comment">;     //返回"i"</span></div><div class="line">alert(<span class="name">stmp</span>.substring(<span class="number">2</span>,<span class="number">-5</span>))<span class="comment">;    //返回"rc"</span></div></pre></td></tr></table></figure></p>
+<p>三个容易混淆的词，可以从它们的英文意思来理解</p>
 <ul>
 <li>splice  切片</li>
 <li>slice  连接，黏连</li>
@@ -465,9 +469,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/array/" rel="tag"># array</a>
-          
             <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/array/" rel="tag"># array</a>
           
         </div>
       
@@ -489,6 +493,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/03/瀑布流布局/" rel="prev" title="瀑布流布局(分页加载)">
+                瀑布流布局(分页加载) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
