@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js,array," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="&amp;emsp;&amp;emsp;这是一个工作项目的功能之一。作为一个小菜鸟这个功能调了一个星期才终于成功发布，虽然有部分是因为前期需求不清晰的缘故导致的几次推翻重来，但其间也的确遇到了很多问题。也不是说功能有多复杂，主要是频繁地涉及到了对数组的操作，以及需要对各种情况的全面考虑。整个功能独立坐下来收获颇多，在此记录。当然如果有更好的办法，欢迎探讨。 一、功能需求说明 给指定用户绑定和解绑配电箱 传入用户名">
+<meta name="keywords" content="js,array">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多选框传递数据实操案例">
+<meta property="og:url" content="http://yoursite.com/2017/09/08/多选框传递数据案例/index.html">
+<meta property="og:site_name" content="Try_Luies">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;这是一个工作项目的功能之一。作为一个小菜鸟这个功能调了一个星期才终于成功发布，虽然有部分是因为前期需求不清晰的缘故导致的几次推翻重来，但其间也的确遇到了很多问题。也不是说功能有多复杂，主要是频繁地涉及到了对数组的操作，以及需要对各种情况的全面考虑。整个功能独立坐下来收获颇多，在此记录。当然如果有更好的办法，欢迎探讨。 一、功能需求说明 给指定用户绑定和解绑配电箱 传入用户名">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://note.youdao.com/yws/public/resource/c72cf7daad03d6b399d191782b46fa9c/xmlnote/9124F957AA254CC581949728946C90B0/9190">
+<meta property="og:updated_time" content="2017-09-12T01:36:48.470Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多选框传递数据实操案例">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;这是一个工作项目的功能之一。作为一个小菜鸟这个功能调了一个星期才终于成功发布，虽然有部分是因为前期需求不清晰的缘故导致的几次推翻重来，但其间也的确遇到了很多问题。也不是说功能有多复杂，主要是频繁地涉及到了对数组的操作，以及需要对各种情况的全面考虑。整个功能独立坐下来收获颇多，在此记录。当然如果有更好的办法，欢迎探讨。 一、功能需求说明 给指定用户绑定和解绑配电箱 传入用户名">
+<meta name="twitter:image" content="http://note.youdao.com/yws/public/resource/c72cf7daad03d6b399d191782b46fa9c/xmlnote/9124F957AA254CC581949728946C90B0/9190">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/08/多选框传递数据案例/"/>
+
+
+
+
+
+  <title>多选框传递数据实操案例 | Try_Luies</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Try_Luies</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/08/多选框传递数据案例/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">多选框传递数据实操案例</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-08T17:03:12+08:00">
+                2017-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">study</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/web-develope/" itemprop="url" rel="index">
+                    <span itemprop="name">web-develope</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&emsp;&emsp;这是一个工作项目的功能之一。作为一个小菜鸟这个功能调了一个星期才终于成功发布，虽然有部分是因为前期需求不清晰的缘故导致的几次推翻重来，但其间也的确遇到了很多问题。也不是说功能有多复杂，主要是频繁地涉及到了对数组的操作，以及需要对各种情况的全面考虑。整个功能独立坐下来收获颇多，在此记录。当然如果有更好的办法，欢迎探讨。</p>
+<h4 id="一、功能需求说明"><a href="#一、功能需求说明" class="headerlink" title="一、功能需求说明"></a>一、功能需求说明</h4><ul>
+<li>给指定用户绑定和解绑配电箱</li>
+<li>传入用户名(userName)，获取该用户下的已绑定配电箱(bundList)和未绑定配电箱列表(unBunList)</li>
+<li>可分别对已绑定配电箱列表和未绑定列表按名称查询配电箱，支持模糊查询</li>
+<li>可对已绑定配电箱设置是否开启短信功能</li>
+<li>可对已绑定配电箱进行解绑操作</li>
+<li>可对未绑定配电箱进行绑定操作</li>
+<li>完成所有操作后用户后点击保存<a id="more"></a>
+</li>
+</ul>
+<h4 id="二、接口文档"><a href="#二、接口文档" class="headerlink" title="二、接口文档"></a>二、接口文档</h4><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//查询配电箱接口：</span></div><div class="line"><span class="string">"req"</span>:&#123;</div><div class="line"> <span class="string">"userName"</span>:用户名称<span class="string">"</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//返回结果</span></div><div class="line">&#123;	</div><div class="line"><span class="string">"code"</span>:<span class="number">0</span>,</div><div class="line"><span class="string">"result"</span>&#123;</div><div class="line">       <span class="string">"bindBoxList"</span>:</div><div class="line">        [&#123;</div><div class="line">            <span class="string">"boxId"</span>:<span class="string">"配电箱Id"</span>,</div><div class="line">            <span class="string">"boxName"</span>:<span class="string">"配电箱1"</span>,</div><div class="line">            <span class="string">"properties"</span>:<span class="string">"0"</span>     <span class="comment">//短信使能</span></div><div class="line">        &#125;]</div><div class="line">        <span class="string">"unBindBoxList"</span>:</div><div class="line">        [&#123;</div><div class="line">            <span class="string">"boxId"</span>:<span class="string">"配电箱Id"</span>,</div><div class="line">            <span class="string">"boxName"</span>:<span class="string">"配电箱1"</span>,</div><div class="line">		        &#125;]</div><div class="line"></div><div class="line">    &#125;		</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//绑定配电箱接口</span></div><div class="line">&#123;</div><div class="line">    <span class="string">"req"</span>:</div><div class="line">    &#123;</div><div class="line">        <span class="string">"userName"</span>:<span class="string">"用户名称"</span>,</div><div class="line">        <span class="string">"delBoxIdList"</span>:</div><div class="line">        [</div><div class="line">            &#123; <span class="string">"boxId"</span>:<span class="string">"配电箱Id"</span>&#125;,</div><div class="line">            &#123;<span class="string">"boxId"</span>:<span class="string">"配电箱Id"</span>&#125;</div><div class="line">        ],</div><div class="line">        <span class="string">"addBoxIdList"</span>:[</div><div class="line">        &#123;</div><div class="line">            <span class="string">"boxId"</span>:<span class="string">"配电箱Id"</span>,</div><div class="line">            <span class="string">"properties"</span>:<span class="string">"0"</span></div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            <span class="string">"boxId"</span>:<span class="string">"配电箱Id"</span>,</div><div class="line">            <span class="string">"properties"</span>:<span class="string">"短信使能</span></div><div class="line">        &#125;],</div><div class="line">        <span class="string">"updateBoxIdList"</span>:[</div><div class="line">        &#123;</div><div class="line">            <span class="string">"boxId"</span>:<span class="string">"配电箱Id"</span>,</div><div class="line">            <span class="string">"properties"</span>:<span class="string">"短信使能</span></div><div class="line"></div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            <span class="string">"boxId"</span>:<span class="string">"配电箱Id"</span>,</div><div class="line">            <span class="string">"properties"</span>:<span class="string">"短信使能</span></div><div class="line">        &#125;]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="三、界面搭建样式"><a href="#三、界面搭建样式" class="headerlink" title="三、界面搭建样式"></a>三、界面搭建样式</h4><p>界面元素不多，就直接使用了两个容器分别放置两个列表，因为数据列表会有几十个上百个的情况，所以给列表加了鼠标滚轮。<br>解绑和绑定都使用按钮实现<br>最终界面效果如下：</p>
+<p><img src="http://note.youdao.com/yws/public/resource/c72cf7daad03d6b399d191782b46fa9c/xmlnote/9124F957AA254CC581949728946C90B0/9190" alt="image"></p>
+<h4 id="四、逻辑设计"><a href="#四、逻辑设计" class="headerlink" title="四、逻辑设计"></a>四、逻辑设计</h4><p>进入界面的时候传入用户名，返回两个列表。根据页面的html结构动态建立列表。</p>
+<h5 id="1）模糊查询功能"><a href="#1）模糊查询功能" class="headerlink" title="1）模糊查询功能"></a>1）模糊查询功能</h5><p>这里的模糊查询功能比较简单，而且是查询界面中的内容，所以可以在前端实现，提高效率</p>
+<p>使用el.indexOf(keyWord),如果el中不含keyword，会返回-1。这里的keyword为查询时输入的关键字<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//模糊查询</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">queryBund</span>(<span class="params">ban, query</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> keyWord = query.val();</div><div class="line">    text.each(<span class="function"><span class="keyword">function</span>(<span class="params">index, value</span>) </span>&#123;</div><div class="line">        <span class="comment">//如果字符串中不包含目标字符会返回-1</span></div><div class="line">        <span class="keyword">if</span> ($(value).text().indexOf(keyWord) &gt;= <span class="number">0</span>) </div><div class="line">        &#123;</div><div class="line">            $(value).parent(<span class="string">'.boxContent'</span>).css(&#123;</div><div class="line">                <span class="string">'display'</span>: <span class="string">''</span></div><div class="line">            &#125;)</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            $(value).parent(<span class="string">'.boxContent'</span>).css(&#123;</div><div class="line">                <span class="string">'display'</span>: <span class="string">'none'</span></div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="2）操作逻辑-重点"><a href="#2）操作逻辑-重点" class="headerlink" title="2）操作逻辑(重点)"></a>2）操作逻辑(重点)</h5><p>根据接口文档可知，需要传入三个列表的数据：解绑列表（delBoxIdList），添加列表（addBoxIdList）、修改列表（updateBoxIdList）</p>
+<p>所以一开始定义三个全局数组,用于存储相应配电箱</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var AddBox</span> = [];</div><div class="line"><span class="attribute">var delBox</span> = [];</div><div class="line"><span class="attribute">var upDateBox</span> = [];</div></pre></td></tr></table></figure>
+<p>主体思路其实很简单，就是涉及到三个操作。</p>
+<ul>
+<li>操作一：点击“解绑”按钮，<code>绑定配电箱列表</code>中删除该配电箱，<code>未绑定配电箱列表</code>中增加该配电箱；保存当前操作的配电箱，放入解绑列表（delBoxIdList）</li>
+<li>操作二：点击“绑定”按钮，<code>未绑定配电箱列表</code>中删除该配电箱，<code>绑定配电箱列表</code>中增加该配电箱；保存当前操作的配电箱和短信使能状态（默认为0，不设置），放入添加列表（addBoxIdList）</li>
+<li>操作三：在已绑定列表中点击“设置短信使能”勾选框，保存当前条目的配电箱和短信使能状态，放入修改列表（updateBoxIdList）</li>
+</ul>
+<ol>
+<li><strong>解绑和绑定操作</strong></li>
+</ol>
+<p>解绑和绑定的操作其实本质上是一样的，当触发按钮点击事件时，删除当前节点，并在另一个列表中创建一个新节点，同时传递这个配电箱的名称。这里以“绑定”操作举例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//绑定配电箱</span></div><div class="line">$(<span class="string">'.unbundBox'</span>).on(<span class="string">'click'</span>, <span class="string">'.bund'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//获取绑定配电箱Id和短信使能	</span></div><div class="line">    <span class="keyword">var</span> properties = <span class="literal">false</span>; <span class="comment">//绑定时默认返回0</span></div><div class="line">    <span class="keyword">var</span> box = $(<span class="keyword">this</span>).parent(<span class="string">'.boxContent'</span>);</div><div class="line">    <span class="keyword">var</span> boxContent = $(<span class="string">'&lt;div&gt;'</span>).addClass(<span class="string">'boxContent'</span>).attr(&#123;</div><div class="line">        <span class="string">'id'</span>: box.attr(<span class="string">'id'</span>)</div><div class="line">    &#125;);</div><div class="line">    AddBox.push(</div><div class="line">        &#123;</div><div class="line">        <span class="string">'boxId'</span>: box.attr(<span class="string">'id'</span>),</div><div class="line">        <span class="string">'properties'</span>: properties</div><div class="line">        &#125;</div><div class="line">    )</div><div class="line">    <span class="comment">//移除当前boxContent节点</span></div><div class="line">    box.remove();</div><div class="line">    </div><div class="line">    <span class="comment">//在已绑定配电箱列表中增加节点</span></div><div class="line">    <span class="comment">/*选择绑定的配电箱名称从当前未绑定配电箱点击元素的标签组中获取*/</span></div><div class="line">    <span class="keyword">var</span> text = $(<span class="keyword">this</span>).siblings(<span class="string">'.control-label'</span>).text();</div><div class="line">    createBund(boxContent, text, properties);</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//配电箱绑定列表创建</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createBund</span>(<span class="params">boxContent, boxName, checkState</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> select = $(<span class="string">'.boxContent:first .checkbox'</span>);</div><div class="line">	<span class="keyword">var</span> checkBox = $(<span class="string">'&lt;div&gt;'</span>).addClass(<span class="string">'checkbox'</span>);</div><div class="line">	<span class="keyword">var</span> inline = $(<span class="string">'&lt;label&gt;'</span>).css(&#123;</div><div class="line">		<span class="string">'display'</span>: <span class="string">'inline-block'</span></div><div class="line">	&#125;).text(<span class="string">'设置短信消息推送'</span>);</div><div class="line"></div><div class="line">	<span class="keyword">var</span> selectBox = $(<span class="string">'&lt;input&gt;'</span>).attr(&#123;</div><div class="line">		type: <span class="string">'checkbox'</span>,</div><div class="line">		checked: checkState</div><div class="line">	&#125;).addClass(<span class="string">'selectBox'</span>);</div><div class="line"></div><div class="line">	checkBox.append(selectBox).append(inline);</div><div class="line">	<span class="keyword">var</span> inputBund = $(<span class="string">'&lt;input&gt;'</span>).addClass(<span class="string">'unbund'</span>).addClass(<span class="string">'btn'</span>).val(<span class="string">'解绑'</span>).attr(&#123;</div><div class="line">		<span class="string">'type'</span>: <span class="string">'button'</span></div><div class="line">	&#125;);</div><div class="line">	<span class="keyword">var</span> label = $(<span class="string">'&lt;div&gt;'</span>).addClass(<span class="string">'control-label'</span>).text(boxName);</div><div class="line">	$(<span class="string">'.bundBox .control-group'</span>).append(boxContent);</div><div class="line">	boxContent.append(label).append(checkBox).append(inputBund);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以上写法看起来好像没有问题，但其实无法运行。比如说用户先解绑一个配电箱，这个配电箱被加入delList,随后用户觉得自己操作错了，再把这个配电箱加回来，那么这个配电箱就会同时出现在delList和AddList中,用户对同一个配电箱多次操作，数组中还会出现重复数据，这些问题都会导致传参失败。</p>
+<p>也就是我们需要在用户进行操作的时候进行判断，排除重复操作</p>
+<p>最终想到的方案是，模拟多选框，给新增的项目附上背景颜色，在点击的时候进行判断，对被点击项有颜色和无颜色进行不同的操作。</p>
+<p>无背景颜色：为新增项，加入相应数组，附上背景颜色</p>
+<p>有背景颜色：为已经操作过的项目，从已有数组中删除，去掉背景颜色<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//绑定配电箱操作判断</span></div><div class="line"><span class="keyword">if</span> (box.css(<span class="string">'background-color'</span>) != <span class="string">'rgb(217, 217, 255)'</span>) &#123;</div><div class="line">    <span class="comment">//这里颜色要使用rgb模式</span></div><div class="line">    AddBox.push(&#123;</div><div class="line">        <span class="string">'boxId'</span>: box.attr(<span class="string">'id'</span>),</div><div class="line">        <span class="string">'properties'</span>: properties</div><div class="line">    &#125;);</div><div class="line">    boxContent.css(&#123;</div><div class="line">        <span class="string">'background'</span>: <span class="string">'#d9d9ff'</span></div><div class="line">    &#125;);</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    boxContent.css( <span class="string">'background'</span>,<span class="string">''</span> );</div><div class="line">    <span class="comment">//移除delbox中相应的值</span></div><div class="line">    $.each(delBox, <span class="function"><span class="keyword">function</span>(<span class="params">index</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.boxId == box.attr(<span class="string">'id'</span>)) &#123;</div><div class="line">            <span class="comment">//splice方法，删除数组中指定索引元素</span></div><div class="line">            delBox.splice(index, <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<ol>
+<li><strong>修改操作</strong></li>
+</ol>
+<p>修改操作主要是对复选框状态变化的监听,选中状态<code>properties = 1</code>，未选中状态<code>properties = 0</code><br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var properties</span> = box.prop(<span class="string">'checked'</span>) ? 1 : 0;</div></pre></td></tr></table></figure></p>
+<p>对于用户新增进来的配电箱，修改其短信使能不是加入修改列表(updateList中)，而是修改AddList中的短信使能状态<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">if</span> (boxContent.css(<span class="string">'background-color'</span>) == <span class="string">'rgb(217, 217, 255)'</span>) &#123;</div><div class="line">    for (var i = <span class="number">0</span>; i &lt; AddBox.length; i++) &#123;</div><div class="line">        if (AddBox[i].boxId == box.parents(<span class="string">'.boxContent'</span>).attr(<span class="string">'id'</span>)) &#123;</div><div class="line">            AddBox[i] = &#123;</div><div class="line">                <span class="string">'boxId'</span>: boxContent.attr(<span class="string">'id'</span>),</div><div class="line">                <span class="string">'properties'</span>: properties</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>同样的，需要排除用户的重复操作</p>
+<p>在第一次操作时为当前项设置背景色（这里的颜色要和添加进来的背景颜色区分开）</p>
+<p>而如果不是第一次操作，则删除updateList中的相应配电箱，并把背景色清空<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">else</span> <span class="keyword">if</span> (boxContent.css(<span class="string">'background-color'</span>) == <span class="string">'rgb(217, 217, 254)'</span>) &#123;</div><div class="line">    boxContent.css(&#123;</div><div class="line">        <span class="string">'background'</span>: <span class="string">''</span></div><div class="line">    &#125;);</div><div class="line">    <span class="comment">//移除upDateBox中相应的元素</span></div><div class="line">    $.each(upDateBox, <span class="function"><span class="keyword">function</span>(<span class="params">index</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.boxId == boxContent.attr(<span class="string">'id'</span>)) &#123;</div><div class="line">            upDateBox.splice(index, <span class="number">1</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    upDateBox.push(&#123;</div><div class="line">        <span class="string">'boxId'</span>: boxContent.attr(<span class="string">'id'</span>),</div><div class="line">        <span class="string">'properties'</span>: properties</div><div class="line">    &#125;);</div><div class="line">    boxContent.css(&#123;</div><div class="line">        <span class="string">'background-color'</span>: <span class="string">'rgb(217, 217, 254)'</span></div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>最后，点击确定，传入三个数组，提交保存，完成</strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/array/" rel="tag"># array</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/03/瀑布流布局/" rel="next" title="瀑布流布局(分页加载)">
+                <i class="fa fa-chevron-left"></i> 瀑布流布局(分页加载)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpg"
+               alt="Try" />
+          <p class="site-author-name" itemprop="name">Try</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/try6" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2680387355?refer_flag=1001030103_" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、功能需求说明"><span class="nav-number">1.</span> <span class="nav-text">一、功能需求说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、接口文档"><span class="nav-number">2.</span> <span class="nav-text">二、接口文档</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、界面搭建样式"><span class="nav-number">3.</span> <span class="nav-text">三、界面搭建样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、逻辑设计"><span class="nav-number">4.</span> <span class="nav-text">四、逻辑设计</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1）模糊查询功能"><span class="nav-number">4.1.</span> <span class="nav-text">1）模糊查询功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2）操作逻辑-重点"><span class="nav-number">4.2.</span> <span class="nav-text">2）操作逻辑(重点)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Try</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

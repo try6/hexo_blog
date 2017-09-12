@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Try_Luies">
 <meta property="og:description" content="Webpack入门之遇到的那些坑，系列示例Demo &amp;emsp;&amp;emsp;首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。 配置完webpack.config.js文件，运行报错说明1Unhandled rejection TypeError: chunk.isInitial is not a functio">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-08-18T12:22:19.515Z">
+<meta property="og:updated_time" content="2017-09-05T08:46:27.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Webpack入门学习（二、踩坑篇）">
 <meta name="twitter:description" content="Webpack入门之遇到的那些坑，系列示例Demo &amp;emsp;&amp;emsp;首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。 配置完webpack.config.js文件，运行报错说明1Unhandled rejection TypeError: chunk.isInitial is not a functio">
@@ -413,7 +413,7 @@
 <ul>
 <li>解决方案3:</li>
 </ul>
-<p>&emsp;&emsp;干掉node进程，之前被webpack占用的端口就会被放出来<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tskill <span class="keyword">node</span><span class="title"></span></div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;干掉node进程，之前被webpack占用的端口就会被放出来（网上还有很多释放端口的方法，都可以解决这个问题）<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tskill <span class="keyword">node</span><span class="title"></span></div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;成功</p>
 <h4 id="加载html模板失败"><a href="#加载html模板失败" class="headerlink" title="加载html模板失败"></a>加载html模板失败</h4><figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Can't resolve './layout/head-common.html' in 'E:<span class="symbol">\s</span>tudy<span class="symbol">\2</span>0170814<span class="symbol">\w</span>ebpack-test<span class="symbol">\s</span>rc<span class="symbol">\v</span>iew</div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;这个问题很奇怪，我在Body中引入就不会报错，而在head中引入头文件就报错，头文件就算为空也依然报错<br>（持续更新）</p>
@@ -538,7 +538,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -560,7 +560,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">tags</span>
               
             </div>
