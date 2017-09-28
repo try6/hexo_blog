@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="array,js," />
+  <meta name="keywords" content="js,array," />
 
 
 
@@ -95,7 +95,7 @@
 
 
 <meta name="description" content="&amp;emsp;&amp;emsp;这是一个工作项目的功能之一。作为一个小菜鸟这个功能调了一个星期才终于成功发布，虽然有部分是因为前期需求不清晰的缘故导致的几次推翻重来，但其间也的确遇到了很多问题。也不是说功能有多复杂，主要是频繁地涉及到了对数组的操作，以及需要对各种情况的全面考虑。整个功能独立坐下来收获颇多，在此记录。当然如果有更好的办法，欢迎探讨。 一、功能需求说明 给指定用户绑定和解绑配电箱 传入用户名">
-<meta name="keywords" content="array,js">
+<meta name="keywords" content="js,array">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多选框传递数据实操案例">
 <meta property="og:url" content="http://yoursite.com/2017/09/08/多选框传递数据案例/index.html">
@@ -103,7 +103,7 @@
 <meta property="og:description" content="&amp;emsp;&amp;emsp;这是一个工作项目的功能之一。作为一个小菜鸟这个功能调了一个星期才终于成功发布，虽然有部分是因为前期需求不清晰的缘故导致的几次推翻重来，但其间也的确遇到了很多问题。也不是说功能有多复杂，主要是频繁地涉及到了对数组的操作，以及需要对各种情况的全面考虑。整个功能独立坐下来收获颇多，在此记录。当然如果有更好的办法，欢迎探讨。 一、功能需求说明 给指定用户绑定和解绑配电箱 传入用户名">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://note.youdao.com/yws/public/resource/c72cf7daad03d6b399d191782b46fa9c/xmlnote/9124F957AA254CC581949728946C90B0/9190">
-<meta property="og:updated_time" content="2017-09-12T01:36:48.470Z">
+<meta property="og:updated_time" content="2017-09-18T09:58:02.272Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多选框传递数据实操案例">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;这是一个工作项目的功能之一。作为一个小菜鸟这个功能调了一个星期才终于成功发布，虽然有部分是因为前期需求不清晰的缘故导致的几次推翻重来，但其间也的确遇到了很多问题。也不是说功能有多复杂，主要是频繁地涉及到了对数组的操作，以及需要对各种情况的全面考虑。整个功能独立坐下来收获颇多，在此记录。当然如果有更好的办法，欢迎探讨。 一、功能需求说明 给指定用户绑定和解绑配电箱 传入用户名">
@@ -437,7 +437,7 @@
 <li><strong>修改操作</strong></li>
 </ol>
 <p>修改操作主要是对复选框状态变化的监听,选中状态<code>properties = 1</code>，未选中状态<code>properties = 0</code><br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var properties</span> = box.prop(<span class="string">'checked'</span>) ? 1 : 0;</div></pre></td></tr></table></figure></p>
-<p>对于用户新增进来的配电箱，修改其短信使能不是加入修改列表(updateList中)，而是修改AddList中的短信使能状态<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">if</span> (boxContent.css(<span class="string">'background-color'</span>) == <span class="string">'rgb(217, 217, 255)'</span>) &#123;</div><div class="line">    for (var i = <span class="number">0</span>; i &lt; AddBox.length; i++) &#123;</div><div class="line">        if (AddBox[i].boxId == box.parents(<span class="string">'.boxContent'</span>).attr(<span class="string">'id'</span>)) &#123;</div><div class="line">            AddBox[i] = &#123;</div><div class="line">                <span class="string">'boxId'</span>: boxContent.attr(<span class="string">'id'</span>),</div><div class="line">                <span class="string">'properties'</span>: properties</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>对于用户新增进来的配电箱，修改其短信使能不是加入修改列表(updateList)中，而是修改AddList中的短信使能状态<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">if</span> (boxContent.css(<span class="string">'background-color'</span>) == <span class="string">'rgb(217, 217, 255)'</span>) &#123;</div><div class="line">    for (var i = <span class="number">0</span>; i &lt; AddBox.length; i++) &#123;</div><div class="line">        if (AddBox[i].boxId == box.parents(<span class="string">'.boxContent'</span>).attr(<span class="string">'id'</span>)) &#123;</div><div class="line">            AddBox[i] = &#123;</div><div class="line">                <span class="string">'boxId'</span>: boxContent.attr(<span class="string">'id'</span>),</div><div class="line">                <span class="string">'properties'</span>: properties</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>同样的，需要排除用户的重复操作</p>
 <p>在第一次操作时为当前项设置背景色（这里的颜色要和添加进来的背景颜色区分开）</p>
 <p>而如果不是第一次操作，则删除updateList中的相应配电箱，并把背景色清空<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">else</span> <span class="keyword">if</span> (boxContent.css(<span class="string">'background-color'</span>) == <span class="string">'rgb(217, 217, 254)'</span>) &#123;</div><div class="line">    boxContent.css(&#123;</div><div class="line">        <span class="string">'background'</span>: <span class="string">''</span></div><div class="line">    &#125;);</div><div class="line">    <span class="comment">//移除upDateBox中相应的元素</span></div><div class="line">    $.each(upDateBox, <span class="function"><span class="keyword">function</span>(<span class="params">index</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.boxId == boxContent.attr(<span class="string">'id'</span>)) &#123;</div><div class="line">            upDateBox.splice(index, <span class="number">1</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    upDateBox.push(&#123;</div><div class="line">        <span class="string">'boxId'</span>: boxContent.attr(<span class="string">'id'</span>),</div><div class="line">        <span class="string">'properties'</span>: properties</div><div class="line">    &#125;);</div><div class="line">    boxContent.css(&#123;</div><div class="line">        <span class="string">'background-color'</span>: <span class="string">'rgb(217, 217, 254)'</span></div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -459,9 +459,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/array/" rel="tag"># array</a>
-          
             <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/array/" rel="tag"># array</a>
           
         </div>
       
@@ -563,7 +563,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
