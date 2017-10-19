@@ -274,6 +274,362 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/19/复选框状态的传参/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/19/复选框状态的传参/" itemprop="url">复选框状态的传参</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-19T14:58:20+08:00">
+                2017-10-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h5 id="项目场景："><a href="#项目场景：" class="headerlink" title="项目场景："></a>项目场景：</h5><p>某个设备存在多种状态，如在线/离线状态，布放/撤防状态，正常/报警状态等。会同时存在多种状态。需要查询这个设备的状态，并且还能够对状态进行修改。</p>
+<ul>
+<li><p>思路1：第一反应是后台对每个状态0和1传值。多少个状态类别就传多少个字段。前端使用<strong>复选框</strong>表现对应状态。查询时根据获取的值判断复选框是否被选中。</p>
+</li>
+<li><p>思路2：进一步思考，可以传一个status字段，为二进制值，每一位代表一个状态类别，0和1代表相应状态。（如果一个类别存在多种状态，比如像预警/报警/正常，可以使用2位字符，00、01、10代表不同状态，）</p>
+</li>
+<li><p>思路3：再进一步改进，给status字段传一个10进制值，在前端进行转值操作。</p>
+</li>
+</ul>
+<p>例如：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@example:</span><span class="number">5</span> <span class="comment">//后台传递一个十进制的数</span></div><div class="line"><span class="number">5</span>-&gt;”<span class="number">0101</span>”; <span class="comment">//十进制转二进制</span></div><div class="line"></div><div class="line"><span class="selector-tag">bit0</span>，表示在离线状态，<span class="selector-tag">0-</span>离线，<span class="selector-tag">1-</span>在线；</div><div class="line"><span class="selector-tag">bit1</span>，表示布撤防状态，<span class="selector-tag">0-</span>撤防，<span class="selector-tag">1-</span>布防；</div><div class="line"><span class="selector-tag">bit2</span>，表示报警状态，<span class="selector-tag">0-</span>正常，<span class="selector-tag">1</span>报警；</div><div class="line"><span class="selector-tag">bit3</span>，表示是否存在消防通道，<span class="selector-tag">0-</span>不存在，<span class="selector-tag">1-</span>存在</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/19/复选框状态的传参/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/29/表格插件-jSONGrigPage使用文档/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/29/表格插件-jSONGrigPage使用文档/" itemprop="url">表格插件--jSONGrigPage使用文档</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-29T15:02:28+08:00">
+                2017-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h5 id="dics性格测试"><a href="#dics性格测试" class="headerlink" title="dics性格测试"></a>dics性格测试</h5><p>  ● D：Director，老板型/指挥者，类似希特勒，表现为目标明确、执行力强。<br>  ● I：Interact，互动型/社交者，类似克林顿，表现为热爱分享、性格活泼。<br>  ● S：Supporter，支持型/支持者，类似《命中注定我爱你》里的陈乔恩，表现为依赖和迁就。<br>  ● C：Corrector，修正型/思考者，类似比尔盖茨，表现为标准清晰、追求卓越。</p>
+<p>DISC个性测验是国外企业广泛应用的一种人格测验，用于测查、评估和帮助人们改善其行为方式、人际关系、工作绩效、团队合作、领导风格等。 DISC个性测验由24组描述个性特质的形容词构成，每组包含四个形容词，这些形容词是根据支配性（D）、影响性（I）、服从性（C）、 稳定性（S）和四个测量维度以及一些干扰维度来选择的，要求被试从中选择一个最适合自己和最不适合自己的形容词。</p>
+<p>对指挥（D）占主导的人来说，重要的是聚焦事情，强调时间节点，保证任务完成，这一般发生在对上级领导上。而如果是对朋友，那就是有一说一有二说二，不要拐弯抹角。 举例来说：<br>“好的，下午三点之前给您初稿，明天下班前给您最终版。”（强调时间节点，让其感觉可控）<br>“张国，明天晚上去看《谍影重重》吧，9点10分场！”（直截了当）</p>
+<p>对社交（I）占主导的人来说，最好主动反馈感受，他们乐于分享，也特别渴望收获及时的赞同。<br>（“我有个新的APP，真的超有用，你看看……”）<br>“恩，真的哎！我马上去下！”（及时反馈）</p>
+<p>对支持（S）占主导的人来说，他们一般来说比较隐忍，经常被人使唤，内心是相对比较渴望支持的，所以你及时的帮助、安慰或指导，经常会收获他们发自内心的感恩。新员工一般会表现如此。<br>“我记得琶醍有家餐馆不错，晚上一起去吃吧，不要说拒绝哦！”（及时的示好）</p>
+<p>而对思考（C）占主导的人来说，在标准的框架内，把握住规则的底线，摆事实讲道理。 </p>
+<p>所以，DISC提供的第一个使用场景就是：了解他人，实现更有效率的沟通。</p>
+<p>第二个场景，写文章：总结文章的套路，就是：用有情绪的故事吸引大家来阅读（运用到I属性），以平和的语气来表达（照顾到S属性），提出思路（C属性），也具体到如何去操作完成（S属性）。</p>
+<p>DISC有三个假设，分别为：</p>
+<p>第一，每个人都有着四个维度的特征，只是大小不同。</p>
+<p>第二，性格没有优点和缺点，只有特点。</p>
+<p>第三，在特定场景下，人的特质会改变。</p>
+<p>我一度认为自己的性格不好。 在读书阶段，敏感，有时还很脆弱（S的特质），这明显不适合这个弱肉强食的社会。但这又让我对他人保持时刻关注，积累了大量的文字素材。 后来因为工作关系，每天看资料写报告，思考者（C）属性开始慢慢提高，这也帮助现在的文章，有更多思考的内容可以分享。</p>
+<p>就像那句鸡汤说的：每一刻的你都是最好的你，不如意只是因为你没遇上合适的工作，和合适的人。</p>
+<p>这是我最认同DISC的地方。</p>
+<p> 每一刻的你都是最好的你</p>
+<p>1.回顾一下DISC的概念：</p>
+<p>D：Director，老板型/指挥者，类似希特勒，表现为目标明确、执行力强。</p>
+<p>I：Interact，互动型/社交者，类似克林顿，表现为热爱分享、性格活泼。</p>
+<p>S：Supporter，支持型/支持者，类似《命中注定我爱你》里的陈乔恩，表现为依赖和迁就。甘地</p>
+<p>C：Corrector，修正型/思考者，类似比尔盖茨，表现为标准清晰、追求卓越。</p>
+<p>2.三个DISC的使用场景：<br>了解朋友同事哪个性格占主导，然后用更有效率的方式沟通。</p>
+<p>在对一家公司做调查分析时，考虑增加管理层性格角度的思考维度。</p>
+<p>写文章的时候，结合四种特性，让输出有趣也有料。</p>
+<p>3.最重要的是： 认识自己，并坦承面对自己。</p>
+<p><code>（1）服从性（C）</code></p>
+<p><code>一般描述</code>：<br>准确的<br>有分析力的<br>谨慎的<br>谦恭的<br>圆滑的<br>善于发现事实<br>高标准<br>成熟的<br>有耐心的<br>严谨的</p>
+<p><code>对团队的贡献</code>：<br>善于下定义<br>分类<br>获得信息并检验<br>客观的<br>保持高标准<br>有责任心，稳健可靠<br>综合性的问题解决者<br>小团体的亲密关系<br>相似的工作环境<br>私人办公室或工作环境</p>
+<p><code>压力下的倾向</code>：</p>
+<p>悲观的<br>挑剔的<br>过分批评<br>紧张的<br>大惊小怪的</p>
+<p><code>可能的缺陷</code>：<br>受批评时采取防御措施<br>常陷入细节之中<br>对环境过分热衷<br>似乎有点冷漠和疏远</p>
+<p><code>理想环境</code>：<br>需要批判性的思维<br>技术或专业领域<br><code>高C的情绪特征：</code>害怕</p>
+<p><code>（2）稳定性（S）</code></p>
+<p><code>一般描述</code>：<br>友善的<br>亲切的<br>好的倾听者<br>有耐心的<br>放松的<br>热诚的<br>稳定的<br>团队合作者<br>善解人意的<br>稳健的</p>
+<p><code>对团队的贡献</code>:<br>可靠的团队合作者<br>为某一领导或某一原因而工作<br>有耐心和同情心<br>逻辑性的思维<br>服务取向</p>
+<p><code>理想环境</code>：<br>稳定的<br>可预测的环境<br>变化较慢的环境<br>长期的团队合作关系<br>人们之间较少冲突<br>不受规则的限制</p>
+<p><code>压力下的倾向</code>:<br>非感情表露者<br>漠不关心<br>犹豫不决<br>坚定的</p>
+<p><code>可能的缺陷</code>：<br>倾向于避免争论<br>在确定优先权时遇到困难<br>不喜欢非正当的变化</p>
+<p><code>高S的情绪特征</code>：非情绪化的</p>
+<p><code>（3）支配性（D）</code></p>
+<p><code>一般描述</code>：爱冒险的、有竞争力的、大胆的、直接的、果断的、创新的坚持不懈的、问题解决者、自我激励者。</p>
+<p><code>对团队的贡献</code>：基层组织者、前瞻性的、以挑战为导向、发起运动、有创新精神</p>
+<p><code>压力下的倾向</code>：高要求的，紧张的，有野心的，好侵略的，自负的，非日常工作的、带有挑战性和机遇的工作</p>
+<p><code>理想环境：</code>不受控制、监督和琐碎事困扰，革新的、以未来为导向的环境、表达思想和观点的论坛或集会</p>
+<p><code>可能的缺陷：</code><br>过度使用地位<br>制定的标准太高<br>缺乏圆滑和变通、<br>承担过多的责任</p>
+<p><code>高D的情绪特征</code>：愤怒</p>
+<p><code>（4）影响性（I）</code></p>
+<p><code>一般描述</code>：</p>
+<p>有魅力的<br>自信的<br>有说服力的<br>热情的<br>鼓舞人心的<br>乐观的<br>令人信服的<br>受欢迎的<br>好交际的<br>可信赖的</p>
+<p><code>对团队的贡献</code>：<br>乐观、热情<br>创造性地解决问题<br>激励其他人为组织目标而奋斗<br>团队合作者、通过协商缓解冲突</p>
+<p><code>理想环境</code>：<br>人们之间密切联系<br>不受控制和琐碎事的困扰<br>有活动的自由<br>有传播思想的论坛或集会<br>有相互联系的民主监督者</p>
+<p><code>压力下的倾向</code>：<br>自我提高<br>过分乐观<br>过多的言语<br>不现实的</p>
+<p><code>可能的缺陷</code>：<br>不注意细节<br>在评价人方面不现实<br>不加区分地相信人<br>情境下的倾听者</p>
+<p><code>高I的情绪特征</code>：乐观。</p>
+<p>当我们形容一个人“自我”，通常是由于这个人的行为表现总是以自我为中心，不关注他人。</p>
+<p>刚毕业的大学生，野心勃勃而且充满干劲<br>其实或多或少，每个人都会有自我的一面。有的人自信，自我就能较强释放，有的人不那么自信，他说不定在暗自</p>
+<p>你是不是真的了解自己？每隔一段时间我都会问自己一遍这个问题，每次得出的结论都不那么确定。<br>我曾认为自己是一个善于交往依赖人际的人，难以拒绝别人的要求又为人热心，但有时对于一些负担关系可以处理得十分决绝而显得不近人情；<br>我又曾认为自己是一个内敛沉稳的人，可以守在自己的世界自得其乐，却有时又急于想要获得肯定体现自己的存在感。</p>
+<p>你看我，又一直在说我自己。</p>
+<p>近段时间持续在分析自己是个怎样的人，又趋向于想成为怎样的人</p>
+<p>2016年3月测试：高S，较高I，低C，D几乎没有</p>
+<p>2017年10月测试：高S，较高C，低I，D几乎没有</p>
+<p>也就是说，我的主导型人格一直以来都是稳健型，趋于平和，容易让人放松，善解人意，是一个可靠的合作者。<br>而实际性格根据生活中心的变化也发生了一些改变。<br>一年半之前在大学期间，我更趋向依赖人际关系，更加热情和自信<br>一年半之后的现在趋向于完成任务为导向，更加谨慎和缜密</p>
+<p>改变的原因和所经历的事情有关。</p>
+<p>考研，封闭式自我管理，断绝不必要的人际关系，潜心学习。</p>
+<p>从事研发行业，需要快速定位并解决问题，所有事情都要求严谨和有根有据。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/移动端触摸快速分页demo实操/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -381,144 +737,6 @@
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/表格插件-jSONGrigPage使用文档/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Try">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Try_Luies">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/28/表格插件-jSONGrigPage使用文档/" itemprop="url">表格插件--jSONGrigPage使用文档</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-28T15:02:28+08:00">
-                2017-09-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
         
       
     </div>
@@ -1791,189 +2009,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/15/Webpack使用时踩过的坑/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Try">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Try_Luies">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/15/Webpack使用时踩过的坑/" itemprop="url">Webpack入门学习（一、安装教程篇）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-15T14:51:47+08:00">
-                2017-08-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/study/" itemprop="url" rel="index">
-                    <span itemprop="name">study</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/study/web-develope/" itemprop="url" rel="index">
-                    <span itemprop="name">web-develope</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&emsp;&emsp;相比于gulp，webpack是一个很强大的自动化打包工具，无论是js文件，还是css，html模板,包括less，sass等等都能全面打包，而且还可以通过webpack-dev-server在本地模拟服务器环境，并进行代码的实时监控。</p>
-<p>&emsp;&emsp;之前从没听过webpack，现在的工作中也用不到自动化工具，在自学的道路上踩了不少的坑。实际项目编写过程中发现，使用webpack打包工具写项目颠覆了我以往一页一个文件的认知，通过配置我们可以抽离出很多公用模块。不仅书写结构升级，而且更利于后期的维护。也是近期我所追求的开发方式：</p>
-<blockquote>
-<p>code splitting  代码分离</p>
-</blockquote>
-<p>&emsp;&emsp;故在此记录一下webpack配置过程，和其中遇到的一些报错问题及其解决方案</p>
-<h3 id="安装和命令行"><a href="#安装和命令行" class="headerlink" title="安装和命令行"></a>安装和命令行</h3><h4 id="1、全局安装"><a href="#1、全局安装" class="headerlink" title="1、全局安装"></a>1、全局安装</h4><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> webpack -g</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;webpack的确很强大，但是他的版本是个很头疼的问题。建议不要安装最新的以免出现未知错误找不到解决办法，推荐安装1.0以上3.0以下版本比较稳妥，如果出了问题网上的方法也不至于不靠谱</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/15/Webpack使用时踩过的坑/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2024,7 +2059,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
