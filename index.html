@@ -507,8 +507,7 @@
 
       
         
-          
-            <p><a href="http://lbsyun.baidu.com/jsdemo.htm#a1_2" target="_blank" rel="external">百度地图js开发API</a></p>
+          <p><a href="http://lbsyun.baidu.com/jsdemo.htm#a1_2" target="_blank" rel="external">百度地图js开发API</a></p>
 <p>本文将结合具体项目案例，带你初步认识百度地图API的使用方法</p>
 <h5 id="部分项目需求"><a href="#部分项目需求" class="headerlink" title="部分项目需求"></a>部分项目需求</h5><ul>
 <li>中间为地图区，地图区上显示的点位与左侧检索区对应</li>
@@ -516,49 +515,14 @@
 <li>定时更新配电箱状态，界面上的点相应更新</li>
 <li>点击左侧检索结果的配电箱,或者点击地图区配电箱图标，在地图区显示配电箱详细信息</li>
 </ul>
-<h5 id="设计稿"><a href="#设计稿" class="headerlink" title="设计稿"></a>设计稿</h5><p><img src="http://note.youdao.com/yws/public/resource/e7c63b13f28ec75fa92b3926d72f20e1/xmlnote/1EE4F4A672344E23899D90091C497B31/13676" alt="image"></p>
-<h5 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h5><ol>
-<li>引入js<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://api.map.baidu.com/api?v=2.0&amp;ak=您的密钥"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>关于如何申请密钥请参照<a href="https://jingyan.baidu.com/article/363872eccda8286e4aa16f4e.html" target="_blank" rel="external">百度地图API密钥申请</a></p>
-<ol>
-<li>初始化地图，设置中心点等参数。<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> <span class="built_in">map</span> = <span class="literal">new</span> BMap.<span class="built_in">Map</span>(<span class="string">"allmap"</span>);<span class="comment">// 创建Map实例。</span></div><div class="line"><span class="comment">//'allmap'为html节点的id，建议放于body节点下</span></div><div class="line"><span class="built_in">var</span> pointCenter = <span class="literal">new</span> BMap.Point(<span class="number">120.204892</span>, <span class="number">30.161293</span>); <span class="comment">//创建点</span></div><div class="line"><span class="built_in">map</span>.centerAndZoom(pointCenter, <span class="number">12</span>); <span class="comment">//中心点</span></div><div class="line"><span class="built_in">map</span>.enableScrollWheelZoom(<span class="literal">true</span>);  <span class="comment">//支持鼠标滚动缩放</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>地图中心点也可以直接使用城市名称。后面的数字为深度，12表示市级深度<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">map</span>.centerAndZoom(<span class="string">'杭州'</span>, <span class="number">12</span>);</div></pre></td></tr></table></figure></p>
-<ol>
-<li><p>调用查询接口，返回配电箱列表信息，获取每个配电箱的经纬度，并在地图上创建点。如果配电箱状态为报警，则让该点跳动</p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> point = <span class="keyword">new</span> <span class="type">BMap</span>.Point(lo, la); <span class="comment">//创建点</span></div><div class="line"><span class="keyword">var</span> marker = <span class="keyword">new</span> <span class="type">BMap</span>.Marker(point);  <span class="comment">// 创建标注</span></div><div class="line">map.addOverlay(marker);               <span class="comment">// 将标注添加到地图中</span></div><div class="line"></div><div class="line"><span class="keyword">if</span>(该配电箱处于报警状态)&#123;</div><div class="line">marker.setAnimation(BMAP_ANIMATION_BOUNCE); <span class="comment">//跳动的动画</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>在第一次获取配电箱列表后已经生成了所有的点，而点的坐标从始至终都是不变的，所以在更新状态的时候，并不需要重绘，只需要替换点的图标即可。</p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第一次创建点，为其生成默认图标</span></div><div class="line"><span class="keyword">var</span> myIcon = <span class="keyword">new</span> <span class="type">BMap</span>.Icon(<span class="string">"../statics/images/map/box0.png"</span>, <span class="keyword">new</span> <span class="type">BMap</span>.Size(<span class="number">300</span>,<span class="number">157</span>));   <span class="comment">//创建Icon对象</span></div><div class="line">marker = <span class="keyword">new</span> <span class="type">BMap</span>.Marker(point,&#123;icon:<span class="type">myIcon</span>&#125;);  <span class="comment">// 创建标注，设置icon</span></div><div class="line"></div><div class="line"><span class="comment">//更新状态时，若状态改变，则替换图标</span></div><div class="line"> <span class="keyword">if</span> (<span class="comment">//配电箱不在线) &#123;</span></div><div class="line">    <span class="keyword">var</span> icon = marker.getIcon(); <span class="comment">//获取icon对象</span></div><div class="line">    icon.setImageUrl(<span class="string">'../statics/images/map/box0.png'</span>); <span class="comment">//修改图标</span></div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>如果说页面内的点相对 较分散，可以使用点聚合</p>
-</li>
-</ol>
-<ul>
-<li><p>首先是引入扩展链接</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>调用markerClusterer类即可</p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> markers = [];</div><div class="line"><span class="keyword">for</span> (; i &lt; MAX; i++) &#123;</div><div class="line">     pt = <span class="keyword">new</span> <span class="type">BMap</span>.Point(Math.random() * <span class="number">40</span> + <span class="number">85</span>, Math.random() * <span class="number">30</span> + <span class="number">21</span>);</div><div class="line">     markers.push(<span class="keyword">new</span> <span class="type">BMap</span>.Marker(pt));</div><div class="line">&#125;</div><div class="line"><span class="comment">//最简单的用法，生成一个marker数组，然后调用markerClusterer类。</span></div><div class="line"><span class="keyword">var</span> markerClusterer = <span class="keyword">new</span> <span class="type">BMapLib</span>.MarkerClusterer(map,&#123;markers:<span class="type">markers</span>&#125;);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://note.youdao.com/yws/public/resource/e7c63b13f28ec75fa92b3926d72f20e1/xmlnote/470108AAA9424618A970BB2766A6C5A4/13533" alt="image"></p>
-<ul>
-<li>若页面中点很多，会造成页面卡顿，这种情况不建议使用点聚合</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">6. </span>为点注册点击事件，并创建信息窗口</div></pre></td></tr></table></figure>
-<p>var content = “<div>这是一个信息窗口内容</div>“<br>var opts = {<br>            width : 250,     // 信息窗口宽度<br>            height: 80,     // 信息窗口高度<br>            title : “信息窗口” , // 信息窗口标题<br>            enableMessage:true//设置允许信息窗发送短息<br>};</p>
-<p>var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象<br>marker.addEventListener(“click”, function(){<br>        map.openInfoWindow(infoWindow,point); //开启信息窗口<br>});</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">7.  </span>为多个点创建信息窗口</div></pre></td></tr></table></figure>
-<p> var data_info = [[116.417854,39.921988,”地址：北京市东城区王府井大街88号乐天银泰百货八层”],<br>                 [116.406605,39.921585,”地址：北京市东城区东华门大街”],<br>                 [116.412222,39.912345,”地址：北京市东城区正义路甲5号”]<br>];<br>var opts = {<br>            width : 250,     // 信息窗口宽度<br>            height: 80,     // 信息窗口高度<br>            title : “信息窗口” , // 信息窗口标题<br>            enableMessage:true//设置允许信息窗发送短息<br>           };</p>
-<p>for(var i=0;i<data_info.length;i++){ var="" marker="new" bmap.marker(new="" bmap.point(data_info[i][0],data_info[i][1]));="" content="data_info[i][2];" 窗口内容="" map.addoverlay(marker);="" addclickhandler(content,marker);="" 为多个点注册事件="" }="" function="" addclickhandler(content,marker){="" marker.addeventlistener("click",function(e){="" openinfo(content,e)}="" );="" openinfo(content,e){="" p="e.target;" 获取当前点击的点的坐标="" point="new" bmap.point(p.getposition().lng,="" p.getposition().lat);="" map.panto(point);="" 窗口移动到该点="" infowindow="new" bmap.infowindow(content,opts);="" 创建信息窗口对象="" map.openinfowindow(infowindow,point);="" 开启信息窗口="" <figure="" class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">8. </span>其他</div><div class="line">在完成核心功能后，还能在此基础上做一些优化</div><div class="line"><span class="bullet">* </span>将生成的所有点都显示在视图窗口内</div></pre></td></tr></table></data_info.length;i++){></p>
-<p>map.setViewport(pointArray);<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">* </span>选中某个配电箱，打开信息窗口，就将该配电箱移动至视图中央</div></pre></td></tr></table></figure></p>
-<p>map.panTo(point); //窗口移动到该点<br>```</p>
-
-          
+<h5 id="设计稿"><a href="#设计稿" class="headerlink" title="设计稿"></a>设计稿</h5><p><img src="http://note.youdao.com/yws/public/resource/e7c63b13f28ec75fa92b3926d72f20e1/xmlnote/F448F0C94C7F493EA36DE5348DB148C9/13679" alt="image"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/05/20171105-百度地图API入门使用/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
