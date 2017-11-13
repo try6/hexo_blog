@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="&amp;emsp;&amp;emsp;2017年9与16日参加医疗互联网公司丁香园主办的前端技术沙龙，以一个真正的前端开发者的身份，作为一个参与者去现场感受前端大佬的世界。 &amp;emsp;&amp;emsp;参与的初衷只是想涨涨见识，因为看到主办方发出的分享流程和内容，我觉得自己作为一个UI转行刚入门几个月的前端小渣渣肯定是听不懂的，但是不想做一个井底之蛙被本职工作局限住了视野，所以还是屁颠屁颠地去了。一下午听下来居然能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DXY前端技术沙龙">
+<meta property="og:url" content="http://yoursite.com/2017/09/18/【20170918】DXY前端技术沙龙/index.html">
+<meta property="og:site_name" content="Try_Luies">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;2017年9与16日参加医疗互联网公司丁香园主办的前端技术沙龙，以一个真正的前端开发者的身份，作为一个参与者去现场感受前端大佬的世界。 &amp;emsp;&amp;emsp;参与的初衷只是想涨涨见识，因为看到主办方发出的分享流程和内容，我觉得自己作为一个UI转行刚入门几个月的前端小渣渣肯定是听不懂的，但是不想做一个井底之蛙被本职工作局限住了视野，所以还是屁颠屁颠地去了。一下午听下来居然能">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-11-13T01:32:47.720Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DXY前端技术沙龙">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;2017年9与16日参加医疗互联网公司丁香园主办的前端技术沙龙，以一个真正的前端开发者的身份，作为一个参与者去现场感受前端大佬的世界。 &amp;emsp;&amp;emsp;参与的初衷只是想涨涨见识，因为看到主办方发出的分享流程和内容，我觉得自己作为一个UI转行刚入门几个月的前端小渣渣肯定是听不懂的，但是不想做一个井底之蛙被本职工作局限住了视野，所以还是屁颠屁颠地去了。一下午听下来居然能">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/18/【20170918】DXY前端技术沙龙/"/>
+
+
+
+
+
+  <title>DXY前端技术沙龙 | Try_Luies</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Try_Luies</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/18/【20170918】DXY前端技术沙龙/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">DXY前端技术沙龙</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-18T17:48:03+08:00">
+                2017-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/life/" itemprop="url" rel="index">
+                    <span itemprop="name">life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&emsp;&emsp;2017年9与16日参加医疗互联网公司丁香园主办的前端技术沙龙，以一个真正的前端开发者的身份，作为一个参与者去现场感受前端大佬的世界。</p>
+<p>&emsp;&emsp;参与的初衷只是想涨涨见识，因为看到主办方发出的分享流程和内容，我觉得自己作为一个UI转行刚入门几个月的前端小渣渣肯定是听不懂的，但是不想做一个井底之蛙被本职工作局限住了视野，所以还是屁颠屁颠地去了。一下午听下来居然能跟上节奏没有被基础认知拖了后腿，庆幸自己平日学习的时候热衷于不务正业地瞎折腾，虽然各种框架都是皮毛略懂但好歹不是完全无知。</p>
+<p>&emsp;&emsp;因为技术不强所以大神分享的技术内容我只能膜拜膜拜再膜拜，恨不得把每句话都拿小本本记下来，自认为没什么话语权，所以我想从其他方面浅谈几点感受<br><a id="more"></a></p>
+<h2 id="1-永远保持前进的动力"><a href="#1-永远保持前进的动力" class="headerlink" title="1.永远保持前进的动力"></a>1.永远保持前进的动力</h2><p>&emsp;&emsp;发现一个很有意思的现象。在知乎上随便搜搜含前端的关键词，你会发现出现一片“前端饱和”“培训出来找不到工作”之类的话。仔细想想的确周边做前端的同学很多，因为好入门上手快，给人的概念就是相对于Java等后台语言来说比较简单易学。但事实上是，企业需求还是很大，我听说的好几家公司都在招前端，而通常情况就是，发布招聘信息迅速有100个人来面试，最后却一个人也没进。</p>
+<p>&emsp;&emsp;其实在这个领域，最重要的技能并不是你学会了什么，而是你会学什么，以及，敲黑板，解决问题的能力。而培训机构恰恰抹杀了这一点</p>
+<p>&emsp;&emsp;前端领域的更新速度非常迅速，上一回的feddy分享会接触到了es7，听说es8都要出了，而之后有一回和一位工作经验十几年但许久不写前端的同事聊他说现在用es5比较多吧…昨天的浙大博在分享的时候也提到6年前他写前端的时候JQuery都不怎么用，Js原生写的爽歪歪，而6年后的现在取代jQuery的框架都有好几个了，这些新型框架还在不断完善不断发展定期迭代。作为一个前端工程师必须保持充足的学习动力才能持续成长。vue和react会的不嫌多，各种组件层出不穷，五彩斑斓的前端库，js强大的开源社区，加上近几年大热的node.js，使前端技术已经往全栈发展，阿里已将“前端工程师”更名为“端工程师”，未来对从业人员的要求只会越来越高。如果你还认为前端只是写写界面写写交互，那你还是洗洗睡吧。</p>
+<h2 id="2-乐于分享和共同成长的氛围"><a href="#2-乐于分享和共同成长的氛围" class="headerlink" title="2.乐于分享和共同成长的氛围"></a>2.乐于分享和共同成长的氛围</h2><p>&emsp;&emsp;这是一个很有意思的话题。说实话，我深深地被丁香园这家公司圈粉了。</p>
+<p>&emsp;&emsp;第一点，以提升公司整体开发效率，解放生产力为初衷，全力支持员工组织技术沙龙，以及听他们说会利用富余的时间去开发工具用于优化开发流程。我试着代入情景思考，如果这件事情发生在我身上，我说我想在我们公司举办一次技术沙龙，领导会不会觉得这是吃力不讨好，部门会不会在资源上全力支持，其他同事会不会觉得我不务正业。所有的问题我都不敢得出肯定答案。而在流程优化上，很多企业的日常项目是一个接一个地出现，不给你喘息的机会，在以业务和盈利为导向的商业模式中，抽出一部分人力和物力去开发一个新型工具，在有些公司看来，尤其是传统的it行业或者非互联网企业，会觉得这压根是在浪费资源。所以在这一点上，我要给他们100个赞。</p>
+<p>&emsp;&emsp;第二点，这是一个高度的社会行为，我感受到他们对前端领域的热爱，感动于他们希望前端能更加蓬勃发展的心愿。想要把自己开发的项目、优质的开发方案分享出来，这是js开源做的如此庞大的基础思维，也是其发展如此迅速的根基。昨天的部分参与者在此之前并没有听说过这家公司，可能是被分享者来自网易阿里的硬性条件吸引，但我相信昨天的那场活动之后，公司在业内的口碑肯定会得到一定程度的提升。而且也乐于参加这家公司举办的其他活动。而就算是之前听说过丁香园是一家做医疗互联网的企业，那么也会加上“在技术领域有着热情和开拓精神，喜欢分享自由开放的”丁香园。这一点上，一万个赞都不嫌多。（我发誓我没收好处）</p>
+<h2 id="3-关于活动如何常规化的思考"><a href="#3-关于活动如何常规化的思考" class="headerlink" title="3.关于活动如何常规化的思考"></a>3.关于活动如何常规化的思考</h2><p>&emsp;&emsp;由于大学组织活动做的比较多，所以难免会从组织层面进行观察。虽然说主题是技术分享，参与者和主办方也都是技术人员，但这些也不是可以忽略活动举办流程质量的理由，整个活动流程的感官体验和专业性还是可以有很大的提升空间，比如说主持人和活动负责人最好还是权责分明，比如说中场休息的时候大家其实都有点懵不知道该做什么以及座位数量不足只能尴尬地站着，再比如说妹子太少不够看哈哈。</p>
+<p>&emsp;&emsp;讲正经的，假设这样的活动会持续做下去，那么将要面对的主要问题有两点。</p>
+<p>&emsp;&emsp;第一个是讲师质量的保证。这次的讲师主要是丁香园内部大佬，来自其他公司的讲师应该也是因为私下关系而做的邀请。但这显然不是一个长久之计。一位技术大牛想要来分享，他肯定也有他想要获得的东西。比如他想建立自己在业内的技术地位；比如刚好他们公司缺资深前端，需要一个宣传的机会；比如他是一个好为人师的性格；比如他刚刚开发了一个开源项目想要分享；或者更有意义的，他达到了以推动整个领域发展作为自己责任的高度等等。这样做过调查之后，有针对性地发出邀请，才能更容易地激起一位技术大牛的分享欲望而增大我们的邀请成功概率；当然同时，我们主办方也需要跟进优化活动流程，给受邀而来的讲师足够的重视和良好的流程体验，这样才能持续获得高质量的讲师分享资源。</p>
+<p>&emsp;&emsp;第二点，主办方也需要对举办活动的时机做出选择，借机对公司、团队、或者产品的品牌形象，使用一定的策略进行推广，以此实现参与者、讲师和主办方的共赢和效益最大化。</p>
+<h2 id="The-Last"><a href="#The-Last" class="headerlink" title="The Last"></a>The Last</h2><p>&emsp;&emsp;生活就像游戏，一个个关卡等着你去闯，途中不断有怪物阻挡你前进的步伐，偶尔刷个Boss让你觉得自己是个菜鸡。</p>
+<p>&emsp;&emsp;但仅仅是这样往前打怪不够，还需要任务加持获得额外的经验和金币。而每天的工作就是你要完成的任务，领导这个智能NPC持续放出大大小小的任务等你选，有坑爹也有彩蛋。非人民币玩家靠的只有技术，装备自己打荣誉自己刷，天赋好的升级快，天赋不好的慢慢打迟早也会往上爬。打怪的路上别忘了组个队，偶尔抱个大腿刷个副本，会有意外的惊喜。</p>
+<p>&emsp;&emsp;希望下次在纯粹的技术方面可以有话好说</p>
+<p>&emsp;&emsp;再次感谢丁香园对此次活动的组织和安排，获益良多，感激不尽</p>
+<p>——TRY</p>
+<p>2017-09-17</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/08/【20170908】多选框传递数据案例/" rel="next" title="多选框传递数据实操案例">
+                <i class="fa fa-chevron-left"></i> 多选框传递数据实操案例
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/28/【20170928】移动端触摸快速分页demo实操/" rel="prev" title="移动端触摸快速分页demo实操案例">
+                移动端触摸快速分页demo实操案例 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpg"
+               alt="Try" />
+          <p class="site-author-name" itemprop="name">Try</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/try6" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2680387355?refer_flag=1001030103_" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-永远保持前进的动力"><span class="nav-number">1.</span> <span class="nav-text">1.永远保持前进的动力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-乐于分享和共同成长的氛围"><span class="nav-number">2.</span> <span class="nav-text">2.乐于分享和共同成长的氛围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-关于活动如何常规化的思考"><span class="nav-number">3.</span> <span class="nav-text">3.关于活动如何常规化的思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Last"><span class="nav-number">4.</span> <span class="nav-text">The Last</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Try</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

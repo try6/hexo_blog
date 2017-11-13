@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="工具,wepback," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Webpack入门之遇到的那些坑，系列示例Demo &amp;emsp;&amp;emsp;首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。 配置完webpack.config.js文件，运行报错说明1Unhandled rejection TypeError: chunk.isInitial is not a functio">
+<meta name="keywords" content="工具,wepback">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webpack入门学习（二、踩坑篇）">
+<meta property="og:url" content="http://yoursite.com/2017/08/18/【20170818】webpack报错的各种问题/index.html">
+<meta property="og:site_name" content="Try_Luies">
+<meta property="og:description" content="Webpack入门之遇到的那些坑，系列示例Demo &amp;emsp;&amp;emsp;首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。 配置完webpack.config.js文件，运行报错说明1Unhandled rejection TypeError: chunk.isInitial is not a functio">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-11-13T01:33:16.190Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Webpack入门学习（二、踩坑篇）">
+<meta name="twitter:description" content="Webpack入门之遇到的那些坑，系列示例Demo &amp;emsp;&amp;emsp;首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。 配置完webpack.config.js文件，运行报错说明1Unhandled rejection TypeError: chunk.isInitial is not a functio">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/18/【20170818】webpack报错的各种问题/"/>
+
+
+
+
+
+  <title>Webpack入门学习（二、踩坑篇） | Try_Luies</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Try_Luies</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/【20170818】webpack报错的各种问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Webpack入门学习（二、踩坑篇）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T17:01:26+08:00">
+                2017-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">study</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/web-develope/" itemprop="url" rel="index">
+                    <span itemprop="name">web-develope</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://www.jianshu.com/p/02380e5deb38" target="_blank" rel="external">Webpack入门之遇到的那些坑，系列示例Demo</a></p>
+<p>&emsp;&emsp;首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。</p>
+<h4 id="配置完webpack-config-js文件，运行报错"><a href="#配置完webpack-config-js文件，运行报错" class="headerlink" title="配置完webpack.config.js文件，运行报错"></a>配置完webpack.config.js文件，运行报错</h4><h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Unhandled rejection TypeError: chunk.isInitial is <span class="keyword">not</span> <span class="keyword">a</span> <span class="function"><span class="keyword">function</span></span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;注释掉对css文件的处理语句就恢复正常，这个问题在两次重新配置webpack时都出现了</p>
+<h5 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h5><p>&emsp;&emsp;就是比较坑的版本问题，下载本地webpack@2.2.0，插件extract-text-webpack-plugin@2.1.2，再进行如下配置语句<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attribute">test</span>: /\.css$/,</div><div class="line">	loader: ExtractTextPlugin.<span class="built_in">extract</span>(&#123;</div><div class="line">	fallback: <span class="string">'style-loader'</span>,</div><div class="line">	use: <span class="string">'css-loader'</span></div><div class="line">	&#125;)</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;成功<br><a id="more"></a></p>
+<h4 id="端口被占用报错"><a href="#端口被占用报错" class="headerlink" title="端口被占用报错"></a>端口被占用报错</h4> <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Error</span>: <span class="selector-tag">listen</span> <span class="selector-tag">EADDRINUSE</span> 127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span><span class="selector-pseudo">:8088</span></div><div class="line">   <span class="selector-tag">at</span> <span class="selector-tag">Object</span><span class="selector-class">.exports</span><span class="selector-class">._errnoException</span> (<span class="selector-tag">util</span><span class="selector-class">.js</span><span class="selector-pseudo">:1018</span><span class="selector-pseudo">:11)</span></div><div class="line">   <span class="selector-tag">at</span> <span class="selector-tag">exports</span><span class="selector-class">._exceptionWithHostPort</span> (<span class="selector-tag">util</span><span class="selector-class">.js</span><span class="selector-pseudo">:1041</span><span class="selector-pseudo">:20)</span></div><div class="line">   <span class="selector-tag">at</span> <span class="selector-tag">Server</span><span class="selector-class">._listen2</span> (<span class="selector-tag">net</span><span class="selector-class">.js</span><span class="selector-pseudo">:1258</span><span class="selector-pseudo">:14)</span></div><div class="line">   <span class="selector-tag">at</span> <span class="selector-tag">listen</span> (<span class="selector-tag">net</span><span class="selector-class">.js</span><span class="selector-pseudo">:1294</span><span class="selector-pseudo">:10)</span></div><div class="line">   <span class="selector-tag">at</span> <span class="selector-tag">net</span><span class="selector-class">.js</span><span class="selector-pseudo">:1404</span><span class="selector-pseudo">:9</span></div><div class="line">   <span class="selector-tag">at</span> <span class="selector-tag">GetAddrInfoReqWrap</span><span class="selector-class">.asyncCallback</span> <span class="selector-attr">[as callback]</span> (<span class="selector-tag">dns</span><span class="selector-class">.js</span><span class="selector-pseudo">:62</span><span class="selector-pseudo">:16)</span></div><div class="line">   <span class="selector-tag">at</span> <span class="selector-tag">GetAddrInfoReqWrap</span><span class="selector-class">.onlookup</span> <span class="selector-attr">[as oncomplete]</span> (<span class="selector-tag">dns</span><span class="selector-class">.js</span><span class="selector-pseudo">:81</span><span class="selector-pseudo">:10)</span></div></pre></td></tr></table></figure>
+<h5 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h5><p>&emsp;&emsp;修改端口</p>
+<ul>
+<li>解决方案1:</li>
+</ul>
+<p>&emsp;&emsp;关闭之前占用8080端口的进程</p>
+<p>&emsp;&emsp;通过–port 9999选项修改webpack-dev-server的端口到9999，当然也可以改成其他</p>
+<p>&emsp;&emsp;这个方法对我是失败了，因为我并没有开启其他的进程，而且修改端口也无效</p>
+<ul>
+<li>解决方案3:</li>
+</ul>
+<p>&emsp;&emsp;干掉node进程，之前被webpack占用的端口就会被放出来（网上还有很多释放端口的方法，都可以解决这个问题）<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tskill <span class="keyword">node</span><span class="title"></span></div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;成功</p>
+<h4 id="加载html模板失败"><a href="#加载html模板失败" class="headerlink" title="加载html模板失败"></a>加载html模板失败</h4><figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Can't resolve './layout/head-common.html' in 'E:<span class="symbol">\s</span>tudy<span class="symbol">\2</span>0170814<span class="symbol">\w</span>ebpack-test<span class="symbol">\s</span>rc<span class="symbol">\v</span>iew</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;这个问题很奇怪，我在Body中引入就不会报错，而在head中引入头文件就报错，头文件就算为空也依然报错<br>（持续更新）</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工具/" rel="tag"># 工具</a>
+          
+            <a href="/tags/wepback/" rel="tag"># wepback</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/15/【20170815】Webpack使用时踩过的坑/" rel="next" title="Webpack入门学习（一、安装教程篇）">
+                <i class="fa fa-chevron-left"></i> Webpack入门学习（一、安装教程篇）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/22/【20170822】元素选择器/" rel="prev" title="你不知道的元素选择器">
+                你不知道的元素选择器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpg"
+               alt="Try" />
+          <p class="site-author-name" itemprop="name">Try</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/try6" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2680387355?refer_flag=1001030103_" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置完webpack-config-js文件，运行报错"><span class="nav-number">1.</span> <span class="nav-text">配置完webpack.config.js文件，运行报错</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#说明"><span class="nav-number">1.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决"><span class="nav-number">1.2.</span> <span class="nav-text">解决</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#端口被占用报错"><span class="nav-number">2.</span> <span class="nav-text">端口被占用报错</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#解决-1"><span class="nav-number">2.1.</span> <span class="nav-text">解决</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载html模板失败"><span class="nav-number">3.</span> <span class="nav-text">加载html模板失败</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Try</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
