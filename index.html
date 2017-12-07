@@ -396,208 +396,17 @@
 
       
         
-          
-            <p><img src="" alt="image"></p>
+          <p><img src="" alt="image"></p>
 <p>电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。</p>
 <p>淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。</p>
-<p>下面我们来从零开始模拟开发一个具有二级目录大导航。</p>
-<h4 id="html和css"><a href="#html和css" class="headerlink" title="html和css"></a>html和css</h4><p>常规的dom结构和样式实现</p>
-<p>对于子导航的实现，淘宝使用了div的层层嵌套，而京东则是使用表格的结构。两种方式都能实现最终效果。可自行选择。</p>
-<p>我在这里做了表格结构实现子导航的尝试。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"sub"</span>&gt;</div><div class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"sub-content"</span> id=<span class="string">'sub-a'</span>&gt;</div><div class="line">        &lt;ul &gt;</div><div class="line">            &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"# "</span>&gt;</span>家电馆<span class="tag">&lt;<span class="name">span</span>&gt;</span>&amp;gt;<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line">            ...</div><div class="line">        &lt;<span class="regexp">/ul&gt;</span></div><div class="line"><span class="regexp">        &lt;dl &gt;</span></div><div class="line"><span class="regexp">            &lt;dt&gt;&lt;a href="# "&gt;电视&lt;span&gt;&amp;gt;&lt;/</span>span&gt;<span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span></div><div class="line">            &lt;dd&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"# "</span>&gt;</span>曲面电视<span class="tag">&lt;<span class="name">span</span>&gt;</span>&amp;gt;<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span></div><div class="line">            ...</div><div class="line">        &lt;<span class="regexp">/dl&gt;</span></div><div class="line"><span class="regexp">        &lt;dl &gt;</span></div><div class="line"><span class="regexp">            &lt;dt&gt;&lt;a href="# "&gt;空调&lt;span&gt;&amp;gt;&lt;/</span>span&gt;<span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span></div><div class="line">            &lt;dd&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"# "</span>&gt;</span>曲面空调<span class="tag">&lt;<span class="name">span</span>&gt;</span>&amp;gt;<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span></div><div class="line">            ...</div><div class="line">        &lt;<span class="regexp">/dl&gt;	</span></div><div class="line"><span class="regexp">    &lt;/</span>div&gt;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></p>
-<p>为了方便后续使用js对样式的操作，在css中单独设置了名为none的类，设置隐藏样式<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.none</span>&#123;</div><div class="line">    <span class="attribute">display</span>:none</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="js部分"><a href="#js部分" class="headerlink" title="js部分"></a>js部分</h4><ul>
-<li>step1.常规导航实现</li>
-</ul>
-<p>思路：</p>
-<ul>
-<li>鼠标移至主导航或子导航菜单中(mouseener)，对应选项样式改变，对应子导航显示</li>
-<li>鼠标移出主导航或子导航菜单中(mouseleave)，选项样式取消，对应子导航隐藏<blockquote>
-<p>注：mouseener不冒泡，mouseover冒泡。详细内容请戳<a href="">mouseover,mouseener,mousemove</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
-<p>效果gif</p>
-<p>一般实现到这一步，已经有了基本功能，可以流畅地进行导航切换。很多网站也只实现到了这一步，但事实上，这个导航还存在一些问题，有继续优化的空间。</p>
-<p>问题：</p>
-<ol>
-<li>用户想到要选择子导航的某一选项时，鼠标必须先进入子导航内。如果在此之前触碰到主导航的其他选项，会立即切换。导航体量大，如果用户想要选择子导航内下方的选项，必须先从主导航平移至子导航内，也就是一个折线的过程。</li>
-</ol>
-<p><img src="" alt="image"></p>
-<ol>
-<li>在主导航上移动时，子导航也会跟着快速切换。 </li>
-</ol>
-<ul>
-<li>step2.延时+去抖动</li>
-</ul>
-<ol>
-<li><p>针对上述第一个问题，我们采取setTimeout,在mouseener事件被触发后，让子导航显示代码并不马上执行，而是延迟一段时间后再执行。并且每次执行前先判断鼠标是否在子菜单内，若不在则不执行切换导航代码</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">time = setTimeout(<span class="name">function</span>() &#123;</div><div class="line">    if (<span class="name">mouseInSub</span>) &#123;</div><div class="line">        return<span class="comment">;</span></div><div class="line">    &#125;</div><div class="line">    $(<span class="string">".sub-content"</span>).addClass(<span class="string">"none"</span>)<span class="comment">;</span></div><div class="line">    subNav.removeClass(<span class="string">"none"</span>)<span class="comment">;</span></div><div class="line">    setTimeout(<span class="name">function</span>() &#123;</div><div class="line">        li.on(<span class="string">"mouseleave"</span>, function() &#123;</div><div class="line">            let li = $(<span class="name">this</span>)<span class="comment">;</span></div><div class="line">            li.removeClass('active')<span class="comment">;</span></div><div class="line">        &#125;)</div><div class="line">    &#125;)<span class="comment">;</span></div><div class="line">&#125;, <span class="number">500</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>针对第二个问题，只需要取快速移动的最后一次结果，不需要让子导航每次都显示。做法是每次触发事件后，判断上一次的行为有没有结束，如果未结束，代表用户在快速移动，则直接取消计时器，相应子导航不需要出现</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="built_in">time</span>) &#123;</div><div class="line">    clearTimeout(<span class="built_in">time</span>);</div><div class="line">&#125;</div><div class="line"><span class="built_in">time</span> = setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span> &#123;</div><div class="line">        ...</div><div class="line">        <span class="built_in">time</span> = null</div><div class="line">    &#125;, <span class="number">500</span>);</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>很明显，采取这种方法就引入了一个新的问题：用户在主导航上快速切换时，子导航的出现存在延时，降低了用户体验的流畅度</p>
-<p>这就需要进一步进行优化。</p>
-<ul>
-<li>step3.用户行为预判<br>思路：对用户的鼠标移动行为作出判断，若用户是想要移动到子导航，则进行延迟；若用户想在主导航上移动，则不需要延迟</li>
-</ul>
-<p>如何判断用户到底是想要移动到子导航，还是想在主导航上移动呢？</p>
-<p>不防做这样的假设，如图</p>
-<p><img src="PIC1" alt="image"></p>
-<p>若鼠标移动路径位于阴影内部，就认为用户想要移动到当前子菜单，如路径O-&gt;p1</p>
-<p>若鼠标移动路径位于阴影外部，就认为用户想要切换菜单，如路径O-&gt;p2</p>
-<p>于是问题就转化成了，判断鼠标移动的方向是否位于阴影部分内部，如何判断一个向量是否位于两个向量之间，具体实现则用到了数学上的向量积问题。</p>
-<p>数学思路：</p>
-<p><img src="PIC2" alt="image"></p>
-<p>可以看出，如果点在三角形的内部，沿着三边走一圈，这个点相对于行进路径始终保持相同方向； 如果点在三角形的外部，沿着三条边走一圈，会有不同的结果。 这样，只要判断点和直线的相对位置就可以了。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//向量积公式</span></div><div class="line"><span class="selector-tag">var</span> <span class="selector-tag">a</span> = oA × oP = (<span class="selector-tag">b</span><span class="selector-class">.x</span> – <span class="selector-tag">a</span>.x)(<span class="selector-tag">p</span><span class="selector-class">.y</span> – <span class="selector-tag">a</span>.y) – (<span class="selector-tag">b</span><span class="selector-class">.y</span> – <span class="selector-tag">a</span>.y)(<span class="selector-tag">p</span><span class="selector-class">.x</span> – <span class="selector-tag">a</span>.x)</div></pre></td></tr></table></figure>
-<p>对三遍进行判断一遍，如果有次的结果为负数，则说明点在三角形外部<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">var</span> <span class="selector-tag">b</span> = OB × OP = (<span class="selector-tag">b</span><span class="selector-class">.x</span> – <span class="selector-tag">a</span>.x)(<span class="selector-tag">p</span><span class="selector-class">.y</span> – <span class="selector-tag">a</span>.y) – (<span class="selector-tag">b</span><span class="selector-class">.y</span> – <span class="selector-tag">a</span>.y)(<span class="selector-tag">p</span><span class="selector-class">.x</span> – <span class="selector-tag">a</span>.x)</div><div class="line"><span class="selector-tag">var</span> c = AB × AP = (<span class="selector-tag">b</span><span class="selector-class">.x</span> – <span class="selector-tag">a</span>.x)(<span class="selector-tag">p</span><span class="selector-class">.y</span> – <span class="selector-tag">a</span>.y) – (<span class="selector-tag">b</span><span class="selector-class">.y</span> – <span class="selector-tag">a</span>.y)(<span class="selector-tag">p</span><span class="selector-class">.x</span> – <span class="selector-tag">a</span>.x)</div><div class="line"><span class="function"><span class="title">if</span><span class="params">(a*b*c &lt; <span class="number">0</span> )</span></span>&#123;</div><div class="line">    <span class="comment">//点在三角形外部</span></div><div class="line">    <span class="comment">//用户想切换菜单</span></div><div class="line">    <span class="comment">//菜单切换不延迟</span></div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">    <span class="comment">//点在三角形内部</span></div><div class="line">    <span class="comment">//用户想进入子菜单</span></div><div class="line">    <span class="comment">//菜单切换延迟</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>最终实现代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//原理</span></div><div class="line"></div><div class="line"><span class="comment">//鼠标当前点坐标p、鼠标上一次的坐标a、子导航左上b、左下c，四个点。</span></div><div class="line"><span class="comment">//判断鼠标当前坐标是否位于由a,b,c构成的三角形内，如果位于三角形内，则进行导航延时，否则不进行延时</span></div><div class="line"></div><div class="line"><span class="comment">//判断点P是否位于三角形内，使用向量叉乘的方法，PA向量*PB向量，PB向量*PC向量，判断这两个向量的数量积正负是否一致，如果一致，p点在三角形abc内</span></div><div class="line"></div><div class="line"><span class="comment">//向量积:数学中又称外积、叉积，物理中称矢积、叉乘，是一种在向量空间中向量的二元运算。与点积不同，它的运算结果是一个向量而不是一个标量。并且两个向量的叉积与这两个向量和垂直</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//位运算，判断两个数符号是否相同</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sameSign</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">	<span class="comment">//二进制正负表示在最高位，使用'^'运算,有一个为1则返回true</span></div><div class="line">	<span class="keyword">return</span> (a ^ b) &gt;= <span class="number">0</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//向量计算函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">vector</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">	<span class="comment">//传入两个点，返回这两个点构成的向量</span></div><div class="line">	<span class="keyword">if</span>(a &amp;&amp; b)&#123;</div><div class="line">		<span class="keyword">return</span> &#123;</div><div class="line">			x: b.x - a.x,</div><div class="line">			y: b.y - a.y</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*向量叉乘公式*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">vectorProduct</span>(<span class="params">v1, v2</span>) </span>&#123;</div><div class="line">	<span class="comment">//</span></div><div class="line">	<span class="keyword">return</span> v1.x * v2.y - v2.x * v1.y;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//叉乘判断方法</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPointInTrangle</span>(<span class="params">p, a, b, c</span>) </span>&#123;</div><div class="line">	<span class="comment">/*传入三个向量*/</span></div><div class="line">	<span class="keyword">var</span> pa = vector(p, a);</div><div class="line">	<span class="keyword">var</span> pb = vector(p, b);</div><div class="line">	<span class="keyword">var</span> pc = vector(p, c);</div><div class="line">	<span class="comment">//将三个向量叉乘</span></div><div class="line">	<span class="keyword">var</span> t1 = vectorProduct(pa, pb);</div><div class="line">	<span class="keyword">var</span> t2 = vectorProduct(pa, pc);</div><div class="line">	<span class="keyword">var</span> t3 = vectorProduct(pb, pc);</div><div class="line"></div><div class="line">	<span class="comment">//判断叉乘结果正负</span></div><div class="line">	<span class="comment">//console.log(t1,t2,t3);</span></div><div class="line">	<span class="keyword">return</span> sameSign(t1, t2) &amp;&amp; sameSign(t2, t3);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//判断菜单是否需要延时</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">needDelay</span>(<span class="params">elem, leftCorner, currMousePos</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> offset = elem.offset();</div><div class="line">	<span class="keyword">var</span> topLeft = &#123;</div><div class="line">		x: offset.left+$(<span class="string">".nav ul"</span>).width()+<span class="number">50</span>,</div><div class="line">		y: offset.top+<span class="number">100</span></div><div class="line">	&#125;</div><div class="line">	<span class="keyword">var</span> bottonLeft = &#123;</div><div class="line">		x: topLeft.x,</div><div class="line">		y: topLeft.y + elem.height()</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//console.log(currMousePos, leftCorner);</span></div><div class="line">	<span class="keyword">return</span> isPointInTrangle(currMousePos, leftCorner, topLeft, bottonLeft);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>最终实现效果</p>
-<p><img src="" alt="image"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/22/【20171122】bootstrap3表单验证-sco-valid-js的使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Try">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Try_Luies">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/22/【20171122】bootstrap3表单验证-sco-valid-js的使用/" itemprop="url">高效长表单验证方法_sco.valid.js的使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-22T17:30:43+08:00">
-                2017-11-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var formValid = &#123;</div><div class="line">	<span class="built_in">error</span>: <span class="function"><span class="keyword">function</span> <span class="params">(e, errMsg)</span></span> &#123;</div><div class="line">		e.parents(<span class="string">'.control-group'</span>).removeClass(<span class="string">'has-success'</span>);</div><div class="line">		e.parents(<span class="string">'.control-group'</span>).addClass(<span class="string">'has-error'</span>);</div><div class="line">		e.siblings(<span class="string">'.help-block'</span>).text(errMsg);</div><div class="line">	&#125;,</div><div class="line">	success: <span class="function"><span class="keyword">function</span> <span class="params">(e)</span></span> &#123;</div><div class="line">		e.parents(<span class="string">'.control-group'</span>).removeClass(<span class="string">'has-error'</span>);</div><div class="line">		e.parents(<span class="string">'.control-group'</span>).addClass(<span class="string">'has-success'</span>);</div><div class="line">		e.siblings(<span class="string">'.help-block'</span>).text(<span class="string">""</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">formValid.<span class="built_in">error</span>(boxName, <span class="string">'配电箱名称太长！'</span>)</div></pre></td></tr></table></figure>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!fromValid.validate()) &#123;</div><div class="line">	$(<span class="string">'span.help-block'</span>).show();</div><div class="line">	return;</div><div class="line">&#125;;</div><div class="line">var fromValid = $.scojs_valid(<span class="string">"#formAdd"</span>,&#123;</div><div class="line">    //account等为输入框id名</div><div class="line">        rules: &#123;</div><div class="line">            account  : [<span class="string">'not_empty'</span>,&#123;<span class="string">'min_length'</span>: <span class="number">2</span>&#125;,&#123;<span class="string">'max_length'</span>: <span class="number">20</span>&#125;],</div><div class="line">            email  : [<span class="string">'not_empty'</span>,<span class="string">'email'</span>],</div><div class="line">            password : [<span class="string">'not_empty'</span>, &#123;<span class="string">'min_length'</span>: <span class="number">6</span>&#125;],</div><div class="line">            confirmPassword :[&#123;matches: <span class="string">'password'</span>&#125;],</div><div class="line">            code:[<span class="string">'not_empty'</span>]</div><div class="line">        &#125;,</div><div class="line">        messages: &#123;</div><div class="line">            account: &#123;</div><div class="line">                not_empty: <span class="string">"请输入注册账号"</span>,</div><div class="line">                min_length: <span class="string">"账号不少于2个字符"</span>,</div><div class="line">                max_length: <span class="string">"账号不能超过20个字符"</span></div><div class="line">            &#125;,</div><div class="line">            email: &#123;</div><div class="line">                not_empty: <span class="string">"请输入邮箱"</span>,</div><div class="line">                email: <span class="string">"请输入正确的邮箱"</span></div><div class="line">            &#125;,</div><div class="line"></div><div class="line">            password: &#123;</div><div class="line">                not_empty: <span class="string">"请输入登陆密码，区分大小写"</span>,</div><div class="line">                min_length: <span class="string">"密码太短了，至少要6位哦"</span></div><div class="line">            &#125;,</div><div class="line">            confirmPassword:&#123;</div><div class="line">                matches: <span class="string">"两次输入密码不一致"</span>,</div><div class="line">            &#125;,</div><div class="line">            code:&#123;</div><div class="line">                not_empty: <span class="string">"请输入验证码"</span>,</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        wrapper:<span class="string">'.form-group'</span></div><div class="line">            ,onSuccess: function(response, validator, $form) &#123;</div><div class="line">                tipsOp(response.data,response.status);</div><div class="line">                if(response.url)&#123;</div><div class="line">                    setTimeout(function()&#123;window.location.href=response.url;&#125;,<span class="number">3000</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
-          
+<p>下面我们来从零开始模拟开发一个具有二级目录大导航。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/28/【20171128】京东大导航——预判用户行为/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1586,6 +1395,145 @@
             </a>
           </div>
           <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/【20171122】bootstrap3表单验证-sco-valid-js的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/22/【20171122】bootstrap3表单验证-sco-valid-js的使用/" itemprop="url">高效长表单验证方法_sco.valid.js的使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-22T17:30:43+08:00">
+                2017-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var formValid = &#123;</div><div class="line">	<span class="built_in">error</span>: <span class="function"><span class="keyword">function</span> <span class="params">(e, errMsg)</span></span> &#123;</div><div class="line">		e.parents(<span class="string">'.control-group'</span>).removeClass(<span class="string">'has-success'</span>);</div><div class="line">		e.parents(<span class="string">'.control-group'</span>).addClass(<span class="string">'has-error'</span>);</div><div class="line">		e.siblings(<span class="string">'.help-block'</span>).text(errMsg);</div><div class="line">	&#125;,</div><div class="line">	success: <span class="function"><span class="keyword">function</span> <span class="params">(e)</span></span> &#123;</div><div class="line">		e.parents(<span class="string">'.control-group'</span>).removeClass(<span class="string">'has-error'</span>);</div><div class="line">		e.parents(<span class="string">'.control-group'</span>).addClass(<span class="string">'has-success'</span>);</div><div class="line">		e.siblings(<span class="string">'.help-block'</span>).text(<span class="string">""</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">formValid.<span class="built_in">error</span>(boxName, <span class="string">'配电箱名称太长！'</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!fromValid.validate()) &#123;</div><div class="line">	$(<span class="string">'span.help-block'</span>).show();</div><div class="line">	return;</div><div class="line">&#125;;</div><div class="line">var fromValid = $.scojs_valid(<span class="string">"#formAdd"</span>,&#123;</div><div class="line">    //account等为输入框id名</div><div class="line">        rules: &#123;</div><div class="line">            account  : [<span class="string">'not_empty'</span>,&#123;<span class="string">'min_length'</span>: <span class="number">2</span>&#125;,&#123;<span class="string">'max_length'</span>: <span class="number">20</span>&#125;],</div><div class="line">            email  : [<span class="string">'not_empty'</span>,<span class="string">'email'</span>],</div><div class="line">            password : [<span class="string">'not_empty'</span>, &#123;<span class="string">'min_length'</span>: <span class="number">6</span>&#125;],</div><div class="line">            confirmPassword :[&#123;matches: <span class="string">'password'</span>&#125;],</div><div class="line">            code:[<span class="string">'not_empty'</span>]</div><div class="line">        &#125;,</div><div class="line">        messages: &#123;</div><div class="line">            account: &#123;</div><div class="line">                not_empty: <span class="string">"请输入注册账号"</span>,</div><div class="line">                min_length: <span class="string">"账号不少于2个字符"</span>,</div><div class="line">                max_length: <span class="string">"账号不能超过20个字符"</span></div><div class="line">            &#125;,</div><div class="line">            email: &#123;</div><div class="line">                not_empty: <span class="string">"请输入邮箱"</span>,</div><div class="line">                email: <span class="string">"请输入正确的邮箱"</span></div><div class="line">            &#125;,</div><div class="line"></div><div class="line">            password: &#123;</div><div class="line">                not_empty: <span class="string">"请输入登陆密码，区分大小写"</span>,</div><div class="line">                min_length: <span class="string">"密码太短了，至少要6位哦"</span></div><div class="line">            &#125;,</div><div class="line">            confirmPassword:&#123;</div><div class="line">                matches: <span class="string">"两次输入密码不一致"</span>,</div><div class="line">            &#125;,</div><div class="line">            code:&#123;</div><div class="line">                not_empty: <span class="string">"请输入验证码"</span>,</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        wrapper:<span class="string">'.form-group'</span></div><div class="line">            ,onSuccess: function(response, validator, $form) &#123;</div><div class="line">                tipsOp(response.data,response.status);</div><div class="line">                if(response.url)&#123;</div><div class="line">                    setTimeout(function()&#123;window.location.href=response.url;&#125;,<span class="number">3000</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+          
         
       
     </div>

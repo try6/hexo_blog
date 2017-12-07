@@ -94,21 +94,22 @@
 
 
 
-<meta name="description" content="电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。 淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。 下面我们来从零开始模拟开发一个具有二级目录大导航。 html和css常规的dom结构和样式实现 对于子导航的实现，淘宝使用了div的层层嵌套，而京东则是使用表格的结构。两种方式">
+<meta name="description" content="电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。 淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。 下面我们来从零开始模拟开发一个具有二级目录大导航。">
 <meta name="keywords" content="js,导航,用户行为">
 <meta property="og:type" content="article">
 <meta property="og:title" content="京东大导航——预判用户行为">
 <meta property="og:url" content="http://yoursite.com/2017/11/28/【20171128】京东大导航——预判用户行为/index.html">
 <meta property="og:site_name" content="Try_Luies">
-<meta property="og:description" content="电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。 淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。 下面我们来从零开始模拟开发一个具有二级目录大导航。 html和css常规的dom结构和样式实现 对于子导航的实现，淘宝使用了div的层层嵌套，而京东则是使用表格的结构。两种方式">
+<meta property="og:description" content="电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。 淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。 下面我们来从零开始模拟开发一个具有二级目录大导航。">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2017/11/28/【20171128】京东大导航——预判用户行为/images/JD_nav/nav.png">
 <meta property="og:image" content="http://yoursite.com/2017/11/28/【20171128】京东大导航——预判用户行为/PIC1">
 <meta property="og:image" content="http://yoursite.com/2017/11/28/【20171128】京东大导航——预判用户行为/PIC2">
-<meta property="og:updated_time" content="2017-12-04T02:01:38.130Z">
+<meta property="og:updated_time" content="2017-12-07T03:10:17.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="京东大导航——预判用户行为">
-<meta name="twitter:description" content="电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。 淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。 下面我们来从零开始模拟开发一个具有二级目录大导航。 html和css常规的dom结构和样式实现 对于子导航的实现，淘宝使用了div的层层嵌套，而京东则是使用表格的结构。两种方式">
-<meta name="twitter:image" content="http://yoursite.com/2017/11/28/【20171128】京东大导航——预判用户行为/PIC1">
+<meta name="twitter:description" content="电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。 淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。 下面我们来从零开始模拟开发一个具有二级目录大导航。">
+<meta name="twitter:image" content="http://yoursite.com/2017/11/28/【20171128】京东大导航——预判用户行为/images/JD_nav/nav.png">
 
 
 
@@ -402,7 +403,7 @@
         <p><img src="" alt="image"></p>
 <p>电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。</p>
 <p>淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。</p>
-<p>下面我们来从零开始模拟开发一个具有二级目录大导航。</p>
+<p>下面我们来从零开始模拟开发一个具有二级目录大导航。<br><a id="more"></a></p>
 <h4 id="html和css"><a href="#html和css" class="headerlink" title="html和css"></a>html和css</h4><p>常规的dom结构和样式实现</p>
 <p>对于子导航的实现，淘宝使用了div的层层嵌套，而京东则是使用表格的结构。两种方式都能实现最终效果。可自行选择。</p>
 <p>我在这里做了表格结构实现子导航的尝试。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"sub"</span>&gt;</div><div class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"sub-content"</span> id=<span class="string">'sub-a'</span>&gt;</div><div class="line">        &lt;ul &gt;</div><div class="line">            &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"# "</span>&gt;</span>家电馆<span class="tag">&lt;<span class="name">span</span>&gt;</span>&amp;gt;<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line">            ...</div><div class="line">        &lt;<span class="regexp">/ul&gt;</span></div><div class="line"><span class="regexp">        &lt;dl &gt;</span></div><div class="line"><span class="regexp">            &lt;dt&gt;&lt;a href="# "&gt;电视&lt;span&gt;&amp;gt;&lt;/</span>span&gt;<span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span></div><div class="line">            &lt;dd&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"# "</span>&gt;</span>曲面电视<span class="tag">&lt;<span class="name">span</span>&gt;</span>&amp;gt;<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span></div><div class="line">            ...</div><div class="line">        &lt;<span class="regexp">/dl&gt;</span></div><div class="line"><span class="regexp">        &lt;dl &gt;</span></div><div class="line"><span class="regexp">            &lt;dt&gt;&lt;a href="# "&gt;空调&lt;span&gt;&amp;gt;&lt;/</span>span&gt;<span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span></div><div class="line">            &lt;dd&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"# "</span>&gt;</span>曲面空调<span class="tag">&lt;<span class="name">span</span>&gt;</span>&amp;gt;<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span></div><div class="line">            ...</div><div class="line">        &lt;<span class="regexp">/dl&gt;	</span></div><div class="line"><span class="regexp">    &lt;/</span>div&gt;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></p>
@@ -415,7 +416,6 @@
 <li>鼠标移至主导航或子导航菜单中(mouseener)，对应选项样式改变，对应子导航显示</li>
 <li>鼠标移出主导航或子导航菜单中(mouseleave)，选项样式取消，对应子导航隐藏<blockquote>
 <p>注：mouseener不冒泡，mouseover冒泡。详细内容请戳<a href="">mouseover,mouseener,mousemove</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ul>
@@ -425,7 +425,7 @@
 <ol>
 <li>用户想到要选择子导航的某一选项时，鼠标必须先进入子导航内。如果在此之前触碰到主导航的其他选项，会立即切换。导航体量大，如果用户想要选择子导航内下方的选项，必须先从主导航平移至子导航内，也就是一个折线的过程。</li>
 </ol>
-<p><img src="" alt="image"></p>
+<p><img src="./images/JD_nav/nav.png" alt="image"></p>
 <ol>
 <li>在主导航上移动时，子导航也会跟着快速切换。 </li>
 </ol>
@@ -493,8 +493,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/22/【20171122】bootstrap3表单验证-sco-valid-js的使用/" rel="next" title="高效长表单验证方法_sco.valid.js的使用">
-                <i class="fa fa-chevron-left"></i> 高效长表单验证方法_sco.valid.js的使用
+              <a href="/2017/11/22/【20171121】隐藏滚动条小技巧（兼容至IE7）/" rel="next" title="隐藏滚动条小技巧（兼容至IE7）">
+                <i class="fa fa-chevron-left"></i> 隐藏滚动条小技巧（兼容至IE7）
               </a>
             
           </div>
