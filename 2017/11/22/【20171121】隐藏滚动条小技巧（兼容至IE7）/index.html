@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="关于滚动条的设置 滚动条设置 1overflow:scroll;  也可以单独对x和y设置滚动条 123//隐藏x轴，显示Y轴滚动条overflow-x:none;overflow-y:scroll;   滚动条隐藏，且仍然有滚动功能 对于webkit内核可直接设置隐藏滚动条样式 1234567element&amp;#123;    overflow-x:none;    overflow-y:scro">
+<meta name="description" content="关于滚动条的设置 滚动条设置 1overflow:scroll;  也可以单独对x和y设置滚动条 123//隐藏x轴，显示Y轴滚动条overflow-x:none;overflow-y:scroll;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="隐藏滚动条小技巧（兼容至IE7）">
 <meta property="og:url" content="http://yoursite.com/2017/11/22/【20171121】隐藏滚动条小技巧（兼容至IE7）/index.html">
 <meta property="og:site_name" content="Try_Luies">
-<meta property="og:description" content="关于滚动条的设置 滚动条设置 1overflow:scroll;  也可以单独对x和y设置滚动条 123//隐藏x轴，显示Y轴滚动条overflow-x:none;overflow-y:scroll;   滚动条隐藏，且仍然有滚动功能 对于webkit内核可直接设置隐藏滚动条样式 1234567element&amp;#123;    overflow-x:none;    overflow-y:scro">
+<meta property="og:description" content="关于滚动条的设置 滚动条设置 1overflow:scroll;  也可以单独对x和y设置滚动条 123//隐藏x轴，显示Y轴滚动条overflow-x:none;overflow-y:scroll;">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://note.youdao.com/yws/public/resource/e7c63b13f28ec75fa92b3926d72f20e1/xmlnote/6597BA8C09C545F0B5AACB2F997A8861/14342">
-<meta property="og:updated_time" content="2017-11-22T10:11:24.466Z">
+<meta property="og:updated_time" content="2017-12-07T03:12:52.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="隐藏滚动条小技巧（兼容至IE7）">
-<meta name="twitter:description" content="关于滚动条的设置 滚动条设置 1overflow:scroll;  也可以单独对x和y设置滚动条 123//隐藏x轴，显示Y轴滚动条overflow-x:none;overflow-y:scroll;   滚动条隐藏，且仍然有滚动功能 对于webkit内核可直接设置隐藏滚动条样式 1234567element&amp;#123;    overflow-x:none;    overflow-y:scro">
+<meta name="twitter:description" content="关于滚动条的设置 滚动条设置 1overflow:scroll;  也可以单独对x和y设置滚动条 123//隐藏x轴，显示Y轴滚动条overflow-x:none;overflow-y:scroll;">
 <meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/e7c63b13f28ec75fa92b3926d72f20e1/xmlnote/6597BA8C09C545F0B5AACB2F997A8861/14342">
 
 
@@ -372,6 +372,7 @@
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//隐藏x轴，显示Y轴滚动条</span></div><div class="line"><span class="attribute">overflow-x</span>:none;</div><div class="line"><span class="attribute">overflow-y</span>:scroll;</div></pre></td></tr></table></figure>
 </li>
 </ol>
+<a id="more"></a>
 <h5 id="滚动条隐藏，且仍然有滚动功能"><a href="#滚动条隐藏，且仍然有滚动功能" class="headerlink" title="滚动条隐藏，且仍然有滚动功能"></a>滚动条隐藏，且仍然有滚动功能</h5><ol>
 <li><p>对于webkit内核可直接设置隐藏滚动条样式</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">element</span>&#123;</div><div class="line">    <span class="attribute">overflow-x</span>:none;</div><div class="line">    <span class="attribute">overflow-y</span>:scroll;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">element</span><span class="selector-pseudo">::-webkit-scrollbar</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
