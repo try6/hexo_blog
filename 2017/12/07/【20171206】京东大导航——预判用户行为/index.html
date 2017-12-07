@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js,导航,用户行为," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="在上篇京东大导航——预判用户行为（一）中讲到，我们对导航的切换操作设置了延时，解决了移入子菜单时不执行导航切换的问题。但同时引入了新的问题，即导航的延时造成了切换不流程。 如何才能做到，即保证用户进入子菜单的便捷，又能保证用户切换主导航的流程呢">
+<meta name="keywords" content="js,导航,用户行为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="京东大导航——预判用户行为（二）">
+<meta property="og:url" content="http://yoursite.com/2017/12/07/【20171206】京东大导航——预判用户行为/index.html">
+<meta property="og:site_name" content="Try_Luies">
+<meta property="og:description" content="在上篇京东大导航——预判用户行为（一）中讲到，我们对导航的切换操作设置了延时，解决了移入子菜单时不执行导航切换的问题。但同时引入了新的问题，即导航的延时造成了切换不流程。 如何才能做到，即保证用户进入子菜单的便捷，又能保证用户切换主导航的流程呢">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2017/12/07/【20171206】京东大导航——预判用户行为/images/JD_nav/pic01.png">
+<meta property="og:image" content="http://yoursite.com/2017/12/07/【20171206】京东大导航——预判用户行为/images/JD_nav/pic02.png">
+<meta property="og:image" content="http://yoursite.com/2017/12/07/【20171206】京东大导航——预判用户行为/images/JD_nav/pic03.png">
+<meta property="og:updated_time" content="2017-12-07T07:56:48.121Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="京东大导航——预判用户行为（二）">
+<meta name="twitter:description" content="在上篇京东大导航——预判用户行为（一）中讲到，我们对导航的切换操作设置了延时，解决了移入子菜单时不执行导航切换的问题。但同时引入了新的问题，即导航的延时造成了切换不流程。 如何才能做到，即保证用户进入子菜单的便捷，又能保证用户切换主导航的流程呢">
+<meta name="twitter:image" content="http://yoursite.com/2017/12/07/【20171206】京东大导航——预判用户行为/images/JD_nav/pic01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/07/【20171206】京东大导航——预判用户行为/"/>
+
+
+
+
+
+  <title>京东大导航——预判用户行为（二） | Try_Luies</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Try_Luies</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/【20171206】京东大导航——预判用户行为/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">京东大导航——预判用户行为（二）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-07T11:42:05+08:00">
+                2017-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">study</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/web-develope/" itemprop="url" rel="index">
+                    <span itemprop="name">web-develope</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在上篇<a href="http://taoruyi.xyz/2017/11/28/%E3%80%9020171128%E3%80%91%E4%BA%AC%E4%B8%9C%E5%A4%A7%E5%AF%BC%E8%88%AA%E2%80%94%E2%80%94%E9%A2%84%E5%88%A4%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA/" target="_blank" rel="external">京东大导航——预判用户行为（一）</a><br>中讲到，我们对导航的切换操作设置了延时，解决了移入子菜单时不执行导航切换的问题。但同时引入了新的问题，即导航的延时造成了切换不流程。</p>
+<p>如何才能做到，即保证用户进入子菜单的便捷，又能保证用户切换主导航的流程呢</p>
+<a id="more"></a>
+<p>不防做这样的假设，如图</p>
+<p><img src="./images/JD_nav/pic01.png" alt="image">;</p>
+<p>其中图中的O点为鼠标的起始位置。</p>
+<p>若鼠标移动路径位于阴影内部，就认为用户想要移动到当前子菜单，如路径O-&gt;p1</p>
+<p>若鼠标移动路径位于阴影外部，就认为用户想要切换菜单，如路径O-&gt;p2</p>
+<p>于是问题就转化成了，判断鼠标移动的方向是否位于阴影部分内部，如何判断一个点位于一个三角形的内部（P点位于三角形0AB内部），具体实现则用到了数学上的向量积问题。</p>
+<h5 id="数学思路：判断一个点是否位于一个三角形的内部"><a href="#数学思路：判断一个点是否位于一个三角形的内部" class="headerlink" title="数学思路：判断一个点是否位于一个三角形的内部"></a>数学思路：判断一个点是否位于一个三角形的内部</h5><p><img src="./images/JD_nav/pic02.png" alt="image">;</p>
+<blockquote>
+<p>同向法：沿着三角形三边走一圈A——&gt;B——&gt;C——&gt;A，在AB边时，点P和C点在同侧；在BC边时，点P和A点在同侧;在CA边时，点P和B点在同侧；如果点P始终个第三个点保持同侧，则说明该点位于三角形内；若某一时刻两点位于两侧，那么该点在三角形外</p>
+</blockquote>
+<p>那么问题又转化成了，判断两个点是否位于一条线段的同侧</p>
+<p>这会儿就能使用向量积了。</p>
+<p><img src="./images/JD_nav/pic03.png" alt="image">;</p>
+<p>如图，将向量PO和向量OA做叉乘,再将向量BO和OA做叉乘，如果两个叉乘的结果符号相同，说明两个点位于OA的同一侧<br><figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//向量积公式</span></div><div class="line"> OA × PO = <span class="comment">(p.x – a.x)</span><span class="comment">(p.y – a.y)</span> – <span class="comment">(p.y – a.y)</span><span class="comment">(p.x – a.x)</span>;</div></pre></td></tr></table></figure></p>
+<p>对三边都进行判断，判断函数<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">flag</span><span class="params">(OA,PO,BO)</span></span>&#123;</div><div class="line">    <span class="keyword">var</span> flag = <span class="number">-1</span>;</div><div class="line">    <span class="keyword">var</span> a = OA × PO;</div><div class="line">    <span class="keyword">var</span> b = OA × BO;</div><div class="line">    <span class="keyword">if</span>(a*b&lt; <span class="number">0</span> )&#123;</div><div class="line">        <span class="comment">//B,P两点不同向</span></div><div class="line">        flag = <span class="number">-1</span>;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="comment">//B,P两点同向</span></div><div class="line">        flag = <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">        <span class="keyword">return</span> flag</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> x = flag(OA,PO,BO);</div><div class="line"><span class="keyword">var</span> y = flag(AB,PA,OA);</div><div class="line"><span class="keyword">var</span> z = flag(BO,PB,AB);</div><div class="line"><span class="keyword">if</span>(x == <span class="number">1</span> &amp;&amp; y == <span class="number">1</span> &amp;&amp; z == <span class="number">1</span>)&#123;</div><div class="line">   <span class="comment">//点在三角形内部</span></div><div class="line">    <span class="comment">//用户想进入子菜单</span></div><div class="line">    <span class="comment">//菜单切换延迟</span></div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">    <span class="comment">//点在三角形外部</span></div><div class="line">    <span class="comment">//用户想切换菜单</span></div><div class="line">    <span class="comment">//菜单切换不延迟</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>最终实现代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取四个点的坐标</span></div><div class="line"><span class="keyword">var</span> topLeft = &#123;</div><div class="line">		x: sub-nav.offset().left,</div><div class="line">		y: sub-nav.offset().top</div><div class="line">	&#125;</div><div class="line"><span class="keyword">var</span> bottomLeft = &#123;</div><div class="line">    x:sub-nav.offset().left,</div><div class="line">    y:sub-nav.offset().top + sub-nav.height()</div><div class="line">&#125;</div><div class="line"><span class="comment">//O点为鼠标起始坐标，P点设置为鼠标移动后的第二个点</span></div><div class="line"><span class="keyword">var</span> mouseTrack = []; <span class="comment">//跟踪鼠标坐标数组</span></div><div class="line">$(<span class="string">"#main-nav"</span>).on(<span class="string">'mousemove'</span>, moveHanlder) <span class="comment">//监听鼠标移动事件</span></div><div class="line"><span class="keyword">var</span> moveHanlder = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">    mouseTrack.push(&#123;</div><div class="line">        x:  e.pageX,</div><div class="line">        y:  e.pageY</div><div class="line">    &#125;);</div><div class="line">	<span class="keyword">if</span> (mouseTrack.length &gt; <span class="number">3</span>) &#123;</div><div class="line">		<span class="comment">//取鼠标经过的2个点即可</span></div><div class="line">		mouseTrack.shift(); </div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> O = mouseTrack[<span class="number">0</span>];</div><div class="line"><span class="keyword">var</span> P = mouseTrack[<span class="number">1</span>];</div></pre></td></tr></table></figure></p>
+<p>到目前为止已获取了四个点的坐标，下面就是对四个坐标进行各种数学运算</p>
+<p>第一步：生成向量函数<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function vector(<span class="selector-tag">a</span>,b)&#123;</div><div class="line">    <span class="comment">//传入两个点，生成这两个点构成的向量</span></div><div class="line">    return &#123;</div><div class="line">        x:<span class="selector-tag">a</span><span class="selector-class">.x-b</span><span class="selector-class">.x</span>,</div><div class="line">        y:<span class="selector-tag">a</span><span class="selector-class">.y-b</span><span class="selector-class">.y</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>第二步：获取向量积函数<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">function</span> vectorProduct(<span class="built_in">v1</span>,<span class="built_in">v2</span>)&#123;</div><div class="line">    //传入两个向量，获取向量积</div><div class="line">    var <span class="keyword">mul </span>= <span class="built_in">v1</span>.x * <span class="built_in">v2</span>.y - <span class="built_in">v2</span>.x * <span class="built_in">v1</span>.y<span class="comment">;</span></div><div class="line">    return <span class="keyword">mul;</span></div><div class="line"><span class="keyword">&#125;</span></div></pre></td></tr></table></figure></p>
+<p>第三步：传入一条向量和两个点对向量积进行是否同向判断,在上文示例代码基础上改进<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">flag</span><span class="params">(v,O,P)</span></span>&#123;</div><div class="line">    <span class="keyword">var</span> flag = <span class="number">-1</span>;</div><div class="line">    <span class="keyword">var</span> PA = vector(P,A);</div><div class="line">    <span class="keyword">var</span> OA = vector(O,A);</div><div class="line">    <span class="keyword">var</span> mul1 = vectorProduct(PA,v);</div><div class="line">    <span class="keyword">var</span> mul2 = vectorProduct(OA,v);</div><div class="line">    <span class="keyword">if</span>(mul1 * mul2&lt; <span class="number">0</span> )&#123;</div><div class="line">        <span class="comment">//两点不同向</span></div><div class="line">        flag = <span class="number">-1</span>;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="comment">//两点同向</span></div><div class="line">        flag = <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">        <span class="keyword">return</span> flag</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>第四部：传入四个点，调用公式，判断是否需要延时<br><figure class="highlight golo"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> needDelay(A,B,O,P)&#123;</div><div class="line">    <span class="keyword">var</span> V1 = <span class="keyword">vector</span>(A,B);</div><div class="line">    <span class="keyword">var</span> V2 = <span class="keyword">vector</span>(B,O);</div><div class="line">    <span class="keyword">var</span> V3 = <span class="keyword">vector</span>(O,A);</div><div class="line">    <span class="keyword">var</span> x = flag(V1,O,P);</div><div class="line">    <span class="keyword">var</span> y = flag(V2,A,P);</div><div class="line">    <span class="keyword">var</span> z = flag(V3,B,P);</div><div class="line">    <span class="keyword">if</span>(x == <span class="number">1</span> &amp;&amp; y == <span class="number">1</span> &amp;&amp; z == <span class="number">1</span>)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">         <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>再结合上篇<a href="http://taoruyi.xyz/2017/11/28/%E3%80%9020171128%E3%80%91%E4%BA%AC%E4%B8%9C%E5%A4%A7%E5%AF%BC%E8%88%AA%E2%80%94%E2%80%94%E9%A2%84%E5%88%A4%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA/" target="_blank" rel="external">京东大导航——预判用户行为（一）</a><br>的代码,就能完成最终效果<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(needDelay)&#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="comment">//导航切换代码</span></div><div class="line">    &#125;,<span class="number">500</span>);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">    <span class="comment">//导航切换代码</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>效果图GIF：</p>
+<p><img src="" alt="image"></p>
+<p>大功告成</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/导航/" rel="tag"># 导航</a>
+          
+            <a href="/tags/用户行为/" rel="tag"># 用户行为</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/28/【20171128】京东大导航——预判用户行为/" rel="next" title="京东大导航——预判用户行为（一）">
+                <i class="fa fa-chevron-left"></i> 京东大导航——预判用户行为（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpg"
+               alt="Try" />
+          <p class="site-author-name" itemprop="name">Try</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/try6" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2680387355?refer_flag=1001030103_" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#数学思路：判断一个点是否位于一个三角形的内部"><span class="nav-number">1.</span> <span class="nav-text">数学思路：判断一个点是否位于一个三角形的内部</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Try</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

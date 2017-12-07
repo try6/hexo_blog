@@ -97,26 +97,27 @@
 <meta name="description" content="前言前段时间一堆App更新其中有一条原因就是适配iPhoneX。现在QA也逐渐也iPhoneX的bug给开发了，那如何去适配新机型呢？今日早读文章由腾讯ISUX分享。 正文从这开始·目前的 H5 页面可以分为通栏页面和非通栏页面两种，每种页面都可能有底部操作栏，具体如下：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【转】iPhone X 适配 手Q H5页面通用解决方案">
-<meta property="og:url" content="http://yoursite.com/2017/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/index.html">
 <meta property="og:site_name" content="Try_Luies">
 <meta property="og:description" content="前言前段时间一堆App更新其中有一条原因就是适配iPhoneX。现在QA也逐渐也iPhoneX的bug给开发了，那如何去适配新机型呢？今日早读文章由腾讯ISUX分享。 正文从这开始·目前的 H5 页面可以分为通栏页面和非通栏页面两种，每种页面都可能有底部操作栏，具体如下：">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy11UoYM4VYmNX1sSL7UuFnZib6iaIjticrLIoXibvNaGFt3icWlIV0yblRWDQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1yRJyfMdEibDlIibdQeiaMrUiajicibjeOiaS09fhtgDZoDGRlLaLutAQQEkeA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1cxU88wSliaklicIp1kuUlf6khNUGXyhEMYTp4dSN3Z1PWq4gowlIO92A/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1UBTQtwzjpaInYF0HjdEs6wsiaoebgLBVkMtSGbJcrenqBHWzovysm6Q/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1FDfUDFYZPIOAqvlSISAoymRLEAxmqyU1dducOUMdFibUhRJ35npNs5w/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1Pt3pYqX07icLFjQaSDgViaTeMib2BXVq3FYbMQ7XuJ3vWD7m1vJ8zVAjQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1bBoBP20KVicsNP5yG8icROqNjNruEtQAPKFDRJvN69lYPHqy1ib8TGkUQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1byzwtInm7y27sGMT4Oobql6TqoMbmxTYPHFF0PMxLIBOgl1CxatxLg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1xAXmjiazq7cn2IzvJD1GwvgE1O8g9cia7wF7IpS0tiabf8eLoS3Lpx26w/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1ox5YvgUia4YJTmM6zdQjiclezelpXFic6PHia0XeSSHPlZxs5lVAt0UuRQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1JSib8dicOh2RCA1htChOUOwOrjZsaPcj9K0bCcMXJlK9yAPIdfhMlb1w/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:updated_time" content="2017-11-13T01:34:38.152Z">
+<meta property="og:image" content="http://yoursite.com/2016/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/images/11_iphoneX/01.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/images/11_iphoneX/02.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/images/11_iphoneX/03.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/images/11_iphoneX/04.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/images/11_iphoneX/05.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/images/11_iphoneX/06.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/images/11_iphoneX/07.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/images/11_iphoneX/08.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/images/11_iphoneX/09.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/images/11_iphoneX/10.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/images/11_iphoneX/11.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/images/11_iphoneX/12.jpg">
+<meta property="og:updated_time" content="2017-12-07T07:57:25.729Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【转】iPhone X 适配 手Q H5页面通用解决方案">
 <meta name="twitter:description" content="前言前段时间一堆App更新其中有一条原因就是适配iPhoneX。现在QA也逐渐也iPhoneX的bug给开发了，那如何去适配新机型呢？今日早读文章由腾讯ISUX分享。 正文从这开始·目前的 H5 页面可以分为通栏页面和非通栏页面两种，每种页面都可能有底部操作栏，具体如下：">
-<meta name="twitter:image" content="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy11UoYM4VYmNX1sSL7UuFnZib6iaIjticrLIoXibvNaGFt3icWlIV0yblRWDQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1">
+<meta name="twitter:image" content="http://yoursite.com/2016/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/images/11_iphoneX/01.jpg">
 
 
 
@@ -145,7 +146,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/"/>
 
 
 
@@ -288,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Try">
@@ -317,8 +318,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-13T09:29:02+08:00">
-                2017-11-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-13T09:29:02+08:00">
+                2016-11-13
               </time>
             
 
@@ -379,15 +380,15 @@
 <h4 id="通栏页面"><a href="#通栏页面" class="headerlink" title="通栏页面"></a>通栏页面</h4><h5 id="1-顶部通栏"><a href="#1-顶部通栏" class="headerlink" title="1.顶部通栏"></a>1.顶部通栏</h5><p>某些业务的一级页面多数使用了顶部通栏 banner 的效果，由于 iPhone X 在状态栏增加了24px的高度，对于现在通栏 banner 规范的内容区域会有遮挡情况。</p>
 <p>解决方案：对于通栏页面在页面顶部增加一层高度44px的黑色适配层，整个页面往下挪44px。</p>
 <p>这种做法虽然不符合苹果要求的设计规范，但由于短时间内更新全部 banner 的成本太高，可以先这样简单处理，后续再优化 banner 的设计展现。</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy11UoYM4VYmNX1sSL7UuFnZib6iaIjticrLIoXibvNaGFt3icWlIV0yblRWDQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="image"></p>
+<p><img src="./images/11_iphoneX/01.jpg" alt="image"></p>
 <h5 id="2-底部-Tab-栏-操作栏"><a href="#2-底部-Tab-栏-操作栏" class="headerlink" title="2.底部 Tab 栏 / 操作栏"></a>2.底部 Tab 栏 / 操作栏</h5><p>有些页面使用了底部 Tab 栏 / 操作栏，由于 iPhone X 去掉了底部 Home 键，取而代之是34px高度的 Home Indicator ，对于目前的底部 Tab 栏 / 操作栏会造成一定的阻碍。</p>
-<p>解决方案：在页面底部增加一层高度34px的适配层，将操作栏上移34px，颜色可以自定义。<br><img src="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1yRJyfMdEibDlIibdQeiaMrUiajicibjeOiaS09fhtgDZoDGRlLaLutAQQEkeA/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="image"></p>
+<p>解决方案：在页面底部增加一层高度34px的适配层，将操作栏上移34px，颜色可以自定义。<br><img src="./images/11_iphoneX/02.jpg" alt="image"></p>
 <h4 id="非通栏页面"><a href="#非通栏页面" class="headerlink" title="非通栏页面"></a>非通栏页面</h4><h5 id="1-底部-Tab-栏-操作栏"><a href="#1-底部-Tab-栏-操作栏" class="headerlink" title="1.底部 Tab 栏 / 操作栏"></a>1.底部 Tab 栏 / 操作栏</h5><p>原因同上，在底部有34px高度的 Home Indicator ，对于目前的底部 Tab 栏 / 操作栏会造成一定的阻碍操作。</p>
 <p>解决方案：在页面底部增加一层高度34px的颜色块，将操作栏上移34px，颜色可以自定义。</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1cxU88wSliaklicIp1kuUlf6khNUGXyhEMYTp4dSN3Z1PWq4gowlIO92A/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="image"></p>
+<p><img src="./images/11_iphoneX/03.jpg" alt="image"></p>
 <h4 id="关于安全区域"><a href="#关于安全区域" class="headerlink" title="关于安全区域"></a>关于安全区域</h4><p>这里可能有人会有疑问，为什么非通栏下的页面内容是通到底部的，而按钮却是在安全区域上方呢？</p>
 <p>这个问题涉及到安全区域，iOS11 和先前版本的不同之处在于，webview 比较重视安全区域了。这意味着，如果给页面元素设置 top: 0, 它会渲染在屏幕顶部的44px之下，也就是状态栏下面。如果给页面元素设置 bottom: 0, 它会渲染在屏幕底部的34px之上，也就是底部安全区域上面，悬浮按钮一般设置为bottom=0,自然就显示在底部安全区域之上了。</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1UBTQtwzjpaInYF0HjdEs6wsiaoebgLBVkMtSGbJcrenqBHWzovysm6Q/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="image"></p>
+<p><img src="./images/11_iphoneX/04.jpg" alt="image"></p>
 <p>为了解决这个尴尬的情况，苹果公司给我们提供了一个设置 viewport 的 meta 标签的解决方案。</p>
 <p>viewport 可以设置的选项就是 viewport-fit, 它有三个可选值：</p>
 <ul>
@@ -399,16 +400,16 @@
 </li>
 </ul>
 <p>通过给页面设置viewport-fit=cover，可以将页面的布局区域延伸到页面顶部和底部。</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1FDfUDFYZPIOAqvlSISAoymRLEAxmqyU1dducOUMdFibUhRJ35npNs5w/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="image"></p>
+<p><img src="./images/11_iphoneX/05.jpg" alt="image"></p>
 <p>对于通栏页面，设置了viewport-fit的属性，发现会不生效，经过跟同事查看手 Q 源码后发现，终端对于 WebView 通栏的情况设置了UIScrollViewContentInsetAdjustmentNever属性，去除了上下安全区域的边距，使得安全区域的上下边距失效了。</p>
 <p>另外提一点，经过 2 个版本的 webview 测试，发现 WKWebView 在渲染页面的时候，底部按钮在位置表现上不一致，可能是一个还未解决的 bug：</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1Pt3pYqX07icLFjQaSDgViaTeMib2BXVq3FYbMQ7XuJ3vWD7m1vJ8zVAjQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="image"></p>
+<p><img src="./images/11_iphoneX/06.jpg" alt="image"></p>
 <h4 id="使用-web-方案："><a href="#使用-web-方案：" class="headerlink" title="使用 web 方案："></a>使用 web 方案：</h4><p>根据以上的设计方案，可以这样处理：</p>
 <p>修改页面 viewport-fit 属性</p>
 <p>在 H5 页面链接一个 iphonex.css 来给 iPhone X 访问的页面增加对应的适配层</p>
 <p>在 H5 页面上给对应的 dom 结构加上适配的类名</p>
 <p>iPhone X .css</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1bBoBP20KVicsNP5yG8icROqNjNruEtQAPKFDRJvN69lYPHqy1ib8TGkUQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="image"></p>
+<p><img src="./images/11_iphoneX/07.jpg" alt="image"><br><img src="./images/11_iphoneX/08.jpg" alt="image"></p>
 <p>如上，这样做的问题是，要修改的页面非常多，而且给页面带来了额外的类名，对以后的样式移除也有一定的工作量。</p>
 <p>另外，使用样式给页面顶部增加适配层，下拉页面的时候黑色适配层会跟着一起移动：</p>
 <p><a href="https://v.vzuu.com/video/911624446303952896" target="_blank" rel="external">https://v.vzuu.com/video/911624446303952896</a></p>
@@ -418,12 +419,13 @@
 <p>参数名:_wvx 控制 iPhone X 适配行为</p>
 <p>参数名:_wvxTclr 控制顶部适配层颜色</p>
 <p>参数名:_wvxBclr 控制底部适配层颜色</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1byzwtInm7y27sGMT4Oobql6TqoMbmxTYPHFF0PMxLIBOgl1CxatxLg/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="image"></p>
+<p><img src="./images/11_iphoneX/09.jpg" alt="image"></p>
 <p>对于顶部通栏的页面，通过加 URL 参数来增加顶部黑色适配层。</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1xAXmjiazq7cn2IzvJD1GwvgE1O8g9cia7wF7IpS0tiabf8eLoS3Lpx26w/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="image"></p>
+<p><img src="./images/11_iphoneX/10.jpg" alt="image"></p>
 <p>对于有底部操作栏（包括通栏和非通栏），通过加 URL 参数来增加底部适配层以及设置颜色。</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1ox5YvgUia4YJTmM6zdQjiclezelpXFic6PHia0XeSSHPlZxs5lVAt0UuRQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="image"><br>（这里的 wvx=10 为 2 和 8 两个特性数字相加）</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/meG6Vo0Meviayxia0s26MicI1PyChRnrYy1JSib8dicOh2RCA1htChOUOwOrjZsaPcj9K0bCcMXJlK9yAPIdfhMlb1w/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="image"><br>这样，无需写一行代码，只需要给页面链接增加适配参数，就可以完美适配 iPhone X 了~</p>
+<p><img src="./images/11_iphoneX/11.jpg" alt="image"><br>（这里的 wvx=10 为 2 和 8 两个特性数字相加）</p>
+<p><img src="./images/11_iphoneX/12.jpg" alt="image"></p>
+<p>这样，无需写一行代码，只需要给页面链接增加适配参数，就可以完美适配 iPhone X 了~</p>
 <p><a href="https://mp.weixin.qq.com/s/Js_XwXJTACe_BFEGsxVtlQ" target="_blank" rel="external">原文</a>及图片来自公众号“前端早读课”</p>
 
       
@@ -449,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/05/【20171105】百度地图API入门使用/" rel="next" title="百度地图API入门使用">
-                <i class="fa fa-chevron-left"></i> 百度地图API入门使用
+              <a href="/2016/09/29/表格插件-jSONGrigPage使用文档/" rel="next" title="表格插件--jSONGrigPage使用文档">
+                <i class="fa fa-chevron-left"></i> 表格插件--jSONGrigPage使用文档
               </a>
             
           </div>
@@ -459,8 +461,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/22/【20171121】隐藏滚动条小技巧（兼容至IE7）/" rel="prev" title="隐藏滚动条小技巧（兼容至IE7）">
-                隐藏滚动条小技巧（兼容至IE7） <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/02/【20170702】思维模式之如何解决问题/" rel="prev" title="思维模式之如何解决问题">
+                思维模式之如何解决问题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -538,7 +540,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
