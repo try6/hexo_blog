@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="123456789101112131415161718192021222324&amp;lt;div class=&quot;outer-container&quot;&amp;gt;     &amp;lt;div class=&quot;inner-container&quot;&amp;gt;        &amp;lt;div class=&quot;content&quot;&amp;gt;            ......        &amp;lt;/div&amp;gt;     &amp;lt;/div">
+<meta name="description" content="关于滚动条的设置 滚动条设置 1overflow:scroll;  也可以单独对x和y设置滚动条 123//隐藏x轴，显示Y轴滚动条overflow-x:none;overflow-y:scroll;   滚动条隐藏，且仍然有滚动功能 对于webkit内核可直接设置隐藏滚动条样式 1234567element&amp;#123;    overflow-x:none;    overflow-y:scro">
 <meta property="og:type" content="article">
 <meta property="og:title" content="隐藏滚动条小技巧（兼容至IE7）">
 <meta property="og:url" content="http://yoursite.com/2017/11/22/【20171121】隐藏滚动条小技巧（兼容至IE7）/index.html">
 <meta property="og:site_name" content="Try_Luies">
-<meta property="og:description" content="123456789101112131415161718192021222324&amp;lt;div class=&quot;outer-container&quot;&amp;gt;     &amp;lt;div class=&quot;inner-container&quot;&amp;gt;        &amp;lt;div class=&quot;content&quot;&amp;gt;            ......        &amp;lt;/div&amp;gt;     &amp;lt;/div">
+<meta property="og:description" content="关于滚动条的设置 滚动条设置 1overflow:scroll;  也可以单独对x和y设置滚动条 123//隐藏x轴，显示Y轴滚动条overflow-x:none;overflow-y:scroll;   滚动条隐藏，且仍然有滚动功能 对于webkit内核可直接设置隐藏滚动条样式 1234567element&amp;#123;    overflow-x:none;    overflow-y:scro">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/2017/11/images/20171121_scroll_container/scroll_container_1,png">
-<meta property="og:updated_time" content="2017-11-22T09:43:56.179Z">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/e7c63b13f28ec75fa92b3926d72f20e1/xmlnote/6597BA8C09C545F0B5AACB2F997A8861/14342">
+<meta property="og:updated_time" content="2017-11-22T10:11:24.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="隐藏滚动条小技巧（兼容至IE7）">
-<meta name="twitter:description" content="123456789101112131415161718192021222324&amp;lt;div class=&quot;outer-container&quot;&amp;gt;     &amp;lt;div class=&quot;inner-container&quot;&amp;gt;        &amp;lt;div class=&quot;content&quot;&amp;gt;            ......        &amp;lt;/div&amp;gt;     &amp;lt;/div">
-<meta name="twitter:image" content="http://yoursite.com/2017/11/images/20171121_scroll_container/scroll_container_1,png">
+<meta name="twitter:description" content="关于滚动条的设置 滚动条设置 1overflow:scroll;  也可以单独对x和y设置滚动条 123//隐藏x轴，显示Y轴滚动条overflow-x:none;overflow-y:scroll;   滚动条隐藏，且仍然有滚动功能 对于webkit内核可直接设置隐藏滚动条样式 1234567element&amp;#123;    overflow-x:none;    overflow-y:scro">
+<meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/e7c63b13f28ec75fa92b3926d72f20e1/xmlnote/6597BA8C09C545F0B5AACB2F997A8861/14342">
 
 
 
@@ -364,7 +364,29 @@
       
 
       
-        <p><img src="../../images/20171121_scroll_container/scroll_container_1,png" alt="image"><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"outer-container"</span>&gt;</div><div class="line">     &lt;<span class="selector-tag">div</span> class=<span class="string">"inner-container"</span>&gt;</div><div class="line">        &lt;<span class="selector-tag">div</span> class=<span class="string">"content"</span>&gt;</div><div class="line">            ......</div><div class="line">        &lt;/div&gt;</div><div class="line">     &lt;/div&gt;</div><div class="line"> &lt;/div&gt;</div><div class="line"><span class="selector-class">.outer-container</span>,<span class="selector-class">.content</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>; <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.outer-container</span> &#123;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.inner-container</span> &#123;</div><div class="line">    <span class="attribute">position</span>: absolute; <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">overflow-x</span>: hidden;</div><div class="line">    <span class="attribute">overflow-y</span>: scroll;</div><div class="line">&#125;</div><div class="line"></div><div class="line"> <span class="comment">/* for Chrome */</span></div><div class="line"><span class="selector-class">.inner-container</span>::-webkit-scrollbar &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <h5 id="关于滚动条的设置"><a href="#关于滚动条的设置" class="headerlink" title="关于滚动条的设置"></a>关于滚动条的设置</h5><ol>
+<li><p>滚动条设置</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">overflow</span>:scroll;</div></pre></td></tr></table></figure>
+</li>
+<li><p>也可以单独对x和y设置滚动条</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//隐藏x轴，显示Y轴滚动条</span></div><div class="line"><span class="attribute">overflow-x</span>:none;</div><div class="line"><span class="attribute">overflow-y</span>:scroll;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="滚动条隐藏，且仍然有滚动功能"><a href="#滚动条隐藏，且仍然有滚动功能" class="headerlink" title="滚动条隐藏，且仍然有滚动功能"></a>滚动条隐藏，且仍然有滚动功能</h5><ol>
+<li><p>对于webkit内核可直接设置隐藏滚动条样式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">element</span>&#123;</div><div class="line">    <span class="attribute">overflow-x</span>:none;</div><div class="line">    <span class="attribute">overflow-y</span>:scroll;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">element</span><span class="selector-pseudo">::-webkit-scrollbar</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>对于IE浏览器，可以使用如下方法：<br>给需要滚动的内容content外加上两个容器</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"outer-container"</span>&gt;</div><div class="line">     &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"inner-container"</span>&gt;</div><div class="line">        &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"content"</span>&gt;</div><div class="line">            ......</div><div class="line">        &lt;/<span class="keyword">div</span>&gt;</div><div class="line">     &lt;/<span class="keyword">div</span>&gt;</div><div class="line"> &lt;/<span class="keyword">div</span>&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>结构如图</p>
+<p><img src="https://note.youdao.com/yws/public/resource/e7c63b13f28ec75fa92b3926d72f20e1/xmlnote/6597BA8C09C545F0B5AACB2F997A8861/14342" alt="image"></p>
+<p>其中outer-container宽高和content一致（主要是宽度）<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.outer-container</span>,<span class="selector-class">.content</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>; <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>对外部容器outer-container使用相对定位</p>
+<p>对内部容器inner-container使用绝对定位，确保两个容器左侧对齐<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.outer-container</span> &#123;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.inner-container</span> &#123;</div><div class="line">    <span class="attribute">position</span>: absolute; </div><div class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>对inner-container设置滚动条，且宽度大于外部滚动条<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.inner-container</span> &#123;</div><div class="line">    <span class="attribute">width</span>:<span class="number">110%</span>;</div><div class="line">    <span class="attribute">overflow-x</span>: hidden;</div><div class="line">    <span class="attribute">overflow-y</span>: scroll;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>此时因为外部容器将内部容器遮盖，页面中已经不显示滚动条，且仍然可以滚动。</p>
 
       
     </div>
@@ -453,8 +475,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/head.jpg"
@@ -540,6 +571,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#关于滚动条的设置"><span class="nav-number">1.</span> <span class="nav-text">关于滚动条的设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#滚动条隐藏，且仍然有滚动功能"><span class="nav-number">2.</span> <span class="nav-text">滚动条隐藏，且仍然有滚动功能</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
