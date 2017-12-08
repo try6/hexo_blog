@@ -101,13 +101,13 @@
 <meta property="og:site_name" content="Try_Luies">
 <meta property="og:description" content="百度地图js开发API 本文将结合具体项目案例，带你初步认识百度地图API的使用方法 部分项目需求 中间为地图区，地图区上显示的点位与左侧检索区对应 配电箱状态为报警时，点位跳动，图标变为红色 定时更新配电箱状态，界面上的点相应更新 点击左侧检索结果的配电箱,或者点击地图区配电箱图标，在地图区显示配电箱详细信息  设计稿">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://note.youdao.com/yws/public/resource/e7c63b13f28ec75fa92b3926d72f20e1/xmlnote/F448F0C94C7F493EA36DE5348DB148C9/13679">
-<meta property="og:image" content="http://note.youdao.com/yws/public/resource/e7c63b13f28ec75fa92b3926d72f20e1/xmlnote/470108AAA9424618A970BB2766A6C5A4/13533">
-<meta property="og:updated_time" content="2017-11-22T09:29:22.788Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-468829eb4e4559cf.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-97e2895e64bffdc7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/291">
+<meta property="og:updated_time" content="2017-12-08T01:24:53.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="百度地图API入门使用">
 <meta name="twitter:description" content="百度地图js开发API 本文将结合具体项目案例，带你初步认识百度地图API的使用方法 部分项目需求 中间为地图区，地图区上显示的点位与左侧检索区对应 配电箱状态为报警时，点位跳动，图标变为红色 定时更新配电箱状态，界面上的点相应更新 点击左侧检索结果的配电箱,或者点击地图区配电箱图标，在地图区显示配电箱详细信息  设计稿">
-<meta name="twitter:image" content="http://note.youdao.com/yws/public/resource/e7c63b13f28ec75fa92b3926d72f20e1/xmlnote/F448F0C94C7F493EA36DE5348DB148C9/13679">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2865721-468829eb4e4559cf.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
 
 
 
@@ -373,7 +373,7 @@
 <li>定时更新配电箱状态，界面上的点相应更新</li>
 <li>点击左侧检索结果的配电箱,或者点击地图区配电箱图标，在地图区显示配电箱详细信息</li>
 </ul>
-<h5 id="设计稿"><a href="#设计稿" class="headerlink" title="设计稿"></a>设计稿</h5><p><img src="http://note.youdao.com/yws/public/resource/e7c63b13f28ec75fa92b3926d72f20e1/xmlnote/F448F0C94C7F493EA36DE5348DB148C9/13679" alt="image"></p>
+<h5 id="设计稿"><a href="#设计稿" class="headerlink" title="设计稿"></a>设计稿</h5><p><img src="http://upload-images.jianshu.io/upload_images/2865721-468829eb4e4559cf.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="image"></p>
 <a id="more"></a>
 <h5 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h5><ol>
 <li>引入js<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://api.map.baidu.com/api?v=2.0&amp;ak=您的密钥"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -403,10 +403,10 @@
 <figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> markers = [];</div><div class="line"><span class="keyword">for</span> (; i &lt; MAX; i++) &#123;</div><div class="line">     pt = <span class="keyword">new</span> <span class="type">BMap</span>.Point(Math.random() * <span class="number">40</span> + <span class="number">85</span>, Math.random() * <span class="number">30</span> + <span class="number">21</span>);</div><div class="line">     markers.push(<span class="keyword">new</span> <span class="type">BMap</span>.Marker(pt));</div><div class="line">&#125;</div><div class="line"><span class="comment">//最简单的用法，生成一个marker数组，然后调用markerClusterer类。</span></div><div class="line"><span class="keyword">var</span> markerClusterer = <span class="keyword">new</span> <span class="type">BMapLib</span>.MarkerClusterer(map,&#123;markers:<span class="type">markers</span>&#125;);</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><img src="http://note.youdao.com/yws/public/resource/e7c63b13f28ec75fa92b3926d72f20e1/xmlnote/470108AAA9424618A970BB2766A6C5A4/13533" alt="image"></p>
-<ul>
-<li>若页面中点很多，会造成页面卡顿，这种情况不建议使用点聚合</li>
-</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-97e2895e64bffdc7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/291" alt="image"></p>
+<blockquote>
+<p>若页面中点很多，会造成页面卡顿，这种情况不建议使用点聚合</p>
+</blockquote>
 <ol>
 <li><p>为点注册点击事件，并创建信息窗口</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> content = <span class="string">"&lt;div&gt;这是一个信息窗口内容&lt;/div&gt;"</span></div><div class="line"><span class="keyword">var</span> opts = &#123;</div><div class="line">        	width : <span class="number">250</span>,     <span class="comment">// 信息窗口宽度</span></div><div class="line">        	height: <span class="number">80</span>,     <span class="comment">// 信息窗口高度</span></div><div class="line">        	title : <span class="string">"信息窗口"</span> , <span class="comment">// 信息窗口标题</span></div><div class="line">        	enableMessage:<span class="literal">true</span><span class="comment">//设置允许信息窗发送短息</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> infoWindow = <span class="keyword">new</span> BMap.InfoWindow(content,opts);  <span class="comment">// 创建信息窗口对象 </span></div><div class="line">marker.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;          </div><div class="line">		map.openInfoWindow(infoWindow,point); <span class="comment">//开启信息窗口</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
@@ -422,8 +422,12 @@
 <figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">map.setViewport(pointArray)<span class="comment">;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>选中某个配电箱，打开信息窗口，就将该配电箱移动至视图中央</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">map</span>.panTo(<span class="built_in">point</span>); <span class="comment">//窗口移动到该点</span></div></pre></td></tr></table></figure></li>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">map</span>.panTo(<span class="built_in">point</span>); <span class="comment">//窗口移动到该点</span></div></pre></td></tr></table></figure>
+</li>
 </ul>
+<blockquote>
+<p>持续更新</p>
+</blockquote>
 
       
     </div>
