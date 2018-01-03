@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="css3中有两个属性可设置投影1box-shadow:x偏移, y偏移, 模糊大小, 色值; 1filter:drop-shadow(x偏移, y偏移, 模糊大小, 色值)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css修改png图标颜色">
+<meta property="og:url" content="http://yoursite.com/2018/01/03/【20180103】css修改png图标颜色/index.html">
+<meta property="og:site_name" content="Try_Luies">
+<meta property="og:description" content="css3中有两个属性可设置投影1box-shadow:x偏移, y偏移, 模糊大小, 色值; 1filter:drop-shadow(x偏移, y偏移, 模糊大小, 色值)">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-f9846f04ce516dde.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-83921f3787f93d07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-1e6838c63cbcc958.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-7556095fa3dc3669.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-806cdfa9c319d9d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-4c121e9d2d5cd956.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-17e328014fdda0c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-01-03T05:19:58.840Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css修改png图标颜色">
+<meta name="twitter:description" content="css3中有两个属性可设置投影1box-shadow:x偏移, y偏移, 模糊大小, 色值; 1filter:drop-shadow(x偏移, y偏移, 模糊大小, 色值)">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2865721-f9846f04ce516dde.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/03/【20180103】css修改png图标颜色/"/>
+
+
+
+
+
+  <title>css修改png图标颜色 | Try_Luies</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Try_Luies</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/【20180103】css修改png图标颜色/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">css修改png图标颜色</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-03T13:17:04+08:00">
+                2018-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>css3中有两个属性可设置投影<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">box-shadow:x偏移, </span>y偏移, 模糊大小, 色值<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">filter</span>:drop-shadow(<span class="keyword">x</span>偏移, y偏移, 模糊大小, 色值)</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="二者区别"><a href="#二者区别" class="headerlink" title="二者区别"></a>二者区别</h4><h5 id="1-兼容性"><a href="#1-兼容性" class="headerlink" title="1. 兼容性"></a>1. 兼容性</h5><blockquote>
+<p>box-shadow：从IE9+开始兼容<br><img src="http://upload-images.jianshu.io/upload_images/2865721-f9846f04ce516dde.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="box-shadow兼容性"></p>
+<p>filter:drop-shadow：从IE13+兼容<br><img src="http://upload-images.jianshu.io/upload_images/2865721-83921f3787f93d07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="drop-shadow兼容性"></p>
+</blockquote>
+<h5 id="2-阴影叠加"><a href="#2-阴影叠加" class="headerlink" title="2. 阴影叠加"></a>2. 阴影叠加</h5><p>filter:drop-shadow不支持阴影叠加</p>
+<p>关于box-shadow阴影叠加属性可以点击这里<a href="http://www.zhangxinxu.com/wordpress/2013/11/css-css3-box-shadow-%E7%9B%92%E9%98%B4%E5%BD%B1-%E5%9B%BE%E5%BD%A2%E7%94%9F%E6%88%90%E6%8A%80%E6%9C%AF/" target="_blank" rel="external">box-shadow阴影叠加技术应用</a></p>
+<h5 id="3-内阴影"><a href="#3-内阴影" class="headerlink" title="3. 内阴影"></a>3. 内阴影</h5><p>filter:drop-shadow不支持内阴影</p>
+<h5 id="3-阴影效果"><a href="#3-阴影效果" class="headerlink" title="3. 阴影效果"></a>3. 阴影效果</h5><p>使用虚线形式的边框查看效果<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">height</span>: <span class="number">25px</span>;</div><div class="line"><span class="attribute">width</span>: <span class="number">30px</span>;</div><div class="line"><span class="attribute">border</span>:<span class="number">3px</span> dashed <span class="number">#666</span>;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>box-shadow：<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">box-shadow: </span><span class="number">5</span>px <span class="number">5</span>px <span class="number">0</span><span class="comment">;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-1e6838c63cbcc958.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="box-shadow投影效果"></p>
+<ul>
+<li>drop-shadow：<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">filter:</span>drop-<span class="keyword">shadow(5px </span><span class="number">5</span>px <span class="number">0</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-7556095fa3dc3669.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="drop-shadow投影效果"></p>
+<h4 id="drop-shadow实际应用"><a href="#drop-shadow实际应用" class="headerlink" title="drop-shadow实际应用"></a>drop-shadow实际应用</h4><p>重头戏来了，从二者的阴影效果上可以看出，box-shadow本质上是盒模型的投影，而drop-shadow才是真正意义上的投影。</p>
+<p>所以，纵然drop-shadow有着对兼容性要求高，无法设置内阴影，无法叠加阴影等很多不足，但它的特性决定了它无法被box-shadow取代的地位。</p>
+<h5 id="1-不规则图形的投影"><a href="#1-不规则图形的投影" class="headerlink" title="1. 不规则图形的投影"></a>1. 不规则图形的投影</h5><p>这个好理解，使用标签和css构造的多边形，如三角形、或者上面写的虚线边框等，就可以使用drop-shadow为它设置自然的投影</p>
+<h5 id="2-升级功能：改变图标颜色"><a href="#2-升级功能：改变图标颜色" class="headerlink" title="2. 升级功能：改变图标颜色"></a>2. 升级功能：改变图标颜色</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;i <span class="class"><span class="keyword">class</span></span>=<span class="string">"icon"</span>&gt;</div><div class="line">    &lt;i <span class="class"><span class="keyword">class</span></span>=<span class="string">"icon-del"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></div><div class="line">&lt;<span class="regexp">/i&gt;</span></div></pre></td></tr></table></figure>
+<p>对于上述html结构，我们想要插入一个黑色的定位图标。而目前的素材只有一个蓝色的图标</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-806cdfa9c319d9d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="location.png"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.icon</span>&#123;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">height</span>:<span class="number">30px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.icon-del</span> &#123;</div><div class="line">    <span class="attribute">background</span>: <span class="built_in">url</span>(location.png) no-repeat;</div><div class="line">   <span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line">   <span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">   <span class="attribute">display</span>: inline-block;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这么写能让蓝色图标正常显示，那么如何将这个图标变为黑色呢？</p>
+<p>首先我们为这个图标设置投影<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.icon</span> &gt;<span class="selector-class">.icon-del</span> &#123;</div><div class="line">  <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(20px 0 #000); </div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-4c121e9d2d5cd956.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置投影，x偏移20px"></p>
+<p>再设置偏移量，和投影偏移相等，同时为父元素设置<code>overflow:hidden;</code><br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.icon</span>&#123;</div><div class="line">    <span class="attribute">overflow</span>:hidden;  <span class="comment">//新增</span></div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">height</span>:<span class="number">30px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div><div class="line"> <span class="selector-class">.icon</span> &gt;<span class="selector-class">.icon-del</span> &#123;</div><div class="line">    <span class="attribute">filter</span>: drop-shadow(<span class="number">20px</span> <span class="number">0</span> <span class="number">#000</span>); </div><div class="line">   <span class="attribute">position</span>: relative;</div><div class="line">   <span class="attribute">left</span>: -<span class="number">20px</span>;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>最终效果，原图标隐藏，只显示投影，看上去就好像是改变了图标的颜色啦</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-17e328014fdda0c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<blockquote>
+<p><a href="http://www.zhangxinxu.com/study/201606/png-icon-color-fill.html" target="_blank" rel="external">png小图标CSS赋色demo</a></p>
+<p><a href="http://www.zhangxinxu.com/wordpress/2016/05/css3-filter-drop-shadow-vs-box-shadow/" target="_blank" rel="external">文章参考：张鑫旭CSS3 filter:drop-shadow滤镜与box-shadow区别应用</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/25/【20171225】css选择器/" rel="next" title="css选择器">
+                <i class="fa fa-chevron-left"></i> css选择器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpg"
+               alt="Try" />
+          <p class="site-author-name" itemprop="name">Try</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/try6" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2680387355?refer_flag=1001030103_" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#二者区别"><span class="nav-number">1.</span> <span class="nav-text">二者区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-兼容性"><span class="nav-number">1.1.</span> <span class="nav-text">1. 兼容性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-阴影叠加"><span class="nav-number">1.2.</span> <span class="nav-text">2. 阴影叠加</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-内阴影"><span class="nav-number">1.3.</span> <span class="nav-text">3. 内阴影</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-阴影效果"><span class="nav-number">1.4.</span> <span class="nav-text">3. 阴影效果</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#drop-shadow实际应用"><span class="nav-number">2.</span> <span class="nav-text">drop-shadow实际应用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-不规则图形的投影"><span class="nav-number">2.1.</span> <span class="nav-text">1. 不规则图形的投影</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-升级功能：改变图标颜色"><span class="nav-number">2.2.</span> <span class="nav-text">2. 升级功能：改变图标颜色</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Try</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
