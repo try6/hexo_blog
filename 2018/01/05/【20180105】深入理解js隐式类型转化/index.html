@@ -94,14 +94,17 @@
 
 
 
+<meta name="description" content="在开始本文前，先声明两句十分重要的话  Falsy 类型值包括：&amp;quot;&amp;quot;, 0, null, undefined, NaN, false. Javascript是弱类型的语言">
 <meta property="og:type" content="article">
-<meta property="og:title" content="表格插件--jSONGrigPage使用文档">
-<meta property="og:url" content="http://yoursite.com/2016/09/29/表格插件-jSONGrigPage使用文档/index.html">
+<meta property="og:title" content="深入理解js隐式类型转化">
+<meta property="og:url" content="http://yoursite.com/2018/01/05/【20180105】深入理解js隐式类型转化/index.html">
 <meta property="og:site_name" content="Try_Luies">
+<meta property="og:description" content="在开始本文前，先声明两句十分重要的话  Falsy 类型值包括：&amp;quot;&amp;quot;, 0, null, undefined, NaN, false. Javascript是弱类型的语言">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-10-19T07:11:36.686Z">
+<meta property="og:updated_time" content="2018-01-05T01:22:20.735Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="表格插件--jSONGrigPage使用文档">
+<meta name="twitter:title" content="深入理解js隐式类型转化">
+<meta name="twitter:description" content="在开始本文前，先声明两句十分重要的话  Falsy 类型值包括：&amp;quot;&amp;quot;, 0, null, undefined, NaN, false. Javascript是弱类型的语言">
 
 
 
@@ -130,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/29/表格插件-jSONGrigPage使用文档/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/05/【20180105】深入理解js隐式类型转化/"/>
 
 
 
 
 
-  <title>表格插件--jSONGrigPage使用文档 | Try_Luies</title>
+  <title>深入理解js隐式类型转化 | Try_Luies</title>
   
 
 
@@ -273,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/29/表格插件-jSONGrigPage使用文档/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/05/【20180105】深入理解js隐式类型转化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Try">
@@ -290,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">表格插件--jSONGrigPage使用文档</h1>
+          <h1 class="post-title" itemprop="name headline">深入理解js隐式类型转化</h1>
         
 
         <div class="post-meta">
@@ -302,8 +305,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-29T15:02:28+08:00">
-                2016-09-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-05T09:18:12+08:00">
+                2018-01-05
               </time>
             
 
@@ -359,7 +362,47 @@
       
 
       
-        
+        <p>在开始本文前，先声明两句十分重要的话</p>
+<blockquote>
+<p>Falsy 类型值包括：<code>&quot;&quot;, 0, null, undefined, NaN, false</code>.</p>
+<p>Javascript是弱类型的语言</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="隐式类型转化的两种方式"><a href="#隐式类型转化的两种方式" class="headerlink" title="隐式类型转化的两种方式"></a>隐式类型转化的两种方式</h4><h5 id="1-操作符"><a href="#1-操作符" class="headerlink" title="1. 操作符"></a>1. 操作符</h5><ul>
+<li><p><code>+</code>：将数值转化为字符串进行操作</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> + <span class="number">2</span> = <span class="number">3</span></div><div class="line"><span class="number">1</span> + <span class="string">"2"</span> = <span class="string">"12"</span></div><div class="line">null + <span class="number">1</span> = <span class="number">1</span>   <span class="comment">//null代表没有值，空值</span></div><div class="line">undefined + <span class="number">1</span> = NaN <span class="comment">//undefined代表未定义</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><code>- * % /</code>：字符串转化为数值进行操作</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"-1"</span> * <span class="string">"2"</span> = <span class="number">-2</span></div><div class="line"><span class="string">""</span> - <span class="number">1</span> = <span class="number">-1</span></div><div class="line"><span class="string">"4px"</span> - <span class="number">2</span> = NaN</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="3-与"><a href="#3-与" class="headerlink" title="3. == 与 ==="></a>3. == 与 ===</h5><p>之前我对于两者的理解是，<code>==</code>比较值是否相等，<code>===</code>表示比较值和类型是否相等</p>
+<p>现在看来这种理解有误，<code>==</code>其实是比较强制类型转化之后的结果，而<code>===</code>是直接进行比较<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">Boonlean</span><span class="params">(<span class="number">2</span> === <span class="string">"2"</span>)</span></span>           <span class="comment">//false</span></div><div class="line"><span class="function"><span class="title">Boonlean</span><span class="params">(undefined == null)</span></span>   <span class="comment">//ture</span></div><div class="line"><span class="function"><span class="title">Boonlean</span><span class="params">(undefined === null)</span></span>  <span class="comment">//false</span></div></pre></td></tr></table></figure></p>
+<p>有几个值得注意的地方：</p>
+<h6 id="对象和数组的比较"><a href="#对象和数组的比较" class="headerlink" title="对象和数组的比较"></a>对象和数组的比较</h6><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Boonlean([]);           <span class="comment">//ture</span></div><div class="line"><span class="comment">//空数组为ture</span></div><div class="line"></div><div class="line">Boonlean(&#123;&#125;);           <span class="comment">//ture</span></div><div class="line"><span class="comment">//空对象为ture</span></div><div class="line"></div><div class="line">Boonlean([] == []);     <span class="comment">//false</span></div><div class="line"><span class="comment">//两个数组(对象也一样)，就算属性和方法完全一致，两者也不相等。</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> arr = [],a = arr,b = arr;</div><div class="line">Boonlean(a == b)        <span class="comment">//ture</span></div><div class="line"><span class="comment">//指向同一个数组的两个变量才能说是相等的</span></div></pre></td></tr></table></figure>
+<h6 id="类型转化"><a href="#类型转化" class="headerlink" title="类型转化"></a>类型转化</h6><ul>
+<li>数字和字符串的互相转换</li>
+</ul>
+<p>比较常见，就不展开例子了</p>
+<ul>
+<li><p>布尔类型的值会转换为数字</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">Boonlean</span><span class="params">(false == <span class="number">1</span>)</span></span> <span class="comment">//false</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>数组的转换</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">Boonlean</span><span class="params">([] == false)</span></span> <span class="comment">//ture</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>左边空数组<code>[]</code>转化为number 0，</p>
+<p>右边<code>false</code>也转化为number 0</p>
+<ul>
+<li>对象的转换<blockquote>
+<p>javascript中所有对象都是true。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">Boonlean</span><span class="params">(&#123;&#125; == false)</span></span> <span class="comment">//false</span></div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<p>####</p>
+
       
     </div>
     
@@ -383,15 +426,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/01/03/【20180103】css修改png图标颜色/" rel="next" title="css修改png图标颜色">
+                <i class="fa fa-chevron-left"></i> css修改png图标颜色
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/13/【20171113】【转】iPhone-X-适配-手Q-H5页面通用解决方案/" rel="prev" title="【转】iPhone X 适配 手Q H5页面通用解决方案">
-                【转】iPhone X 适配 手Q H5页面通用解决方案 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -443,8 +486,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/head.jpg"
@@ -530,6 +582,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#隐式类型转化的两种方式"><span class="nav-number">1.</span> <span class="nav-text">隐式类型转化的两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-操作符"><span class="nav-number">1.1.</span> <span class="nav-text">1. 操作符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-与"><span class="nav-number">1.2.</span> <span class="nav-text">3. == 与 ===</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#对象和数组的比较"><span class="nav-number">1.2.1.</span> <span class="nav-text">对象和数组的比较</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#类型转化"><span class="nav-number">1.2.2.</span> <span class="nav-text">类型转化</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
