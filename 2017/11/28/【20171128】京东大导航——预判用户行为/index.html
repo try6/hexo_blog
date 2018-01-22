@@ -102,14 +102,15 @@
 <meta property="og:site_name" content="Try_Luies">
 <meta property="og:description" content="电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。 淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。 下面我们来从零开始模拟开发一个具有二级目录大导航。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/2017/11/28/【20171128】京东大导航——预判用户行为/images/JD_nav/nav.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/28/【20171128】京东大导航——预判用户行为/images/JD_nav/nav_1.gif">
-<meta property="og:image" content="http://yoursite.com/2017/11/28/【20171128】京东大导航——预判用户行为/images/JD_nav/nav_1.png">
-<meta property="og:updated_time" content="2017-12-07T09:49:10.989Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-dbfa4ca0dcd95782.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-8f63adfa7a680d5c.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-657e83fa6c039d98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-0d61eda88aff1da6.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-01-22T02:48:35.919Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="京东大导航——预判用户行为（一）">
 <meta name="twitter:description" content="电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。 淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。 下面我们来从零开始模拟开发一个具有二级目录大导航。">
-<meta name="twitter:image" content="http://yoursite.com/2017/11/28/【20171128】京东大导航——预判用户行为/images/JD_nav/nav.png">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2865721-dbfa4ca0dcd95782.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -400,7 +401,7 @@
       
 
       
-        <p><img src="./images/JD_nav/nav.png" alt="image"></p>
+        <p><img src="http://upload-images.jianshu.io/upload_images/2865721-dbfa4ca0dcd95782.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="nav.png"></p>
 <p>电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。</p>
 <p>淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。</p>
 <p>下面我们来从零开始模拟开发一个具有二级目录大导航。<br><a id="more"></a></p>
@@ -420,13 +421,13 @@
 </li>
 </ul>
 <p>效果gif如下：</p>
-<p><img src="./images/JD_nav/nav_1.gif" alt="image"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-8f63adfa7a680d5c.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>一般实现到这一步，已经有了基本功能，可以流畅地进行导航切换。很多网站也只实现到了这一步，但事实上，这个导航还存在一些问题，有继续优化的空间。</p>
 <p>问题：</p>
 <ol>
 <li>用户想到要选择子导航的某一选项时，鼠标必须先进入子导航内。如果在此之前触碰到主导航的其他选项，会立即切换。导航体量大，如果用户想要选择子导航内下方的选项，必须先从主导航平移至子导航内，也就是一个折线的过程。</li>
 </ol>
-<p><img src="./images/JD_nav/nav_1.png" alt="image"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-657e83fa6c039d98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="nav_1.png"></p>
 <ul>
 <li>step2.延时切换</li>
 </ul>
@@ -435,6 +436,7 @@
 </li>
 </ol>
 <p>很明显，采取这种方法就引入了一个新的问题：用户在主导航上快速切换时，子导航的出现存在延时，降低了用户体验的流畅度</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-0d61eda88aff1da6.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="效果图"></p>
 <p>这就需要进一步进行优化。</p>
 <ul>
 <li>step3.用户行为预判<br>思路：对用户的鼠标移动行为作出判断，若用户是想要移动到子导航，则进行延迟；若用户想在主导航上移动，则不需要延迟</li>
