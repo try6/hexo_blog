@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="最近在看重新翻看《JavaScript面向对象编程指南》，深觉温故知新之意，半年前只看懂了前几章的基本概念，对后面几章所讲的原型，方法扩展，设计模式等看的云里雾里。现在再来回顾这本书，有种被点醒的感觉，对于很多一些平日里学习时遇到的模棱两可的概念通透了不少。 整本书所讲的核心，也是我们经常挂在嘴边的：   Javascript是一种面向对象的编程语言，所有的一切都是对象  本书第四章详细地讲了“对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascrip中的【对象】">
+<meta property="og:url" content="http://yoursite.com/2018/01/27/【20180127】javascrip中的【对象】/index.html">
+<meta property="og:site_name" content="Try_Luies">
+<meta property="og:description" content="最近在看重新翻看《JavaScript面向对象编程指南》，深觉温故知新之意，半年前只看懂了前几章的基本概念，对后面几章所讲的原型，方法扩展，设计模式等看的云里雾里。现在再来回顾这本书，有种被点醒的感觉，对于很多一些平日里学习时遇到的模棱两可的概念通透了不少。 整本书所讲的核心，也是我们经常挂在嘴边的：   Javascript是一种面向对象的编程语言，所有的一切都是对象  本书第四章详细地讲了“对">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-ed2c90b70163b54a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-8097d2c814edeba4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-d4e3964abd2acc94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-6cb586c03a3fe2c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-c4ccb578304680ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-98cc3944ee7b35c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-757fdd25a5f36524.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-b66607a89f4cac0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-e432185e811362c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-ccdc02a77ea82095.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-01-27T11:33:31.706Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascrip中的【对象】">
+<meta name="twitter:description" content="最近在看重新翻看《JavaScript面向对象编程指南》，深觉温故知新之意，半年前只看懂了前几章的基本概念，对后面几章所讲的原型，方法扩展，设计模式等看的云里雾里。现在再来回顾这本书，有种被点醒的感觉，对于很多一些平日里学习时遇到的模棱两可的概念通透了不少。 整本书所讲的核心，也是我们经常挂在嘴边的：   Javascript是一种面向对象的编程语言，所有的一切都是对象  本书第四章详细地讲了“对">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2865721-ed2c90b70163b54a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/27/【20180127】javascrip中的【对象】/"/>
+
+
+
+
+
+  <title>javascrip中的【对象】 | Try_Luies</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Try_Luies</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/27/【20180127】javascrip中的【对象】/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">javascrip中的【对象】</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-27T19:32:42+08:00">
+                2018-01-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近在看重新翻看《JavaScript面向对象编程指南》，深觉温故知新之意，半年前只看懂了前几章的基本概念，对后面几章所讲的原型，方法扩展，设计模式等看的云里雾里。现在再来回顾这本书，有种被点醒的感觉，对于很多一些平日里学习时遇到的模棱两可的概念通透了不少。</p>
+<p>整本书所讲的核心，也是我们经常挂在嘴边的： </p>
+<blockquote>
+<p><code>Javascript</code>是一种面向对象的编程语言，所有的一切都是对象</p>
+</blockquote>
+<p>本书第四章详细地讲了“对象”这个概念，能让人更深刻地理解js中所有的数据类型，以下为章节笔记。从对象的角度，重新认识数据类型</p>
+<a id="more"></a>
+<h3 id="所有的对象都继承自Object对象"><a href="#所有的对象都继承自Object对象" class="headerlink" title="所有的对象都继承自Object对象"></a>所有的对象都继承自Object对象</h3><blockquote>
+<p>js中所有的类型都继承自<code>Object</code></p>
+</blockquote>
+<p>这句话也可以说，Object为所有类型的原型，即所有对象的父级对象。就像是我们自己new一个对象，然后子类可以继承，获取原型的属性和方法，也能重写自己的属性和方法一样。</p>
+<p>从对象的角度，其实更应该这么表述：以上所有类型都属于object的内建对象。更为精确的说法是，内建对象分为三大类：</p>
+<ol>
+<li>数据封装类对象：包括Array,String，Boonlean,Number以及Object本身</li>
+<li>工具类对象：包括Math,Date。RegExp等</li>
+<li>错误类对象：在某些异常发生时可以帮助我们纠正程序的错误状态</li>
+</ol>
+<p>所以首先，<code>object</code>有自己的属性和方法（列举常用的部分）</p>
+<ol>
+<li><p>o.constructor：返回构造器的引用<br><img src="http://upload-images.jianshu.io/upload_images/2865721-ed2c90b70163b54a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="constructor属性"></p>
+</li>
+<li><p>o.toString()：返回对象的字符串描述，包含对象的内部类名，object返回<code>“[object object]”</code>，<br><img src="http://upload-images.jianshu.io/upload_images/2865721-8097d2c814edeba4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="toString()方法"></p>
+</li>
+<li><p>o.valueOf()：反馈对象的单值描述信息，通常是对象本身<br><img src="http://upload-images.jianshu.io/upload_images/2865721-d4e3964abd2acc94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="valueOf()方法"></p>
+</li>
+</ol>
+<p>无论多复杂的对象，它都是继承自Object对象，并且拥有其所有的方法和属性</p>
+<h5 id="特殊的对象：数组Array"><a href="#特殊的对象：数组Array" class="headerlink" title="特殊的对象：数组Array"></a>特殊的对象：数组Array</h5><p>小标题这句话想必大家肯定也不陌生。<br>我们当然可以通过构造器Array创建一个数组对象<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">var</span> <span class="selector-tag">b</span> = new Array</div></pre></td></tr></table></figure></p>
+<p><code>length，join()，slice()，split()，sort()</code>等方法是数组对象特有的方法，他们也都十分有用。刚好之前也整理过一些数组的内建方法<br><a href="">数组内建方法大全（一）</a><br><a href="">数组内建方法大全（二）</a><br>那对于继承自父类的方法，它也有进行重写，更符合数组的特点</p>
+<ol>
+<li>arr.toString（）<br><img src="http://upload-images.jianshu.io/upload_images/2865721-6cb586c03a3fe2c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数组的toString()方法"></li>
+</ol>
+<h3 id="Function对象"><a href="#Function对象" class="headerlink" title="Function对象"></a>Function对象</h3><p>函数也是一种特殊的数据对象<br>所以我们当然也能这么写，不过这种写法并不推荐<br><figure class="highlight monkey"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var C = <span class="keyword">new</span> <span class="function"><span class="keyword">Function</span>(</span>)</div><div class="line">//此时的参数和函数体都需要通过字符串传参的形式，如：</div><div class="line">//var C = <span class="keyword">new</span> <span class="function"><span class="keyword">Function</span>(</span><span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"return a+b"</span>)</div></pre></td></tr></table></figure></p>
+<p>另外同样展示一下继承自父类的toString和valueOf方法和属性，虽然意义并不大<br><img src="http://upload-images.jianshu.io/upload_images/2865721-c4ccb578304680ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="返回整个函数的字符串形式"><br><img src="http://upload-images.jianshu.io/upload_images/2865721-98cc3944ee7b35c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="返回函数本身"><br><img src="http://upload-images.jianshu.io/upload_images/2865721-757fdd25a5f36524.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="返回构造器Function()"></p>
+<h4 id="函数对象的prototype属性"><a href="#函数对象的prototype属性" class="headerlink" title="函数对象的prototype属性"></a>函数对象的prototype属性</h4><ul>
+<li>prototype属性指向一个对象</li>
+<li>只有在函数为构造器时才会发挥作用</li>
+<li>该函数所创建的所有对象，都会持有该prototype属性的引用，并可以将其当做自身的属性<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;</div><div class="line">    name:<span class="string">"TRY"</span>,</div><div class="line">    say():<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;<span class="string">"I'm"</span>+<span class="keyword">this</span>.name&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;;   <span class="comment">//创建一个函数</span></div><div class="line">F.prototype = o; <span class="comment">//把对象o赋给F的prototype属性</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> F()   <span class="comment">//以F为构造器创建新的对象f</span></div><div class="line"></div><div class="line"><span class="comment">//f可以直接使用，F的prototype属性所引用对象 的属性和方法</span></div><div class="line">f.name  <span class="comment">//"TRY"</span></div><div class="line">f.say() <span class="comment">//I'm TRY</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="推断对象类型"><a href="#推断对象类型" class="headerlink" title="推断对象类型"></a>推断对象类型</h4><p>当我们使用typepf去判断数据类型，返回值有以下6种情况:<br><code>undefined  boolean  function object string number</code>，和基本数据类型对应了之后，你会发现少了<code>Array和null</code>。实际上，这两个使用<code>typeof</code>判断后返回的都是<code>object</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-b66607a89f4cac0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="是不是很神奇~"><br>那要怎么判断数组的类型呢？<br>当然，有一个方法Array.isArray(arr)可以作为一个完美的判断方式，方便又快捷<br><img src="http://upload-images.jianshu.io/upload_images/2865721-e432185e811362c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="isArray"><br>不过书中还有另一种有趣的方法，使用Object对象的toString方法，上文也讲到了，Object的toString可以返回包含对象的内部类名的字符串。这里使用函数对象的另一强大的方法call()（apply()同理）来扩展对象的方法。<br><figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="type">Object</span>.proto<span class="keyword">type</span>.toString.call([]);</div><div class="line">//返回值：<span class="string">"[object Array]"</span></div></pre></td></tr></table></figure></p>
+<p>也能判断arguments的类型<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(<span class="built_in">arguments</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//返回值："[object Arguments]"</span></div></pre></td></tr></table></figure></p>
+<p>甚至是DOM元素<br><figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> <span class="type">Object</span>.proto<span class="keyword">type</span>.toString.call(document.body);</div><div class="line">//返回值：<span class="string">"[object HTMLBodyElement]"</span></div></pre></td></tr></table></figure></p>
+<h3 id="Boolean对象"><a href="#Boolean对象" class="headerlink" title="Boolean对象"></a>Boolean对象</h3><p>布尔对象除了继承自父级对象的属性和方法之外，并没有额外的方法和属性。在使用时还容易造成混淆，因为使用Boolean构造的是一个对象，如果一不小心直接用来作为布尔值使用，得到的结果永远是true（因为所有的对象都为true），所以还是建议使用基本类型来表示布尔值比较妥当。<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="type">Boolean</span>();</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-ccdc02a77ea82095.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="布尔对象"></p>
+<h3 id="Number对象"><a href="#Number对象" class="headerlink" title="Number对象"></a>Number对象</h3><p>使用方法和布尔类似。</p>
+<h3 id="String对象"><a href="#String对象" class="headerlink" title="String对象"></a>String对象</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/10/【20180110】loading带你svg入门/" rel="next" title="loading带你svg入门">
+                <i class="fa fa-chevron-left"></i> loading带你svg入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpg"
+               alt="Try" />
+          <p class="site-author-name" itemprop="name">Try</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/try6" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2680387355?refer_flag=1001030103_" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#所有的对象都继承自Object对象"><span class="nav-number">1.</span> <span class="nav-text">所有的对象都继承自Object对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#特殊的对象：数组Array"><span class="nav-number">1.0.1.</span> <span class="nav-text">特殊的对象：数组Array</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function对象"><span class="nav-number">2.</span> <span class="nav-text">Function对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数对象的prototype属性"><span class="nav-number">2.1.</span> <span class="nav-text">函数对象的prototype属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推断对象类型"><span class="nav-number">2.2.</span> <span class="nav-text">推断对象类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boolean对象"><span class="nav-number">3.</span> <span class="nav-text">Boolean对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number对象"><span class="nav-number">4.</span> <span class="nav-text">Number对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String对象"><span class="nav-number">5.</span> <span class="nav-text">String对象</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Try</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
