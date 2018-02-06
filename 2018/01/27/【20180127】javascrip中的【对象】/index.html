@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-b66607a89f4cac0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-e432185e811362c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-ccdc02a77ea82095.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-01-27T11:33:31.706Z">
+<meta property="og:updated_time" content="2018-01-30T00:28:30.693Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascrip中的【对象】">
 <meta name="twitter:description" content="最近在看重新翻看《JavaScript面向对象编程指南》，深觉温故知新之意，半年前只看懂了前几章的基本概念，对后面几章所讲的原型，方法扩展，设计模式等看的云里雾里。现在再来回顾这本书，有种被点醒的感觉，对于很多一些平日里学习时遇到的模棱两可的概念通透了不少。 整本书所讲的核心，也是我们经常挂在嘴边的：   Javascript是一种面向对象的编程语言，所有的一切都是对象  本书第四章详细地讲了“对">
@@ -383,7 +383,7 @@
 <h3 id="所有的对象都继承自Object对象"><a href="#所有的对象都继承自Object对象" class="headerlink" title="所有的对象都继承自Object对象"></a>所有的对象都继承自Object对象</h3><blockquote>
 <p>js中所有的类型都继承自<code>Object</code></p>
 </blockquote>
-<p>这句话也可以说，Object为所有类型的原型，即所有对象的父级对象。就像是我们自己new一个对象，然后子类可以继承，获取原型的属性和方法，也能重写自己的属性和方法一样。</p>
+<p>这句话也可以说，Object为所有对象的原型，即所有对象的父级对象。就像是我们自己new一个对象，然后子类可以继承，获取原型的属性和方法，也能重写自己的属性和方法一样。</p>
 <p>从对象的角度，其实更应该这么表述：以上所有类型都属于object的内建对象。更为精确的说法是，内建对象分为三大类：</p>
 <ol>
 <li>数据封装类对象：包括Array,String，Boonlean,Number以及Object本身</li>
@@ -392,20 +392,29 @@
 </ol>
 <p>所以首先，<code>object</code>有自己的属性和方法（列举常用的部分）</p>
 <ol>
-<li><p>o.constructor：返回构造器的引用<br><img src="http://upload-images.jianshu.io/upload_images/2865721-ed2c90b70163b54a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="constructor属性"></p>
-</li>
-<li><p>o.toString()：返回对象的字符串描述，包含对象的内部类名，object返回<code>“[object object]”</code>，<br><img src="http://upload-images.jianshu.io/upload_images/2865721-8097d2c814edeba4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="toString()方法"></p>
-</li>
-<li><p>o.valueOf()：反馈对象的单值描述信息，通常是对象本身<br><img src="http://upload-images.jianshu.io/upload_images/2865721-d4e3964abd2acc94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="valueOf()方法"></p>
-</li>
+<li>o.constructor：返回构造器的引用</li>
 </ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-ed2c90b70163b54a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="constructor属性"></p>
+<ol>
+<li>o.toString()：返回对象的字符串描述，包含对象的内部类名，object返回<code>“[object object]”</code>，</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-8097d2c814edeba4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="toString()方法"></p>
+<ol>
+<li>o.valueOf()：反馈对象的单值描述信息，通常是对象本身</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-d4e3964abd2acc94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="valueOf()方法"></p>
 <p>无论多复杂的对象，它都是继承自Object对象，并且拥有其所有的方法和属性</p>
-<h5 id="特殊的对象：数组Array"><a href="#特殊的对象：数组Array" class="headerlink" title="特殊的对象：数组Array"></a>特殊的对象：数组Array</h5><p>小标题这句话想必大家肯定也不陌生。<br>我们当然可以通过构造器Array创建一个数组对象<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">var</span> <span class="selector-tag">b</span> = new Array</div></pre></td></tr></table></figure></p>
-<p><code>length，join()，slice()，split()，sort()</code>等方法是数组对象特有的方法，他们也都十分有用。刚好之前也整理过一些数组的内建方法<br><a href="">数组内建方法大全（一）</a><br><a href="">数组内建方法大全（二）</a><br>那对于继承自父类的方法，它也有进行重写，更符合数组的特点</p>
+<h3 id="特殊的对象：数组Array"><a href="#特殊的对象：数组Array" class="headerlink" title="特殊的对象：数组Array"></a>特殊的对象：数组Array</h3><p>小标题这句话想必大家肯定也不陌生。</p>
+<p>我们当然可以通过构造器Array创建一个数组对象<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">var</span> <span class="selector-tag">b</span> = new Array</div></pre></td></tr></table></figure></p>
+<p><code>length，join()，slice()，split()，sort()</code>等方法是数组对象特有的方法，他们也都十分有用。刚好之前也整理过一些数组的内建方法</p>
+<p><a href="">数组内建方法大全（一）</a></p>
+<p><a href="">数组内建方法大全（二）</a></p>
+<p>那对于继承自父类的方法，它也有进行重写，更符合数组的特点</p>
 <ol>
 <li>arr.toString（）<br><img src="http://upload-images.jianshu.io/upload_images/2865721-6cb586c03a3fe2c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数组的toString()方法"></li>
 </ol>
-<h3 id="Function对象"><a href="#Function对象" class="headerlink" title="Function对象"></a>Function对象</h3><p>函数也是一种特殊的数据对象<br>所以我们当然也能这么写，不过这种写法并不推荐<br><figure class="highlight monkey"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var C = <span class="keyword">new</span> <span class="function"><span class="keyword">Function</span>(</span>)</div><div class="line">//此时的参数和函数体都需要通过字符串传参的形式，如：</div><div class="line">//var C = <span class="keyword">new</span> <span class="function"><span class="keyword">Function</span>(</span><span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"return a+b"</span>)</div></pre></td></tr></table></figure></p>
+<h3 id="Function对象"><a href="#Function对象" class="headerlink" title="Function对象"></a>Function对象</h3><p>函数也是一种特殊的数据对象</p>
+<p>所以我们当然也能这么写，不过这种写法并不推荐<br><figure class="highlight monkey"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var C = <span class="keyword">new</span> <span class="function"><span class="keyword">Function</span>(</span>)</div><div class="line">//此时的参数和函数体都需要通过字符串传参的形式，如：</div><div class="line">//var C = <span class="keyword">new</span> <span class="function"><span class="keyword">Function</span>(</span><span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"return a+b"</span>)</div></pre></td></tr></table></figure></p>
 <p>另外同样展示一下继承自父类的toString和valueOf方法和属性，虽然意义并不大<br><img src="http://upload-images.jianshu.io/upload_images/2865721-c4ccb578304680ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="返回整个函数的字符串形式"><br><img src="http://upload-images.jianshu.io/upload_images/2865721-98cc3944ee7b35c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="返回函数本身"><br><img src="http://upload-images.jianshu.io/upload_images/2865721-757fdd25a5f36524.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="返回构造器Function()"></p>
 <h4 id="函数对象的prototype属性"><a href="#函数对象的prototype属性" class="headerlink" title="函数对象的prototype属性"></a>函数对象的prototype属性</h4><ul>
 <li>prototype属性指向一个对象</li>
@@ -413,8 +422,13 @@
 <li>该函数所创建的所有对象，都会持有该prototype属性的引用，并可以将其当做自身的属性<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;</div><div class="line">    name:<span class="string">"TRY"</span>,</div><div class="line">    say():<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;<span class="string">"I'm"</span>+<span class="keyword">this</span>.name&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;;   <span class="comment">//创建一个函数</span></div><div class="line">F.prototype = o; <span class="comment">//把对象o赋给F的prototype属性</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> F()   <span class="comment">//以F为构造器创建新的对象f</span></div><div class="line"></div><div class="line"><span class="comment">//f可以直接使用，F的prototype属性所引用对象 的属性和方法</span></div><div class="line">f.name  <span class="comment">//"TRY"</span></div><div class="line">f.say() <span class="comment">//I'm TRY</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="推断对象类型"><a href="#推断对象类型" class="headerlink" title="推断对象类型"></a>推断对象类型</h4><p>当我们使用typepf去判断数据类型，返回值有以下6种情况:<br><code>undefined  boolean  function object string number</code>，和基本数据类型对应了之后，你会发现少了<code>Array和null</code>。实际上，这两个使用<code>typeof</code>判断后返回的都是<code>object</code></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2865721-b66607a89f4cac0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="是不是很神奇~"><br>那要怎么判断数组的类型呢？<br>当然，有一个方法Array.isArray(arr)可以作为一个完美的判断方式，方便又快捷<br><img src="http://upload-images.jianshu.io/upload_images/2865721-e432185e811362c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="isArray"><br>不过书中还有另一种有趣的方法，使用Object对象的toString方法，上文也讲到了，Object的toString可以返回包含对象的内部类名的字符串。这里使用函数对象的另一强大的方法call()（apply()同理）来扩展对象的方法。<br><figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="type">Object</span>.proto<span class="keyword">type</span>.toString.call([]);</div><div class="line">//返回值：<span class="string">"[object Array]"</span></div></pre></td></tr></table></figure></p>
+<h4 id="推断对象类型"><a href="#推断对象类型" class="headerlink" title="推断对象类型"></a>推断对象类型</h4><p>当我们使用typepf去判断数据类型，返回值有以下6种情况:</p>
+<p><code>undefined  boolean  function object string number</code>，和基本数据类型对应了之后，你会发现少了<code>Array和null</code>。实际上，这两个使用<code>typeof</code>判断后返回的都是<code>object</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-b66607a89f4cac0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="是不是很神奇~"></p>
+<p>那要怎么判断数组的类型呢？</p>
+<p>当然，有一个方法Array.isArray(arr)可以作为一个完美的判断方式，方便又快捷</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-e432185e811362c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="isArray"><br>不过书中还有另一种有趣的方法，使用Object对象的toString方法，上文也讲到了，Object的toString可以返回包含对象的内部类名的字符串。这里使用函数对象的另一强大的方法call()（apply()同理）来扩展对象的方法。</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="type">Object</span>.proto<span class="keyword">type</span>.toString.call([]);</div><div class="line">//返回值：<span class="string">"[object Array]"</span></div></pre></td></tr></table></figure>
 <p>也能判断arguments的类型<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(<span class="built_in">arguments</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//返回值："[object Arguments]"</span></div></pre></td></tr></table></figure></p>
 <p>甚至是DOM元素<br><figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> <span class="type">Object</span>.proto<span class="keyword">type</span>.toString.call(document.body);</div><div class="line">//返回值：<span class="string">"[object HTMLBodyElement]"</span></div></pre></td></tr></table></figure></p>
 <h3 id="Boolean对象"><a href="#Boolean对象" class="headerlink" title="Boolean对象"></a>Boolean对象</h3><p>布尔对象除了继承自父级对象的属性和方法之外，并没有额外的方法和属性。在使用时还容易造成混淆，因为使用Boolean构造的是一个对象，如果一不小心直接用来作为布尔值使用，得到的结果永远是true（因为所有的对象都为true），所以还是建议使用基本类型来表示布尔值比较妥当。<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="type">Boolean</span>();</div></pre></td></tr></table></figure></p>
@@ -453,6 +467,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/29/【20180129】浏览器的同源策略与跨域/" rel="prev" title="浏览器的同源策略与跨域">
+                浏览器的同源策略与跨域 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -529,7 +547,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -610,7 +628,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#所有的对象都继承自Object对象"><span class="nav-number">1.</span> <span class="nav-text">所有的对象都继承自Object对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#特殊的对象：数组Array"><span class="nav-number">1.0.1.</span> <span class="nav-text">特殊的对象：数组Array</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function对象"><span class="nav-number">2.</span> <span class="nav-text">Function对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数对象的prototype属性"><span class="nav-number">2.1.</span> <span class="nav-text">函数对象的prototype属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推断对象类型"><span class="nav-number">2.2.</span> <span class="nav-text">推断对象类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boolean对象"><span class="nav-number">3.</span> <span class="nav-text">Boolean对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number对象"><span class="nav-number">4.</span> <span class="nav-text">Number对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String对象"><span class="nav-number">5.</span> <span class="nav-text">String对象</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#所有的对象都继承自Object对象"><span class="nav-number">1.</span> <span class="nav-text">所有的对象都继承自Object对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊的对象：数组Array"><span class="nav-number">2.</span> <span class="nav-text">特殊的对象：数组Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function对象"><span class="nav-number">3.</span> <span class="nav-text">Function对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数对象的prototype属性"><span class="nav-number">3.1.</span> <span class="nav-text">函数对象的prototype属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推断对象类型"><span class="nav-number">3.2.</span> <span class="nav-text">推断对象类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boolean对象"><span class="nav-number">4.</span> <span class="nav-text">Boolean对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number对象"><span class="nav-number">5.</span> <span class="nav-text">Number对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String对象"><span class="nav-number">6.</span> <span class="nav-text">String对象</span></a></li></ol></div>
             
 
           </div>

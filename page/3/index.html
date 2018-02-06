@@ -274,6 +274,366 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/22/【20170822】元素选择器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/22/【20170822】元素选择器/" itemprop="url">你不知道的元素选择器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-22T16:58:02+08:00">
+                2017-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">study</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/web-develope/" itemprop="url" rel="index">
+                    <span itemprop="name">web-develope</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>&emsp;&emsp;已经不是第一次碰到这个问题了。关于 eq()、first()等对子元素或者通过索引进行操作的选择器，有空格和无空格，eq()是否包含其本身，虽然想想觉得这个问题也太简单了有什么好说的，然而实际使用的时候总是会出现“卧槽怎么选的是这个元素？”，“尼玛这个事件怎么就是不对？”的懵逼情况。所以在这里还是做一个测试。</p>
+<p>&emsp;&emsp;首先来看今天的例子，两个大盒子boxContent组成，每个boxContent里有一个title和checkbox的div盒子</p>
+<p>&emsp;&emsp;具体结构如下</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"control-group"</span>&gt;</div><div class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"boxContent"</span>&gt;</div><div class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"title"</span>&gt;配电箱<span class="number">1</span>&lt;/div&gt;</div><div class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"checkbox"</span> style=<span class="string">"display: inline-block"</span>&gt;</div><div class="line">            &lt;label <span class="class"><span class="keyword">class</span></span>=<span class="string">"checkbox-inline"</span> style=<span class="string">"display: inline-block"</span>&gt;</div><div class="line">           		 &lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"checkbox"</span> value=<span class="string">""</span>&gt;</div><div class="line">            推送<span class="number">1</span></div><div class="line">            &lt;/label&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"submit"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn unbund"</span> name=<span class="string">""</span> value=<span class="string">"解绑"</span>&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"boxContent"</span>&gt;</div><div class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">""</span>&gt;配电箱<span class="number">1</span>&lt;/div&gt;</div><div class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"checkbox"</span> style=<span class="string">"display: inline-block"</span>&gt;</div><div class="line">            &lt;label <span class="class"><span class="keyword">class</span></span>=<span class="string">"checkbox-inline"</span> style=<span class="string">"display: inline-block"</span>&gt;</div><div class="line">          	  &lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"checkbox"</span> value=<span class="string">""</span>&gt;</div><div class="line">            推送<span class="number">2</span></div><div class="line">            &lt;/label&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"submit"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn unbund"</span> name=<span class="string">""</span> value=<span class="string">"解绑"</span>&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/22/【20170822】元素选择器/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/【20170818】webpack报错的各种问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/18/【20170818】webpack报错的各种问题/" itemprop="url">Webpack入门学习（二、踩坑篇）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T17:01:26+08:00">
+                2017-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">study</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/web-develope/" itemprop="url" rel="index">
+                    <span itemprop="name">web-develope</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://www.jianshu.com/p/02380e5deb38" target="_blank" rel="external">Webpack入门之遇到的那些坑，系列示例Demo</a></p>
+<p>&emsp;&emsp;首先给上面的文章点个赞，十分详尽地写出了配置过程中会遇到的问题，看来也是一个有故事的人。重复的部分我就不再赘述，在此就当做是做一个补充。</p>
+<h4 id="配置完webpack-config-js文件，运行报错"><a href="#配置完webpack-config-js文件，运行报错" class="headerlink" title="配置完webpack.config.js文件，运行报错"></a>配置完webpack.config.js文件，运行报错</h4><h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Unhandled rejection TypeError: chunk.isInitial is <span class="keyword">not</span> <span class="keyword">a</span> <span class="function"><span class="keyword">function</span></span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;注释掉对css文件的处理语句就恢复正常，这个问题在两次重新配置webpack时都出现了</p>
+<h5 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h5><p>&emsp;&emsp;就是比较坑的版本问题，下载本地webpack@2.2.0，插件extract-text-webpack-plugin@2.1.2，再进行如下配置语句<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attribute">test</span>: /\.css$/,</div><div class="line">	loader: ExtractTextPlugin.<span class="built_in">extract</span>(&#123;</div><div class="line">	fallback: <span class="string">'style-loader'</span>,</div><div class="line">	use: <span class="string">'css-loader'</span></div><div class="line">	&#125;)</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;成功<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/18/【20170818】webpack报错的各种问题/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/15/【20170815】Webpack使用时踩过的坑/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1671,149 +2031,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/29/表格插件-jSONGrigPage使用文档/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Try">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Try_Luies">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/09/29/表格插件-jSONGrigPage使用文档/" itemprop="url">创建表格插件--jsonGrigPage使用文档</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-29T15:02:28+08:00">
-                2016-09-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1859,7 +2081,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

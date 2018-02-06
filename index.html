@@ -274,6 +274,320 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/06/【20180206】Its-Time-To-Change/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/06/【20180206】Its-Time-To-Change/" itemprop="url">Its Time To Change</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-06T19:43:38+08:00">
+                2018-02-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/29/【20180129】浏览器的同源策略与跨域/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/29/【20180129】浏览器的同源策略与跨域/" itemprop="url">浏览器的同源策略与跨域</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-29T10:59:53+08:00">
+                2018-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="浏览器的同源策略"><a href="#浏览器的同源策略" class="headerlink" title="浏览器的同源策略"></a>浏览器的同源策略</h3><ul>
+<li>端口相同</li>
+<li>域名相同</li>
+<li>协议相同</li>
+</ul>
+<p>用于保护用户数据的安全，防止恶意访问</p>
+<p>目前，如果非同源，共有三种行为受到限制。</p>
+<ol>
+<li>Cookie、LocalStorage 和 IndexDB 无法读取。</li>
+<li>Dom无法获取</li>
+<li>Ajax请求<br>如何实现跨域，在有些必要的场合突破这些限制呢<h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3></li>
+</ol>
+<h4 id="window-domain设置同一父域名"><a href="#window-domain设置同一父域名" class="headerlink" title="window.domain设置同一父域名"></a>window.domain设置同一父域名</h4><p>对于同一个页面，不同的iframe之间是可以共享window对象，只不过不能使用另一个页面window的对象的属性和方法（极少部分除外，如h5中的postMessage方法）。此时，可以使用domain将iframe设置为相同的域。</p>
+<p>如有一个网页A<code>http://w1.example.a.com</code>，一个网页B<code>http://w2,example.b.com</code>。<br>只要设置相同的<code>document.domain</code>，两个页面就能共享数据和DOM（<code>LocalStorage</code> 和 <code>IndexDB</code> 无法通过这种方法传递）<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document<span class="selector-class">.domain</span> = <span class="string">"example.com"</span> <span class="comment">//必须为自身 或父域</span></div></pre></td></tr></table></figure></p>
+<p>这两个网页就能互相访问dom和数据了。</p>
+<p>比如你在网页A设置一个cookie<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//网页A</span></div><div class="line">document<span class="selector-class">.cookie</span> =<span class="string">"i'm A"</span></div></pre></td></tr></table></figure></p>
+<p>就可以在网页B访问到这个属性<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//网页B</span></div><div class="line">document.cookie <span class="comment">// i'm A</span></div></pre></td></tr></table></figure></p>
+<h3 id="DOM的获取"><a href="#DOM的获取" class="headerlink" title="DOM的获取"></a>DOM的获取</h3><p>如果两个窗口一级域名相同，只是二级域名不同，那么设置上一节介绍的<code>document.domain</code>属性，就可以规避同源政策，拿到DOM。</p>
+<p>对于完全不同源的网站,可以采用下面三种方法</p>
+<ul>
+<li><code>window.name</code></li>
+<li>跨文档通信API（Cross-document messaging）</li>
+<li>片段识别符（fragment identifier）<h5 id="window-name"><a href="#window-name" class="headerlink" title="window.name"></a>window.name</h5><code>window.name</code>这个浏览器窗口属性最大的特点就是，只要在同一个窗口中，无论是否同源，所有页面都能共享这个属性。每个页面对window.name都有读写的权限</li>
+</ul>
+<p>而且<code>window.name</code>可以存储容量比较大，一般有2M（不同浏览器容量不容）</p>
+<h5 id="跨文档通信API"><a href="#跨文档通信API" class="headerlink" title="跨文档通信API"></a>跨文档通信API</h5><p>H5为了解决跨源的问题，引入了一个全新的API,为window新增了一个方法<code>window.postMessage</code>，允许跨窗口通信，无论是否同源。</p>
+<p>比如在窗口<a href="http://aaa.com中，想要向另一个页面http://bbb.com发送消息。调用postMessage方法即可" target="_blank" rel="external">http://aaa.com中，想要向另一个页面http://bbb.com发送消息。调用postMessage方法即可</a><br><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//aaa.com中写入</span></div><div class="line"><span class="keyword">var</span> popup = <span class="built_in">window</span>.open(<span class="string">'http://bbb.com'</span>, <span class="string">'title'</span>);</div><div class="line">popup.postMessage(<span class="string">'Hello World!'</span>, <span class="string">'http://bbb.com'</span>);</div></pre></td></tr></table></figure></p>
+<p>bbb中通过message事件监听消息<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(e.data);</div><div class="line">&#125;,<span class="literal">false</span>);</div></pre></td></tr></table></figure></p>
+<p>其中message事件对象event提供三个属性</p>
+<ul>
+<li>event.source：消息来源的地址</li>
+<li>event.origin：消息发向的地址</li>
+<li>event.data：消息内容</li>
+</ul>
+<h5 id="片段识别符"><a href="#片段识别符" class="headerlink" title="片段识别符"></a>片段识别符</h5><p>片段识别符指的是，URL的#号后面的部分。</p>
+<h3 id="AJAX请求"><a href="#AJAX请求" class="headerlink" title="AJAX请求"></a>AJAX请求</h3><ul>
+<li>只支持get请求，不支持post请求</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/27/【20180127】javascrip中的【对象】/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1505,356 +1819,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/05/【20171105】百度地图API入门使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Try">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Try_Luies">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/05/【20171105】百度地图API入门使用/" itemprop="url">百度地图API入门使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-05T09:36:58+08:00">
-                2017-11-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://lbsyun.baidu.com/jsdemo.htm#a1_2" target="_blank" rel="external">百度地图js开发API</a></p>
-<p>本文将结合具体项目案例，带你初步认识百度地图API的使用方法</p>
-<h5 id="部分项目需求"><a href="#部分项目需求" class="headerlink" title="部分项目需求"></a>部分项目需求</h5><ul>
-<li>中间为地图区，地图区上显示的点位与左侧检索区对应</li>
-<li>配电箱状态为报警时，点位跳动，图标变为红色</li>
-<li>定时更新配电箱状态，界面上的点相应更新</li>
-<li>点击左侧检索结果的配电箱,或者点击地图区配电箱图标，在地图区显示配电箱详细信息</li>
-</ul>
-<h5 id="设计稿"><a href="#设计稿" class="headerlink" title="设计稿"></a>设计稿</h5><p><img src="http://upload-images.jianshu.io/upload_images/2865721-468829eb4e4559cf.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="image"></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/05/【20171105】百度地图API入门使用/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/26/【20171026】移动端长表单设计方案/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Try">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Try_Luies">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/26/【20171026】移动端长表单设计方案/" itemprop="url">移动端长表单设计方案</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-26T16:32:11+08:00">
-                2017-10-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/study/" itemprop="url" rel="index">
-                    <span itemprop="name">study</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/study/交互/" itemprop="url" rel="index">
-                    <span itemprop="name">交互</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/study/交互/移动端/" itemprop="url" rel="index">
-                    <span itemprop="name">移动端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>长表单是产品设计和开发时不可避免的业务</p>
-<p>常见应对长表单的三种设计方案：</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_png/icuACUbiaPe7TSwqzw0rOv5qJcL4fbbFr0ia81F1I7mZQiauNDtc6mic5yjR8LJN3ZDKo9XthGLlxtM3Kib7WrT9sOjw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="iamge"></p>
-<ul>
-<li>界面方案1：所有表单按类别放置于单页面</li>
-<li>界面方案2：按大类分，子类放置于相应子界面</li>
-<li>方案3：按顺序填写，填完一类进入下一页填写下一类</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/26/【20171026】移动端长表单设计方案/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1900,7 +1869,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
