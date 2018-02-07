@@ -274,6 +274,150 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/07/【20180207】浏览器判断之坑/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/07/【20180207】浏览器判断之坑/" itemprop="url">浏览器版本判断思路</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-07T10:31:41+08:00">
+                2018-02-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>首先，作为一个合格的前端工程师，我们都知道BOM对象有一个属性navigator，包含了浏览器的信息。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-4aa032f3b17a3411.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="navigator对象内容"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/07/【20180207】浏览器判断之坑/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/06/【20180206】Its-Time-To-Change/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -364,7 +508,17 @@
       
         
           
-            
+            <p>其实吧</p>
+<p>有时候重新回看自己家写的文章，正经到自己都不想看下去。</p>
+<p>今天阴差阳错在论坛上看到了一位大神，技术文风非常对我口味，事无巨细，记录自己的思考过程。深扒下去，居然和我是同一届的校友，而且就是身边的小伙伴。第一想感叹一句世界真小，我们真巧。第二反应就是身为菜逼果然还有许多事情要做，以及，还有很多地方做的不够。</p>
+<p>平时写技术文章的时候，总是担心自己写的太过基础，所以不会顺着自己思考的脑回路，而是一本正经地按大众API步骤，分条阐述，死板而无趣。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-c753919932c26883.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>我给别人看这张图，居然得到了高度一致的回应：小姐姐你要暴毙而亡了</p>
+<p>我？？？</p>
+<p>好吧，我承认有时候太死要面子</p>
+<p>为什么要关注别人的想法呢<br>理解到什么写什么不就好了<br>正经的过官方文档吗<br>正经的过官方规范吗<br>过去的文章，深刻印在脑子里的都是经过自己思考和实践的内容，一些照着API整理的笔记，如果不时常去查阅，恐怕也是迟早要被遗忘的<br>从现在开始<br>关注自身<br>希望能成为自己心中的大神</p>
+<p>——2018.02.06</p>
+
           
         
       
@@ -501,47 +655,15 @@
 
       
         
-          
-            <h3 id="浏览器的同源策略"><a href="#浏览器的同源策略" class="headerlink" title="浏览器的同源策略"></a>浏览器的同源策略</h3><ul>
-<li>端口相同</li>
-<li>域名相同</li>
-<li>协议相同</li>
-</ul>
-<p>用于保护用户数据的安全，防止恶意访问</p>
-<p>目前，如果非同源，共有三种行为受到限制。</p>
-<ol>
-<li>Cookie、LocalStorage 和 IndexDB 无法读取。</li>
-<li>Dom无法获取</li>
-<li>Ajax请求<br>如何实现跨域，在有些必要的场合突破这些限制呢<h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3></li>
-</ol>
-<h4 id="window-domain设置同一父域名"><a href="#window-domain设置同一父域名" class="headerlink" title="window.domain设置同一父域名"></a>window.domain设置同一父域名</h4><p>对于同一个页面，不同的iframe之间是可以共享window对象，只不过不能使用另一个页面window的对象的属性和方法（极少部分除外，如h5中的postMessage方法）。此时，可以使用domain将iframe设置为相同的域。</p>
-<p>如有一个网页A<code>http://w1.example.a.com</code>，一个网页B<code>http://w2,example.b.com</code>。<br>只要设置相同的<code>document.domain</code>，两个页面就能共享数据和DOM（<code>LocalStorage</code> 和 <code>IndexDB</code> 无法通过这种方法传递）<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document<span class="selector-class">.domain</span> = <span class="string">"example.com"</span> <span class="comment">//必须为自身 或父域</span></div></pre></td></tr></table></figure></p>
-<p>这两个网页就能互相访问dom和数据了。</p>
-<p>比如你在网页A设置一个cookie<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//网页A</span></div><div class="line">document<span class="selector-class">.cookie</span> =<span class="string">"i'm A"</span></div></pre></td></tr></table></figure></p>
-<p>就可以在网页B访问到这个属性<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//网页B</span></div><div class="line">document.cookie <span class="comment">// i'm A</span></div></pre></td></tr></table></figure></p>
-<h3 id="DOM的获取"><a href="#DOM的获取" class="headerlink" title="DOM的获取"></a>DOM的获取</h3><p>如果两个窗口一级域名相同，只是二级域名不同，那么设置上一节介绍的<code>document.domain</code>属性，就可以规避同源政策，拿到DOM。</p>
-<p>对于完全不同源的网站,可以采用下面三种方法</p>
-<ul>
-<li><code>window.name</code></li>
-<li>跨文档通信API（Cross-document messaging）</li>
-<li>片段识别符（fragment identifier）<h5 id="window-name"><a href="#window-name" class="headerlink" title="window.name"></a>window.name</h5><code>window.name</code>这个浏览器窗口属性最大的特点就是，只要在同一个窗口中，无论是否同源，所有页面都能共享这个属性。每个页面对window.name都有读写的权限</li>
-</ul>
-<p>而且<code>window.name</code>可以存储容量比较大，一般有2M（不同浏览器容量不容）</p>
-<h5 id="跨文档通信API"><a href="#跨文档通信API" class="headerlink" title="跨文档通信API"></a>跨文档通信API</h5><p>H5为了解决跨源的问题，引入了一个全新的API,为window新增了一个方法<code>window.postMessage</code>，允许跨窗口通信，无论是否同源。</p>
-<p>比如在窗口<a href="http://aaa.com中，想要向另一个页面http://bbb.com发送消息。调用postMessage方法即可" target="_blank" rel="external">http://aaa.com中，想要向另一个页面http://bbb.com发送消息。调用postMessage方法即可</a><br><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//aaa.com中写入</span></div><div class="line"><span class="keyword">var</span> popup = <span class="built_in">window</span>.open(<span class="string">'http://bbb.com'</span>, <span class="string">'title'</span>);</div><div class="line">popup.postMessage(<span class="string">'Hello World!'</span>, <span class="string">'http://bbb.com'</span>);</div></pre></td></tr></table></figure></p>
-<p>bbb中通过message事件监听消息<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(e.data);</div><div class="line">&#125;,<span class="literal">false</span>);</div></pre></td></tr></table></figure></p>
-<p>其中message事件对象event提供三个属性</p>
-<ul>
-<li>event.source：消息来源的地址</li>
-<li>event.origin：消息发向的地址</li>
-<li>event.data：消息内容</li>
-</ul>
-<h5 id="片段识别符"><a href="#片段识别符" class="headerlink" title="片段识别符"></a>片段识别符</h5><p>片段识别符指的是，URL的#号后面的部分。</p>
-<h3 id="AJAX请求"><a href="#AJAX请求" class="headerlink" title="AJAX请求"></a>AJAX请求</h3><ul>
-<li>只支持get请求，不支持post请求</li>
-</ul>
-
-          
+          <p>同源啊跨域啊好像也要被讲烂了，网上随便搜搜也有很多详细的教程，阮老师的文章也是其中的经典。</p>
+<p>前段时间经历了第一次前端面试，笔试开头的基础题就是问同源策略，当时菜逼如我答的不好，虽然最后结果是好的，但是还是想做一个整理给自己一雪前耻</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/29/【20180129】浏览器的同源策略与跨域/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1669,156 +1791,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/22/【20171121】隐藏滚动条小技巧（兼容至IE7）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Try">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Try_Luies">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/22/【20171121】隐藏滚动条小技巧（兼容至IE7）/" itemprop="url">隐藏滚动条小技巧（兼容至IE7）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-22T17:29:33+08:00">
-                2017-11-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h5 id="关于滚动条的设置"><a href="#关于滚动条的设置" class="headerlink" title="关于滚动条的设置"></a>关于滚动条的设置</h5><ol>
-<li><p>滚动条设置</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">overflow</span>:scroll;</div></pre></td></tr></table></figure>
-</li>
-<li><p>也可以单独对x和y设置滚动条</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//隐藏x轴，显示Y轴滚动条</span></div><div class="line"><span class="attribute">overflow-x</span>:none;</div><div class="line"><span class="attribute">overflow-y</span>:scroll;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/22/【20171121】隐藏滚动条小技巧（兼容至IE7）/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1869,7 +1841,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">32</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1916,12 +1888,12 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://weibo.com/u/2680387355?refer_flag=1001030103_" target="_blank" title="Weibo">
+                <a href="https://www.jianshu.com/u/7a6944daafc3" target="_blank" title="jianshu">
                   
-                    <i class="fa fa-fw fa-weibo"></i>
+                    <i class="fa fa-fw fa-globe"></i>
                   
                     
-                      Weibo
+                      jianshu
                     
                 </a>
               </span>

@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="浏览器的同源策略 端口相同 域名相同 协议相同  用于保护用户数据的安全，防止恶意访问 目前，如果非同源，共有三种行为受到限制。  Cookie、LocalStorage 和 IndexDB 无法读取。 Dom无法获取 Ajax请求如何实现跨域，在有些必要的场合突破这些限制呢cookie  window.domain设置同一父域名对于同一个页面，不同的iframe之间是可以共享window对象，只">
+<meta name="description" content="同源啊跨域啊好像也要被讲烂了，网上随便搜搜也有很多详细的教程，阮老师的文章也是其中的经典。 前段时间经历了第一次前端面试，笔试开头的基础题就是问同源策略，当时菜逼如我答的不好，虽然最后结果是好的，但是还是想做一个整理给自己一雪前耻">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器的同源策略与跨域">
 <meta property="og:url" content="http://yoursite.com/2018/01/29/【20180129】浏览器的同源策略与跨域/index.html">
 <meta property="og:site_name" content="Try_Luies">
-<meta property="og:description" content="浏览器的同源策略 端口相同 域名相同 协议相同  用于保护用户数据的安全，防止恶意访问 目前，如果非同源，共有三种行为受到限制。  Cookie、LocalStorage 和 IndexDB 无法读取。 Dom无法获取 Ajax请求如何实现跨域，在有些必要的场合突破这些限制呢cookie  window.domain设置同一父域名对于同一个页面，不同的iframe之间是可以共享window对象，只">
+<meta property="og:description" content="同源啊跨域啊好像也要被讲烂了，网上随便搜搜也有很多详细的教程，阮老师的文章也是其中的经典。 前段时间经历了第一次前端面试，笔试开头的基础题就是问同源策略，当时菜逼如我答的不好，虽然最后结果是好的，但是还是想做一个整理给自己一雪前耻">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-30T00:28:30.694Z">
+<meta property="og:updated_time" content="2018-02-07T05:51:13.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器的同源策略与跨域">
-<meta name="twitter:description" content="浏览器的同源策略 端口相同 域名相同 协议相同  用于保护用户数据的安全，防止恶意访问 目前，如果非同源，共有三种行为受到限制。  Cookie、LocalStorage 和 IndexDB 无法读取。 Dom无法获取 Ajax请求如何实现跨域，在有些必要的场合突破这些限制呢cookie  window.domain设置同一父域名对于同一个页面，不同的iframe之间是可以共享window对象，只">
+<meta name="twitter:description" content="同源啊跨域啊好像也要被讲烂了，网上随便搜搜也有很多详细的教程，阮老师的文章也是其中的经典。 前段时间经历了第一次前端面试，笔试开头的基础题就是问同源策略，当时菜逼如我答的不好，虽然最后结果是好的，但是还是想做一个整理给自己一雪前耻">
 
 
 
@@ -362,13 +362,17 @@
       
 
       
-        <h3 id="浏览器的同源策略"><a href="#浏览器的同源策略" class="headerlink" title="浏览器的同源策略"></a>浏览器的同源策略</h3><ul>
+        <p>同源啊跨域啊好像也要被讲烂了，网上随便搜搜也有很多详细的教程，阮老师的文章也是其中的经典。</p>
+<p>前段时间经历了第一次前端面试，笔试开头的基础题就是问同源策略，当时菜逼如我答的不好，虽然最后结果是好的，但是还是想做一个整理给自己一雪前耻</p>
+<a id="more"></a>
+<h3 id="浏览器的同源策略"><a href="#浏览器的同源策略" class="headerlink" title="浏览器的同源策略"></a>浏览器的同源策略</h3><p>首先当然要介绍一下浏览器的同源策略</p>
+<ul>
 <li>端口相同</li>
 <li>域名相同</li>
 <li>协议相同</li>
 </ul>
-<p>用于保护用户数据的安全，防止恶意访问</p>
-<p>目前，如果非同源，共有三种行为受到限制。</p>
+<p>这是用于保护用户数据的安全，防止恶意访问</p>
+<p>按照阮老师的说法，目前，如果非同源，共有三种行为受到限制。</p>
 <ol>
 <li>Cookie、LocalStorage 和 IndexDB 无法读取。</li>
 <li>Dom无法获取</li>
@@ -513,7 +517,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">32</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -560,12 +564,12 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://weibo.com/u/2680387355?refer_flag=1001030103_" target="_blank" title="Weibo">
+                <a href="https://www.jianshu.com/u/7a6944daafc3" target="_blank" title="jianshu">
                   
-                    <i class="fa fa-fw fa-weibo"></i>
+                    <i class="fa fa-fw fa-globe"></i>
                   
                     
-                      Weibo
+                      jianshu
                     
                 </a>
               </span>
