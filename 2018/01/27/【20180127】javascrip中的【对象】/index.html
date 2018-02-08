@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-b66607a89f4cac0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-e432185e811362c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-ccdc02a77ea82095.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-02-08T05:51:54.891Z">
+<meta property="og:updated_time" content="2018-02-08T10:45:47.077Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascrip中的【对象】">
 <meta name="twitter:description" content="2018-02-08新增Number和String部分 为什么一个数组可以有多种创建方法，他们的含义都是一样的吗？ number、String等这些数据类型的本质是什么，为什么有时候它们又能使用new来创建？ 为什么说函数也是对象？普通函数也可以使用new来创建一个对象吗？ …. 对这些问题的答案是否清晰，好像并不会在实际开发中影响你的项目，遇到疑惑浑水摸鱼也就过去了。 最近在看重新翻看《Java">
@@ -441,7 +441,7 @@
 <h3 id="String对象"><a href="#String对象" class="headerlink" title="String对象"></a>String对象</h3><p>String对象实际上就像是一个字符数组，它也有索引和length属性（早期版本的IE可能还不支持）</p>
 <p>同样，可以使用两种方式创建String，一种是对象，一种是使用String函数，再次强调，String对象永远为true呀~<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s1 = <span class="built_in">String</span>()  <span class="comment">//创建一个空字符串</span></div><div class="line"><span class="keyword">typeof</span> s1   <span class="comment">//"string"</span></div><div class="line"><span class="built_in">Boolean</span>(s1 ) <span class="comment">//false</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> <span class="built_in">String</span>();   <span class="comment">//创建一个空字符串</span></div><div class="line"><span class="keyword">typeof</span> s2  <span class="comment">//"object"</span></div><div class="line"><span class="built_in">Boolean</span>(s )    <span class="comment">//true</span></div></pre></td></tr></table></figure></p>
 <p>字符串的内置方法也有很多，如<code>split()</code>、<code>substring()</code>等等，本篇主要围绕对象的角度，所以就不对这些常用方法进行展开了。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>js中就是<code>对象</code>的天下，各种数据类型都是继承自Object，并衍生出自己的方法和属性。只有理解透彻这一点，才</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>js中就是<code>对象</code>的天下，各种数据类型都是继承自Object，并衍生出自己的方法和属性。理解透彻这一点，就能把各种数据类型玩的飞起，才能真正明白，自己平时在使用的东西到底是个啥</p>
 
       
     </div>
