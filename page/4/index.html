@@ -274,6 +274,186 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/06/【20170706】提取原型——理解继承/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/06/【20170706】提取原型——理解继承/" itemprop="url">提取原型——理解继承</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-06T14:36:55+08:00">
+                2017-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">study</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/web-develope/" itemprop="url" rel="index">
+                    <span itemprop="name">web-develope</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>&emsp;&emsp;js没有”子类”和”父类”的概念，也没有”类”（class）和”实例”（instance）的区分，全靠一种很奇特的”原型链”（prototype chain）模式，来实现继承。</p>
+<p>&emsp;&emsp;摘自<a href="http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html" target="_blank" rel="external">Javascript继承机制的设计思想  </a></p>
+<p>&emsp;&emsp;所有的实例对象共享同一个prototype属性，这个属性包含一个对象，那么从外界看起来，prototype属性的对象就好像是实例对象的原型，而实例对象则好像”继承”了prototype对象一样。</p>
+<p>&emsp;&emsp;例如以下的小案例<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">PEOPLE</span><span class="params">(name)</span></span>&#123;</div><div class="line">　　　　<span class="keyword">this</span>.name = name;</div><div class="line">　　&#125;</div><div class="line">　　PEOPLE.prototype = &#123; SEX : <span class="string">'man'</span> &#125;;</div><div class="line"></div><div class="line">　　<span class="keyword">var</span> A = <span class="keyword">new</span> PEOPLE(<span class="string">'大毛'</span>);</div><div class="line">　　<span class="keyword">var</span> B = <span class="keyword">new</span> PEOPLE(<span class="string">'二毛'</span>);</div><div class="line"></div><div class="line">　　alert(A.SEX); <span class="comment">// man</span></div><div class="line">　　alert(B.SEX); <span class="comment">// man</span></div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;也就是A和B继承了POEPLE的属性，如果SEX属性发生改变，则A和B的该属性均会改变<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/06/【20170706】提取原型——理解继承/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/02/【20170702】思维模式之如何解决问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -764,7 +944,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -980,6 +1160,10 @@
 
 
 
+  
+    
+
+    
   
 
 
