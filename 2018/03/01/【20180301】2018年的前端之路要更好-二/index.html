@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="第三次面试——DXY最想去的一家公司，参加过他们的技术分享会，技术氛围早有耳闻。不局限于做商业化的项目，而是会投入精力去做优化流程和提高效率的事情，开发开源工具，或者重构老旧项目等等 在我问到部门工作流程，第一位面试官说了一句话：在确定好技术选型后，怎么爽怎么写。 听上去像是程序员的天堂 全程历时将近3小时，是学到最多的一次面试，也是目前以来被虐的最惨的一次。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018年的前端之路要更好(二]">
+<meta property="og:url" content="http://yoursite.com/2018/03/01/【20180301】2018年的前端之路要更好-二/index.html">
+<meta property="og:site_name" content="Try_Luies">
+<meta property="og:description" content="第三次面试——DXY最想去的一家公司，参加过他们的技术分享会，技术氛围早有耳闻。不局限于做商业化的项目，而是会投入精力去做优化流程和提高效率的事情，开发开源工具，或者重构老旧项目等等 在我问到部门工作流程，第一位面试官说了一句话：在确定好技术选型后，怎么爽怎么写。 听上去像是程序员的天堂 全程历时将近3小时，是学到最多的一次面试，也是目前以来被虐的最惨的一次。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-03-01T10:14:03.424Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018年的前端之路要更好(二]">
+<meta name="twitter:description" content="第三次面试——DXY最想去的一家公司，参加过他们的技术分享会，技术氛围早有耳闻。不局限于做商业化的项目，而是会投入精力去做优化流程和提高效率的事情，开发开源工具，或者重构老旧项目等等 在我问到部门工作流程，第一位面试官说了一句话：在确定好技术选型后，怎么爽怎么写。 听上去像是程序员的天堂 全程历时将近3小时，是学到最多的一次面试，也是目前以来被虐的最惨的一次。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/01/【20180301】2018年的前端之路要更好-二/"/>
+
+
+
+
+
+  <title>2018年的前端之路要更好(二] | Try_Luies</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Try_Luies</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/【20180301】2018年的前端之路要更好-二/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="T.r.y">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2018年的前端之路要更好(二]</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-01T18:12:02+08:00">
+                2018-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="第三次面试——DXY"><a href="#第三次面试——DXY" class="headerlink" title="第三次面试——DXY"></a>第三次面试——DXY</h2><p>最想去的一家公司，参加过他们的技术分享会，技术氛围早有耳闻。不局限于做商业化的项目，而是会投入精力去做优化流程和提高效率的事情，开发开源工具，或者重构老旧项目等等</p>
+<p>在我问到部门工作流程，第一位面试官说了一句话：在确定好技术选型后，怎么爽怎么写。</p>
+<p>听上去像是程序员的天堂</p>
+<p>全程历时将近3小时，是学到最多的一次面试，也是目前以来被虐的最惨的一次。<br><a id="more"></a></p>
+<h4 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h4><p>首先笔试半小时，有一些常规的题目，涵盖的内容有基本数据类型，去重数组函数，Dom优化方案，行内元素有哪些，label的作用（这个很有意思），css选择器的查找方式（从右往左）；css选择器的优先级；setTimeout异步流程；函数this的指向。</p>
+<p>也有一些个人不太确定答案的题目。其中不熟练的点有正则的声明，即时函数的执行流程，操作符优先级，css伪类选择器的优先级</p>
+<p>将不确定的题目罗列一下<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--关于正则 --&gt;</span></div><div class="line">正则声明的正确选项</div><div class="line"></div><div class="line"><span class="comment">&lt;!--console输出结果是什么，考察操作符优先级--&gt;</span></div><div class="line">var a = 1,b =2;</div><div class="line">console.log(a+++b)</div><div class="line"></div><div class="line"><span class="comment">&lt;!--console输出结果是什么，考察即时函数的执行流程--&gt;</span></div><div class="line">var result = (function()&#123;</div><div class="line">    return 1;</div><div class="line">&#125;;function()&#123;</div><div class="line">    return "2"</div><div class="line">&#125;)()</div><div class="line">console.log(typeof result)</div><div class="line"></div><div class="line"><span class="comment">&lt;!--关于css选择器优先级排序--&gt;</span></div><div class="line">id class 标签选择器 属性值选择器  伪类选择器  通配符选择器 继承选择（大概是这几类的排序）</div></pre></td></tr></table></figure></p>
+<p>做完题目检查了一遍，然后交给hr，等待通知。</p>
+<p>等的时候对于DOM创建的优化那一题突然有了更好的方案</p>
+<p>题目是这样的：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--对下列方法进行优化--&gt;</span></div><div class="line">var nodeI,m;</div><div class="line">var data = [] //这里的data是一组真实数据</div><div class="line">for(var i = 0,m = data.length ; i<span class="tag">&lt;<span class="name">m</span> ; <span class="attr">i</span>++)&#123;</span></div><div class="line"><span class="tag">    <span class="attr">nodeI</span> = <span class="string">document.creatElement(</span>"<span class="attr">li</span>");</span></div><div class="line"><span class="tag">    <span class="attr">nodeI.noteText</span> = <span class="string">data[i];</span></span></div><div class="line"><span class="tag">    <span class="attr">var</span> <span class="attr">con</span> = <span class="string">document.getElementById(</span>"<span class="attr">container</span>");</span></div><div class="line"><span class="tag">    <span class="attr">con.appendChild</span>(<span class="attr">nodeI</span>);   </span></div><div class="line"><span class="tag">&#125;</span></div></pre></td></tr></table></figure></p>
+<p>我在写的时候思考了一会儿，最后只是把container容器的变量提取为了全局，这样就不需要循环都去创建一个变量。</p>
+<p>但是之后想到应该使用innerHTML属性直接使用字符串添加，这样的效率是最高的，浏览器只需要对元素重排一次，而不是每次循环都去重新渲染页面一次。</p>
+<p>想着想着，面试官就进来了</p>
+<h4 id="第一位"><a href="#第一位" class="headerlink" title="第一位"></a>第一位</h4><p>一个小小个子，冷冰冰的大哥，全程没什么话，很认真地在看我带过去的简历，以及笔试题。</p>
+<p>第一句话就对我说，你这个基本数据类型写错了吧，这么基础的题</p>
+<p>我心想完了不会跪在这种题目吧。拿过来仔细看了下，五种类型<code>string,null,number,boolean,undefined</code>没写错啊。面试官说还有<code>object</code>，而<code>Null</code>是属于<code>object</code>的。</p>
+<p>我觉得他说的不对，于是现场查了下，结果显示我写的才是对的，有点小尴尬，我说了句，这点之后再求证好了。</p>
+<p>之后，他就开始指了几道我写的答案，问我是怎么思考的。遇到不会的，我就说我不确定，他也没告诉我正确答案是什么，我说的对不对。一直都是毫无波澜的表情。</p>
+<p>过完了题目，我开始想展示下写的项目，拿出资料以及存在手机的动图，他很随便地看了下，然后说好的我知道了。</p>
+<p>之后问有没有做过h5，和pc端有什么不同。</p>
+<p>我说没有做过完整的项目，h5在一般在手机端使用，点击事件不太一样；另外对页面性能要求比较高</p>
+<p>看他反应想来是对我的答案不太满意。</p>
+<p>后来问我有没有做过从0开始配置，开发产品，打包项目，到发布上线的完整工作流。</p>
+<p>我实话实说没有，因为公司项目不需要使用脚手架，也没有使用打包工具。我自己写的项目有使用过webpack，了解一些配置和打包方法，但没有过发布项目的经验。（后知后觉，他应该是想问开发环境和生产环境的配置有什么不一样）</p>
+<p>他说ok了解，然后就问我有没有什么问题问他的</p>
+<p>这句话一般就是想要结束面试的标识。我询问了他们对这个岗位的要求，以及他们的技术栈。这些点面试官有比较耐心地去解答，这时候才感觉出来他是个有条不紊，话不多，但是很务实的人。</p>
+<p>我感觉应该是看过简历以及笔试题之后，心里已经有了预判觉得水平不够，所以结束的非常快</p>
+<p>他也直说，他们组缺乏的成员，我这个水平可能还达不到。让我再等等，他去沟通下有没有其他组的人有兴趣的。</p>
+<p>随后就出去了。</p>
+<p>第一位失败，问题整理如下。</p>
+<ol>
+<li>H5和普通PC端有什么不同</li>
+<li>从0配置到发布上线的完整流程</li>
+<li>未来一年对自己的技术方向的规划</li>
+<li>对前端行业的看法</li>
+</ol>
+<p>没有问我的项目，没有问解决问题的过程，没有问笔试题以外的技术问题。</p>
+<h4 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h4><p>第二位面试官，之前有过一些了解，有关注他的掘金,一个高级前端，端着电脑进来，从头到尾笑眯眯，还是温州老乡。感觉很亲切。</p>
+<p>to yaung to simple。我的怀疑人生之路开始了</p>
+<p>首先做了简单的自我介绍，在自我介绍里我赶紧趁机讲了下我做过的项目，使用的技术点，以及一些比较有趣的小demo，都是上场面试中没来得及展示的</p>
+<p>他有仔细听，有没有评价我也忘了。应该是没有过多的表示。或许是因为对JQ的项目兴趣不大吧。</p>
+<p>接着又回到了笔试题上，我就抢先说了应该是错了不少，而且有道题我后来有想到更好的优化方案。<br>他貌似还挺感兴趣。</p>
+<h5 id="1-我阐述了我的方案之后，他开始问了"><a href="#1-我阐述了我的方案之后，他开始问了" class="headerlink" title="1. 我阐述了我的方案之后，他开始问了"></a>1. 我阐述了我的方案之后，他开始问了</h5><h6 id="问1：为什么这样更好呢。"><a href="#问1：为什么这样更好呢。" class="headerlink" title="问1：为什么这样更好呢。"></a>问1：为什么这样更好呢。</h6><p>我说可以减少浏览器重排重绘的次数</p>
+<h6 id="他立刻问2：什么是重排重绘？"><a href="#他立刻问2：什么是重排重绘？" class="headerlink" title="他立刻问2：什么是重排重绘？"></a>他立刻问2：什么是重排重绘？</h6><p> 前两天刚看到了这个概念，讲了下自己的理解</p>
+<h6 id="问3：什么情况下会导致重排重绘？"><a href="#问3：什么情况下会导致重排重绘？" class="headerlink" title="问3：什么情况下会导致重排重绘？"></a>问3：什么情况下会导致重排重绘？</h6><p>我说页面布局被修改或者重新渲染的时候。</p>
+<h6 id="问4：能不能再具体点"><a href="#问4：能不能再具体点" class="headerlink" title="问4：能不能再具体点"></a>问4：能不能再具体点</h6><p>当时没理get到他想要的答案，我就又重复了一遍。他应该是想问怎样算是布局被修改吧</p>
+<p>标准答案：</p>
+<ol>
+<li>添加或者删除可见的DOM元素</li>
+<li>元素位置改变</li>
+<li>元素尺寸改变</li>
+<li>元素内容改变（例如：一个文本被另一个不同尺寸的图片替代）</li>
+<li>页面渲染初始化（这个无法避免）</li>
+<li>浏览器窗口尺寸改变</li>
+</ol>
+<h6 id="问5：v-show元素的显示和隐藏算是重排吗"><a href="#问5：v-show元素的显示和隐藏算是重排吗" class="headerlink" title="问5：v-show元素的显示和隐藏算是重排吗?"></a>问5：v-show元素的显示和隐藏算是重排吗?</h6><p>我说算。我的答案应该是对的，但他应该是希望我答添加或者删除可见的dom元素是重排这句话，v-show是设置了css的属性，是算重排的</p>
+<p>接着基本上开始一道道过笔试题，以及在原来题目基础上扩展。</p>
+<h5 id="2-setTimeout的异步执行"><a href="#2-setTimeout的异步执行" class="headerlink" title="2. setTimeout的异步执行"></a>2. setTimeout的异步执行</h5><p>原题如下<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--执行结果是什么--&gt;</span></div><div class="line">var a = 2;</div><div class="line">setTimeout(function()&#123;</div><div class="line">   a--;</div><div class="line">&#125;);</div><div class="line">a++</div><div class="line">console.log(a);</div></pre></td></tr></table></figure></p>
+<p>题目还是比较简单，最终输出的是3.</p>
+<p>变态的来了</p>
+<h6 id="问1：如果外面的a-循环一百万次呢，顺序如何？"><a href="#问1：如果外面的a-循环一百万次呢，顺序如何？" class="headerlink" title="问1：如果外面的a++循环一百万次呢，顺序如何？"></a>问1：如果外面的a++循环一百万次呢，顺序如何？</h6><p>答，还是一样，setTimeout在后面</p>
+<h6 id="问2：为什么会这样？"><a href="#问2：为什么会这样？" class="headerlink" title="问2：为什么会这样？"></a>问2：为什么会这样？</h6><p>（标准答案：同步会阻塞进程。）</p>
+<p>这里稍微有点答非所问了，我受到近期看的一篇文章影响一直在强调同步异步和阻塞非阻塞的区别，异步是执行完了告诉你，同步是等待你执行完；堵塞是浏览器一直在请求是否完成。我也不知道我在说啥，我估计他也不知道我在说啥 - -）</p>
+<h6 id="问3：知道promise吗，写了一个promise对象，混合setTimeout方法，要求判断输出的先后顺序"><a href="#问3：知道promise吗，写了一个promise对象，混合setTimeout方法，要求判断输出的先后顺序" class="headerlink" title="问3：知道promise吗，写了一个promise对象，混合setTimeout方法，要求判断输出的先后顺序"></a>问3：知道promise吗，写了一个promise对象，混合setTimeout方法，要求判断输出的先后顺序</h6><p>知道一点，曾经看到过类似的题目，但是时间比较久了不太记得，被我蒙对了</p>
+<h6 id="问4：为什么会这样？"><a href="#问4：为什么会这样？" class="headerlink" title="问4：为什么会这样？"></a>问4：为什么会这样？</h6><p>简单讲了下事件循环机制<br>更多可以参照这两篇文章——<a href="https://juejin.im/post/59e85eebf265da430d571f89" target="_blank" rel="external">js事件机制详解</a></p>
+<h6 id="问6：给你一个需求让你写吧。有一个实时搜索的搜索框，连续输入的时候不触发实时搜索，当用户停下来1s以上时，再显示搜索结果"><a href="#问6：给你一个需求让你写吧。有一个实时搜索的搜索框，连续输入的时候不触发实时搜索，当用户停下来1s以上时，再显示搜索结果" class="headerlink" title="问6：给你一个需求让你写吧。有一个实时搜索的搜索框，连续输入的时候不触发实时搜索，当用户停下来1s以上时，再显示搜索结果"></a>问6：给你一个需求让你写吧。有一个实时搜索的搜索框，连续输入的时候不触发实时搜索，当用户停下来1s以上时，再显示搜索结果</h6><p>电脑一摆，让我敲。</p>
+<p>十脸懵逼说的就是我</p>
+<p>不过其实这个需求不应该写不出来，之前做过的导航优化用的也是这个方法，在规定时间内未执行事件，就使用clearTimeout清空计时器。不过当时死脑筋陷入了时间戳，没往这方面想。</p>
+<p>正确写法<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var time = <span class="literal">null</span>;</div><div class="line">input.addEventListener(<span class="string">"input"</span>,<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">    cleartimeout(time);</div><div class="line">    time = setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">        seach();</div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>学长说如果这只是开始，如果能答出来还可以接着问抽象，不过我第一步就没答出来</p>
+<p>泪奔~~~~</p>
+<h5 id="3-对this的理解"><a href="#3-对this的理解" class="headerlink" title="3. 对this的理解"></a>3. 对this的理解</h5><p>原题是让选择正确的调用方法，也比较简单，正确选项长这样<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> opt = &#123;</div><div class="line">    name:<span class="string">"Amy"</span>,</div><div class="line">    say:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> <span class="keyword">this</span>.name&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>扩展开始</p>
+<h6 id="问1：怎么理解函数中的this"><a href="#问1：怎么理解函数中的this" class="headerlink" title="问1：怎么理解函数中的this"></a>问1：怎么理解函数中的this</h6><p>指向调用函数的对象</p>
+<h6 id="问2：箭头函数的this呢"><a href="#问2：箭头函数的this呢" class="headerlink" title="问2：箭头函数的this呢"></a>问2：箭头函数的this呢</h6><p>额。不改变this指向，函数外部指向哪里就是哪里</p>
+<h6 id="问3：setTimeout函数里面的呢"><a href="#问3：setTimeout函数里面的呢" class="headerlink" title="问3：setTimeout函数里面的呢"></a>问3：setTimeout函数里面的呢</h6><p>指向全局</p>
+<h6 id="问4：我把上面的增加一个name2-this-name输出什么？"><a href="#问4：我把上面的增加一个name2-this-name输出什么？" class="headerlink" title="问4：我把上面的增加一个name2:this.name输出什么？"></a>问4：我把上面的增加一个<code>name2:this.name</code>输出什么？</h6><p>undefined..（window.name其实是个全局变量，一般来说是空字符串的）</p>
+<h6 id="我把say方法改成这样会如何"><a href="#我把say方法改成这样会如何" class="headerlink" title="我把say方法改成这样会如何"></a>我把say方法改成这样会如何</h6><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">say:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> <span class="keyword">this</span>.name&#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="问5：改成这样呢"><a href="#问5：改成这样呢" class="headerlink" title="问5：改成这样呢"></a>问5：改成这样呢</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">say:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;<span class="keyword">return</span> <span class="keyword">this</span>.name&#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>只能说一定要自信，虽然对于this是理解的，但是问到后面我已经没底气了，都不太敢说。</p>
+<p>最后两个问题我都忘了自己当时怎么说的了，正确答案都是<code>undefined</code>，因为在执行say()的时候函数上下文为全局了</p>
+<h4 id="4-跨域"><a href="#4-跨域" class="headerlink" title="4.跨域"></a>4.跨域</h4><p>原题是让写几个跨域方案</p>
+<p>我写了cors,jsonp,window.name</p>
+<h6 id="问1：jsonp是怎么实现的"><a href="#问1：jsonp是怎么实现的" class="headerlink" title="问1：jsonp是怎么实现的"></a>问1：jsonp是怎么实现的</h6><p>我说通过script标签引入</p>
+<h6 id="问2：为什么可以这么用，数据怎么返回的？"><a href="#问2：为什么可以这么用，数据怎么返回的？" class="headerlink" title="问2：为什么可以这么用，数据怎么返回的？"></a>问2：为什么可以这么用，数据怎么返回的？</h6><p>我说script标签是可以跨域访问CDN的</p>
+<p>标准答案：JSONP 由两部分组成：回调函数和数据。回调函数是当响应到来时应该在页面中调用的函数。回调函数的名字一般是在请求中指定的。而数据就是传入回调函数中的 JSON 数据。</p>
+<p>问3：window.name的局限</p>
+<p>只能在同一窗口，大小2m</p>
+<p>问3：知道localstorge和sessionstorge的区别吗</p>
+<p>local是关闭窗口还会存在，数据永久保存，除非去清除浏览器缓存，session关闭窗口就清空了了</p>
+<p>问4：localstorge和域名有关吗，sessionstorge呢</p>
+<p>相同浏览器的条件下，local在同一域名和端口下是可以共享的，而不同页面无法共享session的数据<br>（注：如果同源，且属于一个窗口下的iframe，session也是共享的）</p>
+<h4 id="4-关于vue"><a href="#4-关于vue" class="headerlink" title="4. 关于vue"></a>4. 关于vue</h4><p>首先问了几个关于vue的基本问题</p>
+<p>拓展开始</p>
+<h6 id="问1：你觉得vue和JQ相比，有什么优势"><a href="#问1：你觉得vue和JQ相比，有什么优势" class="headerlink" title="问1：你觉得vue和JQ相比，有什么优势"></a>问1：你觉得vue和JQ相比，有什么优势</h6><p>我说了维护更方便，以及数据渲染页面的方式使逻辑和页面分离，更加高效</p>
+<p>他好像不太满意，又追问了一遍。</p>
+<p>我说有两个最大的优势，一个是双向绑定，一个是组件。他点了点头，然后继续问：</p>
+<h6 id="问2：vue的双向绑定的原理是什么"><a href="#问2：vue的双向绑定的原理是什么" class="headerlink" title="问2：vue的双向绑定的原理是什么"></a>问2：vue的双向绑定的原理是什么</h6><p>靠！我面试前还和老于聊到这个问题！他说不可能问这么底层的！这是什么鬼！</p>
+<p>我说在改变输入框的属性时实际上是在调用<code>defineProperty</code>的get和set方法(更专业的说法叫wacher),在方法里面去修改绑定的元素的值。</p>
+<h6 id="问3-：虚拟dom有了解吗"><a href="#问3-：虚拟dom有了解吗" class="headerlink" title="问3 ：虚拟dom有了解吗"></a>问3 ：虚拟dom有了解吗</h6><p>知道..不怎么了解</p>
+<h6 id="问4：写的时候为什么data不直接返回对象数据，而是要用函数的形式return出结果？"><a href="#问4：写的时候为什么data不直接返回对象数据，而是要用函数的形式return出结果？" class="headerlink" title="问4：写的时候为什么data不直接返回对象数据，而是要用函数的形式return出结果？"></a>问4：写的时候为什么data不直接返回对象数据，而是要用函数的形式return出结果？</h6><p>恩….</p>
+<h6 id="问56789：啊我已经说了不了解了所以之后的问题已经不知道他在问什么了…"><a href="#问56789：啊我已经说了不了解了所以之后的问题已经不知道他在问什么了…" class="headerlink" title="问56789：啊我已经说了不了解了所以之后的问题已经不知道他在问什么了…"></a>问56789：啊我已经说了不了解了所以之后的问题已经不知道他在问什么了…</h6><p>不过他就开始跟我讲虚拟dom的工作原理，我认真听着，时不时问几个问题，再时不时表现出恍然大悟的神情。面试官讲到一半总喜欢问问题，你觉得他是怎么做到的？如果是你会怎么实现？</p>
+<p>中途扔了一个问题给我，虚拟DOM的是这么检测到代码已经执行完了，然后插入真实的Dom中的。允许我查资料，他去洗手间。</p>
+<p>短时间内我也并没有查出什么东西，然后他回来了跟我解释。</p>
+<p>大概意思是，vue里面有一个类似于setTimeout的异步机制，在所有同步进程执行完后，执行这个异步操作，作为这段进程结束的标识。</p>
+<p>类似于刚刚问的a++一万次，setTimeout依然在最后执行。</p>
+<p>恩…不明觉厉</p>
+<h5 id="6-怎么去实现查找元素的find方法？"><a href="#6-怎么去实现查找元素的find方法？" class="headerlink" title="6. 怎么去实现查找元素的find方法？"></a>6. 怎么去实现查找元素的find方法？</h5><h6 id="问1：怎么去实现查找元素的find方法？"><a href="#问1：怎么去实现查找元素的find方法？" class="headerlink" title="问1：怎么去实现查找元素的find方法？"></a>问1：怎么去实现查找元素的find方法？</h6><p>没见过这种类型的题目，所以想了一会儿，然后弱鸡地说遍历啊…</p>
+<h6 id="问2：他说遍历子节点只能遍历一层啊，那子节点的子节点呢？"><a href="#问2：他说遍历子节点只能遍历一层啊，那子节点的子节点呢？" class="headerlink" title="问2：他说遍历子节点只能遍历一层啊，那子节点的子节点呢？"></a>问2：他说遍历子节点只能遍历一层啊，那子节点的子节点呢？</h6><p>继续弱鸡地说，递归呀…</p>
+<p>他点头，继续问</p>
+<h6 id="问3：还有什么更有效率的方法可以代替遍历？"><a href="#问3：还有什么更有效率的方法可以代替遍历？" class="headerlink" title="问3：还有什么更有效率的方法可以代替遍历？"></a>问3：还有什么更有效率的方法可以代替遍历？</h6><p>不知道哎。。</p>
+<p>他引导了我半天，才说有方法叫querySelector()知道吗，我说知道的，见过但是没去了解过。</p>
+<p>他开始跟我说这个效率是最高的，我问为啥，他说因为底层就不是用js写的，我不明觉厉，表示惊叹。然而心中默默吐槽，你特么不是要我写个方法吗！不能这么开外挂的！</p>
+<p>ps：后来特意去查了下，发现他说的不对，这个方法的性能还是比不上js原生getElementById的，不过和jq相比，还是快非常多的，测试如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//测试代码</span></div><div class="line"><span class="built_in">console</span>.time(<span class="string">'$(".item")'</span>);</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</div><div class="line">  $(<span class="string">".item"</span>);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'$(".item")'</span>);</div><div class="line"><span class="comment">//$(".item"): 56.569091796875ms</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.time(<span class="string">'querySelectorAll'</span>);</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</div><div class="line">  <span class="built_in">document</span>.querySelectorAll(<span class="string">".item"</span>);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'querySelectorAll'</span>);</div><div class="line"><span class="comment">//querySelectorAll: 1781ms</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.time(<span class="string">'getElementsByClassName'</span>);</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</div><div class="line">  <span class="built_in">document</span>.getElementsByClassName(<span class="string">"item"</span>);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'getElementsByClassName'</span>);</div><div class="line"><span class="comment">//getElementsByClassName: 54ms</span></div></pre></td></tr></table></figure></p>
+<h4 id="7-css："><a href="#7-css：" class="headerlink" title="7.css："></a>7.css：</h4><h6 id="1-行内元素怎么设置垂直居中，块级元素呢，举三种方法"><a href="#1-行内元素怎么设置垂直居中，块级元素呢，举三种方法" class="headerlink" title="1. 行内元素怎么设置垂直居中，块级元素呢，举三种方法"></a>1. 行内元素怎么设置垂直居中，块级元素呢，举三种方法</h6><p>说了常用的绝对定位，说了flex布局，然而flex布局的属性名记不清了，还说了display:table</p>
+<h6 id="2-清除浮动都有哪些方法"><a href="#2-清除浮动都有哪些方法" class="headerlink" title="2. 清除浮动都有哪些方法"></a>2. 清除浮动都有哪些方法</h6><p>说了both-clear和overflow：hidden两种方法</p>
+<h6 id="3-nth-of-child和nth-of-type的区别"><a href="#3-nth-of-child和nth-of-type的区别" class="headerlink" title="3. nth-of-child和nth-of-type的区别"></a>3. nth-of-child和nth-of-type的区别</h6><p>nth-of-child：查找位置优先<br>nth-of-type：查找元素优先</p>
+<h6 id="4-怎么实现在两个元素中间有空位时，移到另一个元素依然让其显示"><a href="#4-怎么实现在两个元素中间有空位时，移到另一个元素依然让其显示" class="headerlink" title="4. 怎么实现在两个元素中间有空位时，移到另一个元素依然让其显示"></a>4. 怎么实现在两个元素中间有空位时，移到另一个元素依然让其显示</h6><p>我说可以用css3动画实现。</p>
+<p>他问还有没有其他的方法</p>
+<p>没答上来，就算是他的解释也没法让我理解，怎么做到对一个元素hover之后去设置另一个元素的display属性？？不用js能实现？</p>
+<ol>
+<li>怎么实现三角形，为什么会有这种现象？<br>将元素宽高设为0，然后边框只保留一边，另外三边设为透明。画了个图说明原因。</li>
+<li>怎么对三角形设置阴影<br>我说用filter中的drop-shadow属性，他问为什么，还有什么做法，我想了一下说可以直接再写个三角形放在下面，还可以写个矩形然后旋转下</li>
+</ol>
+<p>关于css我觉得答得还可以，包括后来的反馈也是说擅长css。不过也可能因为到最后了面试官懒得再展开了。</p>
+<h5 id="8-最后问了平时是怎么学习的"><a href="#8-最后问了平时是怎么学习的" class="headerlink" title="8.最后问了平时是怎么学习的"></a>8.最后问了平时是怎么学习的</h5><p>我说看视频，看书</p>
+<h6 id="问：看什么书"><a href="#问：看什么书" class="headerlink" title="问：看什么书"></a>问：看什么书</h6><p>我说最近看了dom编程艺术和js面向对象</p>
+<h6 id="他马上问：继承有哪几种方式"><a href="#他马上问：继承有哪几种方式" class="headerlink" title="他马上问：继承有哪几种方式"></a>他马上问：继承有哪几种方式</h6><p>我讲了我理解的两种，并说另外几种还没有理解透</p>
+<h6 id="问：知道class吗"><a href="#问：知道class吗" class="headerlink" title="问：知道class吗"></a>问：知道class吗</h6><p>我说知道一些</p>
+<h6 id="问：和构造函数有区别吗"><a href="#问：和构造函数有区别吗" class="headerlink" title="问：和构造函数有区别吗"></a>问：和构造函数有区别吗</h6><p>有区别，他的属性的是不可枚举的</p>
+<p>这部分应该是答得不怎么样了，的确也面试很长时间所以也没多做展开。<br>面试就告一段落。</p>
+<p>以上为问题记录，有些问题是在是超出了理解范围，都不知道他在问什么。只能凭借短期记忆复述他的原话，忘了也很无力了</p>
+<p>高级前端的角度就是，你不仅仅要会用，还要知道为什么要这么用。</p>
+<p>最后他问了我还有什么想问他的。我当时傻逼地问了我表现怎么样，他说一般，不算好也不算差</p>
+<p>其实我更想问他你是怎么学习的，以及对我的发展有什么建议。</p>
+<p>当时被问的有些绝望，只想知道自己有没有戏</p>
+<h4 id="技术总监"><a href="#技术总监" class="headerlink" title="技术总监"></a>技术总监</h4><p>因为已经到了他们的下班时间了，总监就问了2个问题</p>
+<h6 id="1-为什么你们公司还在用JQ"><a href="#1-为什么你们公司还在用JQ" class="headerlink" title="1. 为什么你们公司还在用JQ"></a>1. 为什么你们公司还在用JQ</h6><h6 id="2-你觉得自己在技术方面的优势是什么"><a href="#2-你觉得自己在技术方面的优势是什么" class="headerlink" title="2. 你觉得自己在技术方面的优势是什么"></a>2. 你觉得自己在技术方面的优势是什么</h6><p>我只能极力表达自己的学习能力，毕竟工作时间不长，而且面试表现也不算太好，同时跟他们的技术栈不符。</p>
+<p>但面试时百分之90的问题都是我在工作之余的学习成果，如果局限于公司的业务，很多新的概念我是接触不到的。</p>
+<p>最后还是个等通知的结果。只能说这是一个全凭实力说话的地方，不看你工作年限的多少，不看你的性格，也没人想要去了解你的潜力，很现实的投入产出比问题，只看你现在能不能为他们产生价值。</p>
+<p>不过没关系，收获很多，继续努力吧</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的鼓励将是我最大的动力</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://upload-images.jianshu.io/upload_images/2865721-a6ab0b9494bcc511.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="T.r.y WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/26/【20180226】2018年的前端之路要更好(一)/" rel="next" title="2018年的前端之路要更好(一)">
+                <i class="fa fa-chevron-left"></i> 2018年的前端之路要更好(一)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpg"
+               alt="T.r.y" />
+          <p class="site-author-name" itemprop="name">T.r.y</p>
+           
+              <p class="site-description motion-element" itemprop="description">走得慢没关系，一直向前走就是了</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/try6" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.jianshu.com/u/7a6944daafc3" target="_blank" title="jianshu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      jianshu
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第三次面试——DXY"><span class="nav-number">1.</span> <span class="nav-text">第三次面试——DXY</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#笔试"><span class="nav-number">1.0.1.</span> <span class="nav-text">笔试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第一位"><span class="nav-number">1.0.2.</span> <span class="nav-text">第一位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二面"><span class="nav-number">1.0.3.</span> <span class="nav-text">二面</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-我阐述了我的方案之后，他开始问了"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">1. 我阐述了我的方案之后，他开始问了</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#问1：为什么这样更好呢。"><span class="nav-number">1.0.3.1.1.</span> <span class="nav-text">问1：为什么这样更好呢。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#他立刻问2：什么是重排重绘？"><span class="nav-number">1.0.3.1.2.</span> <span class="nav-text">他立刻问2：什么是重排重绘？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问3：什么情况下会导致重排重绘？"><span class="nav-number">1.0.3.1.3.</span> <span class="nav-text">问3：什么情况下会导致重排重绘？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问4：能不能再具体点"><span class="nav-number">1.0.3.1.4.</span> <span class="nav-text">问4：能不能再具体点</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问5：v-show元素的显示和隐藏算是重排吗"><span class="nav-number">1.0.3.1.5.</span> <span class="nav-text">问5：v-show元素的显示和隐藏算是重排吗?</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-setTimeout的异步执行"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">2. setTimeout的异步执行</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#问1：如果外面的a-循环一百万次呢，顺序如何？"><span class="nav-number">1.0.3.2.1.</span> <span class="nav-text">问1：如果外面的a++循环一百万次呢，顺序如何？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问2：为什么会这样？"><span class="nav-number">1.0.3.2.2.</span> <span class="nav-text">问2：为什么会这样？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问3：知道promise吗，写了一个promise对象，混合setTimeout方法，要求判断输出的先后顺序"><span class="nav-number">1.0.3.2.3.</span> <span class="nav-text">问3：知道promise吗，写了一个promise对象，混合setTimeout方法，要求判断输出的先后顺序</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问4：为什么会这样？"><span class="nav-number">1.0.3.2.4.</span> <span class="nav-text">问4：为什么会这样？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问6：给你一个需求让你写吧。有一个实时搜索的搜索框，连续输入的时候不触发实时搜索，当用户停下来1s以上时，再显示搜索结果"><span class="nav-number">1.0.3.2.5.</span> <span class="nav-text">问6：给你一个需求让你写吧。有一个实时搜索的搜索框，连续输入的时候不触发实时搜索，当用户停下来1s以上时，再显示搜索结果</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-对this的理解"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">3. 对this的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#问1：怎么理解函数中的this"><span class="nav-number">1.0.3.3.1.</span> <span class="nav-text">问1：怎么理解函数中的this</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问2：箭头函数的this呢"><span class="nav-number">1.0.3.3.2.</span> <span class="nav-text">问2：箭头函数的this呢</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问3：setTimeout函数里面的呢"><span class="nav-number">1.0.3.3.3.</span> <span class="nav-text">问3：setTimeout函数里面的呢</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问4：我把上面的增加一个name2-this-name输出什么？"><span class="nav-number">1.0.3.3.4.</span> <span class="nav-text">问4：我把上面的增加一个name2:this.name输出什么？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#我把say方法改成这样会如何"><span class="nav-number">1.0.3.3.5.</span> <span class="nav-text">我把say方法改成这样会如何</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问5：改成这样呢"><span class="nav-number">1.0.3.3.6.</span> <span class="nav-text">问5：改成这样呢</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-跨域"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#问1：jsonp是怎么实现的"><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text">问1：jsonp是怎么实现的</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问2：为什么可以这么用，数据怎么返回的？"><span class="nav-number">1.0.4.0.2.</span> <span class="nav-text">问2：为什么可以这么用，数据怎么返回的？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-关于vue"><span class="nav-number">1.0.5.</span> <span class="nav-text">4. 关于vue</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#问1：你觉得vue和JQ相比，有什么优势"><span class="nav-number">1.0.5.0.1.</span> <span class="nav-text">问1：你觉得vue和JQ相比，有什么优势</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问2：vue的双向绑定的原理是什么"><span class="nav-number">1.0.5.0.2.</span> <span class="nav-text">问2：vue的双向绑定的原理是什么</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问3-：虚拟dom有了解吗"><span class="nav-number">1.0.5.0.3.</span> <span class="nav-text">问3 ：虚拟dom有了解吗</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问4：写的时候为什么data不直接返回对象数据，而是要用函数的形式return出结果？"><span class="nav-number">1.0.5.0.4.</span> <span class="nav-text">问4：写的时候为什么data不直接返回对象数据，而是要用函数的形式return出结果？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问56789：啊我已经说了不了解了所以之后的问题已经不知道他在问什么了…"><span class="nav-number">1.0.5.0.5.</span> <span class="nav-text">问56789：啊我已经说了不了解了所以之后的问题已经不知道他在问什么了…</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-怎么去实现查找元素的find方法？"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">6. 怎么去实现查找元素的find方法？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#问1：怎么去实现查找元素的find方法？"><span class="nav-number">1.0.5.1.1.</span> <span class="nav-text">问1：怎么去实现查找元素的find方法？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问2：他说遍历子节点只能遍历一层啊，那子节点的子节点呢？"><span class="nav-number">1.0.5.1.2.</span> <span class="nav-text">问2：他说遍历子节点只能遍历一层啊，那子节点的子节点呢？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问3：还有什么更有效率的方法可以代替遍历？"><span class="nav-number">1.0.5.1.3.</span> <span class="nav-text">问3：还有什么更有效率的方法可以代替遍历？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-css："><span class="nav-number">1.0.6.</span> <span class="nav-text">7.css：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-行内元素怎么设置垂直居中，块级元素呢，举三种方法"><span class="nav-number">1.0.6.0.1.</span> <span class="nav-text">1. 行内元素怎么设置垂直居中，块级元素呢，举三种方法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-清除浮动都有哪些方法"><span class="nav-number">1.0.6.0.2.</span> <span class="nav-text">2. 清除浮动都有哪些方法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-nth-of-child和nth-of-type的区别"><span class="nav-number">1.0.6.0.3.</span> <span class="nav-text">3. nth-of-child和nth-of-type的区别</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-怎么实现在两个元素中间有空位时，移到另一个元素依然让其显示"><span class="nav-number">1.0.6.0.4.</span> <span class="nav-text">4. 怎么实现在两个元素中间有空位时，移到另一个元素依然让其显示</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-最后问了平时是怎么学习的"><span class="nav-number">1.0.6.1.</span> <span class="nav-text">8.最后问了平时是怎么学习的</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#问：看什么书"><span class="nav-number">1.0.6.1.1.</span> <span class="nav-text">问：看什么书</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#他马上问：继承有哪几种方式"><span class="nav-number">1.0.6.1.2.</span> <span class="nav-text">他马上问：继承有哪几种方式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问：知道class吗"><span class="nav-number">1.0.6.1.3.</span> <span class="nav-text">问：知道class吗</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问：和构造函数有区别吗"><span class="nav-number">1.0.6.1.4.</span> <span class="nav-text">问：和构造函数有区别吗</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#技术总监"><span class="nav-number">1.0.7.</span> <span class="nav-text">技术总监</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-为什么你们公司还在用JQ"><span class="nav-number">1.0.7.0.1.</span> <span class="nav-text">1. 为什么你们公司还在用JQ</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-你觉得自己在技术方面的优势是什么"><span class="nav-number">1.0.7.0.2.</span> <span class="nav-text">2. 你觉得自己在技术方面的优势是什么</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">T.r.y</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2157572"></script>
+      <!-- UY END -->
+    
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
