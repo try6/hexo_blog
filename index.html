@@ -277,6 +277,195 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/26/面试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="T.r.y">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/26/面试/" itemprop="url">面试</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-26T09:34:58+08:00">
+                2018-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>近期面试了不少公司，采取的战略是把最想去的公司放到最后，一开始积累经验，做足准备再奋起一搏。虽然自觉水平很菜，但是居然一投一个准，面试成功率也有80%左右，目前也收获了4个offer，大中小型公司也都齐了。虽然被最想去的丁香园给虐的不轻，但自信心也逐渐建立起来，并且有了努力的方向。</p>
+<p>贴上自己打怪升级的过程。</p>
+<h2 id="第一次面试"><a href="#第一次面试" class="headerlink" title="第一次面试"></a>第一次面试</h2><p>没有经验，毫无准备就兴冲冲地上了，面完了知道面试和实际工作开发还是不一样的，面试更考察理论基础。所以平时不重视基本功的我当然笑嘻嘻地跪了。所以公司就不提了。后来回去浏览了下面试题，其实发现面试官问我的问题都是非常基础的题目，而且有些知识点平时不知不觉都有使用到，只不过没有建立起知识体系，以至于一脸懵逼以及答非所问。不过也从这次经验中吸取了教训，一定要重视理论基础，我的学习方式也从执着于制作酷炫的实战demo，转变为看面试题和理论书籍。</p>
+<h3 id="for循环setTimeout500ms打印出1-10"><a href="#for循环setTimeout500ms打印出1-10" class="headerlink" title="for循环setTimeout500ms打印出1-10"></a>for循环setTimeout500ms打印出1-10</h3><p>主要还是考察闭包，并且结合异步<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>;i &lt; <span class="number">11</span>;i++)&#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> j = i;</div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(j);</div><div class="line">        &#125;,<span class="number">500</span>)</div><div class="line">    &#125;</div><div class="line">    a();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="了解的跨域方法"><a href="#了解的跨域方法" class="headerlink" title="了解的跨域方法"></a>了解的跨域方法</h3><p>工作中都是在同源服务器上请求数据，所以其实并没有接触过实际的跨域操作。</p>
+<p>但是，即使没见过猪跑，那也吃过猪肉吧，同源策略，jsonp，corse，我把我知道的都扯了一通。后来回来又参照阮老师的文章整理了一遍</p>
+<p>文章见简书<a href="https://www.jianshu.com/p/2b9db9d0a63d" target="_blank" rel="external">同源策略与跨域</a></p>
+<h3 id="css选择器-和"><a href="#css选择器-和" class="headerlink" title="css选择器+和 ~"></a>css选择器+和 ~</h3><p>+：选择相邻的后一个同级元素<br>~：选择元素之后的所有的同级元素</p>
+<p>关于css选择器在之后的面试中也同样有遇到，比如<code>nth-of-type(n)</code>和<code>nth-of-child(n)</code>的区别，所以也整理出了关于选择器的扩展<br>文章见简书<a href="https://www.jianshu.com/p/402f73653f39" target="_blank" rel="external">css选择器</a></p>
+<h3 id="jq有哪些地方用到了闭包，或者说你平时见过哪些闭包？"><a href="#jq有哪些地方用到了闭包，或者说你平时见过哪些闭包？" class="headerlink" title="jq有哪些地方用到了闭包，或者说你平时见过哪些闭包？"></a>jq有哪些地方用到了闭包，或者说你平时见过哪些闭包？</h3><p>面试前刚和一个同时聊过，也问到了他对闭包的看法，同事自信一挥手，闭包实际工作中用到的不多。</p>
+<p>天真的我在面试中也这么说了，面试官心里一定狠狠地鄙视了我，于是跟我大谈JQ源码，从来没有看过源码的我暴风哭泣。</p>
+<p>同样的问题也出现在了另一家同行业（非互联网）的大公司，想来大公司的重点还是放在框架的底层原理上。</p>
+<p>其实jq中使用了大量的闭包，所有的方法和变量都通过闭包设为私有，并使用$在全局进行调用。</p>
+<p>闭包就是使局部变量和方法常驻内存，可以在全局进行访问，从而防止全局重名的现象。</p>
+<p>不过也正因为这个特性，闭包会占用大量的内存空间，所以使用的时候也要慎重。</p>
+<h3 id="数组的内建方法有哪些"><a href="#数组的内建方法有哪些" class="headerlink" title="数组的内建方法有哪些"></a>数组的内建方法有哪些</h3><p>依然是一个基础题，面试官让我知道多少说多少。后来回来也做了一个系统的整理<br><a href="https://www.jianshu.com/p/cf8b58240886" target="_blank" rel="external">数组内建方法大全（一）</a><br><a href="https://www.jianshu.com/p/2e977c89aa3b" target="_blank" rel="external">数组内建方法大全（二）</a></p>
+<p>第一次面试历时1小时不到，主要还是介绍自己的项目，现在来看上面的题目真的很基础，但是当时的我答的也并不好。</p>
+<p>因为是熟人推荐，而且事先知道面试小姐姐是学姐，也加了微信，我也是天真无邪，小姐姐说过来聊一聊，我就真的啥都没带就跑过去，还真以为是聊天，以至于面试官的问题都是想到哪问到哪，还是比较吃亏的。</p>
+<p>所以，这次面试收获经验</p>
+<ol>
+<li>简历很重要，让简历去引导面试官提问，这样才能做好有针对性的准备</li>
+<li>理论基础很重要，仅仅依靠项目实战学习，只能成为工具的使用机器，只有了解工具的底层原理，才能融会贯通，举一反三</li>
+</ol>
+<h2 id="第二次面试"><a href="#第二次面试" class="headerlink" title="第二次面试"></a>第二次面试</h2><p>这次一天时间面了两家公司，而且都是非常干脆地直接给了offer。<br>一家做编程教育平台，即将进入A轮。人数大概30人左右。不过公司业务我是非常喜欢的，一直都有一个老师梦。</p>
+<p>技术聊天过程非常愉快，没有涉及到基本的面试题。技术哥哥是校友，比较看重我的简历。着重提问了我在学校的项目，挑战杯，大创，分别都负责什么事情，为什么要去做这件事，是不是负责人等等比较细节的问题。也很欣赏我组织前端分享会的经历。同时也和我详细地说明了公司的业务以及未来的发展规划。</p>
+<p>而且让我比较感动的一点是，他们在面试我之前详细地看了我的博客和github，还能直接说出我的项目。让我有了分量很足的尊重感。</p>
+<p>之后和CEO聊，他的重点是，我对自己的规划是不是和他们的发展一致。给我的感受是，他们需要的不是只在技术金字塔的人，而是愿意和他们一起走下去的成员。</p>
+<p>由于和前端相关的技术涉及不多，这家公司的描述就到此。</p>
+<p>另一家是做互联网旅游，办公地址就位于西溪景区之中，环境可以说是万里挑一了。下午3点一直到6点，最后hr姐姐还顺路送我到公交站。真的很感谢，两轮的技术面试官应该都是团队成员，都非常亲和。走的正常的笔试面试流程，不过问的内容相对也比较基础。只能说有惊无险了。</p>
+<p>贴上过程</p>
+<h4 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h4><p>笔试题都比较简单，考察基本功，我写的比较顺利，涉及到同源和跨域、原型链、vue的基本使用、设计几个简单的函数，我就贴一下稍微印象深刻的题目</p>
+<h5 id="1-vue和Jq的区别"><a href="#1-vue和Jq的区别" class="headerlink" title="1. vue和Jq的区别"></a>1. vue和Jq的区别</h5><p>vue：数据驱动渲染页面，不需要操作具体的dom，页面与js耦合性弱，易于维护</p>
+<p>jquery：依赖于dom，页面逻辑和代码逻辑一致，页面和js耦合性高<br>两者的设计思想是完全不一致的，应根据不同场合和需求选择合适的框架</p>
+<h5 id="2-设计一个函数，传入一个数字n，若n可以被3整除的返回1，可以被5整除返回2，可以被7整除返回3"><a href="#2-设计一个函数，传入一个数字n，若n可以被3整除的返回1，可以被5整除返回2，可以被7整除返回3" class="headerlink" title="2. 设计一个函数，传入一个数字n，若n可以被3整除的返回1，可以被5整除返回2，可以被7整除返回3"></a>2. 设计一个函数，传入一个数字n，若n可以被3整除的返回1，可以被5整除返回2，可以被7整除返回3</h5><p>这个题目我在做的时候就觉得有问题，如果一个数既可以被3整除又可以被5整除呢？应该返回多少？题目并没有明确说明，我就猜测这可能是要考察输入校验<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function Ajust(<span class="built_in">num</span>)&#123;</div><div class="line">    <span class="keyword">if</span>(typeof <span class="built_in">num</span> != <span class="string">"number"</span> || <span class="built_in">num</span> != <span class="keyword">null</span>)&#123;</div><div class="line">       <span class="comment">//排除输入为空，以及输入非数字数据</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">if</span>(<span class="built_in">num</span>!=<span class="number">0</span>)&#123;</div><div class="line">           <span class="comment">//排除0</span></div><div class="line">            <span class="keyword">if</span>(<span class="built_in">num</span>%<span class="number">3</span> === <span class="number">0</span>)&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">num</span>%<span class="number">5</span> === <span class="number">0</span>)&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">num</span>%<span class="number">7</span> === <span class="number">0</span>)&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">3</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            retrun <span class="built_in">num</span>+<span class="string">"不能被3,5,7中任何一个数整除"</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>面试的时候我提出了我的疑惑，面试官也一头雾水，所以我只能下结论是他们的题目有bug了</p>
+<h5 id="3-小狗（Dog）叫声“wang”，小猫（Cat）叫声”miao”，他们同属Animal。请用原型和对象的知识写出他们的关系"><a href="#3-小狗（Dog）叫声“wang”，小猫（Cat）叫声”miao”，他们同属Animal。请用原型和对象的知识写出他们的关系" class="headerlink" title="3. 小狗（Dog）叫声“wang”，小猫（Cat）叫声”miao”，他们同属Animal。请用原型和对象的知识写出他们的关系"></a>3. 小狗（Dog）叫声“wang”，小猫（Cat）叫声”miao”，他们同属Animal。请用原型和对象的知识写出他们的关系</h5><p>原题可能还要复杂点，记不太清了，考察原型链和对象<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//构造函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span><span class="params">()</span></span>&#123;</div><div class="line">   <span class="keyword">this</span>.word = <span class="string">""</span>;</div><div class="line">   <span class="keyword">this</span>.say = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">       <span class="keyword">return</span> <span class="string">"say "</span> + <span class="keyword">this</span>.word;</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Dog = <span class="keyword">new</span> Animal();  <span class="comment">// 实例Dog</span></div><div class="line"><span class="keyword">var</span> Cat = <span class="keyword">new</span> Animal();   <span class="comment">//实例Miao</span></div><div class="line">Dog.word = <span class="string">"Wang"</span>;</div><div class="line">Cat.word = <span class="string">"Miao"</span>;</div></pre></td></tr></table></figure></p>
+<h4 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h4><h5 id="1-基本数据类型有哪些"><a href="#1-基本数据类型有哪些" class="headerlink" title="1. 基本数据类型有哪些"></a>1. 基本数据类型有哪些</h5><p><code>null，string，boolean，undefined，number</code></p>
+<h5 id="2-http返回的请求有几种？分别代表什么含义"><a href="#2-http返回的请求有几种？分别代表什么含义" class="headerlink" title="2. http返回的请求有几种？分别代表什么含义"></a>2. http返回的请求有几种？分别代表什么含义</h5><p>1xx：信息状态码<br>2xx：请求成功<br>3xx：重定向<br>4xx：客户端错误<br>5xx：服务器错误</p>
+<h5 id="4-是否了解解构赋值"><a href="#4-是否了解解构赋值" class="headerlink" title="4. 是否了解解构赋值"></a>4. 是否了解解构赋值</h5><p>看过文档，主要包括赋值的模式和变量值，可以使用数组或者对象的形式对给定的变量进行赋值。然后举了个例子<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const &#123;<span class="selector-tag">a</span>,<span class="selector-tag">b</span>,c&#125; = &#123;<span class="selector-tag">a</span>:<span class="string">"1"</span>,<span class="selector-tag">b</span>:<span class="string">"2"</span>,c:<span class="string">"3"</span>&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="5-require和import有什么不同"><a href="#5-require和import有什么不同" class="headerlink" title="5. require和import有什么不同"></a>5. require和import有什么不同</h5><p>import用于引入外部模块。<br>require不仅可以引用文件和模块，而且使用位置不受限制，可以在代码中使用</p>
+<h5 id="6-是否了解promise"><a href="#6-是否了解promise" class="headerlink" title="6. 是否了解promise"></a>6. 是否了解promise</h5><p>看过文档，在ES6中编写为原生标准。是一种异步编程的解决方案。<code>Promise</code>有三种状态，<code>pending（进行中）,fulfilled（成功）,rejected（失败）</code>，后两种合称为<code>resolve（已定型）</code>，一旦状态定下，就无法发生改变。</p>
+<h5 id="7-ajax请求如何把异步改为同步？"><a href="#7-ajax请求如何把异步改为同步？" class="headerlink" title="7. ajax请求如何把异步改为同步？"></a>7. ajax请求如何把异步改为同步？</h5><p>ajax方法中有一个控制异步的字段”async”，默认为true，表示异步。改为false之后就为同步</p>
+<h5 id="8-函数中的This指向什么？"><a href="#8-函数中的This指向什么？" class="headerlink" title="8. 函数中的This指向什么？"></a>8. 函数中的This指向什么？</h5><p>指向调用函数的对象。<br>面试官对我这个回答也并没有说什么，不过之后看来我这个说法也并不严谨，关于this的指向又是一个可以长篇大论的点了。<br>我先贴上红宝书上的说法：this引用的是函数执行的环境对象<br>有更多的想法可以看这篇文章<a href="https://juejin.im/post/59aa71d56fb9a0248d24fae3" target="_blank" rel="external">从这两套题，重新认识JS的this、作用域、闭包、对象@相学长</a></p>
+<h5 id="9-apply和call可以做什么？有什么区别"><a href="#9-apply和call可以做什么？有什么区别" class="headerlink" title="9. apply和call可以做什么？有什么区别"></a>9. apply和call可以做什么？有什么区别</h5><p>改变this指向。两者作用基本一致，区别在于接收参数的方式不一样，call用数组的形式接收参数</p>
+<h5 id="10-左边定宽，右边自适应布局；中间定宽，两边自适应布局"><a href="#10-左边定宽，右边自适应布局；中间定宽，两边自适应布局" class="headerlink" title="10. 左边定宽，右边自适应布局；中间定宽，两边自适应布局"></a>10. 左边定宽，右边自适应布局；中间定宽，两边自适应布局</h5><ul>
+<li>左定宽，右自适应：<br>左部定宽，右部浮动，左外边距设为左部宽度</li>
+<li>中间定宽，两边自适应：<br><code>margin:0 auto</code><h5 id="11-html5和css3有哪些新增特性"><a href="#11-html5和css3有哪些新增特性" class="headerlink" title="11.html5和css3有哪些新增特性"></a>11.html5和css3有哪些新增特性</h5>html5：音频，视频，canvas，svg，等多的语义化标签等<br>css3：圆角，动画，滤镜等</li>
+</ul>
+<h3 id="hr面"><a href="#hr面" class="headerlink" title="hr面"></a>hr面</h3><p>hr姐姐真是太亲和了，全程跟我聊旅游，去了哪些地方，有哪些好玩的好吃的。知道我是温州的，更是停不下来，说很久以前去过温州的一个岛，从岛上风土人情讲到自己的职业规划。我就在一边微笑点头。恩，对对，是的，没错</p>
+<p>最后hr姐姐还顺路送我到公交站。真的很感谢。</p>
+<p>二战还算顺利，不过因为各种原因两个offer我都没有接受，但是给了我这个小菜鸟很充足的能量，让我觉得我还不算太差</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/11/【20180212】电子地图需求文档/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1401,18 +1590,52 @@
 
       
         
-          <p>在开始本文前，先声明两句十分重要的话</p>
+          
+            <p>在开始本文前，先声明两句十分重要的话</p>
 <blockquote>
 <p>Falsy 类型值包括：<code>&quot;&quot;, 0, null, undefined, NaN, false</code>.</p>
+</blockquote>
+<p>换句话说，除了以上6种，其他任何值都为true</p>
+<blockquote>
 <p>Javascript是弱类型的语言</p>
 </blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/05/【20180105】深入理解js隐式类型转化/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>换句话说，类型之间会通过某些操作进行转化。</p>
+<p>好，表演开始</p>
+<h4 id="隐式类型转化的两种方式"><a href="#隐式类型转化的两种方式" class="headerlink" title="隐式类型转化的两种方式"></a>隐式类型转化的两种方式</h4><h5 id="1-操作符"><a href="#1-操作符" class="headerlink" title="1. 操作符"></a>1. 操作符</h5><h6 id="a-："><a href="#a-：" class="headerlink" title="a) +："></a>a) +：</h6><ul>
+<li>数字+字符串，将数值转化为字符串<br>和相加两个值的顺序无关，最终都是转化为字符串<figure class="highlight basic"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">1 </span>+ <span class="number">2</span> = <span class="number">3</span></div><div class="line"><span class="symbol">1 </span>+ <span class="string">"2"</span> = <span class="string">"12"</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="b-："><a href="#b-：" class="headerlink" title="b) - * % /："></a>b) - * % /：</h6><p>字符串<code>- * % /</code>数值，字符串转化为数值，运算失败则结果为<code>NaN</code><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"-1"</span> * <span class="string">"2"</span> = <span class="number">-2</span></div><div class="line"><span class="string">""</span> - <span class="number">1</span> = <span class="number">-1</span></div><div class="line"><span class="string">"4px"</span> - <span class="number">2</span> = NaN</div></pre></td></tr></table></figure></p>
+<h6 id="c-null代表空值，转化为0计算"><a href="#c-null代表空值，转化为0计算" class="headerlink" title="c) null代表空值，转化为0计算"></a>c) null代表空值，转化为0计算</h6><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">null + <span class="number">1</span> = <span class="number">1</span>   <span class="comment">//null代表空值</span></div><div class="line">null - <span class="number">1</span> = <span class="number">-1</span></div></pre></td></tr></table></figure>
+<h6 id="d-undefined代表未定义，会导致运算失败"><a href="#d-undefined代表未定义，会导致运算失败" class="headerlink" title="d) undefined代表未定义，会导致运算失败"></a>d) undefined代表未定义，会导致运算失败</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="literal">undefined</span> + <span class="number">1</span> = <span class="literal">NaN</span> <span class="comment">//undefined代表未定义</span></div></pre></td></tr></table></figure>
+<h5 id="2-与"><a href="#2-与" class="headerlink" title="2. == 与 ==="></a>2. == 与 ===</h5><p>之前我对于两者的理解是，<code>==</code>比较两者值是否相等，忽略类型，而<code>===</code>需要值和类型都相等，才会返回ture</p>
+<p>其实，上述说法并不规范，<code>===</code>其实是将两边数值直接进行比较，而<code>==</code>其实是比较强制类型转化之后的结果。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">Boolean</span><span class="params">(<span class="number">2</span> === <span class="string">"2"</span>)</span></span>           <span class="comment">//false</span></div><div class="line"><span class="function"><span class="title">Boolean</span><span class="params">(undefined == null)</span></span>   <span class="comment">//ture</span></div><div class="line"><span class="function"><span class="title">Boolean</span><span class="params">(undefined === null)</span></span>  <span class="comment">//false</span></div></pre></td></tr></table></figure></p>
+<p>有几个值得注意的地方：</p>
+<h6 id="对象和数组的比较"><a href="#对象和数组的比较" class="headerlink" title="对象和数组的比较"></a>对象和数组的比较</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Boolean</span>([]);           <span class="comment">//ture</span></div><div class="line"><span class="comment">//空数组为ture</span></div><div class="line"></div><div class="line"><span class="built_in">Boolean</span>(&#123;&#125;);           <span class="comment">//ture</span></div><div class="line"><span class="comment">//空对象为ture</span></div><div class="line"></div><div class="line"><span class="built_in">Boolean</span>([] == []);     <span class="comment">//false</span></div><div class="line"><span class="comment">//两个数组(对象也一样)，就算属性和方法完全一致，两者也不相等。</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> arr = [],a = arr,b = arr;</div><div class="line"><span class="built_in">Boolean</span>(a == b)        <span class="comment">//ture</span></div><div class="line"><span class="comment">//指向同一个数组的两个变量才能说是相等的</span></div></pre></td></tr></table></figure>
+<p>因为数组和对象实际上是地址的引用，不同的数组之间，即使属性和方法完全一致，指向的地址也是不一致的。所以才有深拷贝这一说法了。</p>
+<h6 id="类型转化"><a href="#类型转化" class="headerlink" title="类型转化"></a>类型转化</h6><ul>
+<li>数字和字符串的互相转换</li>
+</ul>
+<p>很简单，数字会加上引号转化为字符串，再进行比较<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">Boolean</span><span class="params">(<span class="number">1</span> == <span class="string">"1"</span>)</span></span>  <span class="comment">//true</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>布尔类型的值会转换为数字，false转化为0，true转化为非0数字</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">Boolean</span><span class="params">(false == <span class="number">1</span>)</span></span> <span class="comment">//false</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>数组的转换<br>空数组本身为true,但是在做比较时是转化为0</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">Boolean</span><span class="params">([] == false)</span></span> <span class="comment">//ture</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>左边空数组<code>[]</code>转化为number 0，</p>
+<p>右边<code>false</code>也转化为number 0</p>
+<p>但还是想再强调一遍，两个空数组的结果依然是false，因为这时候是直接进行比较的，没有进行转化<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">Boolean</span><span class="params">([]==[])</span></span>   <span class="comment">//false</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li>对象的转换<br>javascript中所有对象都是true。<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">Boolean</span><span class="params">(&#123;&#125; == false)</span></span> <span class="comment">//false</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>但是同样，两个空对象进行比较，结果依然是false<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Boolean</span>(&#123;&#125;==&#123;&#125;)</div></pre></td></tr></table></figure></p>
+<p>不知道你被绕晕了没有，其实理解起来也很简单，只要稍微注意下数组和对象的特殊情况，就能通关了<br>over~</p>
+
+          
         
       
     </div>
@@ -1590,150 +1813,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/25/【20171225】css选择器/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="T.r.y">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Try_Luies">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/25/【20171225】css选择器/" itemprop="url">css选择器</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-25T14:39:55+08:00">
-                2017-12-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h5 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h5><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span>[title]&#123;<span class="attribute">color</span>:<span class="number">#ddd</span>;&#125;</div><div class="line"><span class="comment">//为存在title属性的a设置颜色</span></div><div class="line"></div><div class="line"><span class="selector-tag">input</span>[type=<span class="string">"text"</span>]&#123;<span class="attribute">width</span>:<span class="number">100px</span>&#125;</div><div class="line"><span class="comment">//为type为text文本框的input设置宽度</span></div></pre></td></tr></table></figure>
-<h6 id="部分属性选择器（css2新增）"><a href="#部分属性选择器（css2新增）" class="headerlink" title="部分属性选择器（css2新增）"></a>部分属性选择器（css2新增）</h6><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">p</span> class = <span class="string">"name  text"</span>&gt;</div><div class="line"><span class="selector-tag">p</span>[class~=<span class="string">"name"</span>]&#123;<span class="attribute">color</span>:red&#125;</div><div class="line"><span class="comment">//部分匹配</span></div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/25/【20171225】css选择器/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1784,7 +1863,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
