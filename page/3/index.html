@@ -277,6 +277,150 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/【20171122】bootstrap3表单验证-sco-valid-js的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="T.r.y">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Try_Luies">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/22/【20171122】bootstrap3表单验证-sco-valid-js的使用/" itemprop="url">高效长表单验证方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-22T17:30:43+08:00">
+                2017-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这是根据bootstrap表单验证自己写的一个方法</p>
+<p>原理很简单，添加和移除类名<code>has-success</code>和<code>has-error</code>,错误验证中还能设置错误信息<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> formValid = &#123;</div><div class="line">	error: <span class="function"><span class="keyword">function</span> (<span class="params">e, errMsg</span>) </span>&#123;</div><div class="line">		e.parents(<span class="string">'.control-group'</span>).removeClass(<span class="string">'has-success'</span>);</div><div class="line">		e.parents(<span class="string">'.control-group'</span>).addClass(<span class="string">'has-error'</span>);</div><div class="line">		e.siblings(<span class="string">'.help-block'</span>).text(errMsg);</div><div class="line">	&#125;,</div><div class="line">	success: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">		e.parents(<span class="string">'.control-group'</span>).removeClass(<span class="string">'has-error'</span>);</div><div class="line">		e.parents(<span class="string">'.control-group'</span>).addClass(<span class="string">'has-success'</span>);</div><div class="line">		e.siblings(<span class="string">'.help-block'</span>).text(<span class="string">""</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line"><span class="comment">//在需要的每一处表单事件下调用方法</span></div><div class="line">formValid.error($(<span class="string">'#name'</span>), <span class="string">'错误提示信息'</span>);</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/22/【20171122】bootstrap3表单验证-sco-valid-js的使用/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/18/【20170918】DXY前端技术沙龙/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1875,191 +2019,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/04/【20170804】Git使用文档/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="T.r.y">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Try_Luies">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/04/【20170804】Git使用文档/" itemprop="url">git使用文档</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-04T18:06:08+08:00">
-                2017-08-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/study/" itemprop="url" rel="index">
-                    <span itemprop="name">study</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/study/web-develope/" itemprop="url" rel="index">
-                    <span itemprop="name">web-develope</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Git使用文档"><a href="#Git使用文档" class="headerlink" title="Git使用文档"></a>Git使用文档</h1><p>本文主要目的是工作便利，作为一个普及说明文档帮助团队从svn转移至git进行项目管理</p>
-<p>参考文档：<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰的git文档</a></p>
-<h2 id="前言、Git的优势（与SVN相比）"><a href="#前言、Git的优势（与SVN相比）" class="headerlink" title="前言、Git的优势（与SVN相比）"></a>前言、Git的优势（与SVN相比）</h2><h4 id="1-强大的分支功能"><a href="#1-强大的分支功能" class="headerlink" title="1. 强大的分支功能"></a>1. 强大的分支功能</h4><p>git最强大的地方就在于它的分支。为了说明方便我可以列举几个场景</p>
-<ul>
-<li><p>今天写了一个功能测试完可以使用，但是同一个文件中有另外一个无足轻重但是有100多行代码的函数还没有写完存在BUG，而且这个函数涉及到的变量和调用还真不少，时间来不及需要发版本了怎么办！创建一个分支用于保存当前代码，再在master分支修改项目发布需要的代码。到时候直接切换到你设置的分支，写到一半的函数就回来了</p>
-</li>
-<li><p>同一个功能想到了两种方式可以处理，需要实际操作才能知道哪种方法更好。可以在项目上打两个分支分别开发互不影响</p>
-</li>
-</ul>
-<p>这两个小案例当然无法真正展示分支功能的强大，关于分支的说明在下文中还会详细解释<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/04/【20170804】Git使用文档/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2110,7 +2069,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
