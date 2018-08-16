@@ -79,20 +79,22 @@
 
 
 
-<meta name="description" content="首先，作为一个合格的前端工程师，我们都知道BOM对象有一个属性navigator，包含了浏览器的信息。  W3C中对navigator里面几种常用的属性做了介绍  而我们在平时开发中，经常需要去判断当前页面设备环境是什么，从而处理一些兼容问题，使用频率最高的应该就是传说中的userAgent属性了。">
+<meta name="description" content="电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。 淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。 不知道大家有没有注意过他们在导航的实现上，和一般的导航有什么区别。 先埋个彩蛋 下面我们来从零开始模拟开发一个具有二级目录大导航。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浏览器版本的判断思路">
-<meta property="og:url" content="http://try66.gitee.io/try6.gitee.io/2018/02/07/2018-02-07浏览器版本的判断思路/index.html">
+<meta property="og:title" content="京东大导航——预判用户行为（一）">
+<meta property="og:url" content="http://try66.gitee.io/try6.gitee.io/2017/12/07/2017-12-07京东大导航——预判用户行为（一）/index.html">
 <meta property="og:site_name" content="Hello JS">
-<meta property="og:description" content="首先，作为一个合格的前端工程师，我们都知道BOM对象有一个属性navigator，包含了浏览器的信息。  W3C中对navigator里面几种常用的属性做了介绍  而我们在平时开发中，经常需要去判断当前页面设备环境是什么，从而处理一些兼容问题，使用频率最高的应该就是传说中的userAgent属性了。">
+<meta property="og:description" content="电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。 淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。 不知道大家有没有注意过他们在导航的实现上，和一般的导航有什么区别。 先埋个彩蛋 下面我们来从零开始模拟开发一个具有二级目录大导航。">
 <meta property="og:locale" content="zh-Han">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-4aa032f3b17a3411.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-f472bc1e5b9ae916.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-08-02T00:26:38.607Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-dbfa4ca0dcd95782.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-ebe8bffcde131404.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-657e83fa6c039d98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-fa74fdb09d47795a.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-08-16T13:11:30.321Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浏览器版本的判断思路">
-<meta name="twitter:description" content="首先，作为一个合格的前端工程师，我们都知道BOM对象有一个属性navigator，包含了浏览器的信息。  W3C中对navigator里面几种常用的属性做了介绍  而我们在平时开发中，经常需要去判断当前页面设备环境是什么，从而处理一些兼容问题，使用频率最高的应该就是传说中的userAgent属性了。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2865721-4aa032f3b17a3411.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="京东大导航——预判用户行为（一）">
+<meta name="twitter:description" content="电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。 淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。 不知道大家有没有注意过他们在导航的实现上，和一般的导航有什么区别。 先埋个彩蛋 下面我们来从零开始模拟开发一个具有二级目录大导航。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2865721-dbfa4ca0dcd95782.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -122,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://try66.gitee.io/try6.gitee.io/2018/02/07/2018-02-07浏览器版本的判断思路/"/>
+  <link rel="canonical" href="http://try66.gitee.io/try6.gitee.io/2017/12/07/2017-12-07京东大导航——预判用户行为（一）/"/>
 
 
 
 
 
-  <title>浏览器版本的判断思路 | Hello JS</title>
+  <title>京东大导航——预判用户行为（一） | Hello JS</title>
   
 
 
@@ -245,7 +247,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/02/07/2018-02-07浏览器版本的判断思路/">
+    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2017/12/07/2017-12-07京东大导航——预判用户行为（一）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Try_Luies">
@@ -262,7 +264,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浏览器版本的判断思路</h1>
+          <h1 class="post-title" itemprop="name headline">京东大导航——预判用户行为（一）</h1>
         
 
         <div class="post-meta">
@@ -274,8 +276,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-07T05:52:13+08:00">
-                2018-02-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-07T21:08:08+08:00">
+                2017-12-07
               </time>
             
 
@@ -293,9 +295,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/try6.gitee.io/2018/02/07/2018-02-07浏览器版本的判断思路/#comments" itemprop="discussionUrl">
+                <a href="/try6.gitee.io/2017/12/07/2017-12-07京东大导航——预判用户行为（一）/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/02/07/2018-02-07浏览器版本的判断思路/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/12/07/2017-12-07京东大导航——预判用户行为（一）/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -303,7 +305,7 @@
 
           
           
-             <span id="/try6.gitee.io/2018/02/07/2018-02-07浏览器版本的判断思路/" class="leancloud_visitors" data-flag-title="浏览器版本的判断思路">
+             <span id="/try6.gitee.io/2017/12/07/2017-12-07京东大导航——预判用户行为（一）/" class="leancloud_visitors" data-flag-title="京东大导航——预判用户行为（一）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -334,37 +336,37 @@
       
 
       
-        <p>首先，作为一个合格的前端工程师，我们都知道BOM对象有一个属性navigator，包含了浏览器的信息。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2865721-4aa032f3b17a3411.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="navigator对象内容"></p>
-<p>W3C中对navigator里面几种常用的属性做了介绍</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2865721-f472bc1e5b9ae916.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="常用属性"></p>
-<p>而我们在平时开发中，经常需要去判断当前页面设备环境是什么，从而处理一些兼容问题，使用频率最高的应该就是传说中的<code>userAgent</code>属性了。</p>
-<a id="more"></a>
-<h3 id="userAgent"><a href="#userAgent" class="headerlink" title="userAgent"></a>userAgent</h3><blockquote>
-<p>userAgent 属性是一个只读的字符串，声明了浏览器用于 HTTP 请求的用户代理头的值。</p>
+        <p><img src="http://upload-images.jianshu.io/upload_images/2865721-dbfa4ca0dcd95782.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="nav.png"></p>
+<p>电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。</p>
+<p>淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。</p>
+<p>不知道大家有没有注意过他们在导航的实现上，和一般的导航有什么区别。</p>
+<p>先埋个彩蛋</p>
+<p>下面我们来从零开始模拟开发一个具有二级目录大导航。<br><a id="more"></a></p>
+<h4 id="html和css"><a href="#html和css" class="headerlink" title="html和css"></a>html和css</h4><p>常规的dom结构和样式实现</p>
+<p>对于子导航的实现，淘宝使用了div的层层嵌套，而京东则是使用表格的结构。两种方式都能实现最终效果。可自行选择。</p>
+<p>我在这里做了表格结构实现子导航的尝试。 </p>
+<p>不过table结构比div更耗性能啦~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;sub&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;sub-content&quot; id=&apos;sub-a&apos;&gt;</span><br><span class="line">        &lt;ul &gt;</span><br><span class="line">            &lt;li&gt;&lt;a href=&quot;# &quot;&gt;家电馆&lt;span&gt;&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">            ...</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">        &lt;dl &gt;</span><br><span class="line">            &lt;dt&gt;&lt;a href=&quot;# &quot;&gt;电视&lt;span&gt;&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/dt&gt;</span><br><span class="line">            &lt;dd&gt;&lt;a href=&quot;# &quot;&gt;曲面电视&lt;span&gt;&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/dd&gt;</span><br><span class="line">            ...</span><br><span class="line">        &lt;/dl&gt;</span><br><span class="line">        &lt;dl &gt;</span><br><span class="line">            &lt;dt&gt;&lt;a href=&quot;# &quot;&gt;空调&lt;span&gt;&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/dt&gt;</span><br><span class="line">            &lt;dd&gt;&lt;a href=&quot;# &quot;&gt;曲面空调&lt;span&gt;&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/dd&gt;</span><br><span class="line">            ...</span><br><span class="line">        &lt;/dl&gt;	</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>为了方便后续使用js对样式的操作，在css中单独设置了名为none的类，设置隐藏样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.none&#123;</span><br><span class="line">    display:none</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="js部分"><a href="#js部分" class="headerlink" title="js部分"></a>js部分</h4><h6 id="step1：常规导航实现"><a href="#step1：常规导航实现" class="headerlink" title="step1：常规导航实现"></a>step1：常规导航实现</h6><h6 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h6><ul>
+<li>鼠标移至主导航或子导航菜单中(mouseener)，对应选项样式改变，对应子导航显示</li>
+<li>鼠标移出主导航或子导航菜单中(mouseleave)，选项样式取消，对应子导航隐藏<blockquote>
+<p>注：mouseener不冒泡，mouseover冒泡。详细内容请戳<a href="">mouseover,mouseener,mousemove</a></p>
 </blockquote>
-<p>它一般情况下是由Navigator属性中<code>appCodeName</code>，加上一条斜线，以及<code>appVersion</code>属性合成</p>
-<p>我们可以测试一下各个环境中的属性值</p>
-<h5 id="chrome"><a href="#chrome" class="headerlink" title="chrome"></a>chrome</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36</span><br></pre></td></tr></table></figure>
-<p>关键词：Chrome36，WebKit引擎</p>
-<p><code>13年后版本的chrome用的是Blink引擎了</code></p>
-<h5 id="FireFox"><a href="#FireFox" class="headerlink" title="FireFox"></a>FireFox</h5><p>特意下了FF测试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Windows NT 6.1; WOW64; rv:58.0) Gecko/20100101 Firefox/58.0</span><br></pre></td></tr></table></figure></p>
-<p>关键词：Firefox58，Gecko引擎</p>
-<h5 id="edge"><a href="#edge" class="headerlink" title="edge"></a>edge</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E; rv:11.0) like Gecko</span><br></pre></td></tr></table></figure>
-<p>关键词：看了半天好像没发现有特指edge的字符，可以先判断是否为IE系列，再排除IE其他浏览器</p>
-<p>（去查了下edge使用的是edge引擎，莫非我遇到了假的edge？）</p>
-<h5 id="IE-10"><a href="#IE-10" class="headerlink" title="IE 10"></a>IE 10</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E)</span><br></pre></td></tr></table></figure>
-<p>关键词： MSIE 10.0， Trident引擎</p>
-<h5 id="IE-9"><a href="#IE-9" class="headerlink" title="IE 9"></a>IE 9</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E)</span><br></pre></td></tr></table></figure>
-<p>关键词： MSIE 9.0，Trident引擎</p>
-<h5 id="opera"><a href="#opera" class="headerlink" title="opera"></a>opera</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36 OPR/50.0.2762.67</span><br></pre></td></tr></table></figure>
-<p>关键词：OPR，webkit引擎</p>
-<h4 id="环境判断"><a href="#环境判断" class="headerlink" title="环境判断"></a>环境判断</h4><p>平时业务中和IE打交道比较多，有一个系列的平台需要兼容到ie7，关于兼容性的坑我之后会再写一篇文章做个总结。</p>
-<p>后来客户端进行了升级，强制要求客户升级到IE10及其以上，才终于让我可以愉快地撸代码。所以如果当前浏览器版本比较低，就需要提示用户升级。</p>
-<p>在对几个浏览器做了测试之后，我使用的方法是这样的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var isIE = userAgent.indexOf(&quot;compatible&quot;) &gt; -1 &amp;&amp; userAgent.indexOf(&quot;MSIE&quot;) &gt; -1;</span><br><span class="line"> //判断是否IE浏览器  </span><br><span class="line">    if (isIE) &#123;</span><br><span class="line">        var reIE = new RegExp(&quot;MSIE (\\d+\\.\\d+);&quot;);</span><br><span class="line">        reIE.test(userAgent);</span><br><span class="line">        var fIEVersion = parseFloat(RegExp[&quot;$1&quot;]);</span><br><span class="line">        if (fIEVersion &lt;10)&#123;</span><br><span class="line">            //版本过低</span><br><span class="line">            alert(&quot;当前浏览器版本过低，部分功能会有影响，请升级！&quot;)</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;//isIE end</span><br></pre></td></tr></table></figure></p>
-<p>网上有一些方法，对ie进行判断时需要排除先edge和opera，不明觉厉，因为自己测试之后并不觉得他们需要单独排除。这种写法暂时也没有遇到问题，但我也不可能把所有浏览器的各个版本都过一遍。</p>
-<p>若有考虑不周之处，还望大神们指点</p>
-<p>以上</p>
+</li>
+</ul>
+<h6 id="效果gif如下："><a href="#效果gif如下：" class="headerlink" title="效果gif如下："></a>效果gif如下：</h6><p><img src="http://upload-images.jianshu.io/upload_images/2865721-ebe8bffcde131404.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="step1.gif"></p>
+<p>一般实现到这一步，已经有了基本功能，可以流畅地进行导航切换。很多网站也只实现到了这一步，但事实上，这个导航还存在一些问题，有继续优化的空间。</p>
+<h6 id="存在问题："><a href="#存在问题：" class="headerlink" title="存在问题："></a>存在问题：</h6><ol>
+<li>用户想到要选择子导航的某一选项时，鼠标必须先进入子导航内。如果在此之前触碰到主导航的其他选项，会立即切换。导航体量大，如果用户想要选择子导航内下方的选项，必须先从主导航平移至子导航内，也就是一个折线的过程。</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-657e83fa6c039d98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="nav_1.png"></p>
+<h6 id="step2-延时切换"><a href="#step2-延时切换" class="headerlink" title="step2.延时切换"></a>step2.延时切换</h6><p>针对第一个问题，我们采取setTimeout,在mouseener事件被触发后，让子导航显示代码并不马上执行，而是延迟一段时间后再执行。并且每次执行前先判断鼠标是否在子菜单内，若不在则不执行切换导航代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var mouseInSub = false;</span><br><span class="line">sub-nav.on(&quot;mouseenner&quot;,function()&#123;</span><br><span class="line">    mouseInSub = true;</span><br><span class="line">&#125;);</span><br><span class="line">sub-nav.on(&quot;mouseleave&quot;,function()&#123;</span><br><span class="line">    mouseInSub = false;</span><br><span class="line">&#125;);</span><br><span class="line">var time = setTimeout(function() &#123;</span><br><span class="line">    if (mouseInSub) &#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    $(&quot;.sub-content&quot;).addClass(&quot;none&quot;);</span><br><span class="line">    subNav.removeClass(&quot;none&quot;);</span><br><span class="line">    setTimeout(function() &#123;</span><br><span class="line">        li.on(&quot;mouseleave&quot;, function() &#123;</span><br><span class="line">            let li = $(this);</span><br><span class="line">            li.removeClass(&apos;active&apos;);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;, 500);</span><br></pre></td></tr></table></figure></p>
+<p>很明显，采取这种方法就引入了一个新的问题：用户在主导航上快速切换时，子导航的出现存在延时，降低了用户体验的流畅度<br><img src="http://upload-images.jianshu.io/upload_images/2865721-fa74fdb09d47795a.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="step2.gif"></p>
+<p>这就需要进一步进行优化。</p>
+<h6 id="step3-用户行为预判"><a href="#step3-用户行为预判" class="headerlink" title="step3.用户行为预判"></a>step3.用户行为预判</h6><p>思路：对用户的鼠标移动行为作出判断，若用户是想要移动到子导航，则进行延迟；若用户想在主导航上移动，则不需要延迟</p>
+<p>如何判断用户到底是想要移动到子导航，还是想在主导航上移动呢？</p>
+<p>详细内容戳<a href="http://www.jianshu.com/p/cc37f42a0b13" target="_blank" rel="noopener">京东大导航——预判用户行为（二）</a></p>
+<p>源码见<a href="https://github.com/try6/nav-Solution" target="_blank" rel="noopener">个人github地址</a>!</p>
 
       
     </div>
@@ -418,8 +420,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/try6.gitee.io/2018/01/27/2018-01-27从"对象"的角度，带你重新认识js中的数据类型/" rel="next" title="从"对象"的角度，带你重新认识js中的数据类型">
-                <i class="fa fa-chevron-left"></i> 从"对象"的角度，带你重新认识js中的数据类型
+              <a href="/try6.gitee.io/2017/09/28/2017-09-28移动端触摸分页方案-1/" rel="next" title="移动端触摸分页方案">
+                <i class="fa fa-chevron-left"></i> 移动端触摸分页方案
               </a>
             
           </div>
@@ -428,8 +430,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/try6.gitee.io/2018/02/07/2018-02-07同源策略与跨域/" rel="prev" title="同源策略与跨域">
-                同源策略与跨域 <i class="fa fa-chevron-right"></i>
+              <a href="/try6.gitee.io/2017/12/08/2017-12-08京东大导航——预判用户行为（二）/" rel="prev" title="京东大导航——预判用户行为（二）">
+                京东大导航——预判用户行为（二） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -580,7 +582,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#userAgent"><span class="nav-number">1.</span> <span class="nav-text">userAgent</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#chrome"><span class="nav-number">1.0.1.</span> <span class="nav-text">chrome</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#FireFox"><span class="nav-number">1.0.2.</span> <span class="nav-text">FireFox</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#edge"><span class="nav-number">1.0.3.</span> <span class="nav-text">edge</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#IE-10"><span class="nav-number">1.0.4.</span> <span class="nav-text">IE 10</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#IE-9"><span class="nav-number">1.0.5.</span> <span class="nav-text">IE 9</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#opera"><span class="nav-number">1.0.6.</span> <span class="nav-text">opera</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境判断"><span class="nav-number">1.1.</span> <span class="nav-text">环境判断</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#html和css"><span class="nav-number">1.</span> <span class="nav-text">html和css</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js部分"><span class="nav-number">2.</span> <span class="nav-text">js部分</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#step1：常规导航实现"><span class="nav-number">2.0.1.</span> <span class="nav-text">step1：常规导航实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#思路："><span class="nav-number">2.0.2.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#效果gif如下："><span class="nav-number">2.0.3.</span> <span class="nav-text">效果gif如下：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#存在问题："><span class="nav-number">2.0.4.</span> <span class="nav-text">存在问题：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#step2-延时切换"><span class="nav-number">2.0.5.</span> <span class="nav-text">step2.延时切换</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#step3-用户行为预判"><span class="nav-number">2.0.6.</span> <span class="nav-text">step3.用户行为预判</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -743,9 +745,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://try66.gitee.io/try6.gitee.io/2018/02/07/2018-02-07浏览器版本的判断思路/';
-          this.page.identifier = '2018/02/07/2018-02-07浏览器版本的判断思路/';
-          this.page.title = '浏览器版本的判断思路';
+          this.page.url = 'http://try66.gitee.io/try6.gitee.io/2017/12/07/2017-12-07京东大导航——预判用户行为（一）/';
+          this.page.identifier = '2017/12/07/2017-12-07京东大导航——预判用户行为（一）/';
+          this.page.title = '京东大导航——预判用户行为（一）';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://try.disqus.com/embed.js';

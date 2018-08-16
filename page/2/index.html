@@ -239,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/03/05/2018-02-27一年前端面试打怪升级之路（二）/">
+    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/02/07/2018-02-07同源策略与跨域/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Try_Luies">
@@ -258,7 +258,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/try6.gitee.io/2018/03/05/2018-02-27一年前端面试打怪升级之路（二）/" itemprop="url">一年前端面试打怪升级之路（二）</a></h1>
+                <a class="post-title-link" href="/try6.gitee.io/2018/02/07/2018-02-07同源策略与跨域/" itemprop="url">同源策略与跨域</a></h1>
         
 
         <div class="post-meta">
@@ -270,8 +270,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T05:05:01+08:00">
-                2018-03-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-07T06:47:46+08:00">
+                2018-02-07
               </time>
             
 
@@ -289,9 +289,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/try6.gitee.io/2018/03/05/2018-02-27一年前端面试打怪升级之路（二）/#comments" itemprop="discussionUrl">
+                <a href="/try6.gitee.io/2018/02/07/2018-02-07同源策略与跨域/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/05/2018-02-27一年前端面试打怪升级之路（二）/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/02/07/2018-02-07同源策略与跨域/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -299,7 +299,7 @@
 
           
           
-             <span id="/try6.gitee.io/2018/03/05/2018-02-27一年前端面试打怪升级之路（二）/" class="leancloud_visitors" data-flag-title="一年前端面试打怪升级之路（二）">
+             <span id="/try6.gitee.io/2018/02/07/2018-02-07同源策略与跨域/" class="leancloud_visitors" data-flag-title="同源策略与跨域">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -331,458 +331,23 @@
 
       
         
-          <p>传送门：</p>
-<p><a href="https://juejin.im/post/5a98a8be518825556140ad4c" target="_blank" rel="noopener">一年前端面试打怪升级之路（一）</a></p>
-<p><a href="https://juejin.im/post/5a97d4fff265da2393767d7b" target="_blank" rel="noopener">一年前端面试打怪升级之路（二）</a></p>
-<p><a href="https://www.jianshu.com/p/fbd24713ba4a" target="_blank" rel="noopener">一年前端面试打怪升级之路（三）</a></p>
-<p>对于DXY的面试印象最深刻最难忘，所以就详细地列一个单独的篇幅吧<br>
+          <p>同源啊跨域啊好像也要被讲烂了，网上随便搜搜也有很多详细的教程，阮老师的文章也是其中的经典。</p>
+<p>前段时间经历了第一次前端面试，笔试开头的基础题就是问同源策略，当时菜逼如我答的不好，虽然最后结果是好的，但是还是想做一个整理给自己一雪前耻</p>
+<h3 id="浏览器的同源策略"><a href="#浏览器的同源策略" class="headerlink" title="浏览器的同源策略"></a>浏览器的同源策略</h3><p>首先当然要介绍一下浏览器的同源策略</p>
+<ul>
+<li>端口相同</li>
+<li>域名相同</li>
+<li>协议相同</li>
+</ul>
+<p>这是用于保护用户数据的安全，防止恶意访问</p>
+<p>按照阮老师的说法，目前，如果非同源，共有三种行为受到限制。</p>
+<ol>
+<li>Cookie、LocalStorage 和 IndexDB 无法读取。</li>
+<li>Dom无法获取</li>
+<li>Ajax请求<br>如何实现跨域，在有些必要的场合突破这些限制呢
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/try6.gitee.io/2018/03/05/2018-02-27一年前端面试打怪升级之路（二）/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/03/05/2018-03-01一年前端面试打怪升级之路（三）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Try_Luies">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/try6.gitee.io/images/pic.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello JS">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/try6.gitee.io/2018/03/05/2018-03-01一年前端面试打怪升级之路（三）/" itemprop="url">一年前端面试打怪升级之路（三）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T05:04:53+08:00">
-                2018-03-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/try6.gitee.io/2018/03/05/2018-03-01一年前端面试打怪升级之路（三）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/05/2018-03-01一年前端面试打怪升级之路（三）/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/try6.gitee.io/2018/03/05/2018-03-01一年前端面试打怪升级之路（三）/" class="leancloud_visitors" data-flag-title="一年前端面试打怪升级之路（三）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>掘金传送门：</p>
-<p><a href="https://juejin.im/post/5a98a8be518825556140ad4c" target="_blank" rel="noopener">一年前端面试打怪升级之路（一）</a></p>
-<p><a href="https://juejin.im/post/5a97d4fff265da2393767d7b" target="_blank" rel="noopener">一年前端面试打怪升级之路（二）</a></p>
-<p>题外话：前面两篇文章掘金评论下展开了热烈的讨论，让我深切感受到掘金社区技术氛围的浓厚，同时也很感谢各位大佬对文章中的问题进行答疑解惑，感觉本菜鸟的前端经验值进度条又涨了不少~</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/try6.gitee.io/2018/03/05/2018-03-01一年前端面试打怪升级之路（三）/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/02/10/2018-02-27兼容IE大佬的异步流程控制大法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Try_Luies">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/try6.gitee.io/images/pic.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello JS">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/try6.gitee.io/2018/02/10/2018-02-27兼容IE大佬的异步流程控制大法/" itemprop="url">兼容IE大佬的异步流程控制大法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-10T05:48:46+08:00">
-                2018-02-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/try6.gitee.io/2018/02/10/2018-02-27兼容IE大佬的异步流程控制大法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/02/10/2018-02-27兼容IE大佬的异步流程控制大法/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/try6.gitee.io/2018/02/10/2018-02-27兼容IE大佬的异步流程控制大法/" class="leancloud_visitors" data-flag-title="兼容IE大佬的异步流程控制大法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>其实工作中一直都有异步流程控制的需求，主要是各种需要顺序执行的AJAX。</p>
-<p>之前请求不多的时候，我就直接简单粗暴地在回调里调用下一个请求函数，随着项目越来越大，越来越复杂，这种方式难以维护的缺点就越发的明显。大热的ES6中的promise方法的确很强，然而，需要兼容IE7（现在是IE10了）的我流下了两行清泪….而且我们项目还未引入打包和配置工具（没错就是这么落后），所以没有办法愉快地使用Promise等ES6语法和对象。</p>
-<p>这个问题一直非常困扰我，想了很久都没有比较好的解决办法，直到有一天，看到了一个CSS3动画的制作，依赖JQ，控制异步动画的时候完全使用了deferred对象，仿佛打开了异步流程新世界的大门</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/try6.gitee.io/2018/02/10/2018-02-27兼容IE大佬的异步流程控制大法/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/02/08/2018-02-08电子地图需求文档/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Try_Luies">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/try6.gitee.io/images/pic.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello JS">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/try6.gitee.io/2018/02/08/2018-02-08电子地图需求文档/" itemprop="url">电子地图需求文档</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-08T05:17:26+08:00">
-                2018-02-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/try6.gitee.io/2018/02/08/2018-02-08电子地图需求文档/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/02/08/2018-02-08电子地图需求文档/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/try6.gitee.io/2018/02/08/2018-02-08电子地图需求文档/" class="leancloud_visitors" data-flag-title="电子地图需求文档">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>今天是年前上班的最后一天，项目该发布的发布，该上线的上线，终于有了空来梳理所做的项目。</p>
-<p>由于在电子地图项目立项开始到现在，为了保证及时响应运维商的新需求，最初的需求文档已经和最终实现的功能有了较大的出入，所以本文作                 为电子地图项目的需求倒推整理，想要站在产品的角度，产出一份完成的需求，以降低将来项目转移的沟通成本和理解成本。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/try6.gitee.io/2018/02/08/2018-02-08电子地图需求文档/#more" rel="contents">
+            <a class="btn" href="/try6.gitee.io/2018/02/07/2018-02-07同源策略与跨域/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1609,6 +1174,304 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2017/12/08/2017-12-08京东大导航——预判用户行为（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try_Luies">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/try6.gitee.io/images/pic.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello JS">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/try6.gitee.io/2017/12/08/2017-12-08京东大导航——预判用户行为（二）/" itemprop="url">京东大导航——预判用户行为（二）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-08T06:47:46+08:00">
+                2017-12-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/try6.gitee.io/2017/12/08/2017-12-08京东大导航——预判用户行为（二）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/08/2017-12-08京东大导航——预判用户行为（二）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/try6.gitee.io/2017/12/08/2017-12-08京东大导航——预判用户行为（二）/" class="leancloud_visitors" data-flag-title="京东大导航——预判用户行为（二）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在上篇<a href="http://www.jianshu.com/p/febbe1571e73/" target="_blank" rel="noopener">京东大导航——预判用户行为（一）</a>中讲到，我们对导航的切换操作设置了延时，解决了移入子菜单时不执行导航切换的问题。但同时引入了新的问题，即导航的延时造成了切换不流程。</p>
+<p>如何才能做到，即保证用户进入子菜单的便捷，又能保证用户切换主导航的流程呢？</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/try6.gitee.io/2017/12/08/2017-12-08京东大导航——预判用户行为（二）/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2017/12/07/2017-12-07京东大导航——预判用户行为（一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try_Luies">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/try6.gitee.io/images/pic.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello JS">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/try6.gitee.io/2017/12/07/2017-12-07京东大导航——预判用户行为（一）/" itemprop="url">京东大导航——预判用户行为（一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-07T21:08:08+08:00">
+                2017-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/try6.gitee.io/2017/12/07/2017-12-07京东大导航——预判用户行为（一）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/07/2017-12-07京东大导航——预判用户行为（一）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/try6.gitee.io/2017/12/07/2017-12-07京东大导航——预判用户行为（一）/" class="leancloud_visitors" data-flag-title="京东大导航——预判用户行为（一）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="http://upload-images.jianshu.io/upload_images/2865721-dbfa4ca0dcd95782.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="nav.png"></p>
+<p>电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。</p>
+<p>淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。</p>
+<p>不知道大家有没有注意过他们在导航的实现上，和一般的导航有什么区别。</p>
+<p>先埋个彩蛋</p>
+<p>下面我们来从零开始模拟开发一个具有二级目录大导航。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/try6.gitee.io/2017/12/07/2017-12-07京东大导航——预判用户行为（一）/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2017/09/28/2017-09-28移动端触摸分页方案-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1799,7 +1662,7 @@
               
                 <a href="/try6.gitee.io/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

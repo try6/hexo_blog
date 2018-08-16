@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="首先，作为一个合格的前端工程师，我们都知道BOM对象有一个属性navigator，包含了浏览器的信息。  W3C中对navigator里面几种常用的属性做了介绍  而我们在平时开发中，经常需要去判断当前页面设备环境是什么，从而处理一些兼容问题，使用频率最高的应该就是传说中的userAgent属性了。">
+<meta name="description" content="需求：v-for循环生成列表，动态传入图片链接；12大概dom长这样，很简单的一个循环 1234567问题：传入的图片尺寸不固定，要保证图片不变形，需要通过自适应的方式，width为100%，或者高度为100%。但是图片尺寸动态变化，无法统一写成宽填满，或者统一写成高填满。最好的办法是能够获取传入图片的宽高，通过宽高比决定使用哪种样式。后台传入的数据是一个url，那么就需要把url转为一个图片对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浏览器版本的判断思路">
-<meta property="og:url" content="http://try66.gitee.io/try6.gitee.io/2018/02/07/2018-02-07浏览器版本的判断思路/index.html">
+<meta property="og:title" content="固定宽高，动态图片自适应容器问题">
+<meta property="og:url" content="http://try66.gitee.io/try6.gitee.io/2018/07/18/2018-07-18固定宽高，动态图片自适应容器问题/index.html">
 <meta property="og:site_name" content="Hello JS">
-<meta property="og:description" content="首先，作为一个合格的前端工程师，我们都知道BOM对象有一个属性navigator，包含了浏览器的信息。  W3C中对navigator里面几种常用的属性做了介绍  而我们在平时开发中，经常需要去判断当前页面设备环境是什么，从而处理一些兼容问题，使用频率最高的应该就是传说中的userAgent属性了。">
+<meta property="og:description" content="需求：v-for循环生成列表，动态传入图片链接；12大概dom长这样，很简单的一个循环 1234567问题：传入的图片尺寸不固定，要保证图片不变形，需要通过自适应的方式，width为100%，或者高度为100%。但是图片尺寸动态变化，无法统一写成宽填满，或者统一写成高填满。最好的办法是能够获取传入图片的宽高，通过宽高比决定使用哪种样式。后台传入的数据是一个url，那么就需要把url转为一个图片对象">
 <meta property="og:locale" content="zh-Han">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-4aa032f3b17a3411.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-f472bc1e5b9ae916.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-08-02T00:26:38.607Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2865721-1aecb74bd160ea48.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2865721-f41e2c4ae3fb63e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-08-16T13:16:39.480Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浏览器版本的判断思路">
-<meta name="twitter:description" content="首先，作为一个合格的前端工程师，我们都知道BOM对象有一个属性navigator，包含了浏览器的信息。  W3C中对navigator里面几种常用的属性做了介绍  而我们在平时开发中，经常需要去判断当前页面设备环境是什么，从而处理一些兼容问题，使用频率最高的应该就是传说中的userAgent属性了。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2865721-4aa032f3b17a3411.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="固定宽高，动态图片自适应容器问题">
+<meta name="twitter:description" content="需求：v-for循环生成列表，动态传入图片链接；12大概dom长这样，很简单的一个循环 1234567问题：传入的图片尺寸不固定，要保证图片不变形，需要通过自适应的方式，width为100%，或者高度为100%。但是图片尺寸动态变化，无法统一写成宽填满，或者统一写成高填满。最好的办法是能够获取传入图片的宽高，通过宽高比决定使用哪种样式。后台传入的数据是一个url，那么就需要把url转为一个图片对象">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2865721-1aecb74bd160ea48.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://try66.gitee.io/try6.gitee.io/2018/02/07/2018-02-07浏览器版本的判断思路/"/>
+  <link rel="canonical" href="http://try66.gitee.io/try6.gitee.io/2018/07/18/2018-07-18固定宽高，动态图片自适应容器问题/"/>
 
 
 
 
 
-  <title>浏览器版本的判断思路 | Hello JS</title>
+  <title>固定宽高，动态图片自适应容器问题 | Hello JS</title>
   
 
 
@@ -245,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/02/07/2018-02-07浏览器版本的判断思路/">
+    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/07/18/2018-07-18固定宽高，动态图片自适应容器问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Try_Luies">
@@ -262,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浏览器版本的判断思路</h1>
+          <h1 class="post-title" itemprop="name headline">固定宽高，动态图片自适应容器问题</h1>
         
 
         <div class="post-meta">
@@ -274,8 +274,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-07T05:52:13+08:00">
-                2018-02-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-18T05:55:11+08:00">
+                2018-07-18
               </time>
             
 
@@ -293,9 +293,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/try6.gitee.io/2018/02/07/2018-02-07浏览器版本的判断思路/#comments" itemprop="discussionUrl">
+                <a href="/try6.gitee.io/2018/07/18/2018-07-18固定宽高，动态图片自适应容器问题/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/02/07/2018-02-07浏览器版本的判断思路/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/18/2018-07-18固定宽高，动态图片自适应容器问题/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -303,7 +303,7 @@
 
           
           
-             <span id="/try6.gitee.io/2018/02/07/2018-02-07浏览器版本的判断思路/" class="leancloud_visitors" data-flag-title="浏览器版本的判断思路">
+             <span id="/try6.gitee.io/2018/07/18/2018-07-18固定宽高，动态图片自适应容器问题/" class="leancloud_visitors" data-flag-title="固定宽高，动态图片自适应容器问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -334,37 +334,20 @@
       
 
       
-        <p>首先，作为一个合格的前端工程师，我们都知道BOM对象有一个属性navigator，包含了浏览器的信息。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2865721-4aa032f3b17a3411.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="navigator对象内容"></p>
-<p>W3C中对navigator里面几种常用的属性做了介绍</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2865721-f472bc1e5b9ae916.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="常用属性"></p>
-<p>而我们在平时开发中，经常需要去判断当前页面设备环境是什么，从而处理一些兼容问题，使用频率最高的应该就是传说中的<code>userAgent</code>属性了。</p>
-<a id="more"></a>
-<h3 id="userAgent"><a href="#userAgent" class="headerlink" title="userAgent"></a>userAgent</h3><blockquote>
-<p>userAgent 属性是一个只读的字符串，声明了浏览器用于 HTTP 请求的用户代理头的值。</p>
-</blockquote>
-<p>它一般情况下是由Navigator属性中<code>appCodeName</code>，加上一条斜线，以及<code>appVersion</code>属性合成</p>
-<p>我们可以测试一下各个环境中的属性值</p>
-<h5 id="chrome"><a href="#chrome" class="headerlink" title="chrome"></a>chrome</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36</span><br></pre></td></tr></table></figure>
-<p>关键词：Chrome36，WebKit引擎</p>
-<p><code>13年后版本的chrome用的是Blink引擎了</code></p>
-<h5 id="FireFox"><a href="#FireFox" class="headerlink" title="FireFox"></a>FireFox</h5><p>特意下了FF测试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Windows NT 6.1; WOW64; rv:58.0) Gecko/20100101 Firefox/58.0</span><br></pre></td></tr></table></figure></p>
-<p>关键词：Firefox58，Gecko引擎</p>
-<h5 id="edge"><a href="#edge" class="headerlink" title="edge"></a>edge</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E; rv:11.0) like Gecko</span><br></pre></td></tr></table></figure>
-<p>关键词：看了半天好像没发现有特指edge的字符，可以先判断是否为IE系列，再排除IE其他浏览器</p>
-<p>（去查了下edge使用的是edge引擎，莫非我遇到了假的edge？）</p>
-<h5 id="IE-10"><a href="#IE-10" class="headerlink" title="IE 10"></a>IE 10</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E)</span><br></pre></td></tr></table></figure>
-<p>关键词： MSIE 10.0， Trident引擎</p>
-<h5 id="IE-9"><a href="#IE-9" class="headerlink" title="IE 9"></a>IE 9</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E)</span><br></pre></td></tr></table></figure>
-<p>关键词： MSIE 9.0，Trident引擎</p>
-<h5 id="opera"><a href="#opera" class="headerlink" title="opera"></a>opera</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36 OPR/50.0.2762.67</span><br></pre></td></tr></table></figure>
-<p>关键词：OPR，webkit引擎</p>
-<h4 id="环境判断"><a href="#环境判断" class="headerlink" title="环境判断"></a>环境判断</h4><p>平时业务中和IE打交道比较多，有一个系列的平台需要兼容到ie7，关于兼容性的坑我之后会再写一篇文章做个总结。</p>
-<p>后来客户端进行了升级，强制要求客户升级到IE10及其以上，才终于让我可以愉快地撸代码。所以如果当前浏览器版本比较低，就需要提示用户升级。</p>
-<p>在对几个浏览器做了测试之后，我使用的方法是这样的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var isIE = userAgent.indexOf(&quot;compatible&quot;) &gt; -1 &amp;&amp; userAgent.indexOf(&quot;MSIE&quot;) &gt; -1;</span><br><span class="line"> //判断是否IE浏览器  </span><br><span class="line">    if (isIE) &#123;</span><br><span class="line">        var reIE = new RegExp(&quot;MSIE (\\d+\\.\\d+);&quot;);</span><br><span class="line">        reIE.test(userAgent);</span><br><span class="line">        var fIEVersion = parseFloat(RegExp[&quot;$1&quot;]);</span><br><span class="line">        if (fIEVersion &lt;10)&#123;</span><br><span class="line">            //版本过低</span><br><span class="line">            alert(&quot;当前浏览器版本过低，部分功能会有影响，请升级！&quot;)</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;//isIE end</span><br></pre></td></tr></table></figure></p>
-<p>网上有一些方法，对ie进行判断时需要排除先edge和opera，不明觉厉，因为自己测试之后并不觉得他们需要单独排除。这种写法暂时也没有遇到问题，但我也不可能把所有浏览器的各个版本都过一遍。</p>
-<p>若有考虑不周之处，还望大神们指点</p>
-<p>以上</p>
+        <p>需求：v-for循环生成列表，动态传入图片链接；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">大概dom长这样，很简单的一个循环</span><br></pre></td></tr></table></figure></p>
+<p><img v-for="item in imgList" :src="item.src"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">问题：传入的图片尺寸不固定，要保证图片不变形，需要通过自适应的方式，width为100%，或者高度为100%。但是图片尺寸动态变化，无法统一写成宽填满，或者统一写成高填满。</span><br><span class="line"></span><br><span class="line">最好的办法是能够获取传入图片的宽高，通过宽高比决定使用哪种样式。</span><br><span class="line"></span><br><span class="line">后台传入的数据是一个url，那么就需要把url转为一个图片对象，以获取它的宽高。</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line">在网上找到了下面的方法，具体请[戳这里](https://blog.csdn.net/helloxiaoliang/article/details/78493308)</span><br></pre></td></tr></table></figure></p>
+<p>//加日期防止缓存<br>var img_url = ‘<a href="http://www.qttc.net/static/upload/2013/13643608813441.jpg?&#39;+Date.parse" target="_blank" rel="noopener">http://www.qttc.net/static/upload/2013/13643608813441.jpg?&#39;+Date.parse</a>(new Date());<br>// 创建对象<br>var img = new Image();<br>// 改变图片的src<br>img.src = img_url;<br>// 加载完成执行<br>img.onload = function(){<br>  // 打印<br>  alert(‘width:’+img.width+’,height:’+img.height);<br>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">初步想法是直接绑定样式</span><br></pre></td></tr></table></figure></p>
+<p><img v-for="item in imgList" :src="item.src" :style="imgStyle(item.src)"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"> imgStyle(src) &#123;</span><br><span class="line">var img_url = src + Date.parse(new Date());</span><br><span class="line">let  img = new Image();</span><br><span class="line">img.src = src;</span><br><span class="line">// 加载完成执行，如果不适用onload，打印出img的宽高会都为0。</span><br><span class="line">img.onload = function()&#123;</span><br><span class="line">  if (img.width &gt; img.height) &#123;</span><br><span class="line">          return &#123;height : &apos;100%&apos;&#125;;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          return &#123;width : &apos;100%&apos;&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但是没有生效，load是一个异步线程，打断点调试发现在onload异步执行完之前，图片已经全部显示在了页面上，再返回样式就无法对应是哪个图片。</p>
+<p>同样，使用class，用这种方法绑定也不生效。</p>
+<p>只能换一种思路了。</p>
+<h3 id="event"><a href="#event" class="headerlink" title="$event"></a>$event</h3><p>$event是vue中用于访问原生dom对象的参数</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2865721-1aecb74bd160ea48.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="$event"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img :onload=&quot;imgStyle($event)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>上面的写法，正常传参是可以的，但是<code>onload</code>这种属性写法无法识别<code>$event</code>这个参数，所以在这里可以使用<code>load</code>方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img @load=&quot;imgStyle($event)&quot;&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">imgStyle(e) &#123;</span><br><span class="line">let img = e.target;</span><br><span class="line">      console.log(e.target.offsetHeight, e.target.offsetWidth);</span><br><span class="line">        if (img.offsetWidth &gt; img.offsetHeight) &#123;</span><br><span class="line">          img.style.height = &apos;100%&apos;;</span><br><span class="line">          img.style.width = &apos;&apos;;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          img.style.height = &apos;&apos;;</span><br><span class="line">          img.style.width = &apos;100%&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然有得必有失，要想图片填满容器，又保证不能变形，肯定会失去一部分图片内容，这里处理成图片居中显示，确保图片内容最大程度展示在容器中。(我们产品可以点击图片查看大图，展示图片所有内容)</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2865721-f41e2c4ae3fb63e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 
       
     </div>
@@ -418,8 +401,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/try6.gitee.io/2018/01/27/2018-01-27从"对象"的角度，带你重新认识js中的数据类型/" rel="next" title="从"对象"的角度，带你重新认识js中的数据类型">
-                <i class="fa fa-chevron-left"></i> 从"对象"的角度，带你重新认识js中的数据类型
+              <a href="/try6.gitee.io/2018/05/24/2018-05-10Sass概览/" rel="next" title="Sass概览">
+                <i class="fa fa-chevron-left"></i> Sass概览
               </a>
             
           </div>
@@ -428,8 +411,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/try6.gitee.io/2018/02/07/2018-02-07同源策略与跨域/" rel="prev" title="同源策略与跨域">
-                同源策略与跨域 <i class="fa fa-chevron-right"></i>
+              <a href="/try6.gitee.io/2018/08/16/canvas实现模拟地图/" rel="prev" title="canvas实现模拟地图">
+                canvas实现模拟地图 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -580,7 +563,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#userAgent"><span class="nav-number">1.</span> <span class="nav-text">userAgent</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#chrome"><span class="nav-number">1.0.1.</span> <span class="nav-text">chrome</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#FireFox"><span class="nav-number">1.0.2.</span> <span class="nav-text">FireFox</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#edge"><span class="nav-number">1.0.3.</span> <span class="nav-text">edge</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#IE-10"><span class="nav-number">1.0.4.</span> <span class="nav-text">IE 10</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#IE-9"><span class="nav-number">1.0.5.</span> <span class="nav-text">IE 9</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#opera"><span class="nav-number">1.0.6.</span> <span class="nav-text">opera</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境判断"><span class="nav-number">1.1.</span> <span class="nav-text">环境判断</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#event"><span class="nav-number">1.</span> <span class="nav-text">$event</span></a></li></ol></div>
             
 
           </div>
@@ -743,9 +726,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://try66.gitee.io/try6.gitee.io/2018/02/07/2018-02-07浏览器版本的判断思路/';
-          this.page.identifier = '2018/02/07/2018-02-07浏览器版本的判断思路/';
-          this.page.title = '浏览器版本的判断思路';
+          this.page.url = 'http://try66.gitee.io/try6.gitee.io/2018/07/18/2018-07-18固定宽高，动态图片自适应容器问题/';
+          this.page.identifier = '2018/07/18/2018-07-18固定宽高，动态图片自适应容器问题/';
+          this.page.title = '固定宽高，动态图片自适应容器问题';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://try.disqus.com/embed.js';
