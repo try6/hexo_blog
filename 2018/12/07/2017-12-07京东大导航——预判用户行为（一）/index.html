@@ -79,25 +79,22 @@
 
 
 
-<meta name="description" content="首先介绍一下，css3中有两个属性可设置投影，分别是：1box-shadow:x偏移, y偏移, 模糊大小, 色值; 1filter:drop-shadow(x偏移, y偏移, 模糊大小, 色值) ####二者有什么区别？ 1. 兼容性 box-shadow：从IE9+开始兼容   filter:drop-shadow：从IE13+兼容  从上图可知，box-shadow在兼容性上做的更好。而dr">
+<meta name="description" content="电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。 淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。 不知道大家有没有注意过他们在导航的实现上，和一般的导航有什么区别。 先埋个彩蛋 下面我们来从零开始模拟开发一个具有二级目录大导航。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="css修png图标颜色">
-<meta property="og:url" content="http://try66.gitee.io/try6.gitee.io/2018/01/13/2018-01-13css修png图标颜色/index.html">
+<meta property="og:title" content="京东大导航——预判用户行为（一）">
+<meta property="og:url" content="http://try66.gitee.io/try6.gitee.io/2018/12/07/2017-12-07京东大导航——预判用户行为（一）/index.html">
 <meta property="og:site_name" content="Hello JS">
-<meta property="og:description" content="首先介绍一下，css3中有两个属性可设置投影，分别是：1box-shadow:x偏移, y偏移, 模糊大小, 色值; 1filter:drop-shadow(x偏移, y偏移, 模糊大小, 色值) ####二者有什么区别？ 1. 兼容性 box-shadow：从IE9+开始兼容   filter:drop-shadow：从IE13+兼容  从上图可知，box-shadow在兼容性上做的更好。而dr">
+<meta property="og:description" content="电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。 淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。 不知道大家有没有注意过他们在导航的实现上，和一般的导航有什么区别。 先埋个彩蛋 下面我们来从零开始模拟开发一个具有二级目录大导航。">
 <meta property="og:locale" content="zh-Han">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-f9846f04ce516dde.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-83921f3787f93d07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-1e6838c63cbcc958.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-7556095fa3dc3669.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-806cdfa9c319d9d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-4c121e9d2d5cd956.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-17e328014fdda0c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-08-16T13:02:53.554Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-dbfa4ca0dcd95782.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-ebe8bffcde131404.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-657e83fa6c039d98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-fa74fdb09d47795a.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-08-16T13:08:39.662Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="css修png图标颜色">
-<meta name="twitter:description" content="首先介绍一下，css3中有两个属性可设置投影，分别是：1box-shadow:x偏移, y偏移, 模糊大小, 色值; 1filter:drop-shadow(x偏移, y偏移, 模糊大小, 色值) ####二者有什么区别？ 1. 兼容性 box-shadow：从IE9+开始兼容   filter:drop-shadow：从IE13+兼容  从上图可知，box-shadow在兼容性上做的更好。而dr">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2865721-f9846f04ce516dde.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="京东大导航——预判用户行为（一）">
+<meta name="twitter:description" content="电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。 淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。 不知道大家有没有注意过他们在导航的实现上，和一般的导航有什么区别。 先埋个彩蛋 下面我们来从零开始模拟开发一个具有二级目录大导航。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2865721-dbfa4ca0dcd95782.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -127,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://try66.gitee.io/try6.gitee.io/2018/01/13/2018-01-13css修png图标颜色/"/>
+  <link rel="canonical" href="http://try66.gitee.io/try6.gitee.io/2018/12/07/2017-12-07京东大导航——预判用户行为（一）/"/>
 
 
 
 
 
-  <title>css修png图标颜色 | Hello JS</title>
+  <title>京东大导航——预判用户行为（一） | Hello JS</title>
   
 
 
@@ -250,7 +247,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/01/13/2018-01-13css修png图标颜色/">
+    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/12/07/2017-12-07京东大导航——预判用户行为（一）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Try_Luies">
@@ -267,7 +264,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">css修png图标颜色</h1>
+          <h1 class="post-title" itemprop="name headline">京东大导航——预判用户行为（一）</h1>
         
 
         <div class="post-meta">
@@ -279,8 +276,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-13T06:47:46+08:00">
-                2018-01-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-07T21:08:08+08:00">
+                2018-12-07
               </time>
             
 
@@ -298,9 +295,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/try6.gitee.io/2018/01/13/2018-01-13css修png图标颜色/#comments" itemprop="discussionUrl">
+                <a href="/try6.gitee.io/2018/12/07/2017-12-07京东大导航——预判用户行为（一）/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/01/13/2018-01-13css修png图标颜色/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/12/07/2017-12-07京东大导航——预判用户行为（一）/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -308,7 +305,7 @@
 
           
           
-             <span id="/try6.gitee.io/2018/01/13/2018-01-13css修png图标颜色/" class="leancloud_visitors" data-flag-title="css修png图标颜色">
+             <span id="/try6.gitee.io/2018/12/07/2017-12-07京东大导航——预判用户行为（一）/" class="leancloud_visitors" data-flag-title="京东大导航——预判用户行为（一）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -339,40 +336,37 @@
       
 
       
-        <p>首先介绍一下，css3中有两个属性可设置投影，分别是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow:x偏移, y偏移, 模糊大小, 色值;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filter:drop-shadow(x偏移, y偏移, 模糊大小, 色值)</span><br></pre></td></tr></table></figure>
-<p>####二者有什么区别？</p>
-<h5 id="1-兼容性"><a href="#1-兼容性" class="headerlink" title="1. 兼容性"></a>1. 兼容性</h5><blockquote>
-<p>box-shadow：从IE9+开始兼容<br><img src="http://upload-images.jianshu.io/upload_images/2865721-f9846f04ce516dde.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="box-shadow兼容性"></p>
+        <p><img src="http://upload-images.jianshu.io/upload_images/2865721-dbfa4ca0dcd95782.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="nav.png"></p>
+<p>电商类网站不可避免的需要很多商品分类，为了使用户能够快速定位到想要的商品分类，一个详细的主页导航就显得举足轻重。</p>
+<p>淘宝和京东等体量较大的电商平台，web端的主页都使用了分类详细的大导航，而且在导航的用户体验上做足了文章。</p>
+<p>不知道大家有没有注意过他们在导航的实现上，和一般的导航有什么区别。</p>
+<p>先埋个彩蛋</p>
+<p>下面我们来从零开始模拟开发一个具有二级目录大导航。<br><a id="more"></a></p>
+<h4 id="html和css"><a href="#html和css" class="headerlink" title="html和css"></a>html和css</h4><p>常规的dom结构和样式实现</p>
+<p>对于子导航的实现，淘宝使用了div的层层嵌套，而京东则是使用表格的结构。两种方式都能实现最终效果。可自行选择。</p>
+<p>我在这里做了表格结构实现子导航的尝试。 </p>
+<p>不过table结构比div更耗性能啦~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;sub&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;sub-content&quot; id=&apos;sub-a&apos;&gt;</span><br><span class="line">        &lt;ul &gt;</span><br><span class="line">            &lt;li&gt;&lt;a href=&quot;# &quot;&gt;家电馆&lt;span&gt;&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">            ...</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">        &lt;dl &gt;</span><br><span class="line">            &lt;dt&gt;&lt;a href=&quot;# &quot;&gt;电视&lt;span&gt;&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/dt&gt;</span><br><span class="line">            &lt;dd&gt;&lt;a href=&quot;# &quot;&gt;曲面电视&lt;span&gt;&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/dd&gt;</span><br><span class="line">            ...</span><br><span class="line">        &lt;/dl&gt;</span><br><span class="line">        &lt;dl &gt;</span><br><span class="line">            &lt;dt&gt;&lt;a href=&quot;# &quot;&gt;空调&lt;span&gt;&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/dt&gt;</span><br><span class="line">            &lt;dd&gt;&lt;a href=&quot;# &quot;&gt;曲面空调&lt;span&gt;&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/dd&gt;</span><br><span class="line">            ...</span><br><span class="line">        &lt;/dl&gt;	</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>为了方便后续使用js对样式的操作，在css中单独设置了名为none的类，设置隐藏样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.none&#123;</span><br><span class="line">    display:none</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="js部分"><a href="#js部分" class="headerlink" title="js部分"></a>js部分</h4><h6 id="step1：常规导航实现"><a href="#step1：常规导航实现" class="headerlink" title="step1：常规导航实现"></a>step1：常规导航实现</h6><h6 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h6><ul>
+<li>鼠标移至主导航或子导航菜单中(mouseener)，对应选项样式改变，对应子导航显示</li>
+<li>鼠标移出主导航或子导航菜单中(mouseleave)，选项样式取消，对应子导航隐藏<blockquote>
+<p>注：mouseener不冒泡，mouseover冒泡。详细内容请戳<a href="">mouseover,mouseener,mousemove</a></p>
 </blockquote>
-<blockquote>
-<p>filter:drop-shadow：从IE13+兼容<br><img src="http://upload-images.jianshu.io/upload_images/2865721-83921f3787f93d07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="drop-shadow兼容性"></p>
-</blockquote>
-<p>从上图可知，<code>box-shadow</code>在兼容性上做的更好。而<code>drop-shadow</code>还只能在新版本的浏览器中使用，对老旧浏览器并不友好<br><a id="more"></a></p>
-<h5 id="2-阴影叠加"><a href="#2-阴影叠加" class="headerlink" title="2. 阴影叠加"></a>2. 阴影叠加</h5><p>filter:drop-shadow不支持阴影叠加</p>
-<p>阴影叠加是你可以对一个元素重复进行阴影设置，使用<code>box-shadow</code>可以极限叠加，不考虑性能的话，甚至可以拼出你想要的任何形状。</p>
-<p>关于box-shadow阴影叠加属性可以点击这里<a href="http://www.zhangxinxu.com/wordpress/2013/11/css-css3-box-shadow-%E7%9B%92%E9%98%B4%E5%BD%B1-%E5%9B%BE%E5%BD%A2%E7%94%9F%E6%88%90%E6%8A%80%E6%9C%AF/" target="_blank" rel="noopener">box-shadow阴影叠加技术应用</a></p>
-<h5 id="3-内阴影"><a href="#3-内阴影" class="headerlink" title="3. 内阴影"></a>3. 内阴影</h5><p>filter:drop-shadow不支持内阴影</p>
-<h5 id="3-阴影效果"><a href="#3-阴影效果" class="headerlink" title="3. 阴影效果"></a>3. 阴影效果</h5><p>为了展示，我这里使用虚线形式的边框查看效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">height: 25px;</span><br><span class="line">width: 30px;</span><br><span class="line">border:3px dashed #666;</span><br></pre></td></tr></table></figure></p>
-<p>box-shadow：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow: 5px 5px 0;</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2865721-1e6838c63cbcc958.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="box-shadow投影效果"></p>
-<p>drop-shadow：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filter:drop-shadow(5px 5px 0);</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2865721-7556095fa3dc3669.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="drop-shadow投影效果"></p>
-<p>从这两张图可以初见端倪了对吗？</p>
-<h4 id="drop-shadow实际应用"><a href="#drop-shadow实际应用" class="headerlink" title="drop-shadow实际应用"></a>drop-shadow实际应用</h4><p>重头戏来了，从二者的阴影效果上可以看出，box-shadow本质上是盒模型的投影，而drop-shadow才是真正意义上的投影。</p>
-<p>所以，纵然drop-shadow有着对兼容性要求高，无法设置内阴影，无法叠加阴影等很多不足，但它的特性决定了它无法被box-shadow取代的地位。</p>
-<p>#####1. 不规则图形的投影<br>这个好理解，使用标签和css构造的多边形，如三角形、或者上面写的虚线边框等，就可以使用drop-shadow为它设置自然的投影</p>
-<p>#####2. 升级功能：改变图标颜色<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;i class=&quot;icon&quot;&gt;</span><br><span class="line">    &lt;i class=&quot;icon-del&quot;&gt;&lt;/i&gt;</span><br><span class="line">&lt;/i&gt;</span><br></pre></td></tr></table></figure></p>
-<p>对于上述html结构，我们想要插入一个黑色的定位图标。而目前的素材只有一个蓝色的图标<br><img src="http://upload-images.jianshu.io/upload_images/2865721-806cdfa9c319d9d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="location.png"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.icon&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    position: relative;</span><br><span class="line">    height:30px;</span><br><span class="line">    width: 40px;</span><br><span class="line">&#125;</span><br><span class="line">.icon-del &#123;</span><br><span class="line">    background: url(location.png) no-repeat;</span><br><span class="line">   height:100%;</span><br><span class="line">   width:100%;</span><br><span class="line">   display: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这么写能让蓝色图标正常显示，那么如何将这个图标变为黑色呢？</p>
-<p>首先我们为这个图标设置投影<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.icon &gt;.icon-del &#123;</span><br><span class="line">  filter: drop-shadow(20px 0 #000); </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2865721-4c121e9d2d5cd956.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置投影，x偏移20px"><br>再设置偏移量，和投影偏移相等，同时为父元素设置<code>overflow:hidden;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.icon&#123;</span><br><span class="line">    overflow:hidden;  //新增</span><br><span class="line">    display: inline-block;</span><br><span class="line">    position: relative;</span><br><span class="line">    height:30px;</span><br><span class="line">    width: 40px;</span><br><span class="line">&#125;</span><br><span class="line"> .icon &gt;.icon-del &#123;</span><br><span class="line">    filter: drop-shadow(20px 0 #000); </span><br><span class="line">   position: relative;</span><br><span class="line">   left: -20px;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
-<p>最终效果，原图标隐藏，只显示投影，看上去就好像是改变了图标的颜色啦！<br><img src="http://upload-images.jianshu.io/upload_images/2865721-17e328014fdda0c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<blockquote>
-<p>文章参考：<br><a href="http://www.zhangxinxu.com/study/201606/png-icon-color-fill.html" target="_blank" rel="noopener">png小图标CSS赋色demo</a><br><a href="http://www.zhangxinxu.com/wordpress/2016/05/css3-filter-drop-shadow-vs-box-shadow/" target="_blank" rel="noopener">张鑫旭CSS3 filter:drop-shadow滤镜与box-shadow区别应用</a></p>
-</blockquote>
-<p>咦，我是不是让你们少了勾搭UI小姐姐的机会？</p>
-<p>溜了溜了</p>
+</li>
+</ul>
+<h6 id="效果gif如下："><a href="#效果gif如下：" class="headerlink" title="效果gif如下："></a>效果gif如下：</h6><p><img src="http://upload-images.jianshu.io/upload_images/2865721-ebe8bffcde131404.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="step1.gif"></p>
+<p>一般实现到这一步，已经有了基本功能，可以流畅地进行导航切换。很多网站也只实现到了这一步，但事实上，这个导航还存在一些问题，有继续优化的空间。</p>
+<h6 id="存在问题："><a href="#存在问题：" class="headerlink" title="存在问题："></a>存在问题：</h6><ol>
+<li>用户想到要选择子导航的某一选项时，鼠标必须先进入子导航内。如果在此之前触碰到主导航的其他选项，会立即切换。导航体量大，如果用户想要选择子导航内下方的选项，必须先从主导航平移至子导航内，也就是一个折线的过程。</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-657e83fa6c039d98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="nav_1.png"></p>
+<h6 id="step2-延时切换"><a href="#step2-延时切换" class="headerlink" title="step2.延时切换"></a>step2.延时切换</h6><p>针对第一个问题，我们采取setTimeout,在mouseener事件被触发后，让子导航显示代码并不马上执行，而是延迟一段时间后再执行。并且每次执行前先判断鼠标是否在子菜单内，若不在则不执行切换导航代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var mouseInSub = false;</span><br><span class="line">sub-nav.on(&quot;mouseenner&quot;,function()&#123;</span><br><span class="line">    mouseInSub = true;</span><br><span class="line">&#125;);</span><br><span class="line">sub-nav.on(&quot;mouseleave&quot;,function()&#123;</span><br><span class="line">    mouseInSub = false;</span><br><span class="line">&#125;);</span><br><span class="line">var time = setTimeout(function() &#123;</span><br><span class="line">    if (mouseInSub) &#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    $(&quot;.sub-content&quot;).addClass(&quot;none&quot;);</span><br><span class="line">    subNav.removeClass(&quot;none&quot;);</span><br><span class="line">    setTimeout(function() &#123;</span><br><span class="line">        li.on(&quot;mouseleave&quot;, function() &#123;</span><br><span class="line">            let li = $(this);</span><br><span class="line">            li.removeClass(&apos;active&apos;);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;, 500);</span><br></pre></td></tr></table></figure></p>
+<p>很明显，采取这种方法就引入了一个新的问题：用户在主导航上快速切换时，子导航的出现存在延时，降低了用户体验的流畅度<br><img src="http://upload-images.jianshu.io/upload_images/2865721-fa74fdb09d47795a.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="step2.gif"></p>
+<p>这就需要进一步进行优化。</p>
+<h6 id="step3-用户行为预判"><a href="#step3-用户行为预判" class="headerlink" title="step3.用户行为预判"></a>step3.用户行为预判</h6><p>思路：对用户的鼠标移动行为作出判断，若用户是想要移动到子导航，则进行延迟；若用户想在主导航上移动，则不需要延迟</p>
+<p>如何判断用户到底是想要移动到子导航，还是想在主导航上移动呢？</p>
+<p>详细内容戳<a href="http://www.jianshu.com/p/cc37f42a0b13" target="_blank" rel="noopener">京东大导航——预判用户行为（二）</a></p>
+<p>源码见<a href="https://github.com/try6/nav-Solution" target="_blank" rel="noopener">个人github地址</a>!</p>
 
       
     </div>
@@ -426,8 +420,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/try6.gitee.io/2018/01/04/2018-01-04深入理解Js隐式类型转化/" rel="next" title="深入理解js隐式类型转化">
-                <i class="fa fa-chevron-left"></i> 深入理解js隐式类型转化
+              <a href="/try6.gitee.io/2018/08/16/2017-12-07京东大导航——预判用户行为（一）-1/" rel="next" title="2017-12-07京东大导航——预判用户行为（一）">
+                <i class="fa fa-chevron-left"></i> 2017-12-07京东大导航——预判用户行为（一）
               </a>
             
           </div>
@@ -435,10 +429,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/try6.gitee.io/2018/01/27/2018-01-27从"对象"的角度，带你重新认识js中的数据类型/" rel="prev" title="从"对象"的角度，带你重新认识js中的数据类型">
-                从"对象"的角度，带你重新认识js中的数据类型 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -588,7 +578,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-兼容性"><span class="nav-number">1.</span> <span class="nav-text">1. 兼容性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-阴影叠加"><span class="nav-number">2.</span> <span class="nav-text">2. 阴影叠加</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-内阴影"><span class="nav-number">3.</span> <span class="nav-text">3. 内阴影</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-阴影效果"><span class="nav-number">4.</span> <span class="nav-text">3. 阴影效果</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#drop-shadow实际应用"><span class="nav-number"></span> <span class="nav-text">drop-shadow实际应用</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#html和css"><span class="nav-number">1.</span> <span class="nav-text">html和css</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js部分"><span class="nav-number">2.</span> <span class="nav-text">js部分</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#step1：常规导航实现"><span class="nav-number">2.0.1.</span> <span class="nav-text">step1：常规导航实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#思路："><span class="nav-number">2.0.2.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#效果gif如下："><span class="nav-number">2.0.3.</span> <span class="nav-text">效果gif如下：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#存在问题："><span class="nav-number">2.0.4.</span> <span class="nav-text">存在问题：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#step2-延时切换"><span class="nav-number">2.0.5.</span> <span class="nav-text">step2.延时切换</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#step3-用户行为预判"><span class="nav-number">2.0.6.</span> <span class="nav-text">step3.用户行为预判</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -751,9 +741,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://try66.gitee.io/try6.gitee.io/2018/01/13/2018-01-13css修png图标颜色/';
-          this.page.identifier = '2018/01/13/2018-01-13css修png图标颜色/';
-          this.page.title = 'css修png图标颜色';
+          this.page.url = 'http://try66.gitee.io/try6.gitee.io/2018/12/07/2017-12-07京东大导航——预判用户行为（一）/';
+          this.page.identifier = '2018/12/07/2017-12-07京东大导航——预判用户行为（一）/';
+          this.page.title = '京东大导航——预判用户行为（一）';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://try.disqus.com/embed.js';
