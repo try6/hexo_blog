@@ -79,17 +79,25 @@
 
 
 
-<meta name="description" content="地图基本功能：  显示点位 拖拽屏幕移动全部点位 双击和鼠标滚轮可进行点位缩放 点击单个点，获取点位信息背景">
+<meta name="description" content="首先介绍一下，css3中有两个属性可设置投影，分别是：1box-shadow:x偏移, y偏移, 模糊大小, 色值; 1filter:drop-shadow(x偏移, y偏移, 模糊大小, 色值) ####二者有什么区别？ 1. 兼容性 box-shadow：从IE9+开始兼容   filter:drop-shadow：从IE13+兼容  从上图可知，box-shadow在兼容性上做的更好。而dr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="canvas实现模拟地图">
-<meta property="og:url" content="http://try66.gitee.io/try6.gitee.io/2018/08/16/canvas实现模拟地图/index.html">
+<meta property="og:title" content="css修png图标颜色">
+<meta property="og:url" content="http://try66.gitee.io/try6.gitee.io/2018/01/13/2018-01-13css修png图标颜色/index.html">
 <meta property="og:site_name" content="Hello JS">
-<meta property="og:description" content="地图基本功能：  显示点位 拖拽屏幕移动全部点位 双击和鼠标滚轮可进行点位缩放 点击单个点，获取点位信息背景">
+<meta property="og:description" content="首先介绍一下，css3中有两个属性可设置投影，分别是：1box-shadow:x偏移, y偏移, 模糊大小, 色值; 1filter:drop-shadow(x偏移, y偏移, 模糊大小, 色值) ####二者有什么区别？ 1. 兼容性 box-shadow：从IE9+开始兼容   filter:drop-shadow：从IE13+兼容  从上图可知，box-shadow在兼容性上做的更好。而dr">
 <meta property="og:locale" content="zh-Han">
-<meta property="og:updated_time" content="2018-08-16T12:30:58.911Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-f9846f04ce516dde.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-83921f3787f93d07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-1e6838c63cbcc958.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-7556095fa3dc3669.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-806cdfa9c319d9d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-4c121e9d2d5cd956.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-17e328014fdda0c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-08-16T13:02:53.554Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="canvas实现模拟地图">
-<meta name="twitter:description" content="地图基本功能：  显示点位 拖拽屏幕移动全部点位 双击和鼠标滚轮可进行点位缩放 点击单个点，获取点位信息背景">
+<meta name="twitter:title" content="css修png图标颜色">
+<meta name="twitter:description" content="首先介绍一下，css3中有两个属性可设置投影，分别是：1box-shadow:x偏移, y偏移, 模糊大小, 色值; 1filter:drop-shadow(x偏移, y偏移, 模糊大小, 色值) ####二者有什么区别？ 1. 兼容性 box-shadow：从IE9+开始兼容   filter:drop-shadow：从IE13+兼容  从上图可知，box-shadow在兼容性上做的更好。而dr">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2865721-f9846f04ce516dde.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -119,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://try66.gitee.io/try6.gitee.io/2018/08/16/canvas实现模拟地图/"/>
+  <link rel="canonical" href="http://try66.gitee.io/try6.gitee.io/2018/01/13/2018-01-13css修png图标颜色/"/>
 
 
 
 
 
-  <title>canvas实现模拟地图 | Hello JS</title>
+  <title>css修png图标颜色 | Hello JS</title>
   
 
 
@@ -242,7 +250,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/08/16/canvas实现模拟地图/">
+    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/01/13/2018-01-13css修png图标颜色/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Try_Luies">
@@ -259,7 +267,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">canvas实现模拟地图</h1>
+          <h1 class="post-title" itemprop="name headline">css修png图标颜色</h1>
         
 
         <div class="post-meta">
@@ -271,8 +279,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-16T20:24:55+08:00">
-                2018-08-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-13T06:47:46+08:00">
+                2018-01-13
               </time>
             
 
@@ -290,9 +298,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/try6.gitee.io/2018/08/16/canvas实现模拟地图/#comments" itemprop="discussionUrl">
+                <a href="/try6.gitee.io/2018/01/13/2018-01-13css修png图标颜色/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/08/16/canvas实现模拟地图/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/01/13/2018-01-13css修png图标颜色/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -300,7 +308,7 @@
 
           
           
-             <span id="/try6.gitee.io/2018/08/16/canvas实现模拟地图/" class="leancloud_visitors" data-flag-title="canvas实现模拟地图">
+             <span id="/try6.gitee.io/2018/01/13/2018-01-13css修png图标颜色/" class="leancloud_visitors" data-flag-title="css修png图标颜色">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -331,15 +339,41 @@
       
 
       
-        <p>地图基本功能：</p>
-<ol>
-<li>显示点位</li>
-<li>拖拽屏幕移动全部点位</li>
-<li>双击和鼠标滚轮可进行点位缩放</li>
-<li>点击单个点，获取点位信息<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><a id="more"></a>
-<h2 id="技术方案选择"><a href="#技术方案选择" class="headerlink" title="技术方案选择"></a>技术方案选择</h2><h4 id="使用echarts的gmap扩展"><a href="#使用echarts的gmap扩展" class="headerlink" title="使用echarts的gmap扩展"></a>使用echarts的gmap扩展</h4></li>
-</ol>
-<h4 id="使用canvas绘制"><a href="#使用canvas绘制" class="headerlink" title="使用canvas绘制"></a>使用canvas绘制</h4><h2 id="显示点位"><a href="#显示点位" class="headerlink" title="显示点位"></a>显示点位</h2><h2 id="拖拽屏幕移动全部点位"><a href="#拖拽屏幕移动全部点位" class="headerlink" title="拖拽屏幕移动全部点位"></a>拖拽屏幕移动全部点位</h2><h2 id="双击和鼠标滚轮可进行点位缩放"><a href="#双击和鼠标滚轮可进行点位缩放" class="headerlink" title="双击和鼠标滚轮可进行点位缩放"></a>双击和鼠标滚轮可进行点位缩放</h2><h2 id="点击单个点，获取点位信息"><a href="#点击单个点，获取点位信息" class="headerlink" title="点击单个点，获取点位信息"></a>点击单个点，获取点位信息</h2>
+        <p>首先介绍一下，css3中有两个属性可设置投影，分别是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow:x偏移, y偏移, 模糊大小, 色值;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filter:drop-shadow(x偏移, y偏移, 模糊大小, 色值)</span><br></pre></td></tr></table></figure>
+<p>####二者有什么区别？</p>
+<h5 id="1-兼容性"><a href="#1-兼容性" class="headerlink" title="1. 兼容性"></a>1. 兼容性</h5><blockquote>
+<p>box-shadow：从IE9+开始兼容<br><img src="http://upload-images.jianshu.io/upload_images/2865721-f9846f04ce516dde.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="box-shadow兼容性"></p>
+</blockquote>
+<blockquote>
+<p>filter:drop-shadow：从IE13+兼容<br><img src="http://upload-images.jianshu.io/upload_images/2865721-83921f3787f93d07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="drop-shadow兼容性"></p>
+</blockquote>
+<p>从上图可知，<code>box-shadow</code>在兼容性上做的更好。而<code>drop-shadow</code>还只能在新版本的浏览器中使用，对老旧浏览器并不友好<br><a id="more"></a></p>
+<h5 id="2-阴影叠加"><a href="#2-阴影叠加" class="headerlink" title="2. 阴影叠加"></a>2. 阴影叠加</h5><p>filter:drop-shadow不支持阴影叠加</p>
+<p>阴影叠加是你可以对一个元素重复进行阴影设置，使用<code>box-shadow</code>可以极限叠加，不考虑性能的话，甚至可以拼出你想要的任何形状。</p>
+<p>关于box-shadow阴影叠加属性可以点击这里<a href="http://www.zhangxinxu.com/wordpress/2013/11/css-css3-box-shadow-%E7%9B%92%E9%98%B4%E5%BD%B1-%E5%9B%BE%E5%BD%A2%E7%94%9F%E6%88%90%E6%8A%80%E6%9C%AF/" target="_blank" rel="noopener">box-shadow阴影叠加技术应用</a></p>
+<h5 id="3-内阴影"><a href="#3-内阴影" class="headerlink" title="3. 内阴影"></a>3. 内阴影</h5><p>filter:drop-shadow不支持内阴影</p>
+<h5 id="3-阴影效果"><a href="#3-阴影效果" class="headerlink" title="3. 阴影效果"></a>3. 阴影效果</h5><p>为了展示，我这里使用虚线形式的边框查看效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">height: 25px;</span><br><span class="line">width: 30px;</span><br><span class="line">border:3px dashed #666;</span><br></pre></td></tr></table></figure></p>
+<p>box-shadow：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow: 5px 5px 0;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-1e6838c63cbcc958.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="box-shadow投影效果"></p>
+<p>drop-shadow：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filter:drop-shadow(5px 5px 0);</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-7556095fa3dc3669.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="drop-shadow投影效果"></p>
+<p>从这两张图可以初见端倪了对吗？</p>
+<h4 id="drop-shadow实际应用"><a href="#drop-shadow实际应用" class="headerlink" title="drop-shadow实际应用"></a>drop-shadow实际应用</h4><p>重头戏来了，从二者的阴影效果上可以看出，box-shadow本质上是盒模型的投影，而drop-shadow才是真正意义上的投影。</p>
+<p>所以，纵然drop-shadow有着对兼容性要求高，无法设置内阴影，无法叠加阴影等很多不足，但它的特性决定了它无法被box-shadow取代的地位。</p>
+<p>#####1. 不规则图形的投影<br>这个好理解，使用标签和css构造的多边形，如三角形、或者上面写的虚线边框等，就可以使用drop-shadow为它设置自然的投影</p>
+<p>#####2. 升级功能：改变图标颜色<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;i class=&quot;icon&quot;&gt;</span><br><span class="line">    &lt;i class=&quot;icon-del&quot;&gt;&lt;/i&gt;</span><br><span class="line">&lt;/i&gt;</span><br></pre></td></tr></table></figure></p>
+<p>对于上述html结构，我们想要插入一个黑色的定位图标。而目前的素材只有一个蓝色的图标<br><img src="http://upload-images.jianshu.io/upload_images/2865721-806cdfa9c319d9d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="location.png"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.icon&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    position: relative;</span><br><span class="line">    height:30px;</span><br><span class="line">    width: 40px;</span><br><span class="line">&#125;</span><br><span class="line">.icon-del &#123;</span><br><span class="line">    background: url(location.png) no-repeat;</span><br><span class="line">   height:100%;</span><br><span class="line">   width:100%;</span><br><span class="line">   display: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这么写能让蓝色图标正常显示，那么如何将这个图标变为黑色呢？</p>
+<p>首先我们为这个图标设置投影<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.icon &gt;.icon-del &#123;</span><br><span class="line">  filter: drop-shadow(20px 0 #000); </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-4c121e9d2d5cd956.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置投影，x偏移20px"><br>再设置偏移量，和投影偏移相等，同时为父元素设置<code>overflow:hidden;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.icon&#123;</span><br><span class="line">    overflow:hidden;  //新增</span><br><span class="line">    display: inline-block;</span><br><span class="line">    position: relative;</span><br><span class="line">    height:30px;</span><br><span class="line">    width: 40px;</span><br><span class="line">&#125;</span><br><span class="line"> .icon &gt;.icon-del &#123;</span><br><span class="line">    filter: drop-shadow(20px 0 #000); </span><br><span class="line">   position: relative;</span><br><span class="line">   left: -20px;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>最终效果，原图标隐藏，只显示投影，看上去就好像是改变了图标的颜色啦！<br><img src="http://upload-images.jianshu.io/upload_images/2865721-17e328014fdda0c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<blockquote>
+<p>文章参考：<br><a href="http://www.zhangxinxu.com/study/201606/png-icon-color-fill.html" target="_blank" rel="noopener">png小图标CSS赋色demo</a><br><a href="http://www.zhangxinxu.com/wordpress/2016/05/css3-filter-drop-shadow-vs-box-shadow/" target="_blank" rel="noopener">张鑫旭CSS3 filter:drop-shadow滤镜与box-shadow区别应用</a></p>
+</blockquote>
+<p>咦，我是不是让你们少了勾搭UI小姐姐的机会？</p>
+<p>溜了溜了</p>
+
       
     </div>
     
@@ -392,8 +426,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/try6.gitee.io/2018/05/24/2018-05-10Sass概览/" rel="next" title="Sass概览">
-                <i class="fa fa-chevron-left"></i> Sass概览
+              <a href="/try6.gitee.io/2018/01/04/2018-01-04深入理解Js隐式类型转化/" rel="next" title="深入理解js隐式类型转化">
+                <i class="fa fa-chevron-left"></i> 深入理解js隐式类型转化
               </a>
             
           </div>
@@ -402,8 +436,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/try6.gitee.io/2018/08/16/2017-12-07京东大导航——预判用户行为（一）/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/try6.gitee.io/2018/01/27/2018-01-27从"对象"的角度，带你重新认识js中的数据类型/" rel="prev" title="从"对象"的角度，带你重新认识js中的数据类型">
+                从"对象"的角度，带你重新认识js中的数据类型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -554,7 +588,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技术方案选择"><span class="nav-number">2.</span> <span class="nav-text">技术方案选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用echarts的gmap扩展"><span class="nav-number">2.0.1.</span> <span class="nav-text">使用echarts的gmap扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用canvas绘制"><span class="nav-number">2.0.2.</span> <span class="nav-text">使用canvas绘制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示点位"><span class="nav-number">3.</span> <span class="nav-text">显示点位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拖拽屏幕移动全部点位"><span class="nav-number">4.</span> <span class="nav-text">拖拽屏幕移动全部点位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双击和鼠标滚轮可进行点位缩放"><span class="nav-number">5.</span> <span class="nav-text">双击和鼠标滚轮可进行点位缩放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点击单个点，获取点位信息"><span class="nav-number">6.</span> <span class="nav-text">点击单个点，获取点位信息</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-兼容性"><span class="nav-number">1.</span> <span class="nav-text">1. 兼容性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-阴影叠加"><span class="nav-number">2.</span> <span class="nav-text">2. 阴影叠加</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-内阴影"><span class="nav-number">3.</span> <span class="nav-text">3. 内阴影</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-阴影效果"><span class="nav-number">4.</span> <span class="nav-text">3. 阴影效果</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#drop-shadow实际应用"><span class="nav-number"></span> <span class="nav-text">drop-shadow实际应用</span></a></div>
             
 
           </div>
@@ -717,9 +751,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://try66.gitee.io/try6.gitee.io/2018/08/16/canvas实现模拟地图/';
-          this.page.identifier = '2018/08/16/canvas实现模拟地图/';
-          this.page.title = 'canvas实现模拟地图';
+          this.page.url = 'http://try66.gitee.io/try6.gitee.io/2018/01/13/2018-01-13css修png图标颜色/';
+          this.page.identifier = '2018/01/13/2018-01-13css修png图标颜色/';
+          this.page.title = 'css修png图标颜色';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://try.disqus.com/embed.js';

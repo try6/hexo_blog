@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="地图基本功能：  显示点位 拖拽屏幕移动全部点位 双击和鼠标滚轮可进行点位缩放 点击单个点，获取点位信息背景">
+<meta name="description" content="在开始本文前，先声明两句十分重要的话  Falsy 类型值包括：&amp;quot;&amp;quot;, 0, null, undefined, NaN, false.  换句话说，除了以上6种，其他任何值都为true  Javascript是弱类型的语言  换句话说，类型之间会通过某些操作进行转化。 好，表演开始">
 <meta property="og:type" content="article">
-<meta property="og:title" content="canvas实现模拟地图">
-<meta property="og:url" content="http://try66.gitee.io/try6.gitee.io/2018/08/16/canvas实现模拟地图/index.html">
+<meta property="og:title" content="深入理解js隐式类型转化">
+<meta property="og:url" content="http://try66.gitee.io/try6.gitee.io/2018/01/04/2018-01-04深入理解Js隐式类型转化/index.html">
 <meta property="og:site_name" content="Hello JS">
-<meta property="og:description" content="地图基本功能：  显示点位 拖拽屏幕移动全部点位 双击和鼠标滚轮可进行点位缩放 点击单个点，获取点位信息背景">
+<meta property="og:description" content="在开始本文前，先声明两句十分重要的话  Falsy 类型值包括：&amp;quot;&amp;quot;, 0, null, undefined, NaN, false.  换句话说，除了以上6种，其他任何值都为true  Javascript是弱类型的语言  换句话说，类型之间会通过某些操作进行转化。 好，表演开始">
 <meta property="og:locale" content="zh-Han">
-<meta property="og:updated_time" content="2018-08-16T12:30:58.911Z">
+<meta property="og:updated_time" content="2018-08-16T13:04:39.644Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="canvas实现模拟地图">
-<meta name="twitter:description" content="地图基本功能：  显示点位 拖拽屏幕移动全部点位 双击和鼠标滚轮可进行点位缩放 点击单个点，获取点位信息背景">
+<meta name="twitter:title" content="深入理解js隐式类型转化">
+<meta name="twitter:description" content="在开始本文前，先声明两句十分重要的话  Falsy 类型值包括：&amp;quot;&amp;quot;, 0, null, undefined, NaN, false.  换句话说，除了以上6种，其他任何值都为true  Javascript是弱类型的语言  换句话说，类型之间会通过某些操作进行转化。 好，表演开始">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://try66.gitee.io/try6.gitee.io/2018/08/16/canvas实现模拟地图/"/>
+  <link rel="canonical" href="http://try66.gitee.io/try6.gitee.io/2018/01/04/2018-01-04深入理解Js隐式类型转化/"/>
 
 
 
 
 
-  <title>canvas实现模拟地图 | Hello JS</title>
+  <title>深入理解js隐式类型转化 | Hello JS</title>
   
 
 
@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/08/16/canvas实现模拟地图/">
+    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/01/04/2018-01-04深入理解Js隐式类型转化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Try_Luies">
@@ -259,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">canvas实现模拟地图</h1>
+          <h1 class="post-title" itemprop="name headline">深入理解js隐式类型转化</h1>
         
 
         <div class="post-meta">
@@ -271,8 +271,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-16T20:24:55+08:00">
-                2018-08-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-04T06:47:46+08:00">
+                2018-01-04
               </time>
             
 
@@ -290,9 +290,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/try6.gitee.io/2018/08/16/canvas实现模拟地图/#comments" itemprop="discussionUrl">
+                <a href="/try6.gitee.io/2018/01/04/2018-01-04深入理解Js隐式类型转化/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/08/16/canvas实现模拟地图/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/01/04/2018-01-04深入理解Js隐式类型转化/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -300,7 +300,7 @@
 
           
           
-             <span id="/try6.gitee.io/2018/08/16/canvas实现模拟地图/" class="leancloud_visitors" data-flag-title="canvas实现模拟地图">
+             <span id="/try6.gitee.io/2018/01/04/2018-01-04深入理解Js隐式类型转化/" class="leancloud_visitors" data-flag-title="深入理解js隐式类型转化">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -331,15 +331,51 @@
       
 
       
-        <p>地图基本功能：</p>
-<ol>
-<li>显示点位</li>
-<li>拖拽屏幕移动全部点位</li>
-<li>双击和鼠标滚轮可进行点位缩放</li>
-<li>点击单个点，获取点位信息<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><a id="more"></a>
-<h2 id="技术方案选择"><a href="#技术方案选择" class="headerlink" title="技术方案选择"></a>技术方案选择</h2><h4 id="使用echarts的gmap扩展"><a href="#使用echarts的gmap扩展" class="headerlink" title="使用echarts的gmap扩展"></a>使用echarts的gmap扩展</h4></li>
-</ol>
-<h4 id="使用canvas绘制"><a href="#使用canvas绘制" class="headerlink" title="使用canvas绘制"></a>使用canvas绘制</h4><h2 id="显示点位"><a href="#显示点位" class="headerlink" title="显示点位"></a>显示点位</h2><h2 id="拖拽屏幕移动全部点位"><a href="#拖拽屏幕移动全部点位" class="headerlink" title="拖拽屏幕移动全部点位"></a>拖拽屏幕移动全部点位</h2><h2 id="双击和鼠标滚轮可进行点位缩放"><a href="#双击和鼠标滚轮可进行点位缩放" class="headerlink" title="双击和鼠标滚轮可进行点位缩放"></a>双击和鼠标滚轮可进行点位缩放</h2><h2 id="点击单个点，获取点位信息"><a href="#点击单个点，获取点位信息" class="headerlink" title="点击单个点，获取点位信息"></a>点击单个点，获取点位信息</h2>
+        <p>在开始本文前，先声明两句十分重要的话</p>
+<blockquote>
+<p>Falsy 类型值包括：<code>&quot;&quot;, 0, null, undefined, NaN, false</code>.</p>
+</blockquote>
+<p>换句话说，除了以上6种，其他任何值都为true</p>
+<blockquote>
+<p>Javascript是弱类型的语言</p>
+</blockquote>
+<p>换句话说，类型之间会通过某些操作进行转化。</p>
+<p>好，表演开始</p>
+<a id="more"></a>
+<h4 id="隐式类型转化的两种方式"><a href="#隐式类型转化的两种方式" class="headerlink" title="隐式类型转化的两种方式"></a>隐式类型转化的两种方式</h4><h5 id="1-操作符"><a href="#1-操作符" class="headerlink" title="1. 操作符"></a>1. 操作符</h5><h6 id="a-："><a href="#a-：" class="headerlink" title="a) +："></a>a) +：</h6><ul>
+<li>数字+字符串，将数值转化为字符串<br>和相加两个值的顺序无关，最终都是转化为字符串<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 + 2 = 3</span><br><span class="line">1 + &quot;2&quot; = &quot;12&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="b-："><a href="#b-：" class="headerlink" title="b) - * % /："></a>b) - * % /：</h6><p>字符串<code>- * % /</code>数值，字符串转化为数值，运算失败则结果为<code>NaN</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;-1&quot; * &quot;2&quot; = -2</span><br><span class="line">&quot;&quot; - 1 = -1</span><br><span class="line">&quot;4px&quot; - 2 = NaN</span><br></pre></td></tr></table></figure></p>
+<h6 id="c-null代表空值，转化为0计算"><a href="#c-null代表空值，转化为0计算" class="headerlink" title="c) null代表空值，转化为0计算"></a>c) null代表空值，转化为0计算</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">null + 1 = 1   //null代表空值</span><br><span class="line">null - 1 = -1</span><br></pre></td></tr></table></figure>
+<h6 id="d-undefined代表未定义，会导致运算失败"><a href="#d-undefined代表未定义，会导致运算失败" class="headerlink" title="d) undefined代表未定义，会导致运算失败"></a>d) undefined代表未定义，会导致运算失败</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">undefined + 1 = NaN //undefined代表未定义</span><br></pre></td></tr></table></figure>
+<h5 id="2-与"><a href="#2-与" class="headerlink" title="2. == 与 ==="></a>2. == 与 ===</h5><p>之前我对于两者的理解是，<code>==</code>比较两者值是否相等，忽略类型，而<code>===</code>需要值和类型都相等，才会返回ture</p>
+<p>其实，上述说法并不规范，<code>===</code>其实是将两边数值直接进行比较，而<code>==</code>其实是比较强制类型转化之后的结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Boolean(2 === &quot;2&quot;)           //false</span><br><span class="line">Boolean(undefined == null)   //ture</span><br><span class="line">Boolean(undefined === null)  //false</span><br></pre></td></tr></table></figure></p>
+<p>有几个值得注意的地方：</p>
+<h6 id="对象和数组的比较"><a href="#对象和数组的比较" class="headerlink" title="对象和数组的比较"></a>对象和数组的比较</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Boolean([]);           //ture</span><br><span class="line">//空数组为ture</span><br><span class="line"></span><br><span class="line">Boolean(&#123;&#125;);           //ture</span><br><span class="line">//空对象为ture</span><br><span class="line"></span><br><span class="line">Boolean([] == []);     //false</span><br><span class="line">//两个数组(对象也一样)，就算属性和方法完全一致，两者也不相等。</span><br><span class="line"></span><br><span class="line">var arr = [],a = arr,b = arr;</span><br><span class="line">Boolean(a == b)        //ture</span><br><span class="line">//指向同一个数组的两个变量才能说是相等的</span><br></pre></td></tr></table></figure>
+<p>因为数组和对象实际上是地址的引用，不同的数组之间，即使属性和方法完全一致，指向的地址也是不一致的。所以才有深拷贝这一说法了。</p>
+<h6 id="类型转化"><a href="#类型转化" class="headerlink" title="类型转化"></a>类型转化</h6><ul>
+<li>数字和字符串的互相转换</li>
+</ul>
+<p>很简单，数字会加上引号转化为字符串，再进行比较<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Boolean(1 == &quot;1&quot;)  //true</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>布尔类型的值会转换为数字，false转化为0，true转化为非0数字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Boolean(false == 1) //false</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组的转换<br>空数组本身为true,但是在做比较时是转化为0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Boolean([] == false) //ture</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>左边空数组<code>[]</code>转化为number 0，</p>
+<p>右边<code>false</code>也转化为number 0</p>
+<p>但还是想再强调一遍，两个空数组的结果依然是false，因为这时候是直接进行比较的，没有进行转化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Boolean([]==[])   //false</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>对象的转换<br>javascript中所有对象都是true。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Boolean(&#123;&#125; == false) //false</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>但是同样，两个空对象进行比较，结果依然是false<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Boolean(&#123;&#125;==&#123;&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>不知道你被绕晕了没有，其实理解起来也很简单，只要稍微注意下数组和对象的特殊情况，就能通关了<br>over~</p>
+
       
     </div>
     
@@ -392,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/try6.gitee.io/2018/05/24/2018-05-10Sass概览/" rel="next" title="Sass概览">
-                <i class="fa fa-chevron-left"></i> Sass概览
+              <a href="/try6.gitee.io/2018/01/01/2018-01-01loading带你入门svg/" rel="next" title="loading带你入门svg">
+                <i class="fa fa-chevron-left"></i> loading带你入门svg
               </a>
             
           </div>
@@ -402,8 +438,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/try6.gitee.io/2018/08/16/2017-12-07京东大导航——预判用户行为（一）/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/try6.gitee.io/2018/01/13/2018-01-13css修png图标颜色/" rel="prev" title="css修png图标颜色">
+                css修png图标颜色 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -554,7 +590,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技术方案选择"><span class="nav-number">2.</span> <span class="nav-text">技术方案选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用echarts的gmap扩展"><span class="nav-number">2.0.1.</span> <span class="nav-text">使用echarts的gmap扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用canvas绘制"><span class="nav-number">2.0.2.</span> <span class="nav-text">使用canvas绘制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示点位"><span class="nav-number">3.</span> <span class="nav-text">显示点位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拖拽屏幕移动全部点位"><span class="nav-number">4.</span> <span class="nav-text">拖拽屏幕移动全部点位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双击和鼠标滚轮可进行点位缩放"><span class="nav-number">5.</span> <span class="nav-text">双击和鼠标滚轮可进行点位缩放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点击单个点，获取点位信息"><span class="nav-number">6.</span> <span class="nav-text">点击单个点，获取点位信息</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#隐式类型转化的两种方式"><span class="nav-number">1.</span> <span class="nav-text">隐式类型转化的两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-操作符"><span class="nav-number">1.1.</span> <span class="nav-text">1. 操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#a-："><span class="nav-number">1.1.1.</span> <span class="nav-text">a) +：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#b-："><span class="nav-number">1.1.2.</span> <span class="nav-text">b) - * % /：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#c-null代表空值，转化为0计算"><span class="nav-number">1.1.3.</span> <span class="nav-text">c) null代表空值，转化为0计算</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#d-undefined代表未定义，会导致运算失败"><span class="nav-number">1.1.4.</span> <span class="nav-text">d) undefined代表未定义，会导致运算失败</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-与"><span class="nav-number">1.2.</span> <span class="nav-text">2. == 与 ===</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#对象和数组的比较"><span class="nav-number">1.2.1.</span> <span class="nav-text">对象和数组的比较</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#类型转化"><span class="nav-number">1.2.2.</span> <span class="nav-text">类型转化</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -717,9 +753,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://try66.gitee.io/try6.gitee.io/2018/08/16/canvas实现模拟地图/';
-          this.page.identifier = '2018/08/16/canvas实现模拟地图/';
-          this.page.title = 'canvas实现模拟地图';
+          this.page.url = 'http://try66.gitee.io/try6.gitee.io/2018/01/04/2018-01-04深入理解Js隐式类型转化/';
+          this.page.identifier = '2018/01/04/2018-01-04深入理解Js隐式类型转化/';
+          this.page.title = '深入理解js隐式类型转化';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://try.disqus.com/embed.js';
