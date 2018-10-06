@@ -688,6 +688,172 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/04/24/vuex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try_Luies">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/try6.gitee.io/images/pic.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello JS">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/try6.gitee.io/2018/04/24/vuex/" itemprop="url">vuex简易版API</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-24T06:43:29+08:00">
+                2018-04-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/try6.gitee.io/2018/04/24/vuex/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/24/vuex/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/try6.gitee.io/2018/04/24/vuex/" class="leancloud_visitors" data-flag-title="vuex简易版API">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>vue作为三大MVVM框架之一，一个核心竞争力就是它的组件机制。</p>
+<p>而<a href="https://vuex.vuejs.org/zh-cn/intro.html" target="_blank" rel="noopener">vuex</a>可以理解为，针对大型项目组件通信的全局管理。</p>
+<h3 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h3><p>这里先介绍一下vuex中的几个核心概念，<code>state, getter, mutation, action, module</code>，在使用的时候需要注册在全局的<code>store</code>中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">new Vuex.Store(&#123;</span><br><span class="line">  state,</span><br><span class="line">  getters,</span><br><span class="line">  actions,</span><br><span class="line">  mutations,</span><br><span class="line">  moduls</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="State"><a href="#State" class="headerlink" title="State"></a>State</h4><p>state可以理解为你要操作的数据，即状态。注册在全局，则所有的组件都能访问到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const state = &#123;</span><br><span class="line">  count: 0,</span><br><span class="line">  message: &quot;hello&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当然了，虽然说注册在全局是为了方便所有的组件共享，如果谁都能对它进行修改，那也会产生非常混乱的局面。所以一般情况下，它是只读的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//组件使用单个state</span><br><span class="line">data () &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    count: this.$store.state.count</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>组件使用多个state，可使用mapState辅助函数,引入所有的state<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">compted : mapState(&#123;</span><br><span class="line">  count: state =&gt; state.count,</span><br><span class="line">  showMsg: state =&gt; state.message + &quot;world&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Getter"><a href="#Getter" class="headerlink" title="Getter"></a>Getter</h4><p>有时候需要对state的值进行一些额外的操作，比如上述例子中的showMsg<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">computed : &#123;</span><br><span class="line">  showMsg: () =&gt; this.$store.state.message + &quot;world&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果有多个组件都需要使用这条计算属性，那么就需要把这个计算过程也放到全局。</p>
+<p>vuex中的Getter方法就是放置state计算方法的地方<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const getters = &#123;</span><br><span class="line">  showMsg: state =&gt; state.message + &quot;world&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后只需要在需要调用这个方法的组件中这样写，非常方便<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">computed : &#123;</span><br><span class="line">  showMsg : ()&#123; this.$store.getter.showMsg &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>组件中使用多个getter，可以使用辅助函数mapGetters获取所有getter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">computed : mapGetters(&#123;</span><br><span class="line">  &quot;showMsg&quot;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="Mutation"><a href="#Mutation" class="headerlink" title="Mutation"></a>Mutation</h4><p>上面也说到了，为了防止state值的不可控，在业务组件内部是无法修改state的具体值的，那么我们应该如何修改这个state呢？</p>
+<p>这时候就需要<code>mutation</code>出场了。mutation是专门为了修改state而存在的工具，同时也是唯一修改state的方式。</p>
+<p>你可以把mutation理解为事件，在想要修改state的地方，使用<code>store.commit(&#39;事件名&#39;)</code>去提交一个mutation（这里注意只有在<code>action</code>中才能提交mutation，下文会讲到）</p>
+<p>比如说，我们想要对state.count执行+1的操作，那么就可以这么写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const mutations = &#123;</span><br><span class="line">  increase : state =&gt; state++</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在<code>action</code>中去提交<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const actions = &#123;</span><br><span class="line">  incres : (&#123; commit &#125;) =&gt; &#123;</span><br><span class="line">    commit (&quot;increase&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//上面是解构的写法，它相当于</span><br><span class="line">const actions = &#123;</span><br><span class="line">  incres : (contxt) =&gt; &#123;</span><br><span class="line">    //这个contxt是指上下文，这里是store本身</span><br><span class="line">    contxt.commit (&quot;increase&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>到现在为止都还没有把操作state的行为和组件联系起来，别着急，<code>action</code>来了</p>
+<h4 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h4><p><code>mutation</code>可以理解为操作<code>state</code>的“事件”机制，那么<code>action</code>就可以理解为操作<code>mutation</code>的“行为”机制。</p>
+<p>也就是说，<code>store.commit(&quot;mutation名&quot;)</code>只能在action中执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//还是上面的例子</span><br><span class="line">const actions = &#123;</span><br><span class="line">  incres : (&#123; commit &#125;) =&gt; &#123;</span><br><span class="line">    commit (&quot;increase&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个action的<code>incres</code>就可以在组件中使用了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//模板template</span><br><span class="line">&lt;button @click = &quot;incres&quot;&gt;state加1&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">//vue实例中的methods方法</span><br><span class="line">method : &#123;</span><br><span class="line">  incres: &#123;</span><br><span class="line">    this.$store.action.incres</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>组件中使用了多个action行为，可以使用辅助函数mapActions传入所有的action<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">method : mapActions(&#123;</span><br><span class="line">    &quot;incres&quot;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h4><p>当应用非常复杂时，我们还可以把整个store拆分成几个<code>模块（module）</code>，每个module中都可以含有<code>各自</code>的<code>state, getter, mutation, action</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const moduleA = &#123;</span><br><span class="line">  state : &#123;...&#125;,</span><br><span class="line">  getter: &#123;...&#125; ,</span><br><span class="line">  mutation: &#123;...&#125;,</span><br><span class="line">  actions: &#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const moduleB = &#123;</span><br><span class="line">  state : &#123;...&#125;,</span><br><span class="line">  getter: &#123;...&#125;,</span><br><span class="line">  mutation: &#123;...&#125;,</span><br><span class="line">  actions: &#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const moduleC = &#123;</span><br><span class="line">  state : &#123;...&#125;,</span><br><span class="line">  getter: &#123;...&#125; ,</span><br><span class="line">  mutation: &#123;...&#125;,</span><br><span class="line">  actions: &#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在全局中调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">new Vuex.Store (&#123;</span><br><span class="line">  modules : &#123;</span><br><span class="line">    a : moduleA,</span><br><span class="line">    b : moduleB,</span><br><span class="line">    c : moduleC,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>这样就能在全局中访问模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">store.state.a    //  moduleA的状态</span><br><span class="line">store.state.b    //  moduleB的状态</span><br></pre></td></tr></table></figure></p>
+<p>以上是VUEX简易版API，更多内容可以移步<a href="https://vuex.vuejs.org/zh-cn/" target="_blank" rel="noopener">vuex官网</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/03/27/2018-03-27前端工程师的SEO优化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1568,153 +1734,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/02/08/2018-02-08电子地图需求文档/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Try_Luies">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/try6.gitee.io/images/pic.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello JS">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/try6.gitee.io/2018/02/08/2018-02-08电子地图需求文档/" itemprop="url">电子地图需求文档</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-08T05:17:26+08:00">
-                2018-02-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/try6.gitee.io/2018/02/08/2018-02-08电子地图需求文档/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/02/08/2018-02-08电子地图需求文档/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/try6.gitee.io/2018/02/08/2018-02-08电子地图需求文档/" class="leancloud_visitors" data-flag-title="电子地图需求文档">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>今天是年前上班的最后一天，项目该发布的发布，该上线的上线，终于有了空来梳理所做的项目。</p>
-<p>由于在电子地图项目立项开始到现在，为了保证及时响应运维商的新需求，最初的需求文档已经和最终实现的功能有了较大的出入，所以本文作                 为电子地图项目的需求倒推整理，想要站在产品的角度，产出一份完成的需求，以降低将来项目转移的沟通成本和理解成本。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/try6.gitee.io/2018/02/08/2018-02-08电子地图需求文档/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1769,7 +1788,7 @@
               
                 <a href="/try6.gitee.io/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

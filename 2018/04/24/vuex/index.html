@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Han">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/try6.gitee.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/try6.gitee.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/try6.gitee.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/try6.gitee.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/try6.gitee.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/try6.gitee.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/try6.gitee.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="vue作为三大MVVM框架之一，一个核心竞争力就是它的组件机制。 而vuex可以理解为，针对大型项目组件通信的全局管理。 核心概念这里先介绍一下vuex中的几个核心概念，state, getter, mutation, action, module，在使用的时候需要注册在全局的store中1234567new Vuex.Store(&amp;#123;  state,  getters,  actions">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vuex简易版API">
+<meta property="og:url" content="http://try66.gitee.io/try6.gitee.io/2018/04/24/vuex/index.html">
+<meta property="og:site_name" content="Hello JS">
+<meta property="og:description" content="vue作为三大MVVM框架之一，一个核心竞争力就是它的组件机制。 而vuex可以理解为，针对大型项目组件通信的全局管理。 核心概念这里先介绍一下vuex中的几个核心概念，state, getter, mutation, action, module，在使用的时候需要注册在全局的store中1234567new Vuex.Store(&amp;#123;  state,  getters,  actions">
+<meta property="og:locale" content="zh-Han">
+<meta property="og:updated_time" content="2018-10-06T03:00:08.383Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vuex简易版API">
+<meta name="twitter:description" content="vue作为三大MVVM框架之一，一个核心竞争力就是它的组件机制。 而vuex可以理解为，针对大型项目组件通信的全局管理。 核心概念这里先介绍一下vuex中的几个核心概念，state, getter, mutation, action, module，在使用的时候需要注册在全局的store中1234567new Vuex.Store(&amp;#123;  state,  getters,  actions">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/try6.gitee.io/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://try66.gitee.io/try6.gitee.io/2018/04/24/vuex/"/>
+
+
+
+
+
+  <title>vuex简易版API | Hello JS</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cc7e3057efb482b0f56c29d2716384da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Han">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/try6.gitee.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello JS</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">所有的安排都是最好的</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/try6.gitee.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/try6.gitee.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/04/24/vuex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try_Luies">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/try6.gitee.io/images/pic.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello JS">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vuex简易版API</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-24T06:43:29+08:00">
+                2018-04-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/try6.gitee.io/2018/04/24/vuex/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/24/vuex/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/try6.gitee.io/2018/04/24/vuex/" class="leancloud_visitors" data-flag-title="vuex简易版API">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>vue作为三大MVVM框架之一，一个核心竞争力就是它的组件机制。</p>
+<p>而<a href="https://vuex.vuejs.org/zh-cn/intro.html" target="_blank" rel="noopener">vuex</a>可以理解为，针对大型项目组件通信的全局管理。</p>
+<h3 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h3><p>这里先介绍一下vuex中的几个核心概念，<code>state, getter, mutation, action, module</code>，在使用的时候需要注册在全局的<code>store</code>中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">new Vuex.Store(&#123;</span><br><span class="line">  state,</span><br><span class="line">  getters,</span><br><span class="line">  actions,</span><br><span class="line">  mutations,</span><br><span class="line">  moduls</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="State"><a href="#State" class="headerlink" title="State"></a>State</h4><p>state可以理解为你要操作的数据，即状态。注册在全局，则所有的组件都能访问到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const state = &#123;</span><br><span class="line">  count: 0,</span><br><span class="line">  message: &quot;hello&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当然了，虽然说注册在全局是为了方便所有的组件共享，如果谁都能对它进行修改，那也会产生非常混乱的局面。所以一般情况下，它是只读的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//组件使用单个state</span><br><span class="line">data () &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    count: this.$store.state.count</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>组件使用多个state，可使用mapState辅助函数,引入所有的state<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">compted : mapState(&#123;</span><br><span class="line">  count: state =&gt; state.count,</span><br><span class="line">  showMsg: state =&gt; state.message + &quot;world&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Getter"><a href="#Getter" class="headerlink" title="Getter"></a>Getter</h4><p>有时候需要对state的值进行一些额外的操作，比如上述例子中的showMsg<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">computed : &#123;</span><br><span class="line">  showMsg: () =&gt; this.$store.state.message + &quot;world&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果有多个组件都需要使用这条计算属性，那么就需要把这个计算过程也放到全局。</p>
+<p>vuex中的Getter方法就是放置state计算方法的地方<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const getters = &#123;</span><br><span class="line">  showMsg: state =&gt; state.message + &quot;world&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后只需要在需要调用这个方法的组件中这样写，非常方便<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">computed : &#123;</span><br><span class="line">  showMsg : ()&#123; this.$store.getter.showMsg &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>组件中使用多个getter，可以使用辅助函数mapGetters获取所有getter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">computed : mapGetters(&#123;</span><br><span class="line">  &quot;showMsg&quot;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="Mutation"><a href="#Mutation" class="headerlink" title="Mutation"></a>Mutation</h4><p>上面也说到了，为了防止state值的不可控，在业务组件内部是无法修改state的具体值的，那么我们应该如何修改这个state呢？</p>
+<p>这时候就需要<code>mutation</code>出场了。mutation是专门为了修改state而存在的工具，同时也是唯一修改state的方式。</p>
+<p>你可以把mutation理解为事件，在想要修改state的地方，使用<code>store.commit(&#39;事件名&#39;)</code>去提交一个mutation（这里注意只有在<code>action</code>中才能提交mutation，下文会讲到）</p>
+<p>比如说，我们想要对state.count执行+1的操作，那么就可以这么写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const mutations = &#123;</span><br><span class="line">  increase : state =&gt; state++</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在<code>action</code>中去提交<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const actions = &#123;</span><br><span class="line">  incres : (&#123; commit &#125;) =&gt; &#123;</span><br><span class="line">    commit (&quot;increase&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//上面是解构的写法，它相当于</span><br><span class="line">const actions = &#123;</span><br><span class="line">  incres : (contxt) =&gt; &#123;</span><br><span class="line">    //这个contxt是指上下文，这里是store本身</span><br><span class="line">    contxt.commit (&quot;increase&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>到现在为止都还没有把操作state的行为和组件联系起来，别着急，<code>action</code>来了</p>
+<h4 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h4><p><code>mutation</code>可以理解为操作<code>state</code>的“事件”机制，那么<code>action</code>就可以理解为操作<code>mutation</code>的“行为”机制。</p>
+<p>也就是说，<code>store.commit(&quot;mutation名&quot;)</code>只能在action中执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//还是上面的例子</span><br><span class="line">const actions = &#123;</span><br><span class="line">  incres : (&#123; commit &#125;) =&gt; &#123;</span><br><span class="line">    commit (&quot;increase&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个action的<code>incres</code>就可以在组件中使用了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//模板template</span><br><span class="line">&lt;button @click = &quot;incres&quot;&gt;state加1&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">//vue实例中的methods方法</span><br><span class="line">method : &#123;</span><br><span class="line">  incres: &#123;</span><br><span class="line">    this.$store.action.incres</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>组件中使用了多个action行为，可以使用辅助函数mapActions传入所有的action<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">method : mapActions(&#123;</span><br><span class="line">    &quot;incres&quot;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h4><p>当应用非常复杂时，我们还可以把整个store拆分成几个<code>模块（module）</code>，每个module中都可以含有<code>各自</code>的<code>state, getter, mutation, action</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const moduleA = &#123;</span><br><span class="line">  state : &#123;...&#125;,</span><br><span class="line">  getter: &#123;...&#125; ,</span><br><span class="line">  mutation: &#123;...&#125;,</span><br><span class="line">  actions: &#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const moduleB = &#123;</span><br><span class="line">  state : &#123;...&#125;,</span><br><span class="line">  getter: &#123;...&#125;,</span><br><span class="line">  mutation: &#123;...&#125;,</span><br><span class="line">  actions: &#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const moduleC = &#123;</span><br><span class="line">  state : &#123;...&#125;,</span><br><span class="line">  getter: &#123;...&#125; ,</span><br><span class="line">  mutation: &#123;...&#125;,</span><br><span class="line">  actions: &#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在全局中调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">new Vuex.Store (&#123;</span><br><span class="line">  modules : &#123;</span><br><span class="line">    a : moduleA,</span><br><span class="line">    b : moduleB,</span><br><span class="line">    c : moduleC,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>这样就能在全局中访问模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">store.state.a    //  moduleA的状态</span><br><span class="line">store.state.b    //  moduleB的状态</span><br></pre></td></tr></table></figure></p>
+<p>以上是VUEX简易版API，更多内容可以移步<a href="https://vuex.vuejs.org/zh-cn/" target="_blank" rel="noopener">vuex官网</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Try_Luies WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Try_Luies Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/try6.gitee.io/2018/03/27/2018-03-27前端工程师的SEO优化/" rel="next" title="前端工程师的SEO优化">
+                <i class="fa fa-chevron-left"></i> 前端工程师的SEO优化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/try6.gitee.io/2018/05/24/2018-05-10Sass概览/" rel="prev" title="Sass概览">
+                Sass概览 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/try6.gitee.io/images/pic.jpg"
+                alt="Try_Luies" />
+            
+              <p class="site-author-name" itemprop="name">Try_Luies</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/try6.gitee.io/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/try6" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-GitHub"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/7a6944daafc3" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="www.baidu.com" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-微博"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#核心概念"><span class="nav-number">1.</span> <span class="nav-text">核心概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#State"><span class="nav-number">1.1.</span> <span class="nav-text">State</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Getter"><span class="nav-number">1.2.</span> <span class="nav-text">Getter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mutation"><span class="nav-number">1.3.</span> <span class="nav-text">Mutation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Action"><span class="nav-number">1.4.</span> <span class="nav-text">Action</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Module"><span class="nav-number">1.5.</span> <span class="nav-text">Module</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Try_Luies</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/try6.gitee.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/try6.gitee.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/try6.gitee.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/try6.gitee.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/try6.gitee.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://try.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://try66.gitee.io/try6.gitee.io/2018/04/24/vuex/';
+          this.page.identifier = '2018/04/24/vuex/';
+          this.page.title = 'vuex简易版API';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://try.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
