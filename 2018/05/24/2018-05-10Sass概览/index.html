@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Han">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/try6.gitee.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/try6.gitee.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/try6.gitee.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/try6.gitee.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/try6.gitee.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/try6.gitee.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/try6.gitee.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="sass英文官方网站sass中文网 虽然有完整的API，还是尝试着自己翻译了一下，翻译自sass英文官方网站 sass入门在你使用Sass之前，你需要先在你的项目中安装。如果你只是想浏览一下，那么请继续，但是我们建议你先去安装sass。安装教程请点击这里">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass概览">
+<meta property="og:url" content="http://try66.gitee.io/try6.gitee.io/2018/05/24/2018-05-10Sass概览/index.html">
+<meta property="og:site_name" content="Hello JS">
+<meta property="og:description" content="sass英文官方网站sass中文网 虽然有完整的API，还是尝试着自己翻译了一下，翻译自sass英文官方网站 sass入门在你使用Sass之前，你需要先在你的项目中安装。如果你只是想浏览一下，那么请继续，但是我们建议你先去安装sass。安装教程请点击这里">
+<meta property="og:locale" content="zh-Han">
+<meta property="og:updated_time" content="2018-08-16T13:06:56.584Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sass概览">
+<meta name="twitter:description" content="sass英文官方网站sass中文网 虽然有完整的API，还是尝试着自己翻译了一下，翻译自sass英文官方网站 sass入门在你使用Sass之前，你需要先在你的项目中安装。如果你只是想浏览一下，那么请继续，但是我们建议你先去安装sass。安装教程请点击这里">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/try6.gitee.io/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://try66.gitee.io/try6.gitee.io/2018/05/24/2018-05-10Sass概览/"/>
+
+
+
+
+
+  <title>Sass概览 | Hello JS</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cc7e3057efb482b0f56c29d2716384da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Han">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/try6.gitee.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello JS</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">所有的安排都是最好的</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/try6.gitee.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/try6.gitee.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/05/24/2018-05-10Sass概览/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try_Luies">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/try6.gitee.io/images/pic.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello JS">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Sass概览</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-24T05:55:11+08:00">
+                2018-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/try6.gitee.io/2018/05/24/2018-05-10Sass概览/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/05/24/2018-05-10Sass概览/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/try6.gitee.io/2018/05/24/2018-05-10Sass概览/" class="leancloud_visitors" data-flag-title="Sass概览">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://sass.bootcss.com/docs/guide/" target="_blank" rel="noopener">sass英文官方网站</a><br><a href="https://www.sass.hk/guide/" target="_blank" rel="noopener">sass中文网</a></p>
+<p>虽然有完整的API，还是尝试着自己翻译了一下，翻译自<a href="http://sass.bootcss.com/docs/guide/" target="_blank" rel="noopener">sass英文官方网站</a></p>
+<h3 id="sass入门"><a href="#sass入门" class="headerlink" title="sass入门"></a>sass入门</h3><p>在你使用Sass之前，你需要先在你的项目中安装。如果你只是想浏览一下，那么请继续，但是我们建议你先去安装sass。安装教程请<a href="https://www.sass.hk/install/" target="_blank" rel="noopener">点击这里</a><br><a id="more"></a></p>
+<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>css本身很有意思，然而随着样式表变的越来越庞大，越来越复杂，它也变得越来越难以维护。所以css预处理器就应运而生。你可以使用一些在css中不存在的Sass特性，如变量、嵌套、混合、继承以及其他漂亮的功能，使css再次充满活力</p>
+<p>在Sass完成开发后，sass文件能够被编译为正常的css文件运行在你的网页中</p>
+<h4 id="变量（Variables）"><a href="#变量（Variables）" class="headerlink" title="变量（Variables）"></a>变量（Variables）</h4><p>变量是用来存储你想要复用的样式信息。你可以存储像颜色、字体字号以及任何你想复用的css值。Sass使用<code>$</code>作为变量标志，示例如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$highlight-color: #F90;</span><br><span class="line">nav &#123;</span><br><span class="line">  color: $highlight-color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当Sass文件被编译后，我们定义的变量<code>$highlight-color</code>会生成常规的css值，放于我们使用的地方。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//编译后</span><br><span class="line">nav &#123;</span><br><span class="line">  color: #F90;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当我们在全局修改<code>$highlight-color</code>的值时，所有使用了这个变量的地方值都会发生相应改变</p>
+<h4 id="嵌套（Nesting）"><a href="#嵌套（Nesting）" class="headerlink" title="嵌套（Nesting）"></a>嵌套（Nesting）</h4><p>我们在写HTML的时候会注意到它有很清晰的嵌套结构和层次。而在写对应的css却没有。Sass允许你把css选择器，按照html的层次进行嵌套。这里有一个典型的导航案例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">nav &#123;</span><br><span class="line">  height: 200px;</span><br><span class="line">  ul &#123;</span><br><span class="line">    height: 100%;</span><br><span class="line">    li &#123;</span><br><span class="line">      width: 40px;</span><br><span class="line">      float: left;</span><br><span class="line">      a &#123;</span><br><span class="line">          color: #ddd;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>相信你已经注意到，<code>ul</code>,’li’和<code>a</code>选择器被嵌套进了<code>nav</code>选择器中。这是组织css非常好的一个方式，并且让css变得更容易阅读。当你编译生成css后你会得到如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">nav &#123;</span><br><span class="line">  height: 200px;</span><br><span class="line">&#125;</span><br><span class="line">nav ul &#123;</span><br><span class="line">  height: 100%;</span><br><span class="line">&#125;</span><br><span class="line">nav ul li &#123;</span><br><span class="line">  width: 40px;</span><br><span class="line">&#125;</span><br><span class="line">nav ul li a &#123;</span><br><span class="line">  color: #ddd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Partials"><a href="#Partials" class="headerlink" title="Partials"></a>Partials</h4><p>你可以创建一个包含css代码片段的partials Sass文件，用于导入其他Sass文件。这有助于模块化你的css，使其更易于维护。一个Partial只不过是一个以下划线开头命名的Sass文件。你可以将其命名为<code>_partial.scss</code>等。这个下划线可以让sass知道这个文件只是一个partial文件，它会被一个css文件引用，并不把它单独作为一个文件输出。sass partials使用<code>@import</code>指令被引入到其他模块</p>
+<h4 id="导入（Import）"><a href="#导入（Import）" class="headerlink" title="导入（Import）"></a>导入（Import）</h4><p>css有引入的操作，可以将项目的css文件拆分为一个个模块，每个模块都可以十分精简且易于维护。唯一的缺点就是每当你在页面中引入一个css，它都会创建一个HTTP请求。Sass在css的基础上开发的<code>@import</code>不会额外发起请求，它会把引入和被引入的文件结合为一个文件，所以在你的网页中只需要发起一个css请求。</p>
+<p>我们可以这么说，你有两个Sass文件，<code>_reset.scss</code>和<code>base.scss</code>。我们想把<code>_reset.scss</code>导入到<code>base.scss</code>中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@import &apos;reset&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>请注意，我们是在<code>base.scss</code>中使用<code>@import &#39;reset&#39;;</code>当我们引入一个文件时不需要制定后缀<code>.scss</code>。Sass非常聪明，它会自动识别。当以执行编译操作时，你就会得到你想要的css文件</p>
+<h4 id="混合（Mixins）"><a href="#混合（Mixins）" class="headerlink" title="混合（Mixins）"></a>混合（Mixins）</h4><p>在css中总是出现代码冗余的情况，特别是当你使用css3时存在很多前缀。使用混合器能帮助你把项目中想要复用的css代码段合并。你甚至能通过使用变量替换值使你的混合器更加灵活。对于自动前缀来说混合器是一个很好的简化代码方式，这里有一个关于<code>rounded-corners</code>的例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@mixin rounded-corners &#123;</span><br><span class="line">  -moz-border-radius: 5px;</span><br><span class="line">  -webkit-border-radius: 5px;</span><br><span class="line">  border-radius: 5px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">notice &#123;</span><br><span class="line">  background-color: green;</span><br><span class="line">  border: 2px solid #00aa00;</span><br><span class="line">  @include rounded-corners;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>你需要使用<code>@mixin</code>指令来创建一个混合器，并为其取一个名字。我们将这个混合器命名为<code>border-raduis</code>。我们也可以在函数括号中使用变量<code>$radius</code>，这样可以指定任意你想要的值。创建完混合器之后，接下来你就像使用一个css声明一样，在混合器名称之后配合<code>@include</code>使用它。生成css的文件如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.notice &#123;</span><br><span class="line">  background-color: green;</span><br><span class="line">  border: 2px solid #00aa00;</span><br><span class="line">  -moz-border-radius: 5px;</span><br><span class="line">  -webkit-border-radius: 5px;</span><br><span class="line">  border-radius: 5px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="扩展和继承（Extend-Inheritance）"><a href="#扩展和继承（Extend-Inheritance）" class="headerlink" title="扩展和继承（Extend/Inheritance）"></a>扩展和继承（Extend/Inheritance）</h4><p>这是Sass中最有用的特性之一。使用<code>@extend</code>可以使一个选择器的css属性分享给另一个选择器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.message &#123;</span><br><span class="line">  font-size: 14px;</span><br><span class="line">  float: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.success &#123;</span><br><span class="line">  color: green;</span><br><span class="line">  @extend .message;</span><br><span class="line">&#125;</span><br><span class="line">.error &#123;</span><br><span class="line">  color: red;</span><br><span class="line">  @extend .message;</span><br><span class="line">&#125;</span><br><span class="line">.warning &#123;</span><br><span class="line">  color: orange;</span><br><span class="line">  @extend .message;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上述代码是把<code>.message</code>中的css属性应用于<code>.success</code>、<code>.error</code>和<code>warning</code>中。生成的css文件中就发生了奇迹，这有助于我们避免去编写大量的html类名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.success &#123;</span><br><span class="line">  color: green;</span><br><span class="line">  font-size: 14px;</span><br><span class="line">  float: left;</span><br><span class="line">&#125;</span><br><span class="line">.error &#123;</span><br><span class="line">  color: red;</span><br><span class="line">  font-size: 14px;</span><br><span class="line">  float: left;</span><br><span class="line">&#125;</span><br><span class="line">.warning &#123;</span><br><span class="line">  color: orange;</span><br><span class="line">  font-size: 14px;</span><br><span class="line">  float: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="操作符（Operators）"><a href="#操作符（Operators）" class="headerlink" title="操作符（Operators）"></a>操作符（Operators）</h4><p>在css中运用数学非常实用。Sass存在一些数学操作符标准，如<code>+</code>,<code>-</code>,<code>*</code>,<code>/</code>和<code>%</code>。在例子中我们会做一些简单的数学运算，使用<code>aside</code>&amp;<code>article</code>来计算宽度。Sass会在不同单位间转换值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p &#123;</span><br><span class="line">  width: 1in + 8pt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编译为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p &#123;</span><br><span class="line">  width: 1.111in; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Try_Luies WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Try_Luies Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/try6.gitee.io/2018/04/24/vuex/" rel="next" title="vuex简易版API">
+                <i class="fa fa-chevron-left"></i> vuex简易版API
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/try6.gitee.io/2018/07/18/2018-07-18固定宽高，动态图片自适应容器问题/" rel="prev" title="固定宽高，动态图片自适应容器问题">
+                固定宽高，动态图片自适应容器问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/try6.gitee.io/images/pic.jpg"
+                alt="Try_Luies" />
+            
+              <p class="site-author-name" itemprop="name">Try_Luies</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/try6.gitee.io/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/try6" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-GitHub"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/7a6944daafc3" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="www.baidu.com" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-微博"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#sass入门"><span class="nav-number">1.</span> <span class="nav-text">sass入门</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#写在前面"><span class="nav-number">1.1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量（Variables）"><span class="nav-number">1.2.</span> <span class="nav-text">变量（Variables）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌套（Nesting）"><span class="nav-number">1.3.</span> <span class="nav-text">嵌套（Nesting）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Partials"><span class="nav-number">1.4.</span> <span class="nav-text">Partials</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导入（Import）"><span class="nav-number">1.5.</span> <span class="nav-text">导入（Import）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#混合（Mixins）"><span class="nav-number">1.6.</span> <span class="nav-text">混合（Mixins）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展和继承（Extend-Inheritance）"><span class="nav-number">1.7.</span> <span class="nav-text">扩展和继承（Extend/Inheritance）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作符（Operators）"><span class="nav-number">1.8.</span> <span class="nav-text">操作符（Operators）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Try_Luies</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/try6.gitee.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/try6.gitee.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/try6.gitee.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/try6.gitee.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/try6.gitee.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://try.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://try66.gitee.io/try6.gitee.io/2018/05/24/2018-05-10Sass概览/';
+          this.page.identifier = '2018/05/24/2018-05-10Sass概览/';
+          this.page.title = 'Sass概览';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://try.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Han">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/try6.gitee.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/try6.gitee.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/try6.gitee.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/try6.gitee.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/try6.gitee.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/try6.gitee.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/try6.gitee.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="seo就是搜索引擎优化，通过优化手段让搜索引擎更加高效地抓去到你的页面，从而在搜索结果中排前。当然了，对于度娘来说，钱是最好的优化方法（手动滑稽） 既然要考虑如何做好SEO，那么首先就要理解网络爬虫这只“小蜘蛛”的是按照什么样的规则去抓去页面，我们就能针对性地作出能吸引“小蜘蛛”过来“觅食”的反应">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端工程师的SEO优化">
+<meta property="og:url" content="http://try66.gitee.io/try6.gitee.io/2018/03/27/2018-03-27前端工程师的SEO优化/index.html">
+<meta property="og:site_name" content="Hello JS">
+<meta property="og:description" content="seo就是搜索引擎优化，通过优化手段让搜索引擎更加高效地抓去到你的页面，从而在搜索结果中排前。当然了，对于度娘来说，钱是最好的优化方法（手动滑稽） 既然要考虑如何做好SEO，那么首先就要理解网络爬虫这只“小蜘蛛”的是按照什么样的规则去抓去页面，我们就能针对性地作出能吸引“小蜘蛛”过来“觅食”的反应">
+<meta property="og:locale" content="zh-Han">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2865721-0520ee4543a6a698.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2865721-3c7399d55889f6fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2865721-64a8a3761c183d40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2865721-a0d6c2d9c55ec1f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2865721-c634174a4b5a2471.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2865721-2ec3a61ea370cb7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-08-02T00:26:38.609Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端工程师的SEO优化">
+<meta name="twitter:description" content="seo就是搜索引擎优化，通过优化手段让搜索引擎更加高效地抓去到你的页面，从而在搜索结果中排前。当然了，对于度娘来说，钱是最好的优化方法（手动滑稽） 既然要考虑如何做好SEO，那么首先就要理解网络爬虫这只“小蜘蛛”的是按照什么样的规则去抓去页面，我们就能针对性地作出能吸引“小蜘蛛”过来“觅食”的反应">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2865721-0520ee4543a6a698.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/try6.gitee.io/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://try66.gitee.io/try6.gitee.io/2018/03/27/2018-03-27前端工程师的SEO优化/"/>
+
+
+
+
+
+  <title>前端工程师的SEO优化 | Hello JS</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cc7e3057efb482b0f56c29d2716384da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Han">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/try6.gitee.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello JS</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">所有的安排都是最好的</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/try6.gitee.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/try6.gitee.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/03/27/2018-03-27前端工程师的SEO优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try_Luies">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/try6.gitee.io/images/pic.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello JS">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端工程师的SEO优化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-27T04:55:46+08:00">
+                2018-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/try6.gitee.io/2018/03/27/2018-03-27前端工程师的SEO优化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/27/2018-03-27前端工程师的SEO优化/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/try6.gitee.io/2018/03/27/2018-03-27前端工程师的SEO优化/" class="leancloud_visitors" data-flag-title="前端工程师的SEO优化">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/2865721-0520ee4543a6a698.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""> </p>
+<p>seo就是搜索引擎优化，通过优化手段让搜索引擎更加高效地抓去到你的页面，从而在搜索结果中排前。当然了，对于度娘来说，钱是最好的优化方法（手动滑稽）</p>
+<p>既然要考虑如何做好SEO，那么首先就要理解网络爬虫这只“小蜘蛛”的是按照什么样的规则去抓去页面，我们就能针对性地作出能吸引“小蜘蛛”过来“觅食”的反应</p>
+<a id="more"></a>
+<h2 id="网络爬虫爬取规则"><a href="#网络爬虫爬取规则" class="headerlink" title="网络爬虫爬取规则"></a>网络爬虫爬取规则</h2><h4 id="一、内容原创"><a href="#一、内容原创" class="headerlink" title="一、内容原创"></a>一、内容原创</h4><p>这是最重要的一点，以百度为例，爬虫每天进行运作，都会记录它爬过的内容性质，那么就会对抓取内容进行筛选。独一无二的文章内容就是蜘蛛最喜欢的“食物”。</p>
+<h4 id="二、内容之间的相关性"><a href="#二、内容之间的相关性" class="headerlink" title="二、内容之间的相关性"></a>二、内容之间的相关性</h4><p>蜘蛛对我们的内容并没有理解性，它只会对词语或句子进行判断。拿现在的百度来说，网站的内容越具有相关性，或者文章的内容和标题越具有相关性。被收录的可能性就越大</p>
+<h4 id="三、抓取顺序，从上到下，从左到右，广度遍历"><a href="#三、抓取顺序，从上到下，从左到右，广度遍历" class="headerlink" title="三、抓取顺序，从上到下，从左到右，广度遍历"></a>三、抓取顺序，从上到下，从左到右，广度遍历</h4><p>爬虫对页面的爬取顺序是从上到下，从左到右的，先爬取的部分权重更高。而且，大部分情况下爬虫会优先爬取第一层级页面内容，再去爬取第二层级，依次往下（也存在优先爬取纵深的算法，不过并不常见）。越往后元素的权重就越小。</p>
+<h4 id="四、工作机制"><a href="#四、工作机制" class="headerlink" title="四、工作机制"></a>四、工作机制</h4><p>还是以百度为例，通过百度蜘蛛拿到的页面先放到补充数据区，再通过各种程序的计算，比如对比整站内容、多次爬取对比自身内容等，再放入检索区，再形成相对稳定的排名</p>
+<p>通过以上分析可得，要想推广一个网站，少不了对这个网站的运营，比如保持更新频率，站外引流，持续添加站内引流信息等等。作为一个优秀前端工程师，在开发网站的时候就需要保持对SEO的敏感性。下面我将从<code>网页布局优化</code>和<code>代码优化</code>两个角度分析我们在开发的时候可以对SEO优化这个步骤做哪些事情。</p>
+<h2 id="网页布局优化"><a href="#网页布局优化" class="headerlink" title="网页布局优化"></a>网页布局优化</h2><h4 id="扁平化结构"><a href="#扁平化结构" class="headerlink" title="扁平化结构"></a>扁平化结构</h4><p>顾名思义，在设计网站整体架构的时候，层级不要过于复杂。通常蜘蛛最多爬取到三层，再往下效率就非常低了。</p>
+<h4 id="控制网站首页链接的数量"><a href="#控制网站首页链接的数量" class="headerlink" title="控制网站首页链接的数量"></a>控制网站首页链接的数量</h4><p>链接数量不要太少，保证和其他页面的相关性；也不要太多，增加爬虫的负担。通常在100以内即可</p>
+<h4 id="导航优化"><a href="#导航优化" class="headerlink" title="导航优化"></a>导航优化</h4><p>最好使用文字作为导航，更易被蜘蛛识别。如果一定要使用图片链接，一定要加上<code>alt</code>和<code>title</code>属性进行说明。</p>
+<p>使用<code>面包屑导航</code>，不仅提高用户体验，还能增大页面间的相关性</p>
+<h4 id="页面大小"><a href="#页面大小" class="headerlink" title="页面大小"></a>页面大小</h4><p>页面体积不要过大</p>
+<h4 id="其他细节"><a href="#其他细节" class="headerlink" title="其他细节"></a>其他细节</h4><p>在各种细节注意页面的相关性以及页面的层级复杂程度</p>
+<p>以翻页控件为例，我们通常可以见到三种实现方式</p>
+<ul>
+<li>第一种：【上一页】【当前页码】【下一页】。对爬虫来说，每一页都是一个纵深层级</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/2865721-3c7399d55889f6fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>第二种：【上一页】[1][2][3][4]…【下一页】。比上一种方案要好，对部分页码进行平铺，当前页码和周围页码相差一个层级</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/2865721-64a8a3761c183d40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>第三种：【页码】【下拉框】。通过下拉框选择页数。所有页面都在下一个层级，对蜘蛛最友好（当然这种方案对用户体验就不太友好了【摊手】）</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/2865721-a0d6c2d9c55ec1f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h2><h4 id="语义化标签"><a href="#语义化标签" class="headerlink" title="语义化标签"></a>语义化标签</h4><p>小蜘蛛也是认识标签的，h5新增的许多语义化标签都可以被小蜘蛛识别，并且有不同的权重值</p>
+<p>比如小蜘蛛看到<code>h1</code>标签就知道这是网站的标题，一定包裹了重要的信息，看到<code>P</code>就知道是正文，看到<code>strong</code>就知道是强调内容，等等等等，和整个页面都是div搭建起来相比，语义化标签无疑让小蜘蛛走的更加顺利，让他知道什么是重点。</p>
+<p>这里容易被忽略的一点是，<code>br</code>的含义是文本回车，所以不要为了空行而在标签之间写上<code>br</code>。</p>
+<ul>
+<li><p>错误写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&lt;/div&gt;&lt;/br&gt;&lt;/br&gt;</span><br><span class="line">&lt;div&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>正确写法（慕课网案例）</p>
+</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/2865721-c634174a4b5a2471.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="标题，关键字，描述"><a href="#标题，关键字，描述" class="headerlink" title="标题，关键字，描述"></a>标题，关键字，描述</h4><p>页面的标题、关键字、描述也是优先爬取的内容，并且如果他们之间，以及他们和网站内容之间的的相关性越大，就会越容易被收录</p>
+<p>慕课网关键字和描述信息</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2865721-2ec3a61ea370cb7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><ol>
+<li><p>添加a标签的rel属性用于描述链接，增强页面内部相关性。如果是需要爬取的外部链接，写成<code>nofollow</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">用于meta元标签：&lt;meta name=&quot;robots&quot; content=&quot;nofollow&quot; /&gt;</span><br><span class="line">//告诉爬虫该页面上所有链接都无需追踪。</span><br><span class="line"></span><br><span class="line">用于a标签：&lt;a href=&quot;login.aspx&quot; rel=&quot;nofollow&quot;&gt;登录&lt;/a&gt;</span><br><span class="line">//告诉爬虫该页面无需追踪。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>页面重要的部分放在前面。比如一个网站，布局为广告位位于左侧，正文位于右侧，html结果也最好把广告位放在下方，通过浮动设置到左侧</p>
+</li>
+<li>重要信息不要使用js输出</li>
+<li>不使用<code>iframe</code>，爬虫获取不到其中的信息</li>
+<li>爬虫会过滤样式为<code>display:none</code>的部分</li>
+</ol>
+<h3 id="其它Tips"><a href="#其它Tips" class="headerlink" title="其它Tips"></a>其它Tips</h3><ol>
+<li>重要内容放在前面</li>
+<li>不要使用js输出重要内容</li>
+<li>不使用iframe</li>
+<li>display:none属性会过滤</li>
+</ol>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p><code>网页布局优化</code>和<code>代码优化</code>是从前端开发的角度实现SEO。可以更加直观地这样理解 ：我们的目的就是吸引这只“小蜘蛛”过来“吃东西”。</p>
+<ul>
+<li>首先，我们要放出它喜欢的食物，即原创内容</li>
+<li>其次，让它知道我们这里有许许多多相互关联的食物，让它呆的久一点，即内容具有相关性</li>
+<li>然后呢，还要考虑到它的用户体验，让它寻找食物的路更加顺利，这一步就是合理的页面排版和结构，以及它能够识别的信息</li>
+<li>最后，就是保证重要的信息让小蜘蛛能吃到，并且优先吃到，即考虑到元素设置的权重</li>
+</ul>
+<p>对于一些推广需求强的商业性网站，前端工程师在开发的时候需要养成良好的开发习惯，把seo优化作为一种规范。这是整个站点搜索引擎优化的有力武器。</p>
+<blockquote>
+<p>参考资料：<br><a href="http://www.wm23.com/wiki/120812.htm" target="_blank" rel="noopener">百度蜘蛛抓取规则</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Try_Luies WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Try_Luies Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/try6.gitee.io/2018/03/14/2018-03-14写给不愿改变的传统行业/" rel="next" title="写给不愿改变的传统行业">
+                <i class="fa fa-chevron-left"></i> 写给不愿改变的传统行业
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/try6.gitee.io/2018/04/24/vuex/" rel="prev" title="vuex简易版API">
+                vuex简易版API <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/try6.gitee.io/images/pic.jpg"
+                alt="Try_Luies" />
+            
+              <p class="site-author-name" itemprop="name">Try_Luies</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/try6.gitee.io/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/try6" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-GitHub"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/7a6944daafc3" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="www.baidu.com" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-微博"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络爬虫爬取规则"><span class="nav-number">1.</span> <span class="nav-text">网络爬虫爬取规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、内容原创"><span class="nav-number">1.0.1.</span> <span class="nav-text">一、内容原创</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、内容之间的相关性"><span class="nav-number">1.0.2.</span> <span class="nav-text">二、内容之间的相关性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、抓取顺序，从上到下，从左到右，广度遍历"><span class="nav-number">1.0.3.</span> <span class="nav-text">三、抓取顺序，从上到下，从左到右，广度遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、工作机制"><span class="nav-number">1.0.4.</span> <span class="nav-text">四、工作机制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网页布局优化"><span class="nav-number">2.</span> <span class="nav-text">网页布局优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#扁平化结构"><span class="nav-number">2.0.1.</span> <span class="nav-text">扁平化结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制网站首页链接的数量"><span class="nav-number">2.0.2.</span> <span class="nav-text">控制网站首页链接的数量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导航优化"><span class="nav-number">2.0.3.</span> <span class="nav-text">导航优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#页面大小"><span class="nav-number">2.0.4.</span> <span class="nav-text">页面大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他细节"><span class="nav-number">2.0.5.</span> <span class="nav-text">其他细节</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码优化"><span class="nav-number">3.</span> <span class="nav-text">代码优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语义化标签"><span class="nav-number">3.0.1.</span> <span class="nav-text">语义化标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标题，关键字，描述"><span class="nav-number">3.0.2.</span> <span class="nav-text">标题，关键字，描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他"><span class="nav-number">3.0.3.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它Tips"><span class="nav-number">3.1.</span> <span class="nav-text">其它Tips</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">3.2.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Try_Luies</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/try6.gitee.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/try6.gitee.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/try6.gitee.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/try6.gitee.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/try6.gitee.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://try.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://try66.gitee.io/try6.gitee.io/2018/03/27/2018-03-27前端工程师的SEO优化/';
+          this.page.identifier = '2018/03/27/2018-03-27前端工程师的SEO优化/';
+          this.page.title = '前端工程师的SEO优化';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://try.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

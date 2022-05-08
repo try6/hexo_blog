@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Han">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/try6.gitee.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/try6.gitee.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/try6.gitee.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/try6.gitee.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/try6.gitee.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/try6.gitee.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/try6.gitee.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="掘金传送门： 一年前端面试打怪升级之路（一） 一年前端面试打怪升级之路（二） 题外话：前面两篇文章掘金评论下展开了热烈的讨论，让我深切感受到掘金社区技术氛围的浓厚，同时也很感谢各位大佬对文章中的问题进行答疑解惑，感觉本菜鸟的前端经验值进度条又涨了不少~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一年前端面试打怪升级之路（三）">
+<meta property="og:url" content="http://try66.gitee.io/try6.gitee.io/2018/03/05/2018-03-01一年前端面试打怪升级之路（三）/index.html">
+<meta property="og:site_name" content="Hello JS">
+<meta property="og:description" content="掘金传送门： 一年前端面试打怪升级之路（一） 一年前端面试打怪升级之路（二） 题外话：前面两篇文章掘金评论下展开了热烈的讨论，让我深切感受到掘金社区技术氛围的浓厚，同时也很感谢各位大佬对文章中的问题进行答疑解惑，感觉本菜鸟的前端经验值进度条又涨了不少~">
+<meta property="og:locale" content="zh-Han">
+<meta property="og:updated_time" content="2018-08-02T00:26:38.608Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一年前端面试打怪升级之路（三）">
+<meta name="twitter:description" content="掘金传送门： 一年前端面试打怪升级之路（一） 一年前端面试打怪升级之路（二） 题外话：前面两篇文章掘金评论下展开了热烈的讨论，让我深切感受到掘金社区技术氛围的浓厚，同时也很感谢各位大佬对文章中的问题进行答疑解惑，感觉本菜鸟的前端经验值进度条又涨了不少~">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/try6.gitee.io/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://try66.gitee.io/try6.gitee.io/2018/03/05/2018-03-01一年前端面试打怪升级之路（三）/"/>
+
+
+
+
+
+  <title>一年前端面试打怪升级之路（三） | Hello JS</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cc7e3057efb482b0f56c29d2716384da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Han">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/try6.gitee.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello JS</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">所有的安排都是最好的</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/try6.gitee.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/try6.gitee.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/03/05/2018-03-01一年前端面试打怪升级之路（三）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try_Luies">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/try6.gitee.io/images/pic.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello JS">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">一年前端面试打怪升级之路（三）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T05:04:53+08:00">
+                2018-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/try6.gitee.io/2018/03/05/2018-03-01一年前端面试打怪升级之路（三）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/05/2018-03-01一年前端面试打怪升级之路（三）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/try6.gitee.io/2018/03/05/2018-03-01一年前端面试打怪升级之路（三）/" class="leancloud_visitors" data-flag-title="一年前端面试打怪升级之路（三）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>掘金传送门：</p>
+<p><a href="https://juejin.im/post/5a98a8be518825556140ad4c" target="_blank" rel="noopener">一年前端面试打怪升级之路（一）</a></p>
+<p><a href="https://juejin.im/post/5a97d4fff265da2393767d7b" target="_blank" rel="noopener">一年前端面试打怪升级之路（二）</a></p>
+<p>题外话：前面两篇文章掘金评论下展开了热烈的讨论，让我深切感受到掘金社区技术氛围的浓厚，同时也很感谢各位大佬对文章中的问题进行答疑解惑，感觉本菜鸟的前端经验值进度条又涨了不少~</p>
+<a id="more"></a>
+<p>之后面试了一家知名上市通信公司，一家A轮初创企业，一家跨境电商，其实有不少问题和前面的有重复，所以我会挑取其中有分享意义的部分，并且放在一个篇幅下。</p>
+<p>其中跨境电商问的技术问题也不多，主要是想要了解我会使用哪些技术，然后针对做过的项目做了一些提问，两个面试官哥哥好像半小时不到就开始互相干瞪眼，没什么要问我了。。在我猜测我应该是GG了的时候，hr姐姐又进来了，拉着我聊了将近1个多小时。</p>
+<h2 id="通信公司"><a href="#通信公司" class="headerlink" title="通信公司"></a>通信公司</h2><p>技术面+hr面，历时2个多小时</p>
+<p>第一次遇到女性技术面试官，面试中全程板着脸，不太敢皮了，把我给紧张的…</p>
+<h4 id="项目问题"><a href="#项目问题" class="headerlink" title="项目问题"></a>项目问题</h4><p>由于公司与我上家公司所在业务类似，所以对我所做的项目做了很多追问。这部分还是无压力的，每个人的项目都有自己不同的回答角度，答案并不是重点，重要的是有自己的思考过程</p>
+<h5 id="1-项目用了什么技术？为什么要做这样的技术选型"><a href="#1-项目用了什么技术？为什么要做这样的技术选型" class="headerlink" title="1. 项目用了什么技术？为什么要做这样的技术选型"></a>1. 项目用了什么技术？为什么要做这样的技术选型</h5><h5 id="2-（针对一个纯数据展示的地图平台）讲一下项目的数据流走向和传递"><a href="#2-（针对一个纯数据展示的地图平台）讲一下项目的数据流走向和传递" class="headerlink" title="2. （针对一个纯数据展示的地图平台）讲一下项目的数据流走向和传递"></a>2. （针对一个纯数据展示的地图平台）讲一下项目的数据流走向和传递</h5><h5 id="3-期间遇到过什么难题，你是怎么解决的"><a href="#3-期间遇到过什么难题，你是怎么解决的" class="headerlink" title="3. 期间遇到过什么难题，你是怎么解决的"></a>3. 期间遇到过什么难题，你是怎么解决的</h5><h5 id="4-你觉得这个项目最复杂的地方在哪里"><a href="#4-你觉得这个项目最复杂的地方在哪里" class="headerlink" title="4. 你觉得这个项目最复杂的地方在哪里"></a>4. 你觉得这个项目最复杂的地方在哪里</h5><h5 id="5-你们部门的开发流程是怎样的"><a href="#5-你们部门的开发流程是怎样的" class="headerlink" title="5. 你们部门的开发流程是怎样的"></a>5. 你们部门的开发流程是怎样的</h5><h4 id="数组扩展问题"><a href="#数组扩展问题" class="headerlink" title="数组扩展问题"></a>数组扩展问题</h4><p>因为我所做的项目是处理大量的数据，会涉及到很多对数组的操作，面试官对数组进行了一些提问</p>
+<h5 id="1-数组去重方法，至少两种"><a href="#1-数组去重方法，至少两种" class="headerlink" title="1. 数组去重方法，至少两种"></a>1. 数组去重方法，至少两种</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//第一种方法</span><br><span class="line">function Fn(arr)&#123;</span><br><span class="line">    if(Array.isArray(arr))&#123;</span><br><span class="line">        var newArr = [];</span><br><span class="line">        newArr.push(arr[0]);</span><br><span class="line">        for(var i = 0 ; i &lt; arr.length ; i++)</span><br><span class="line">         if( newArr.indexOf(arr[i]) &lt; 0 )&#123;</span><br><span class="line">            newArr.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        return newArr;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return arr + &quot;不是数组&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//第二种方法</span><br><span class="line">[...new Set(arr)]</span><br></pre></td></tr></table></figure>
+<h5 id="2-map和forEach有什么区别"><a href="#2-map和forEach有什么区别" class="headerlink" title="2. map和forEach有什么区别"></a>2. map和forEach有什么区别</h5><p>返回值不同。两者都是对数组中的每一项进行操作。map返回新数组，forEach返回undefined</p>
+<h5 id="3-1-2-3-push-4-返回什么"><a href="#3-1-2-3-push-4-返回什么" class="headerlink" title="3. [1,2,3].push(4)返回什么"></a>3. [1,2,3].push(4)返回什么</h5><p>返回4，push返回的是新数组的长度</p>
+<h4 id="其他扩展问题"><a href="#其他扩展问题" class="headerlink" title="其他扩展问题"></a>其他扩展问题</h4><h5 id="1-JQ中的eq-0-和first-方法哪个性能更好"><a href="#1-JQ中的eq-0-和first-方法哪个性能更好" class="headerlink" title="1. JQ中的eq(0)和first()方法哪个性能更好"></a>1. JQ中的eq(0)和first()方法哪个性能更好</h5><p>我按我自己的理解，eq()应该是一个循环方法，而first相当于直接取第一个不需要遍历。我答first性能应该会更好一点。</p>
+<p>后来去查了源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">first: function() &#123;</span><br><span class="line">	return this.eq( 0 );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">eq: function( i ) &#123;</span><br><span class="line">	var len = this.length,</span><br><span class="line">		j = +i + ( i &lt; 0 ? len : 0 );</span><br><span class="line">	return this.pushStack( j &gt;= 0 &amp;&amp; j &lt; len ? [ this[ j ] ] : [] );</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p>我？？？这不是一样吗，难道是eq效率更高？因为first多了一步引用？求解答…</p>
+<h5 id="2-事件委托的应用场景"><a href="#2-事件委托的应用场景" class="headerlink" title="2. 事件委托的应用场景"></a>2. 事件委托的应用场景</h5><ol>
+<li><p>需要对一个页面中不存在的元素设置事件的时候,就需要把事件委托到父元素上。</p>
+</li>
+<li><p>还有就是当父元素下有多个标签的时候，也可以用事件委托，就不需要对每个标签设置事件</p>
+</li>
+</ol>
+<h5 id="3-闭包的应用场景"><a href="#3-闭包的应用场景" class="headerlink" title="3. 闭包的应用场景"></a>3. 闭包的应用场景</h5><p>当需要一个变量常驻内存的时候。</p>
+<p>看着面试官毫无波澜的表情真的很没底啊，我又补充了一句相当于是一个私有的概念，一个可以在全局访问的局部变量。</p>
+<p>然后又说了工作中的使用场景，曾经使用闭包封装过一个工具</p>
+<h5 id="4-JQ和vue的使用场景，什么时候用jq什么时候用vue"><a href="#4-JQ和vue的使用场景，什么时候用jq什么时候用vue" class="headerlink" title="4. JQ和vue的使用场景，什么时候用jq什么时候用vue"></a>4. JQ和vue的使用场景，什么时候用jq什么时候用vue</h5><p>没做过场景使用的归纳，知道个大概但是一时不知道怎么组织，偷换概念我答了JQ和vue的对比</p>
+<p>JQ：数据和页面是耦合的，在原生的基础上提高了对dom元素的操作效率</p>
+<p>vue：通过操作数据去渲染页面，不需要直接操作页面dom</p>
+<p>后来去查了下也没什么特别出彩的，网上也尽是两者对比。按我理解的话，如果涉及到数据交互，vue更加便捷，但如果是展示性页面，还是JQ会更方便点</p>
+<p>关于jQ和vue的讨论我其实听了很多观点。有些公司的人会认为JQ虽然现在依然是主流，但在MVVM大行其道的时代，它是一个迟早要被淘汰的框架（从2017年三大框架使用情况可以看出）。面试的时候会对我之前所在公司还在使用JQ表现出不解，甚至是不屑；而有些公司就不喜欢vue或者react比JQ更强的言论，认为需求至上，需要根据场景选择不同的框架。</p>
+<p>天秤座的我就不站立场了，但是我很想听听来自各方不同的言论</p>
+<h5 id="5-vue的特色是什么"><a href="#5-vue的特色是什么" class="headerlink" title="5. vue的特色是什么"></a>5. vue的特色是什么</h5><p>我答了组件通信和双向绑定，文档上也提到了这两点是vue的两个很强的优势所在。</p>
+<p>不过面试官引导了一会儿，强调和JQ相比，vue的特色是什么，为什么虚拟DOM更好。我从性能角度上回答，她好像不太满意。难道是希望我回答跨平台？恩真的要回去撸vue底层了..</p>
+<h5 id="6-优化性能的方法"><a href="#6-优化性能的方法" class="headerlink" title="6. 优化性能的方法"></a>6. 优化性能的方法</h5><p>其实原题她问的是，优化性能的步骤。我觉得步骤这个东西并没有一个标准，需求不同肯定侧重不同了，所以说了我的看法后，我回答的是优化性能的方法</p>
+<ol>
+<li>尽可能减少对服务器资源请求的次数，制定合理的接口</li>
+<li>尽可能减少资源的大小，比如优化图片、样式等资源</li>
+<li>按需加载资源</li>
+<li>尽可能减少页面dom的结构纵深，做到标签语义化</li>
+<li>制定合理的标签Id和类名，避免使用复杂的css选择嵌套</li>
+<li>合理使用预编译器</li>
+<li>减少冗余代码，做好通用方法的封装</li>
+<li>操作页面时尽量减少重排重绘的次数</li>
+</ol>
+<p>前端性能优化其实是个很大的话题，当时脑子里没有一套体系，看上去回答了不少点，但是应该是比较乱。关于这个话题，我想我会再额外做一个总结。</p>
+<p>下列是近期看的相关文章</p>
+<p><a href="https://mp.weixin.qq.com/s/EC24--Ur8ZD_Ueqf-v3vaA" target="_blank" rel="noopener">2018前端性能优化清单（一）</a></p>
+<p><a href="https://mp.weixin.qq.com/s/EC24--Ur8ZD_Ueqf-v3vaA" target="_blank" rel="noopener">2018前端性能优化清单（二）</a></p>
+<p><a href="https://mp.weixin.qq.com/s/EC24--Ur8ZD_Ueqf-v3vaA" target="_blank" rel="noopener">2018前端性能优化清单（三）</a></p>
+<p><a href="https://mp.weixin.qq.com/s/EC24--Ur8ZD_Ueqf-v3vaA" target="_blank" rel="noopener">2018前端性能优化清单（四）</a></p>
+<h5 id="7-了解哪些设计规范"><a href="#7-了解哪些设计规范" class="headerlink" title="7. 了解哪些设计规范"></a>7. 了解哪些设计规范</h5><p>我实话实说，回答没有很系统地了解过，只知道一些基本的输入校验，兼容性处理，边界处理，条件封闭处理等等</p>
+<p>这里有一篇我收藏的比较有意思的文章<a href="https://mp.weixin.qq.com/s/xRGWGeNujk88_9cemYK5-g" target="_blank" rel="noopener">为什么你的工作经验不值钱</a>，的确工作经验其实不能以年来衡量。在工作中总结，并且提高思维方式才是正确的打开方式</p>
+<h4 id="重复问题"><a href="#重复问题" class="headerlink" title="重复问题"></a>重复问题</h4><h5 id="1-什么是重排重绘"><a href="#1-什么是重排重绘" class="headerlink" title="1. 什么是重排重绘"></a>1. 什么是重排重绘</h5><h5 id="2-哪些操作会导致重排重绘"><a href="#2-哪些操作会导致重排重绘" class="headerlink" title="2. 哪些操作会导致重排重绘"></a>2. 哪些操作会导致重排重绘</h5><h4 id="hr面"><a href="#hr面" class="headerlink" title="hr面"></a>hr面</h4><p>依旧是一个很严肃的大姐姐，问了一些常规问题，还让我讲了下成就感最高的项目，估计是想看看表达能力。期间有感受到她的施压，比如故意用严厉的语气指出你的缺点，然后问你觉得自己凭什么能胜任这份岗位。心理防线不坚挺的人估计就歇菜了。大公司的hr果然还是不好应付啊</p>
+<h2 id="电话面试"><a href="#电话面试" class="headerlink" title="电话面试"></a>电话面试</h2><p>因为当时还处于在职的状态，请假成本有点高，所以这次我提出先进行电话面试，某天的中午面试官就打来了电话。历时约1个小时。</p>
+<h5 id="1-如何区分JQ对象和js对象"><a href="#1-如何区分JQ对象和js对象" class="headerlink" title="1. 如何区分JQ对象和js对象"></a>1. 如何区分JQ对象和js对象</h5><p>instanceof可以区分，JQ对象的原型是jQuery<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp;elem instanceof jQuery</span><br></pre></td></tr></table></figure></p>
+<h5 id="2-jQ的silce-方法实现原理"><a href="#2-jQ的silce-方法实现原理" class="headerlink" title="2. jQ的silce()方法实现原理"></a>2. jQ的silce()方法实现原理</h5><p>jQ的silice()是用于获取元素集合的指定子集<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$elem.slice(0，2)  //获取选择对象的前两个元素</span><br></pre></td></tr></table></figure></p>
+<p>我第一反应是扩展数组slice方法。后来查了源码3.3.写法如下，应该也不算答错了吧？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">slice: function() &#123;</span><br><span class="line">	return this.pushStack( slice.apply( this, arguments ) );</span><br><span class="line">&#125;,</span><br><span class="line">//pushStack应该是一个存储栈，用于存放选择的JQ对象</span><br><span class="line">pushStack: function( elems ) &#123;</span><br><span class="line"></span><br><span class="line">		// Build a new jQuery matched element set</span><br><span class="line">		var ret = jQuery.merge( this.constructor(), elems );</span><br><span class="line"></span><br><span class="line">		// Add the old object onto the stack (as a reference)</span><br><span class="line">		ret.prevObject = this;</span><br><span class="line"></span><br><span class="line">		// Return the newly-formed element set</span><br><span class="line">		return ret;</span><br><span class="line">	&#125;,</span><br></pre></td></tr></table></figure></p>
+<h5 id="3-最近在看什么书，印象最深刻的一点是什么"><a href="#3-最近在看什么书，印象最深刻的一点是什么" class="headerlink" title="3. 最近在看什么书，印象最深刻的一点是什么"></a>3. 最近在看什么书，印象最深刻的一点是什么</h5><p>《dom编程艺术》：渐进增强和平稳退化的概念，在处理兼容问题的两种开发思维</p>
+<p>《js面向对象编程指南》：Js中的一切都是对象，从对象的角度重新认识了数据类型</p>
+<h5 id="4-vue的父子组件通信实现方式"><a href="#4-vue的父子组件通信实现方式" class="headerlink" title="4. vue的父子组件通信实现方式"></a>4. vue的父子组件通信实现方式</h5><ul>
+<li><p>父——&gt;子: 子组件中，使用prop用于接收父组件的data</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">    data1:&#123;</span><br><span class="line">        type:String,    //数据类型</span><br><span class="line">        requried:true   //是否为必须字段</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>子——&gt;父: 在子组件中利用事件监听，使用emit自定义指令，通过参数传递向父组件提交数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">methods:&#123;</span><br><span class="line">    event1(e)&#123;</span><br><span class="line">        this.$emit(&apos;event1&apos;,e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="5-ES6，for循环中let的作用域链是怎么样的"><a href="#5-ES6，for循环中let的作用域链是怎么样的" class="headerlink" title="5. ES6，for循环中let的作用域链是怎么样的"></a>5. ES6，for循环中let的作用域链是怎么样的</h5><p>这个在阮老师的es6文档有详细的说明，运气也好这块有仔细读过</p>
+<p>for循环的特殊情况在于，设置循环变量的那部分是一个父作用域，循环体是一个子作用域。</p>
+<p>使用let声明循环变量，相当于每次循环都在创建一个新的变量，所以可以获取到每个步骤的变量</p>
+<p>所以在我的这个系列第一篇<a href="https://juejin.im/post/5a98a8be518825556140ad4c" target="_blank" rel="noopener">一年前端面试打怪升级之路（一）</a>中提到的输出1-10,其实最简单的方法就是使用let声明循环变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(let i = 1 ; i &lt;= 10 ; i++)&#123;</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">        console.log(i)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="6-不使用插件，你会如何实现目录树"><a href="#6-不使用插件，你会如何实现目录树" class="headerlink" title="6. 不使用插件，你会如何实现目录树"></a>6. 不使用插件，你会如何实现目录树</h5><p>简历中有提到项目中使用了插件treeview</p>
+<p>我说我自己写的话，应该会用遍历和递归吧</p>
+<h4 id="重复问题："><a href="#重复问题：" class="headerlink" title="重复问题："></a>重复问题：</h4><h5 id="1-垂直居中实现方式"><a href="#1-垂直居中实现方式" class="headerlink" title="1. 垂直居中实现方式"></a>1. 垂直居中实现方式</h5><h5 id="2-vue双向绑定原理"><a href="#2-vue双向绑定原理" class="headerlink" title="2. vue双向绑定原理"></a>2. vue双向绑定原理</h5><h5 id="3-项目问题"><a href="#3-项目问题" class="headerlink" title="3. 项目问题"></a>3. 项目问题</h5><p>之后我询问了他们的技术方向，人员构成等问题，这次面试就结束了。让我等待交叉面试通知。不过就没有然后了。</p>
+<p>我觉得电话面试毕竟没有建立起你整个人的形象，除非回答的很出彩，否则很难给人留下很深的印象。多跑跑，没毛病</p>
+<h2 id="B轮互联网公司"><a href="#B轮互联网公司" class="headerlink" title="B轮互联网公司"></a>B轮互联网公司</h2><p>主技术栈react，在这之前我完全没看过react，可以说是技术栈不符了。面试官在掘金上看到我的文章，还是让我过去聊了聊。</p>
+<p>历时一个多小时，面完的感受DXY出来一致，互联网企业会问的非常细，看重底层和Js基本功</p>
+<p>在自我介绍后，开始做现场笔试题，面试官就在旁边处理业务。随后的提问都是针对题目展开</p>
+<h4 id="1-promise的机制"><a href="#1-promise的机制" class="headerlink" title="1. promise的机制"></a>1. promise的机制</h4><p>下列处理有什么不对的地方，怎么处理（对promise不熟啊还有道题目没记下来）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var promise = new Promise promiseProject()&#123;&#125;</span><br><span class="line">promise.then(function()&#123;</span><br><span class="line">    dosomething()</span><br><span class="line">    </span><br><span class="line">    dosomethingErrorExpect()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>这里考察promise的成功和异常处理。之后展开的各种异步处理都不会，我说我只会ajax（捂脸）</p>
+<h4 id="map的参数，call"><a href="#map的参数，call" class="headerlink" title="map的参数，call"></a>map的参数，call</h4><p>输出什么，说明理由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&quot; abc&quot;,&quot;c d &quot;];</span><br><span class="line"></span><br><span class="line">function F(arr)&#123;</span><br><span class="line">    return arr.map(</span><br><span class="line">    Function.prototype.call,</span><br><span class="line">    String.prototype.trim</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line">F(arr)</span><br></pre></td></tr></table></figure></p>
+<p>结果是string的trim方法生效，输出[“abc”,”cd”]；</p>
+<p>题目给了个提示，map的第2个参数代表回调的this。</p>
+<p>首先，根据提示题目中的<code>String,prototype.trim</code>就是<code>Function
+.prototype.call</code>的<code>this</code>，这里的<code>call</code>作用就是改变<code>this</code>的指向，让回调<code>Function</code>的<code>this</code>指向<code>String,prototype.trim</code>。</p>
+<p>map回调的第一个参数是遍历数组的元素elem，这里就是分别传入<code>&quot; abc&quot;</code>和<code>&quot;c d&quot;</code></p>
+<p>最后相当于是对每个elem执行了<code>trim</code>两边去空格的方法</p>
+<p>输出<code>[&quot;abc&quot;,&quot;cd&quot;]</code>；</p>
+<h5 id="bind和call的区别是什么"><a href="#bind和call的区别是什么" class="headerlink" title="bind和call的区别是什么"></a>bind和call的区别是什么</h5><h4 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h4><p>写出执行结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;</span><br><span class="line">function F()&#123;</span><br><span class="line">    var a = 2;</span><br><span class="line">    c = 4;</span><br><span class="line">    return function g()&#123;</span><br><span class="line">        console.log(a++);</span><br><span class="line">        console.log(b++);</span><br><span class="line">        console.log(c++);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(a);</span><br><span class="line">console.log(b);</span><br><span class="line">console.log(c);</span><br><span class="line"></span><br><span class="line">var b = 3;</span><br><span class="line">var g = F();</span><br><span class="line">g();</span><br><span class="line"></span><br><span class="line">console.log(a);</span><br><span class="line">console.log(b);</span><br><span class="line">console.log(c);</span><br></pre></td></tr></table></figure></p>
+<h6 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h6><ul>
+<li>step1.  这题涉及4个变量，a,b,c,g。其中a,b,g都使用关键字<code>var</code>声明，c没有使用关键字声明，相当于是一个全局window的属性，可在全局访问</li>
+<li>step2.  使用var声明的变量，会把声明提前，所以全局中一开始就存在a,b,g，在对它们赋值前都是<code>undefined</code>。</li>
+<li>step3.  在第一次console.log的时候，a已被赋值，b已存在，但未赋值，c不存在（F()还未被调用）。这是程序执行到<code>console.log(c);</code>会报错，并停止执行</li>
+</ul>
+<h5 id="假设把报错语句console-log-c-注释掉，接下去会如何执行？"><a href="#假设把报错语句console-log-c-注释掉，接下去会如何执行？" class="headerlink" title="假设把报错语句console.log(c);注释掉，接下去会如何执行？"></a>假设把报错语句<code>console.log(c);</code>注释掉，接下去会如何执行？</h5><ul>
+<li>step4.  执行到<code>var g = F()</code>的时候，相当于调用F()函数，新增了<code>c = 4</code>，但是还没执行<code>return</code>中的内容</li>
+<li>step5.  执行<code>g()</code>，也就是执行<code>F()</code>return中的内容。<code>a++</code>是先使用再赋值，这里先输出a的值，再进行自加操作。b和c同理。所以这一步的打印结果：<code>2 3 4</code>。<code>a b c</code>实际值分别为<code>3,4,5</code></li>
+<li>step6.  也就是上一步的最后分析结果，打印结果为<code>3 4 5</code><h5 id="c和var-a的区别"><a href="#c和var-a的区别" class="headerlink" title="c和var a的区别"></a>c和var a的区别</h5>一个是创建全局属性，一个是声明变量</li>
+</ul>
+<p>主要区别在于是不是有可删除属性</p>
+<p>创建全局变量可以使用<code>delete</code>删除</p>
+<p>声明变量不可以删除</p>
+<h4 id="translate内部机制。不会涉及重排重绘"><a href="#translate内部机制。不会涉及重排重绘" class="headerlink" title="translate内部机制。不会涉及重排重绘"></a>translate内部机制。不会涉及重排重绘</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//两段代码的区别，哪个更好</span><br><span class="line">#elem&#123;</span><br><span class="line">    position:absolute;</span><br><span class="line">    top:30px;</span><br><span class="line">    left:100px;</span><br><span class="line">    animation: myAnimate easing 4s</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframe myAnimate&#123;</span><br><span class="line">    50%&#123;</span><br><span class="line">        transfrom: translate(100px 100px)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;!--  ——————  --!&gt;</span><br><span class="line">#elem&#123;</span><br><span class="line">    position:absolute;</span><br><span class="line">    top:30px;</span><br><span class="line">    left:100px;</span><br><span class="line">    animation: myAnimate easing 4s</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframe myAnimate&#123;</span><br><span class="line">    50%&#123;</span><br><span class="line">        top:130px;</span><br><span class="line">        left:200px</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Linux读写权限？"><a href="#Linux读写权限？" class="headerlink" title="Linux读写权限？"></a>Linux读写权限？</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod -R 777 /var/emmweb/</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>-R 文件夹以及文件夹下面所有的子文件夹</p>
+</li>
+<li><p>777 读写执行</p>
+</li>
+<li><p>/var/emmweb/ : 操作的文件夹</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">权限码描述</span><br><span class="line"></span><br><span class="line">sudo chmod 600 ××× （只有所有者有读和写的权限）</span><br><span class="line">sudo chmod 644 ××× （所有者有读和写的权限，组用户只有读的权限）</span><br><span class="line">sudo chmod 700 ××× （只有所有者有读和写以及执行的权限）</span><br><span class="line">sudo chmod 666 ××× （每个人都有读和写的权限）</span><br><span class="line">sudo chmod 777 ××× （每个人都有读和写以及执行的权限）</span><br><span class="line"></span><br><span class="line">-R表示包含设置所有子目录</span><br></pre></td></tr></table></figure>
+<h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><p>遍历数组，每次进行相邻两个数比较，大的放在左边，小的放右边，遍历n次，保证所有区域处于有序状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//大概写了一个</span><br><span class="line">function sort(arr)&#123;</span><br><span class="line">    if(Array.isArray(arr))&#123;</span><br><span class="line">        for(var i = 0 ; i &lt; arr.length ; i++)&#123;     </span><br><span class="line">            arr.forEach(function(ele,index)&#123;</span><br><span class="line">                if(arr[index + 1] &gt; ele)&#123;</span><br><span class="line">                    var flag = arr[index];</span><br><span class="line">                    arr[index] = arr[index + 1];</span><br><span class="line">                    arr[index + 1] = flag;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        return arr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="优化下列代码"><a href="#优化下列代码" class="headerlink" title="优化下列代码"></a>优化下列代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function F()&#123;</span><br><span class="line">    var count = 0;</span><br><span class="line">    function g()&#123;</span><br><span class="line">        var elem = document.querySelector(&quot;#elem&quot;);</span><br><span class="line">        elem.textContent = count++;</span><br><span class="line">        setTimeout(g, 1000);</span><br><span class="line">    &#125;</span><br><span class="line">    g();</span><br><span class="line">&#125;</span><br><span class="line">F()</span><br></pre></td></tr></table></figure>
+<p>优化点：</p>
+<ol>
+<li>闭包内定义变量，循环时重复创建，消耗大量内存（闭包内的变量常驻内存）。应该把变量提升到闭包外部</li>
+<li>选择器<code>querySelector</code>可以换成<code>getElementById</code>，效率更高</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Try_Luies WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Try_Luies Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/try6.gitee.io/2018/02/10/2018-02-27兼容IE大佬的异步流程控制大法/" rel="next" title="兼容IE大佬的异步流程控制大法">
+                <i class="fa fa-chevron-left"></i> 兼容IE大佬的异步流程控制大法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/try6.gitee.io/2018/03/05/2018-02-27一年前端面试打怪升级之路（二）/" rel="prev" title="一年前端面试打怪升级之路（二）">
+                一年前端面试打怪升级之路（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/try6.gitee.io/images/pic.jpg"
+                alt="Try_Luies" />
+            
+              <p class="site-author-name" itemprop="name">Try_Luies</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/try6.gitee.io/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/try6" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-GitHub"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/7a6944daafc3" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="www.baidu.com" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-微博"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#通信公司"><span class="nav-number">1.</span> <span class="nav-text">通信公司</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目问题"><span class="nav-number">1.0.1.</span> <span class="nav-text">项目问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-项目用了什么技术？为什么要做这样的技术选型"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">1. 项目用了什么技术？为什么要做这样的技术选型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-（针对一个纯数据展示的地图平台）讲一下项目的数据流走向和传递"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">2. （针对一个纯数据展示的地图平台）讲一下项目的数据流走向和传递</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-期间遇到过什么难题，你是怎么解决的"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">3. 期间遇到过什么难题，你是怎么解决的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-你觉得这个项目最复杂的地方在哪里"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">4. 你觉得这个项目最复杂的地方在哪里</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-你们部门的开发流程是怎样的"><span class="nav-number">1.0.1.5.</span> <span class="nav-text">5. 你们部门的开发流程是怎样的</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组扩展问题"><span class="nav-number">1.0.2.</span> <span class="nav-text">数组扩展问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-数组去重方法，至少两种"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">1. 数组去重方法，至少两种</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-map和forEach有什么区别"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">2. map和forEach有什么区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-2-3-push-4-返回什么"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">3. [1,2,3].push(4)返回什么</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他扩展问题"><span class="nav-number">1.0.3.</span> <span class="nav-text">其他扩展问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-JQ中的eq-0-和first-方法哪个性能更好"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">1. JQ中的eq(0)和first()方法哪个性能更好</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-事件委托的应用场景"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">2. 事件委托的应用场景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-闭包的应用场景"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">3. 闭包的应用场景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-JQ和vue的使用场景，什么时候用jq什么时候用vue"><span class="nav-number">1.0.3.4.</span> <span class="nav-text">4. JQ和vue的使用场景，什么时候用jq什么时候用vue</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-vue的特色是什么"><span class="nav-number">1.0.3.5.</span> <span class="nav-text">5. vue的特色是什么</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-优化性能的方法"><span class="nav-number">1.0.3.6.</span> <span class="nav-text">6. 优化性能的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-了解哪些设计规范"><span class="nav-number">1.0.3.7.</span> <span class="nav-text">7. 了解哪些设计规范</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重复问题"><span class="nav-number">1.0.4.</span> <span class="nav-text">重复问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-什么是重排重绘"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">1. 什么是重排重绘</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-哪些操作会导致重排重绘"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">2. 哪些操作会导致重排重绘</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hr面"><span class="nav-number">1.0.5.</span> <span class="nav-text">hr面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电话面试"><span class="nav-number">2.</span> <span class="nav-text">电话面试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-如何区分JQ对象和js对象"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">1. 如何区分JQ对象和js对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-jQ的silce-方法实现原理"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">2. jQ的silce()方法实现原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-最近在看什么书，印象最深刻的一点是什么"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">3. 最近在看什么书，印象最深刻的一点是什么</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-vue的父子组件通信实现方式"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">4. vue的父子组件通信实现方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-ES6，for循环中let的作用域链是怎么样的"><span class="nav-number">2.0.0.5.</span> <span class="nav-text">5. ES6，for循环中let的作用域链是怎么样的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-不使用插件，你会如何实现目录树"><span class="nav-number">2.0.0.6.</span> <span class="nav-text">6. 不使用插件，你会如何实现目录树</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重复问题："><span class="nav-number">2.0.1.</span> <span class="nav-text">重复问题：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-垂直居中实现方式"><span class="nav-number">2.0.1.1.</span> <span class="nav-text">1. 垂直居中实现方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-vue双向绑定原理"><span class="nav-number">2.0.1.2.</span> <span class="nav-text">2. vue双向绑定原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-项目问题"><span class="nav-number">2.0.1.3.</span> <span class="nav-text">3. 项目问题</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B轮互联网公司"><span class="nav-number">3.</span> <span class="nav-text">B轮互联网公司</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-promise的机制"><span class="nav-number">3.0.1.</span> <span class="nav-text">1. promise的机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map的参数，call"><span class="nav-number">3.0.2.</span> <span class="nav-text">map的参数，call</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#bind和call的区别是什么"><span class="nav-number">3.0.2.1.</span> <span class="nav-text">bind和call的区别是什么</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量提升"><span class="nav-number">3.0.3.</span> <span class="nav-text">变量提升</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#分析："><span class="nav-number">3.0.3.0.1.</span> <span class="nav-text">分析：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#假设把报错语句console-log-c-注释掉，接下去会如何执行？"><span class="nav-number">3.0.3.1.</span> <span class="nav-text">假设把报错语句console.log(c);注释掉，接下去会如何执行？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#c和var-a的区别"><span class="nav-number">3.0.3.2.</span> <span class="nav-text">c和var a的区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#translate内部机制。不会涉及重排重绘"><span class="nav-number">3.0.4.</span> <span class="nav-text">translate内部机制。不会涉及重排重绘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux读写权限？"><span class="nav-number">3.0.5.</span> <span class="nav-text">Linux读写权限？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#冒泡排序"><span class="nav-number">3.0.6.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化下列代码"><span class="nav-number">3.0.7.</span> <span class="nav-text">优化下列代码</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Try_Luies</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/try6.gitee.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/try6.gitee.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/try6.gitee.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/try6.gitee.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/try6.gitee.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://try.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://try66.gitee.io/try6.gitee.io/2018/03/05/2018-03-01一年前端面试打怪升级之路（三）/';
+          this.page.identifier = '2018/03/05/2018-03-01一年前端面试打怪升级之路（三）/';
+          this.page.title = '一年前端面试打怪升级之路（三）';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://try.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

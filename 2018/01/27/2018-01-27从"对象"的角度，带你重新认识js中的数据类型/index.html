@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Han">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/try6.gitee.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/try6.gitee.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/try6.gitee.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/try6.gitee.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/try6.gitee.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/try6.gitee.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/try6.gitee.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="2018-02-08新增Number和String部分 为什么一个数组可以有多种创建方法，他们的含义都是一样的吗？ number、String等这些数据类型的本质是什么，为什么有时候它们又能使用new来创建？ 为什么说函数也是对象？普通函数也可以使用new来创建一个对象吗？ …. 对这些问题的答案是否清晰，好像并不会在实际开发中影响你的项目，遇到疑惑浑水摸鱼也就过去了。 最近在看重新翻看《Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从&quot;对象&quot;的角度，带你重新认识js中的数据类型">
+<meta property="og:url" content="http://try66.gitee.io/try6.gitee.io/2018/01/27/2018-01-27从"对象"的角度，带你重新认识js中的数据类型/index.html">
+<meta property="og:site_name" content="Hello JS">
+<meta property="og:description" content="2018-02-08新增Number和String部分 为什么一个数组可以有多种创建方法，他们的含义都是一样的吗？ number、String等这些数据类型的本质是什么，为什么有时候它们又能使用new来创建？ 为什么说函数也是对象？普通函数也可以使用new来创建一个对象吗？ …. 对这些问题的答案是否清晰，好像并不会在实际开发中影响你的项目，遇到疑惑浑水摸鱼也就过去了。 最近在看重新翻看《Java">
+<meta property="og:locale" content="zh-Han">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-ed2c90b70163b54a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-8097d2c814edeba4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-d4e3964abd2acc94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-6cb586c03a3fe2c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-c4ccb578304680ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-98cc3944ee7b35c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-757fdd25a5f36524.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-b66607a89f4cac0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-e432185e811362c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2865721-ccdc02a77ea82095.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-08-16T13:16:30.747Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从&quot;对象&quot;的角度，带你重新认识js中的数据类型">
+<meta name="twitter:description" content="2018-02-08新增Number和String部分 为什么一个数组可以有多种创建方法，他们的含义都是一样的吗？ number、String等这些数据类型的本质是什么，为什么有时候它们又能使用new来创建？ 为什么说函数也是对象？普通函数也可以使用new来创建一个对象吗？ …. 对这些问题的答案是否清晰，好像并不会在实际开发中影响你的项目，遇到疑惑浑水摸鱼也就过去了。 最近在看重新翻看《Java">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2865721-ed2c90b70163b54a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/try6.gitee.io/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://try66.gitee.io/try6.gitee.io/2018/01/27/2018-01-27从"对象"的角度，带你重新认识js中的数据类型/"/>
+
+
+
+
+
+  <title>从"对象"的角度，带你重新认识js中的数据类型 | Hello JS</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cc7e3057efb482b0f56c29d2716384da";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Han">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/try6.gitee.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello JS</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">所有的安排都是最好的</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/try6.gitee.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/try6.gitee.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://try66.gitee.io/try6.gitee.io/try6.gitee.io/2018/01/27/2018-01-27从"对象"的角度，带你重新认识js中的数据类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Try_Luies">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/try6.gitee.io/images/pic.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello JS">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">从"对象"的角度，带你重新认识js中的数据类型</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-27T06:47:46+08:00">
+                2018-01-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/try6.gitee.io/2018/01/27/2018-01-27从"对象"的角度，带你重新认识js中的数据类型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/01/27/2018-01-27从"对象"的角度，带你重新认识js中的数据类型/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/try6.gitee.io/2018/01/27/2018-01-27从"对象"的角度，带你重新认识js中的数据类型/" class="leancloud_visitors" data-flag-title="从"对象"的角度，带你重新认识js中的数据类型">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><code>2018-02-08新增Number和String部分</code></p>
+<p>为什么一个数组可以有多种创建方法，他们的含义都是一样的吗？</p>
+<p>number、String等这些数据类型的本质是什么，为什么有时候它们又能使用new来创建？</p>
+<p>为什么说函数也是对象？普通函数也可以使用new来创建一个对象吗？</p>
+<p>….</p>
+<p>对这些问题的答案是否清晰，好像并不会在实际开发中影响你的项目，遇到疑惑浑水摸鱼也就过去了。</p>
+<p>最近在看重新翻看《JavaScript面向对象编程指南》，深觉温故知新之意，半年前只看懂了前几章的基本概念，对后面几章所讲的原型，方法扩展，设计模式等看的云里雾里。现在再来回顾这本书，有种被点醒的感觉，对于很多一些平日里学习时遇到的模棱两可的概念通透了不少。</p>
+<p>而在时候实际运用的时候，思路也自然而然的更加清晰了</p>
+<p>整本书所讲的核心，也是我们经常挂在嘴边的： </p>
+<blockquote>
+<p><code>Javascript</code>是一种面向对象的编程语言，所有的一切都是对象</p>
+</blockquote>
+<p>本书第四章详细地讲了“对象”这个概念，能让人更深刻地理解js中所有的数据类型，以下为章节笔记。从对象的角度，重新认识各个数据类型<br><a id="more"></a></p>
+<h3 id="所有的对象都继承自Object对象"><a href="#所有的对象都继承自Object对象" class="headerlink" title="所有的对象都继承自Object对象"></a>所有的对象都继承自<code>Object</code>对象</h3><blockquote>
+<p>js中所有的类型都继承自<code>Object</code></p>
+</blockquote>
+<p>这句话也可以说，Object为所有类型的原型，即所有对象的父级对象。就像是我们自己new一个对象，然后子类可以继承，获取原型的属性和方法，也能重写自己的属性和方法一样。</p>
+<p>从对象的角度，其实更应该这么表述：以上所有类型都属于object的内建对象。更为精确的说法是，内建对象分为三大类：</p>
+<ol>
+<li>数据封装类对象：包括Array,String，Boonlean,Number以及Object本身</li>
+<li>工具类对象：包括Math,Date。RegExp等</li>
+<li>错误类对象：在某些异常发生时可以帮助我们纠正程序的错误状态</li>
+</ol>
+<p>所以首先，<code>object</code>有自己的属性和方法（列举常用的部分）</p>
+<ol>
+<li><p>o.constructor：返回构造器的引用<br><img src="http://upload-images.jianshu.io/upload_images/2865721-ed2c90b70163b54a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="constructor属性"></p>
+</li>
+<li><p>o.toString()：返回对象的字符串描述，包含对象的内部类名，object返回<code>“[object object]”</code>，<br><img src="http://upload-images.jianshu.io/upload_images/2865721-8097d2c814edeba4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="toString()方法"></p>
+</li>
+<li><p>o.valueOf()：反馈对象的单值描述信息，通常是对象本身<br><img src="http://upload-images.jianshu.io/upload_images/2865721-d4e3964abd2acc94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="valueOf()方法"></p>
+</li>
+</ol>
+<p>无论多复杂的对象，它都是继承自Object对象，并且拥有其所有的方法和属性</p>
+<h5 id="Array对象"><a href="#Array对象" class="headerlink" title="Array对象"></a>Array对象</h5><p>小标题这句话想必大家肯定也不陌生。<br>我们当然可以通过构造器Array创建一个数组对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var b = new Array()</span><br></pre></td></tr></table></figure></p>
+<p><code>length，join()，slice()，split()，sort()</code>等方法是数组对象特有的方法，他们也都十分有用。刚好之前也整理过一些数组的内建方法<br><a href="">数组内建方法大全（一）</a><br><a href="">数组内建方法大全（二）</a><br>那对于继承自父类的方法，它也有进行重写，更符合数组的特点</p>
+<ol>
+<li>arr.toString（）.将数组转为字符串，数组内容用逗号隔开<br><img src="http://upload-images.jianshu.io/upload_images/2865721-6cb586c03a3fe2c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数组的toString()方法"></li>
+</ol>
+<h3 id="Function对象"><a href="#Function对象" class="headerlink" title="Function对象"></a>Function对象</h3><p>函数也是一种特殊的数据对象</p>
+<p>所以我们当然也能这么写，函数的参数和函数体都用字符串的形式，当做Function构造函数的参数传入。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var C = new Function()</span><br><span class="line">//此时的参数和函数体都需要通过字符串传参的形式，如：</span><br><span class="line">//var C = new Function(&quot;a&quot;,&quot;b&quot;,&quot;return a+b&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>不过这种写法并不推荐，因为Js需要对这段代码进行两次解析（首先将字符串解析为函数参数和函数体，再执行代码）</p>
+<p>另外同样展示一下Function对象继承自父类的toString和valueOf方法和属性，虽然意义并不大<br><img src="http://upload-images.jianshu.io/upload_images/2865721-c4ccb578304680ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="返回整个函数的字符串形式"><br><img src="http://upload-images.jianshu.io/upload_images/2865721-98cc3944ee7b35c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="返回函数本身"><br><img src="http://upload-images.jianshu.io/upload_images/2865721-757fdd25a5f36524.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="返回构造器Function()"></p>
+<h5 id="函数对象的prototype属性"><a href="#函数对象的prototype属性" class="headerlink" title="函数对象的prototype属性"></a>函数对象的prototype属性</h5><ul>
+<li>prototype属性指向一个对象</li>
+<li>只有在函数为构造器时才会发挥作用</li>
+<li>该函数所创建的所有对象，都会持有该prototype属性的引用，并可以将其当做自身的属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var o = &#123;</span><br><span class="line">    name:&quot;TRY&quot;,</span><br><span class="line">    say():function()&#123;&quot;I&apos;m&quot;+this.name&#125;</span><br><span class="line">&#125;</span><br><span class="line">var F = function()&#123;&#125;;   //创建一个函数</span><br><span class="line">F.prototype = o; //把对象o赋给F的prototype属性</span><br><span class="line"></span><br><span class="line">var f = new F()   //以F为构造器创建新的对象f</span><br><span class="line"></span><br><span class="line">//f可以直接使用，F的prototype属性所引用对象 的属性和方法</span><br><span class="line">f.name  //&quot;TRY&quot;</span><br><span class="line">f.say() //I&apos;m TRY</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="推断对象类型"><a href="#推断对象类型" class="headerlink" title="推断对象类型"></a>推断对象类型</h5><p>当我们使用typepf去判断数据类型，返回值有以下6种情况:<br><code>undefined  boolean  function object string number</code>，和基本数据类型对应了之后，你会发现少了<code>Array和null</code>。实际上，这两个使用<code>typeof</code>判断后返回的都是<code>object</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-b66607a89f4cac0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="是不是很神奇~"><br>那要怎么判断数组的类型呢？<br>当然，有一个方法Array.isArray(arr)可以作为一个完美的判断方式，方便又快捷<br><img src="http://upload-images.jianshu.io/upload_images/2865721-e432185e811362c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="isArray"><br>不过书中还有另一种有趣的方法，使用Object对象的toString方法，上文也讲到了，Object的toString可以返回包含对象的内部类名的字符串。这里使用函数对象的另一强大的方法call()（apply()同理）来扩展对象的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.toString.call([]);</span><br><span class="line">//返回值：&quot;[object Array]&quot;</span><br></pre></td></tr></table></figure></p>
+<p>也能判断arguments的类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function a()&#123;</span><br><span class="line">    return Object.prototype.toString.call(arguments);</span><br><span class="line">&#125;</span><br><span class="line">//返回值：&quot;[object Arguments]&quot;</span><br></pre></td></tr></table></figure></p>
+<p>甚至是DOM元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> Object.prototype.toString.call(document.body);</span><br><span class="line">//返回值：&quot;[object HTMLBodyElement]&quot;</span><br></pre></td></tr></table></figure></p>
+<p>是不是屌炸天哈哈哈</p>
+<h3 id="Boolean对象"><a href="#Boolean对象" class="headerlink" title="Boolean对象"></a>Boolean对象</h3><p>布尔对象除了继承自父级对象的属性和方法之外，并没有额外的方法和属性。在使用时还容易造成混淆，因为使用Boolean构造的是一个对象，如果一不小心直接用来作为布尔值使用，得到的结果永远是true（因为所有的对象都为true），所以还是建议使用基本类型来表示布尔值比较妥当。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var a = new Boolean();</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2865721-ccdc02a77ea82095.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="布尔对象"></p>
+<h3 id="Number对象"><a href="#Number对象" class="headerlink" title="Number对象"></a>Number对象</h3><p>Number对象和Boolean对象类似，即</p>
+<ul>
+<li>当被当做构造函数时（使用new），他会创建一个对象</li>
+<li>在被当做一个一般函数时，它会试图将任何值转化为数字，这与<code>parseInt()、parseFloat()</code>的作用基本相同<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--   ———number当做一般函数———  --!&gt;</span><br><span class="line">var n = Number(&quot;12.12&quot;);   //12.12</span><br><span class="line">typeof n   //Number</span><br><span class="line"></span><br><span class="line">&lt;!--   ———number当做构造函数———  --!&gt;</span><br><span class="line">var n = new Number(&quot;12.12&quot;)   //Number&#123;12.12&#125;</span><br><span class="line">typeof n  //object</span><br><span class="line">n.toString()   //&quot;12.12&quot;</span><br><span class="line">n.valueOf()  //12.12</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注：Number对象的toString(radix)方法中的内置参数，表示转化进制</p>
+<p>Number对象还有一些自身的方法（下列例子并没有创建Number对象，但也可以使用其方法，Number对象均在后台进行创建和销毁）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//保留小数位</span><br><span class="line">(12.333).toFixed(1)   // 12.3</span><br><span class="line"></span><br><span class="line">//科学计数法</span><br><span class="line">(12345).toExponential() //&quot;1.2345e+4&quot;</span><br></pre></td></tr></table></figure></p>
+<p>另外，由于函数本身也是对象，会拥有一些属性。在<code>Number()</code>函数中，有一些值得注意的内置属性，他们是只读的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Number.MAX_VALUE   //1.797631348623457e+308</span><br><span class="line">Number.MIN_VALUE   //5e-324</span><br><span class="line">Number.POISTIVE_INFINITY  //Infinity</span><br><span class="line">Number.NEGATIVE_INFINITY  //-Infinity</span><br><span class="line">Number.NAN  // NAN</span><br></pre></td></tr></table></figure></p>
+<h3 id="String对象"><a href="#String对象" class="headerlink" title="String对象"></a>String对象</h3><p>String对象实际上就像是一个字符数组，它也有索引和length属性（早期版本的IE可能还不支持）</p>
+<p>同样，可以使用两种方式创建String，一种是对象，一种是使用String函数，再次强调，String对象永远为true呀~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var s1 = String()  //创建一个空字符串</span><br><span class="line">typeof s1   //&quot;string&quot;</span><br><span class="line">Boolean(s1 ) //false</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var s2 = new String();   //创建一个空字符串</span><br><span class="line">typeof s2  //&quot;object&quot;</span><br><span class="line">Boolean(s )    //true</span><br></pre></td></tr></table></figure></p>
+<p>字符串的内置方法也有很多，如<code>split()</code>、<code>substring()</code>等等，本篇主要围绕对象的角度，所以就不对这些常用方法进行展开了。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>js中就是<code>对象</code>的天下，各种数据类型都是继承自Object，并衍生出自己的方法和属性。理解透彻这一点，就能把各种数据类型玩的飞起，才能真正明白，自己平时在使用的东西到底是个啥</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Try_Luies WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Try_Luies Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/try6.gitee.io/2018/01/13/2018-01-13css修png图标颜色/" rel="next" title="css修png图标颜色">
+                <i class="fa fa-chevron-left"></i> css修png图标颜色
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/try6.gitee.io/2018/02/07/2018-02-07浏览器版本的判断思路/" rel="prev" title="浏览器版本的判断思路">
+                浏览器版本的判断思路 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/try6.gitee.io/images/pic.jpg"
+                alt="Try_Luies" />
+            
+              <p class="site-author-name" itemprop="name">Try_Luies</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/try6.gitee.io/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/try6" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-GitHub"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/7a6944daafc3" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="www.baidu.com" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-微博"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#所有的对象都继承自Object对象"><span class="nav-number">1.</span> <span class="nav-text">所有的对象都继承自Object对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Array对象"><span class="nav-number">1.0.1.</span> <span class="nav-text">Array对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function对象"><span class="nav-number">2.</span> <span class="nav-text">Function对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#函数对象的prototype属性"><span class="nav-number">2.0.1.</span> <span class="nav-text">函数对象的prototype属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#推断对象类型"><span class="nav-number">2.0.2.</span> <span class="nav-text">推断对象类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boolean对象"><span class="nav-number">3.</span> <span class="nav-text">Boolean对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number对象"><span class="nav-number">4.</span> <span class="nav-text">Number对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String对象"><span class="nav-number">5.</span> <span class="nav-text">String对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Try_Luies</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/try6.gitee.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/try6.gitee.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/try6.gitee.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/try6.gitee.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/try6.gitee.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/try6.gitee.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://try.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://try66.gitee.io/try6.gitee.io/2018/01/27/2018-01-27从"对象"的角度，带你重新认识js中的数据类型/';
+          this.page.identifier = '2018/01/27/2018-01-27从"对象"的角度，带你重新认识js中的数据类型/';
+          this.page.title = '从\"对象\"的角度，带你重新认识js中的数据类型';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://try.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
